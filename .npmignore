@@ -2,7 +2,11 @@
 tests
 babel.config.js
 jest.config.js
-rollup.config.js
-svelte.config.js
-tsconfig.js
+test-setup.ts
+postcss.config
+tailwind.config.js
+vercel.json
+tsconfig.jsson
 src/**/*.ts
+docs
+public
