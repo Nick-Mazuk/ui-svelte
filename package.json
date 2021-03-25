@@ -10,7 +10,7 @@
         "test": "jest test ./tests",
         "test:watch": "yarn test -- --watch",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook -c .storybook"
+        "build-storybook": "build-storybook -c .storybook -o docs"
     },
     "devDependencies": {
         "@babel/core": "^7.13.10",
