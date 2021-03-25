@@ -7,13 +7,7 @@ export default {
 };
 
 export const Text = () => ({
-  Component: Component,
-  props: { name: 'World', buttonText: 'Hello Button' },
-  on: { click: action('clicked') },
-});
-
-export const Emoji = () => ({
-  Component: Component,
-  props: { name: '😀 😎', buttonText: '👍 💯' },
-  on: { click: action('clicked') },
+    Component: Component,
+    props: { name: 'World', buttonText: 'Hello Button' },
+    on: { click: action('clicked') },
 });
