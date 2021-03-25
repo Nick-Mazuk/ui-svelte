@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/svelte'
 
-import Component from '../src/Component.svelte'
+import Component from '../src/component.svelte'
 
 describe('Component', () => {
   it('shows proper heading when rendered', () => {
