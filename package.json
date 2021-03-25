@@ -2,8 +2,6 @@
     "name": "@nick-mazuk/ui-svelte",
     "version": "0.1.0",
     "svelte": "src/index.js",
-    "module": "dist/index.mjs",
-    "main": "dist/index.js",
     "scripts": {
         "prepublishOnly": "npm run build",
         "test": "jest test ./src",
@@ -37,8 +35,7 @@
         "svelte"
     ],
     "files": [
-        "src",
-        "dist"
+        "src"
     ],
     "dependencies": {
         "@babel/preset-typescript": "^7.13.0",
