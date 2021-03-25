@@ -7,7 +7,7 @@
     "scripts": {
         "build": "rollup -c",
         "prepublishOnly": "npm run build",
-        "test": "jest test",
+        "test": "jest test ./tests",
         "test:watch": "yarn test -- --watch",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "del-cli docs && build-storybook -c .storybook -o docs"
@@ -48,6 +48,7 @@
         "dist"
     ],
     "dependencies": {
+        "@babel/preset-typescript": "^7.13.0",
         "@nick-mazuk/ui-config": "0.8.0",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.2.1",
