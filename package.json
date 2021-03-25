@@ -1,6 +1,6 @@
 {
     "name": "@nick-mazuk/ui-svelte",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "scripts": {
         "test": "jest test ./src",
         "test:watch": "yarn test -- --watch",
