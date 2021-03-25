@@ -19,7 +19,7 @@ devDependencies:
   '@testing-library/svelte': 3.0.3_svelte@3.35.0
   '@types/jest': 26.0.22
   '@types/node': 14.14.36
-  autoprefixer: 9.8.6
+  autoprefixer: 10.2.5_postcss@7.0.35
   jest: 26.6.3
   postcss: 7.0.35
   svelte: 3.35.0
@@ -3593,6 +3593,23 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+  /autoprefixer/10.2.5_postcss@7.0.35:
+    dependencies:
+      browserslist: 4.16.3
+      caniuse-lite: 1.0.30001204
+      colorette: 1.2.2
+      fraction.js: 4.0.13
+      normalize-range: 0.1.2
+      postcss: 7.0.35
+      postcss-value-parser: 4.1.0
+    dev: true
+    engines:
+      node: ^10 || ^12 || >=14
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+    resolution:
+      integrity: sha512-7H4AJZXvSsn62SqZyJCP+1AWwOuoYpUfK6ot9vm0e87XD6mT8lDywc9D9OTJPMULyGcvmIxzTAMeG2Cc+YX+fA==
   /autoprefixer/9.8.6:
     dependencies:
       browserslist: 4.16.3
@@ -5967,6 +5984,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+  /fraction.js/4.0.13:
+    dev: true
+    resolution:
+      integrity: sha512-E1fz2Xs9ltlUp+qbiyx9wmt2n9dRzPsS11Jtdb8D2o+cC7wr9xkkKsVKJuBX0ST+LVS+LhLO+SbLJNtfWcJvXA==
   /fragment-cache/0.2.1:
     dependencies:
       map-cache: 0.2.2
@@ -11849,7 +11870,7 @@ specifiers:
   '@testing-library/svelte': ^3.0.3
   '@types/jest': ^26.0.22
   '@types/node': ^14.14.36
-  autoprefixer: ^9
+  autoprefixer: ^10.0.0
   jest: ^26.6.3
   postcss: ^7
   svelte: ^3.35.0

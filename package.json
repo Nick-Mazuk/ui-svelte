@@ -1,6 +1,6 @@
 {
     "name": "@nick-mazuk/ui-svelte",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "svelte": "src/index.js",
     "scripts": {
         "prepublishOnly": "npm run build",
@@ -22,7 +22,7 @@
         "@testing-library/svelte": "^3.0.3",
         "@types/jest": "^26.0.22",
         "@types/node": "^14.14.36",
-        "autoprefixer": "^9",
+        "autoprefixer": "^10.0.0",
         "jest": "^26.6.3",
         "postcss": "^7",
         "svelte": "^3.35.0",
