@@ -1,7 +1,7 @@
 {
     "name": "@nick-mazuk/ui-svelte",
     "version": "0.1.1",
-    "svelte": "src/index.js",
+    "main": "src/index.js",
     "scripts": {
         "test": "jest test ./src",
         "test:watch": "yarn test -- --watch",
@@ -34,7 +34,7 @@
         "svelte"
     ],
     "files": [
-        "src"
+        "src/"
     ],
     "dependencies": {
         "@babel/preset-typescript": "^7.13.0",
