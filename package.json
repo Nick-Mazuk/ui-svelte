@@ -33,7 +33,8 @@
         "svelte"
     ],
     "files": [
-        "src/"
+        "src/",
+        ".npmignore"
     ],
     "dependencies": {
         "@babel/preset-typescript": "^7.13.0",
