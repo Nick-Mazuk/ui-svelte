@@ -18,8 +18,10 @@ devDependencies:
   '@storybook/addons': 6.2.0-rc.9
   '@storybook/svelte': 6.2.0-rc.9_fa7e5a140991a817abeed4f97fe36455
   '@tailwindcss/postcss7-compat': 2.0.4
-  '@testing-library/jest-dom': 5.11.9
+  '@testing-library/jest-dom': 5.11.10
   '@testing-library/svelte': 3.0.3_svelte@3.35.0
+  '@types/jest': 26.0.22
+  '@types/node': 14.14.36
   autoprefixer: 9.8.6
   babel-jest: 26.6.3_@babel+core@7.13.10
   babel-loader: 8.2.2_@babel+core@7.13.10
@@ -32,6 +34,7 @@ devDependencies:
   svelte-jester: 1.3.2_svelte@3.35.0
   svelte-loader: 3.0.0_svelte@3.35.0
   tailwindcss: /@tailwindcss/postcss7-compat/2.0.4
+  ts-jest: 26.5.4_jest@26.6.3
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.10.4:
@@ -1483,7 +1486,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.3
       '@types/istanbul-reports': 3.0.0
-      '@types/node': 14.14.35
+      '@types/node': 14.14.36
       '@types/yargs': 15.0.13
       chalk: 4.1.0
     dev: true
@@ -2737,7 +2740,7 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-v4GzWtltaiDE0yRikLlcLAfEiiK8+ptu6OuuIebm9GdC2XlZTNDPGEfM2UkEtnH7hr9TRq2sivT5EA9P1Oy7bw==
-  /@testing-library/jest-dom/5.11.9:
+  /@testing-library/jest-dom/5.11.10:
     dependencies:
       '@babel/runtime': 7.13.10
       '@types/testing-library__jest-dom': 5.9.5
@@ -2753,7 +2756,7 @@ packages:
       npm: '>=6'
       yarn: '>=1'
     resolution:
-      integrity: sha512-Mn2gnA9d1wStlAIT2NU8J15LNob0YFBVjs2aEQ3j8rsfRQo+lAs7/ui1i2TGaJjapLmuNPLTsrm+nPjmZDwpcQ==
+      integrity: sha512-FuKiq5xuk44Fqm0000Z9w0hjOdwZRNzgx7xGGxQYepWFZy+OYUMOT/wPI4nLYXCaVltNVpU1W/qmD88wLWDsqQ==
   /@testing-library/svelte/3.0.3_svelte@3.35.0:
     dependencies:
       '@testing-library/dom': 7.30.0
@@ -2867,13 +2870,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-nwKNbvnwJ2/mndE9ItP/zc2TCzw6uuodnF4EHYWD+gCQDVBuRQL5UzbZD0/ezy1iKsFU2ZQiDqg4M9dN4+wZgA==
-  /@types/jest/26.0.21:
+  /@types/jest/26.0.22:
     dependencies:
       jest-diff: 26.6.2
       pretty-format: 26.6.2
     dev: true
     resolution:
-      integrity: sha512-ab9TyM/69yg7eew9eOwKMUmvIZAKEGZYlq/dhe5/0IMUd/QLJv5ldRMdddSn+u22N13FP3s5jYyktxuBwY0kDA==
+      integrity: sha512-eeWwWjlqxvBxc4oQdkueW5OF/gtfSceKk4OnOAGlUSwS/liBRtZppbJuz1YkgbrbfGOoeBHun9fOvXnjNwrSOw==
   /@types/json-schema/7.0.7:
     dev: true
     resolution:
@@ -3008,7 +3011,7 @@ packages:
       integrity: sha512-0VBprVqfgFD7Ehb2vd8Lh9TG3jP98gvr8rgehQqzztZNI7o8zS8Ad4jyZneKELphpuE212D8J70LnSNQSyO6bQ==
   /@types/testing-library__jest-dom/5.9.5:
     dependencies:
-      '@types/jest': 26.0.21
+      '@types/jest': 26.0.22
     dev: true
     resolution:
       integrity: sha512-ggn3ws+yRbOHog9GxnXiEZ/35Mow6YtPZpd7Z5mKDeZS/o7zx3yAle0ov/wjhVB5QT4N2Dt+GNoGCdqkBGCajQ==
@@ -4029,6 +4032,14 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-vIyhWmIkULaq04Gt93txdh+j02yX/JzlyhLYbV3YQCn/zvES3JnY7TifHHvvr1w5hTDluNKMkV05cs4vy8Q7sw==
+  /bs-logger/0.2.6:
+    dependencies:
+      fast-json-stable-stringify: 2.1.0
+    dev: true
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-pd8DCoxmbgc7hyPKOvxtqNcjYoOsABPQdcCUjGp3d42VR2CX1ORhk2A87oqqu5R1kk+76nsxZupkmyd+MVtCog==
   /bser/2.1.1:
     dependencies:
       node-int64: 0.4.0
@@ -7968,6 +7979,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
+  /make-error/1.3.6:
+    dev: true
+    resolution:
+      integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==
   /makeerror/1.0.11:
     dependencies:
       tmpl: 1.0.4
@@ -11140,6 +11155,28 @@ packages:
     dev: true
     resolution:
       integrity: sha512-3IVX4nI6B5cc31/GFFE+i8ey/N2eA0CZDbo6n0yrz0zDX8ZJ8djmU1p+XRz7G3is0F3bB3pu2pAroFdAWQKU3w==
+  /ts-jest/26.5.4_jest@26.6.3:
+    dependencies:
+      bs-logger: 0.2.6
+      buffer-from: 1.1.1
+      fast-json-stable-stringify: 2.1.0
+      jest: 26.6.3
+      jest-util: 26.6.2
+      json5: 2.2.0
+      lodash: 4.17.21
+      make-error: 1.3.6
+      mkdirp: 1.0.4
+      semver: 7.3.5
+      yargs-parser: 20.2.7
+    dev: true
+    engines:
+      node: '>= 10'
+    hasBin: true
+    peerDependencies:
+      jest: '>=26 <27'
+      typescript: '>=3.8 <5.0'
+    resolution:
+      integrity: sha512-I5Qsddo+VTm94SukBJ4cPimOoFZsYTeElR2xy6H2TOVs+NsvgYglW8KuQgKoApOKuaU/Ix/vrF9ebFZlb5D2Pg==
   /ts-pnp/1.2.0:
     dev: true
     engines:
@@ -11855,6 +11892,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==
+  /yargs-parser/20.2.7:
+    dev: true
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-FiNkvbeHzB/syOjIUxFDCnhSfzAL8R5vs40MgLFBorXACCOAEaWu0gRZl14vG8MR9AOJIZbmkjhusqBYZ3HTHw==
   /yargs/15.4.1:
     dependencies:
       cliui: 6.0.0
@@ -11898,8 +11941,10 @@ specifiers:
   '@tailwindcss/line-clamp': ^0.2.0
   '@tailwindcss/postcss7-compat': ^2.0.4
   '@tailwindcss/typography': ^0.4.0
-  '@testing-library/jest-dom': ^5.11.9
+  '@testing-library/jest-dom': ^5.11.10
   '@testing-library/svelte': ^3.0.3
+  '@types/jest': ^26.0.22
+  '@types/node': ^14.14.36
   autoprefixer: ^9
   babel-jest: ^26.6.3
   babel-loader: ^8.2.2
@@ -11912,3 +11957,4 @@ specifiers:
   svelte-jester: ^1.3.2
   svelte-loader: ^3.0.0
   tailwindcss: npm:@tailwindcss/postcss7-compat@^2.0.4
+  ts-jest: ^26.5.4

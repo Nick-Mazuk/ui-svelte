@@ -1,7 +1,9 @@
 module.exports = {
-  transform: {
-    '^.+\\.svelte$': 'svelte-jester',
-    '^.+\\.js$': 'babel-jest',
-  },
-  moduleFileExtensions: ['js', 'ts', 'svelte'],
+    transform: {
+        '^.+\\.svelte$': 'svelte-jester',
+        '^.+\\.js$': 'babel-jest',
+        '^.+\\.ts$': 'ts-jest',
+    },
+    moduleFileExtensions: ['js', 'ts', 'svelte'],
+    setupFilesAfterEnv: ['./test-setup.ts']
 }
