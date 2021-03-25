@@ -3,7 +3,6 @@
     "version": "0.1.1",
     "svelte": "src/index.js",
     "scripts": {
-        "prepublishOnly": "npm run build",
         "test": "jest test ./src",
         "test:watch": "yarn test -- --watch",
         "storybook": "start-storybook -p 6006",
