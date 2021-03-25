@@ -1,5 +1,5 @@
 {
-    "name": "@nick-mazuk/ui-svete",
+    "name": "@nick-mazuk/ui-svelte",
     "version": "0.1.0",
     "svelte": "src/index.js",
     "module": "dist/index.mjs",
