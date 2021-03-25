@@ -10,3 +10,4 @@ tsconfig.jsson
 src/**/*.ts
 docs
 public
+**/*.ts
