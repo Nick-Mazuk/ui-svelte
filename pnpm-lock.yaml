@@ -8,9 +8,12 @@ dependencies:
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
 devDependencies:
   '@storybook/addon-a11y': 6.1.21
+  '@storybook/addon-actions': 6.1.21
   '@storybook/addon-essentials': 6.1.21
+  '@storybook/addon-jest': 6.1.21
   '@storybook/addon-links': 6.2.0-rc.9
   '@storybook/addon-postcss': 2.0.0
+  '@storybook/addon-svelte-csf': 1.0.0_5f24bde4687ad2637a20a3f32d6fc486
   '@storybook/addons': 6.2.0-rc.9
   '@storybook/svelte': 6.2.0-rc.9_1af0f99f6c1d06046a36ab670addb43d
   '@storybook/theming': 6.1.21
@@ -1955,6 +1958,29 @@ packages:
         optional: true
     resolution:
       integrity: sha512-kdQ/hnfwwodWVFvMdvSbhOyLv/cUJyhgVRyIamrURP9I0OlWhpOAHhwMjAT2KKceutN3UjNpSCqFNSL4dMu25g==
+  /@storybook/addon-jest/6.1.21:
+    dependencies:
+      '@storybook/addons': 6.1.21
+      '@storybook/api': 6.1.21
+      '@storybook/components': 6.1.21
+      '@storybook/core-events': 6.1.21
+      '@storybook/theming': 6.1.21
+      core-js: 3.9.1
+      global: 4.4.0
+      react-sizeme: 2.6.12
+      regenerator-runtime: 0.13.7
+      upath: 1.2.0
+    dev: true
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    resolution:
+      integrity: sha512-b5CXArtVrY6UuF57zodqmrE1cGZuCGWj+42zHk0lbcSf3BudcJyEKO4+gLteK7TDAPpq/Rq0HywC9d8tUB3Aow==
   /@storybook/addon-links/6.2.0-rc.9:
     dependencies:
       '@storybook/addons': 6.2.0-rc.9
@@ -1993,6 +2019,37 @@ packages:
       yarn: ^1.17.0
     resolution:
       integrity: sha512-Nt82A7e9zJH4+A+VzLKKswUfru+T6FJTakj4dccP0i8DSn7a0CkzRPrLuZBq8tg4voV6gD74bcDf3gViCVBGtA==
+  /@storybook/addon-svelte-csf/1.0.0_5f24bde4687ad2637a20a3f32d6fc486:
+    dependencies:
+      '@storybook/addons': 6.2.0-rc.9
+      '@storybook/svelte': 6.2.0-rc.9_1af0f99f6c1d06046a36ab670addb43d
+      '@storybook/theming': 6.1.21
+      svelte: 3.35.0
+      svelte-loader: 3.0.0_svelte@3.35.0
+      ts-dedent: 2.1.0
+    dev: true
+    peerDependencies:
+      '@storybook/addons': ^6.1.20
+      '@storybook/api': ^6.1.20
+      '@storybook/client-api': ^6.1.20
+      '@storybook/client-logger': ^6.1.20
+      '@storybook/components': ^6.1.20
+      '@storybook/core-events': ^6.1.20
+      '@storybook/svelte': ^6.1.20
+      '@storybook/theming': ^6.1.20
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+      svelte: ^3.32.3
+      svelte-loader: ^2.9.1
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      svelte:
+        optional: true
+    resolution:
+      integrity: sha512-y6isfsG0AYLdKVDcOw9kxj77QY5W9tjTXYQ/mObdULOuzpmGLzSmmKTVLcmmPwBLnGLTZEBRMZ0RcxLwZ0G57Q==
   /@storybook/addon-toolbars/6.1.21:
     dependencies:
       '@storybook/addons': 6.1.21
@@ -12610,7 +12667,6 @@ packages:
     dev: true
     engines:
       node: '>=4'
-    optional: true
     resolution:
       integrity: sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==
   /uri-js/4.4.1:
@@ -13182,9 +13238,12 @@ specifiers:
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/ui-config': 0.8.0
   '@storybook/addon-a11y': ^6.1.21
+  '@storybook/addon-actions': ^6.1.21
   '@storybook/addon-essentials': ^6.1.21
+  '@storybook/addon-jest': ^6.1.21
   '@storybook/addon-links': ^6.2.0-rc.9
   '@storybook/addon-postcss': ^2.0.0
+  '@storybook/addon-svelte-csf': ^1.0.0
   '@storybook/addons': ^6.2.0-rc.9
   '@storybook/svelte': ^6.2.0-rc.9
   '@storybook/theming': ^6.1.21

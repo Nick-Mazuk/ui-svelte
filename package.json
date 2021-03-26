@@ -9,9 +9,12 @@
     },
     "devDependencies": {
         "@storybook/addon-a11y": "^6.1.21",
+        "@storybook/addon-actions": "^6.1.21",
         "@storybook/addon-essentials": "^6.1.21",
+        "@storybook/addon-jest": "^6.1.21",
         "@storybook/addon-links": "^6.2.0-rc.9",
         "@storybook/addon-postcss": "^2.0.0",
+        "@storybook/addon-svelte-csf": "^1.0.0",
         "@storybook/addons": "^6.2.0-rc.9",
         "@storybook/svelte": "^6.2.0-rc.9",
         "@storybook/theming": "^6.1.21",
