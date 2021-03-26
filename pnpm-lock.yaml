@@ -13,8 +13,8 @@ devDependencies:
   '@storybook/addon-jest': 6.1.21
   '@storybook/addon-links': 6.2.0-rc.9
   '@storybook/addon-postcss': 2.0.0
-  '@storybook/addon-svelte-csf': 1.0.0_5f24bde4687ad2637a20a3f32d6fc486
-  '@storybook/addons': 6.2.0-rc.9
+  '@storybook/addon-svelte-csf': 1.0.0_4386d0dd8f75e2cf1dd25cafdafc241e
+  '@storybook/addons': 6.2.0-rc.10
   '@storybook/svelte': 6.2.0-rc.9_1af0f99f6c1d06046a36ab670addb43d
   '@storybook/theming': 6.1.21
   '@tailwindcss/postcss7-compat': 2.0.4
@@ -2019,9 +2019,9 @@ packages:
       yarn: ^1.17.0
     resolution:
       integrity: sha512-Nt82A7e9zJH4+A+VzLKKswUfru+T6FJTakj4dccP0i8DSn7a0CkzRPrLuZBq8tg4voV6gD74bcDf3gViCVBGtA==
-  /@storybook/addon-svelte-csf/1.0.0_5f24bde4687ad2637a20a3f32d6fc486:
+  /@storybook/addon-svelte-csf/1.0.0_4386d0dd8f75e2cf1dd25cafdafc241e:
     dependencies:
-      '@storybook/addons': 6.2.0-rc.9
+      '@storybook/addons': 6.2.0-rc.10
       '@storybook/svelte': 6.2.0-rc.9_1af0f99f6c1d06046a36ab670addb43d
       '@storybook/theming': 6.1.21
       svelte: 3.35.0
@@ -2109,6 +2109,23 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0
     resolution:
       integrity: sha512-xo5TGu9EZVCqgh3D1veVnfuGzyKDWWsvOMo18phVqRxj21G3/+hScVyfIYwNTv7Ys5/Ahp9JxJUMXL3V3ny+tw==
+  /@storybook/addons/6.2.0-rc.10:
+    dependencies:
+      '@storybook/api': 6.2.0-rc.10
+      '@storybook/channels': 6.2.0-rc.10
+      '@storybook/client-logger': 6.2.0-rc.10
+      '@storybook/core-events': 6.2.0-rc.10
+      '@storybook/router': 6.2.0-rc.10
+      '@storybook/theming': 6.2.0-rc.10
+      core-js: 3.9.1
+      global: 4.4.0
+      regenerator-runtime: 0.13.7
+    dev: true
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-ouF/NnpivFbOvHJiSWSiKeKOLo3kSG4wYOCNt8LvCEHIKusdKz4XqNNGcIqct+Mu9OSLjcqG3oqenSUldKocKw==
   /@storybook/addons/6.2.0-rc.9:
     dependencies:
       '@storybook/api': 6.2.0-rc.9
@@ -2172,6 +2189,34 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0
     resolution:
       integrity: sha512-QjZk70VSXMw/wPPoWdMp5Bl9VmkfmGhIz8PALrFLLEZHjzptpfZE2qkGEEJHG0NAksFUv6NxGki2/632dzR7Ug==
+  /@storybook/api/6.2.0-rc.10:
+    dependencies:
+      '@reach/router': 1.3.4
+      '@storybook/channels': 6.2.0-rc.10
+      '@storybook/client-logger': 6.2.0-rc.10
+      '@storybook/core-events': 6.2.0-rc.10
+      '@storybook/csf': 0.0.1
+      '@storybook/router': 6.2.0-rc.10
+      '@storybook/semver': 7.3.2
+      '@storybook/theming': 6.2.0-rc.10
+      '@types/reach__router': 1.3.7
+      core-js: 3.9.1
+      fast-deep-equal: 3.1.3
+      global: 4.4.0
+      lodash: 4.17.21
+      memoizerific: 1.11.3
+      qs: 6.10.1
+      regenerator-runtime: 0.13.7
+      store2: 2.12.0
+      telejson: 5.1.0
+      ts-dedent: 2.1.0
+      util-deprecate: 1.0.2
+    dev: true
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-RI0yKxe9fgNi2UllgsZbfl/oXKesazmuLfr57Fgo9vmDSKlFhnxJ2GoImxGL9Xo0OnFKQYJ9o3klgUEdKUAYGg==
   /@storybook/api/6.2.0-rc.9:
     dependencies:
       '@reach/router': 1.3.4
@@ -2346,6 +2391,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-7WoizMjyHqCyvcWncLexSg9FLPIErWAZL4NvluEthwsHSO2sDybn9mh1pzsFHdYMuTP6ml06Zt9ayWMtIveHDg==
+  /@storybook/channels/6.2.0-rc.10:
+    dependencies:
+      core-js: 3.9.1
+      ts-dedent: 2.1.0
+      util-deprecate: 1.0.2
+    dev: true
+    resolution:
+      integrity: sha512-IffYpvWh/axzgSpvDX1/ivnRcTqhu+7DZ35dySRNjJZwwG/4C35lxazpkAdv4M62xbA2fq1ldW9vIjdFCYuwfQ==
   /@storybook/channels/6.2.0-rc.9:
     dependencies:
       core-js: 3.9.1
@@ -2415,6 +2468,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-QJV+gnVM2fQ4M7lSkRLCXkOw/RU+aEtUefo9TAnXxPHK3UGG+DyvLmha6fHGaz9GAcFxyWtgqCyVOhMe03Q35g==
+  /@storybook/client-logger/6.2.0-rc.10:
+    dependencies:
+      core-js: 3.9.1
+      global: 4.4.0
+    dev: true
+    resolution:
+      integrity: sha512-pA962KKjAj457qmSgKoyqvAPSwNFUMZCMk6imdu8AZ0LHY6qx8toEMQvWTeY3DC/AqjZnfu15z4UR5Fe2tlQNA==
   /@storybook/client-logger/6.2.0-rc.9:
     dependencies:
       core-js: 3.9.1
@@ -2615,6 +2675,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-KWqnh1C7M1pT//WfQb3AD60yTR8jL48AfaeLGto2gO9VK7VVgj/EGsrXZP/GTL90ygyExbbBI5gkr7EBTu/HYw==
+  /@storybook/core-events/6.2.0-rc.10:
+    dependencies:
+      core-js: 3.9.1
+    dev: true
+    resolution:
+      integrity: sha512-DDSjaXwhXZwjW3NhTeKIlmH2cZIfQNXRacgWJSRBPQEO9K/RsjC5oWH3gtIM2f2fSMoE4Han4TENIqhnSRzHIg==
   /@storybook/core-events/6.2.0-rc.9:
     dependencies:
       core-js: 3.9.1
@@ -2865,6 +2931,24 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0
     resolution:
       integrity: sha512-m75WvUhoCBWDVekICAdbkidji/w5hCjHo+M8L13UghpwXWEnyr4/QqvkOb/PcSC8aZzxeMqSCpRQ1o6LWULneg==
+  /@storybook/router/6.2.0-rc.10:
+    dependencies:
+      '@reach/router': 1.3.4
+      '@storybook/client-logger': 6.2.0-rc.10
+      '@types/reach__router': 1.3.7
+      core-js: 3.9.1
+      fast-deep-equal: 3.1.3
+      global: 4.4.0
+      lodash: 4.17.21
+      memoizerific: 1.11.3
+      qs: 6.10.1
+      ts-dedent: 2.1.0
+    dev: true
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-G2T30gwlwVsvRk/oB8j/ex6DP2cxy2yRBNXok9vgl0r8WNFpiZyUKBXHsUPCD+skMchPaBgh/k/pKExdKgtqHQ==
   /@storybook/router/6.2.0-rc.9:
     dependencies:
       '@reach/router': 1.3.4
@@ -2977,6 +3061,26 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0
     resolution:
       integrity: sha512-yq7+/mpdljRdSRJYw/In/9tnDGXIUDe//mhyMftFfrB2mq6zi1yAZpowCerWhiDE2ipGkrfzIYx/Sn7bcaXgqg==
+  /@storybook/theming/6.2.0-rc.10:
+    dependencies:
+      '@emotion/core': 10.1.1
+      '@emotion/is-prop-valid': 0.8.8
+      '@emotion/styled': 10.0.27_@emotion+core@10.1.1
+      '@storybook/client-logger': 6.2.0-rc.10
+      core-js: 3.9.1
+      deep-object-diff: 1.1.0
+      emotion-theming: 10.0.27_@emotion+core@10.1.1
+      global: 4.4.0
+      memoizerific: 1.11.3
+      polished: 4.1.1
+      resolve-from: 5.0.0
+      ts-dedent: 2.1.0
+    dev: true
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-kUYbQPsYGuEKNHM8XjruufXUStaMuy6KjTPt/Ohi3NojcybOsStJ8ZqtJh8EPBBb9MPaTPJ4L7scXKcuUKZ6yQ==
   /@storybook/theming/6.2.0-rc.9:
     dependencies:
       '@emotion/core': 10.1.1
@@ -13244,7 +13348,7 @@ specifiers:
   '@storybook/addon-links': ^6.2.0-rc.9
   '@storybook/addon-postcss': ^2.0.0
   '@storybook/addon-svelte-csf': ^1.0.0
-  '@storybook/addons': ^6.2.0-rc.9
+  '@storybook/addons': ^6.2.0-rc.10
   '@storybook/svelte': ^6.2.0-rc.9
   '@storybook/theming': ^6.1.21
   '@tailwindcss/aspect-ratio': ^0.2.0

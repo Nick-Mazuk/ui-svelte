@@ -27,6 +27,11 @@
                 control: { type: 'boolean' },
                 name: 'large',
                 type: { name: 'boolean', required: false }
+            },
+            dot: {
+                control: { type: 'boolean' },
+                name: 'dot',
+                type: { name: 'boolean', required: false }
             }
         },
      };
