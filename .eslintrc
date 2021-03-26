@@ -1,0 +1,3 @@
+{
+    "extends": ["@nick-mazuk/eslint-config/svelte"]
+}

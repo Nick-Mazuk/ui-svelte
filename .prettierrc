@@ -1,0 +1,25 @@
+{
+    "singleQuote": true,
+    "printWidth": 100,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": false,
+    "quoteProps": "as-needed",
+    "jsxSingleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "proseWrap": "never",
+    "htmlWhitespaceSensitivity": "css",
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto",
+    "pluginSearchDirs": [
+        "/Users/nickmazuk/Documents/Github/sveltekit-test/node_modules/prettier-plugin-svelte"
+    ],
+
+    "plugins": ["prettier-plugin-svelte"],
+    "svelteStrictMode": true,
+    "svelteAllowShorthand": true,
+    "svelteBracketNewLine": true,
+    "svelteIndentScriptAndStyle": true
+}

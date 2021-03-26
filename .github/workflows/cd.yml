@@ -1,34 +1,34 @@
 name: Continuous deployment
 
 on:
-  schedule:
-    - cron: '0 0 * * 6,2' # Friday and Monday at midnight
+    schedule:
+        - cron: '0 0 * * 6,2' # Friday and Monday at midnight
 
 jobs:
-  test-deploy:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [10, 12, 14]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npx pnpm i
-      - run: npm run test
-        
-  deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - test-deploy
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
-        with:
-          node-version: 14
-      - run: npx pnpm i
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: 'public'
+    test-deploy:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node: [10, 12, 14]
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2.1.5
+              with:
+                  node-version: ${{ matrix.node }}
+            - run: npx pnpm i
+            - run: npm run test
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs:
+            - test-deploy
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2.1.5
+              with:
+                  node-version: 14
+            - run: npx pnpm i
+            - uses: JS-DevTools/npm-publish@v1
+              with:
+                  token: ${{ secrets.NPM_TOKEN }}
+                  access: 'public'

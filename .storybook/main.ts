@@ -1,8 +1,8 @@
-module.exports =  {
+module.exports = {
     stories: ['../src/**/*.stories.svelte'],
     addons: [
         // '@storybook/addon-actions',
-        { name: "@storybook/addon-essentials", options: { backgrounds: false, actions: false } },
+        { name: '@storybook/addon-essentials', options: { backgrounds: false, actions: false } },
         '@storybook/addon-links',
         '@storybook/addon-a11y',
         '@storybook/addon-postcss',
@@ -12,7 +12,9 @@ module.exports =  {
         // 'storybook-dark-mode'
     ],
     webpackFinal: async (config) => {
-        const svelteLoader = config.module.rules.find((r) => r.loader && r.loader.includes('svelte-loader'))
+        const svelteLoader = config.module.rules.find(
+            (r) => r.loader && r.loader.includes('svelte-loader')
+        )
         svelteLoader.options.preprocess = require('svelte-preprocess')()
         return config
     },

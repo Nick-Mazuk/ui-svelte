@@ -5,5 +5,5 @@ module.exports = {
         '^.+\\.ts$': 'ts-jest',
     },
     moduleFileExtensions: ['js', 'ts', 'svelte'],
-    setupFilesAfterEnv: ['./test-setup.ts']
+    setupFilesAfterEnv: ['./test-setup.ts'],
 }

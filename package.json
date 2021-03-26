@@ -6,9 +6,13 @@
         "test:watch": "npm test -- --watch",
         "dev": "start-storybook -p 6006",
         "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
-        "build": "npm run test:generate-output; build-storybook -c .storybook -o docs"
+        "build": "npm run test:generate-output; build-storybook -c .storybook -o docs",
+        "check-types": "tsc --noemit",
+        "prettier": "prettier --write . --plugin-search-dir=.",
+        "lint": "npm run prettier && eslint . --quiet && npm run check-types"
     },
     "devDependencies": {
+        "@nick-mazuk/eslint-config": "^0.7.40",
         "@storybook/addon-a11y": "^6.2.0-rc.10",
         "@storybook/addon-actions": "^6.2.0-rc.10",
         "@storybook/addon-essentials": "^6.2.0-rc.10",
@@ -25,8 +29,11 @@
         "@types/jest": "^26.0.22",
         "@types/node": "^14.14.36",
         "autoprefixer": "^9",
+        "eslint": "^7.23.0",
         "jest": "^26.6.3",
         "postcss": "^7",
+        "prettier": "^2.2.1",
+        "prettier-plugin-svelte": "^2.2.0",
         "storybook-addon-themes": "^6.0.1",
         "storybook-dark-mode": "^1.0.8-canary.49.3230.0",
         "svelte": "^3.35.0",

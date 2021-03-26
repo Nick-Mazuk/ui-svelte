@@ -1,9 +1,9 @@
 <script>
-    import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-    import Badge from './badge.svelte';
+    import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import Badge from './badge.svelte'
 
     const meta = {
-        title: "Badge",
+        title: 'Badge',
         component: Badge,
         argTypes: {
             children: {
@@ -12,40 +12,39 @@
                 },
                 defaultValue: 'Hello world',
                 name: 'children',
-                type: { name: 'string', required: true }
+                type: { name: 'string', required: true },
             },
             color: {
                 control: {
-                    type: "select",
+                    type: 'select',
                     options: ['primary', 'secondary', 'error', 'highlight', 'warning', 'success'],
                 },
                 name: 'color',
                 description: 'This is the color of the badge',
-                type: { name: 'string', required: false }
+                type: { name: 'string', required: false },
             },
             large: {
                 control: { type: 'boolean' },
                 name: 'large',
-                type: { name: 'boolean', required: false }
+                type: { name: 'boolean', required: false },
             },
             dot: {
                 control: { type: 'boolean' },
                 name: 'dot',
-                type: { name: 'boolean', required: false }
-            }
+                type: { name: 'boolean', required: false },
+            },
         },
-     };
-
+    }
 </script>
 
 <Meta {...meta} />
 
 <Template let:args>
-  <Badge {...args}>{args.children}</Badge>
+    <Badge {...args}>{args.children}</Badge>
 </Template>
 
-<Story name="Default"/>
+<Story name="Default" />
 
-<Story name='With color' source args={{color: 'primary'}} />
-<Story name='Large' source args={{large: true}} />
-<Story name='Large with dot' source args={{large: true, dot: true}} />
+<Story name="With color" source args="{{ color: 'primary' }}" />
+<Story name="Large" source args="{{ large: true }}" />
+<Story name="Large with dot" source args="{{ large: true, dot: true }}" />

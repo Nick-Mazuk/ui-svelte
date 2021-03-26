@@ -1,21 +1,18 @@
 {
-	"compilerOptions": {
-		"moduleResolution": "node",
-		"target": "es2018",
-		"importsNotUsedAsValues": "error",
-		"isolatedModules": true,
-		"sourceMap": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
-		"allowJs": true,
-		"checkJs": true,
-	},
-	"include": [
-        "src/**/*.d.ts",
-        "src/**/*.ts",
-        "src/**/*.svelte",
-        "test-setup.ts"
-    ]
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "target": "es2018",
+        "importsNotUsedAsValues": "error",
+        "isolatedModules": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "allowJs": true,
+        "checkJs": true,
+        "strict": true,
+        "strictNullChecks": true
+    },
+    "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte", "test-setup.ts"]
 }

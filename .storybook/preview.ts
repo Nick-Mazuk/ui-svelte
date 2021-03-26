@@ -1,27 +1,16 @@
-import "tailwindcss/tailwind.css"
-// import { themes } from '@storybook/theming'
+import 'tailwindcss/tailwind.css'
 
-import { withTests } from '@storybook/addon-jest';
+import { withTests } from '@storybook/addon-jest'
 
-import results from '../.jest-test-results.json';
-import { addDecorator } from '@storybook/svelte';
+import results from '../.jest-test-results.json'
+import { addDecorator } from '@storybook/svelte'
 
 addDecorator(
-  withTests({
-      results,
-      filesExt: '((\\.specs?)|(\\.tests?))?(\\.ts)?$'
-  })
-);
-
-// import { StoryContext, StoryGetter, StoryWrapper } from '@storybook/addons';
-
-const withThemeProvider = (_, context) =>{
-    const theme = context.globals.theme
-    console.log(theme);
-
-}
-
-export const decorators = [withThemeProvider];
+    withTests({
+        results,
+        filesExt: '((\\.specs?)|(\\.tests?))?(\\.ts)?$',
+    })
+)
 
 export const globalTypes = {
     themes: {
@@ -36,7 +25,7 @@ export const globalTypes = {
                 name: 'dark',
                 class: 'dark',
                 color: 'black',
-            }
-        ]
-    }
-};
+            },
+        ],
+    },
+}
