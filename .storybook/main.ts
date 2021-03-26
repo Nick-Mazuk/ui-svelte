@@ -7,7 +7,6 @@ module.exports = {
         '@storybook/addon-a11y',
         '@storybook/addon-postcss',
         { name: "@storybook/addon-essentials", options: { docs: false } },
-        // 'storybook-dark-mode',
     ],
     webpackFinal: async (config) => {
         const svelteLoader = config.module.rules.find((r) => r.loader && r.loader.includes('svelte-loader'))
