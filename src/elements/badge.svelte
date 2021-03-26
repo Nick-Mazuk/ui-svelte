@@ -12,6 +12,6 @@
     }
 </script>
 
-<span class={`rounded ${COLOR_MAP[color]} font-semibold text-sm px-2 py-1`}>
+<span class={`rounded ${COLOR_MAP[color]} font-semibold text-xs px-2 py-1`}>
     <slot></slot>
 </span>
