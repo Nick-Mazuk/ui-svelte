@@ -24,14 +24,19 @@ const withThemeProvider = (_, context) =>{
 export const decorators = [withThemeProvider];
 
 export const globalTypes = {
-    theme: {
-        name: 'Theme',
-        description: 'Global theme for components',
-        defaultValue: 'light',
-        toolbar: {
-            icon: 'circle',
-            // array of plain string values or MenuItem shape (see below)
-            items: ['light', 'dark'],
-        },
-    },
+    themes: {
+        default: 'light',
+        list: [
+            {
+                name: 'light',
+                class: 'light',
+                color: 'white',
+            },
+            {
+                name: 'dark',
+                class: 'dark',
+                color: 'black',
+            }
+        ]
+    }
 };

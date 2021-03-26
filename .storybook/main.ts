@@ -2,12 +2,13 @@ module.exports =  {
     stories: ['../src/**/*.stories.svelte'],
     addons: [
         // '@storybook/addon-actions',
-        { name: "@storybook/addon-essentials", options: { docs: false, backgrounds: false, actions: false } },
+        { name: "@storybook/addon-essentials", options: { backgrounds: false, actions: false } },
         '@storybook/addon-links',
         '@storybook/addon-a11y',
         '@storybook/addon-postcss',
         '@storybook/addon-svelte-csf',
         '@storybook/addon-jest',
+        'storybook-addon-themes',
         // 'storybook-dark-mode'
     ],
     webpackFinal: async (config) => {
