@@ -41,7 +41,7 @@
 </script>
 
 <span class="rounded-full font-medium {COLOR_MAP[color].container} {sizeClasses} {withDotClasses}">
-    {#if dot && false}
+    {#if dot}
         <div class="w-1.5 h-1.5 rounded-full {COLOR_MAP[color].dot}"></div>
     {/if}
     <span><slot /></span>
