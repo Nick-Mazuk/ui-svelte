@@ -23,6 +23,11 @@
                 description: 'This is the color of the badge',
                 type: { name: 'string', required: false }
             },
+            large: {
+                control: { type: 'boolean' },
+                name: 'large',
+                type: { name: 'boolean', required: false }
+            }
         },
      };
 
@@ -36,4 +41,6 @@
 
 <Story name="Default"/>
 
-<Story name='With color' args={{color: 'primary'}} />
+<Story name='With color' source args={{color: 'primary'}} />
+<Story name='Large' source args={{large: true}} />
+<Story name='Large with dot' source args={{large: true, dot: true}} />
