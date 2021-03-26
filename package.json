@@ -4,7 +4,7 @@
     "scripts": {
         "test": "jest test ./src",
         "test:watch": "yarn test -- --watch",
-        "storybook": "start-storybook -p 6006",
+        "dev": "start-storybook -p 6006",
         "build": "build-storybook -c .storybook -o docs"
     },
     "devDependencies": {
@@ -12,6 +12,7 @@
         "@storybook/addon-actions": "^6.2.0-rc.9",
         "@storybook/addon-controls": "^6.1.21",
         "@storybook/addon-links": "^6.2.0-rc.9",
+        "@storybook/addon-postcss": "^2.0.0",
         "@storybook/addon-viewport": "^6.1.21",
         "@storybook/addons": "^6.2.0-rc.9",
         "@storybook/svelte": "^6.2.0-rc.9",
