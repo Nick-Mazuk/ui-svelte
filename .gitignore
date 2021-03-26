@@ -2,3 +2,4 @@
 node_modules
 /dist/
 docs
+.jest-test-results.json

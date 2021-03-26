@@ -1,6 +1,18 @@
 import "tailwindcss/tailwind.css"
 import { themes } from '@storybook/theming'
 
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../.jest-test-results.json';
+import { addDecorator } from '@storybook/svelte';
+
+addDecorator(
+  withTests({
+      results,
+      filesExt: '((\\.specs?)|(\\.tests?))?(\\.ts)?$'
+  })
+);
+
 export const parameters = {
     darkMode: {
         // Override the default dark theme
