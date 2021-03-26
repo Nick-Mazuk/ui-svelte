@@ -14,7 +14,7 @@
                 name: 'children',
                 type: { name: 'string', required: true }
             },
-            size: {
+            color: {
                 control: {
                     type: "select",
                     options: ['primary', 'secondary', 'error', 'highlight', 'warning', 'success'],
