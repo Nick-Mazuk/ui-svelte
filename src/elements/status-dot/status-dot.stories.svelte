@@ -12,7 +12,6 @@
                     options: ['primary', 'secondary', 'error', 'highlight', 'warning', 'success'],
                 },
                 name: 'color',
-                description: 'This is the color of the dot',
                 type: { name: 'string', required: false },
             },
             ping: {

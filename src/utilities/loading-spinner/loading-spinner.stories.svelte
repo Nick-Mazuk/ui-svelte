@@ -5,6 +5,13 @@
     const meta = {
         title: 'Utilities/LoadingSpinner',
         component: LoadingSpinner,
+        parameters: {
+            docs: {
+                description: {
+                    component: 'For whenever there content cannot display immediately'
+                }
+            }
+        },
         argTypes: {
             
         },

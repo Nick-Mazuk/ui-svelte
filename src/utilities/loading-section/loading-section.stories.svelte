@@ -5,6 +5,13 @@
     const meta = {
         title: 'Utilities/LoadingSection',
         component: LoadingSection,
+        parameters: {
+            docs: {
+                description: {
+                    component: 'For whenever an entire section of content cannot display immediately'
+                }
+            }
+        },
         argTypes: {
             
         },

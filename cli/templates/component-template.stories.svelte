@@ -5,6 +5,13 @@
     const meta = {
         title: 'ComponentTemplateWithCategory',
         component: ComponentTemplate,
+        parameters: {
+            docs: {
+                description: {
+                    component: ''
+                }
+            }
+        },
         argTypes: {
             
         },
