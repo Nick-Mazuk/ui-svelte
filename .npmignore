@@ -1,2 +1,2 @@
-**/*.ts
-**/*.stories.svelte
+**/*.test.ts
+**/*.svelte
