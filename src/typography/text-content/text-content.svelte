@@ -26,10 +26,7 @@
         @apply bg-gray-50 text-gray-900 bg-opacity-70;
     }
     :global(.prose a) {
-        @apply no-underline text-primary-600;
-    }
-    :global(.prose a:hover) {
-        text-decoration: underline;
+        @apply link;
     }
     :global(.prose img) {
         @apply rounded-lg;
