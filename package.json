@@ -54,7 +54,7 @@
     ],
     "dependencies": {
         "@babel/preset-typescript": "^7.13.0",
-        "@nick-mazuk/ui-config": "0.8.10",
+        "@nick-mazuk/ui-config": "0.8.11",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/jit": "^0.1.8",

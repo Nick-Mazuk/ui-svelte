@@ -1,6 +1,6 @@
 dependencies:
   '@babel/preset-typescript': 7.13.0
-  '@nick-mazuk/ui-config': 0.8.10_cffda833bd6d58226fa3ac2ec4091d84
+  '@nick-mazuk/ui-config': 0.8.11_cffda833bd6d58226fa3ac2ec4091d84
   '@tailwindcss/aspect-ratio': 0.2.0
   '@tailwindcss/forms': 0.2.1
   '@tailwindcss/jit': 0.1.8_postcss@7.0.35+tailwindcss@2.0.4
@@ -1798,7 +1798,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-LXVrklzd+TtbsmgjQx5jS0xi0U98rFnt0gOadY4Pm3OPIBMsfevkXhfDgx7UwDTgsEKqtDS6zjl3J5ZrdR/8qw==
-  /@nick-mazuk/ui-config/0.8.10_cffda833bd6d58226fa3ac2ec4091d84:
+  /@nick-mazuk/ui-config/0.8.11_cffda833bd6d58226fa3ac2ec4091d84:
     dependencies:
       '@tailwindcss/aspect-ratio': 0.2.0
       '@tailwindcss/forms': 0.2.1
@@ -1819,7 +1819,7 @@ packages:
       postcss: '>= 8.0.0'
       tailwindcss: '>= 2.0.3'
     resolution:
-      integrity: sha512-1wO/oiIbsHOKdNVL/6kqCkRqlZUpTSNxsNW2kpZbWY60cqK0XZwVe9QmEG3QfLuaUrIuJkuw9zhSCMOkzqKcnA==
+      integrity: sha512-fAJhNV7IRIOqura7fKEIA3ApMR7fhRDrX65GyoolknWXI+9lHtKCbPAlScCCF93Lmmtc1yK9UppyAr7f8CquLw==
   /@nodelib/fs.scandir/2.1.4:
     dependencies:
       '@nodelib/fs.stat': 2.0.4
@@ -14195,7 +14195,7 @@ specifiers:
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/eslint-config': ^0.7.40
   '@nick-mazuk/lib': ^0.8.34
-  '@nick-mazuk/ui-config': 0.8.10
+  '@nick-mazuk/ui-config': 0.8.11
   '@storybook/addon-a11y': ^6.2.0-rc.10
   '@storybook/addon-actions': ^6.2.0-rc.10
   '@storybook/addon-essentials': ^6.2.0-rc.10
