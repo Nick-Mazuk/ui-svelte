@@ -13,7 +13,15 @@
             }
         },
         argTypes: {
-            
+            size: {
+                control: {
+                    type: 'inline-radio',
+                    options: ['small', 'default', 'large'],
+                },
+                name: 'size',
+                defaultValue: 'default',
+                type: { name: 'string', required: false }
+            }
         },
     }
 </script>
