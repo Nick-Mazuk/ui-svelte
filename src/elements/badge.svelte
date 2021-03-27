@@ -2,9 +2,10 @@
     type Color = 'primary' | 'secondary' | 'error' | 'highlight' | 'warning' | 'success'
     export let color: Color = 'secondary'
     export let large: boolean = false
-    export let dot: boolean = false
+    export let dot: boolean = false 
 
-    $: sizeClasses = large ? 'text-sm px-3 py-1' : 'text-xs px-3 py-1'
+    $: containerClasses = large ? 'text-sm px-3 py-0.5' : 'text-xs px-2.5 py-0.5'
+    $: dotClasses = large ? 'w-1.5 h-1.5' : 'w-1 h-1'
 
     type ColorValue = {
         container: string
@@ -39,9 +40,9 @@
     }
 </script>
 
-<span class="rounded-full font-medium inline-flex items-center space-x-2 leading-tight {COLOR_MAP[color].container} {sizeClasses}">
+<span class="rounded-full font-medium inline-flex items-baseline space-x-1.5 {COLOR_MAP[color].container} {containerClasses}">
     {#if dot}
-        <div class="w-1.5 h-1.5 rounded-full {COLOR_MAP[color].dot}"></div>
+        <div class="transform -translate-y-0.5 -ml-0.5 rounded-full {COLOR_MAP[color].dot} {dotClasses}"></div>
     {/if}
     <span><slot /></span>
 </span>

@@ -10,7 +10,7 @@
                 control: {
                     type: 'text',
                 },
-                defaultValue: 'Badge',
+                defaultValue: 'Hello world',
                 name: 'children',
                 type: { name: 'string', required: true },
             },
@@ -44,7 +44,3 @@
 </Template>
 
 <Story name="Default" />
-
-<Story name="With color" source args="{{ color: 'primary' }}" />
-<Story name="Large" source args="{{ large: true }}" />
-<Story name="Large with dot" source args="{{ large: true, dot: true }}" />
