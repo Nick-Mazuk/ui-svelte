@@ -50,5 +50,7 @@
                 .dot} {dotClasses}"
         ></div>
     {/if}
-    <span><slot /></span>
+    <span>
+        <slot></slot>
+    </span>
 </span>

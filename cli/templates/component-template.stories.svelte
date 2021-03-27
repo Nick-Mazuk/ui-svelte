@@ -21,7 +21,7 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <ComponentTemplate {...args}>{args.children}</ComponentTemplate>
+    <ComponentTemplate {...args}></ComponentTemplate>
 </Template>
 
 <Story name="Default" parameters={{jest: ['component-template.test.ts']}} />

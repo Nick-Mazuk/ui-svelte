@@ -21,7 +21,7 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <LoadingSpinner {...args}>{args.children}</LoadingSpinner>
+    <LoadingSpinner {...args}></LoadingSpinner>
 </Template>
 
 <Story name="Default" parameters={{jest: ['loading-spinner.test.ts']}} />

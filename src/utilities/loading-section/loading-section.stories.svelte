@@ -29,7 +29,7 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <LoadingSection {...args}>{args.children}</LoadingSection>
+    <LoadingSection {...args}></LoadingSection>
 </Template>
 
 <Story name="Default" parameters={{jest: ['loading-section.test.ts']}} />
