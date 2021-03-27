@@ -43,4 +43,4 @@
     <Badge {...args}>{args.children}</Badge>
 </Template>
 
-<Story name="Default" />
+<Story name="Default" parameters={{jest: ['badge.test.ts']}} />

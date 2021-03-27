@@ -1,7 +1,8 @@
-import { render, fireEvent } from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 
-describe('Component', () => {
-    it('shows proper heading when rendered', () => {
-        expect(true).toBeTruthy()
-    })
+import Badge from './badge.svelte'
+
+it('renders without crashing', () => {
+    const { container } = render(Badge)
+    expect(container).not.toBeEmptyDOMElement()
 })
