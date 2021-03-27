@@ -5,10 +5,17 @@ module.exports = {
         { name: '@storybook/addon-essentials', options: { backgrounds: false, actions: false } },
         '@storybook/addon-links',
         '@storybook/addon-a11y',
-        '@storybook/addon-postcss',
         '@storybook/addon-svelte-csf',
         '@storybook/addon-jest',
         'storybook-addon-themes',
+        {
+            name: '@storybook/addon-postcss',
+                options: {
+                postcssLoaderOptions: {
+                    implementation: require('postcss'),
+                },
+            },
+        },
         // 'storybook-dark-mode'
     ],
     webpackFinal: async (config) => {
