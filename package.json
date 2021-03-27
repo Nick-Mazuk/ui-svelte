@@ -25,7 +25,6 @@
         "@storybook/addons": "^6.2.0-rc.10",
         "@storybook/svelte": "^6.2.0-rc.10",
         "@storybook/theming": "^6.2.0-rc.10",
-        "@tailwindcss/postcss7-compat": "^2.0.4",
         "@testing-library/jest-dom": "^5.11.10",
         "@testing-library/svelte": "^3.0.3",
         "@types/jest": "^26.0.22",
@@ -55,7 +54,7 @@
     ],
     "dependencies": {
         "@babel/preset-typescript": "^7.13.0",
-        "@nick-mazuk/ui-config": "0.8.21",
+        "@nick-mazuk/ui-config": "0.8.24",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.3.2",
         "@tailwindcss/jit": "^0.1.8",
