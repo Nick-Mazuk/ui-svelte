@@ -8,6 +8,7 @@ dependencies:
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
 devDependencies:
   '@nick-mazuk/eslint-config': 0.7.40_eslint@7.23.0+svelte@3.35.0
+  '@nick-mazuk/lib': 0.8.34
   '@storybook/addon-a11y': 6.2.0-rc.10
   '@storybook/addon-actions': 6.2.0-rc.10
   '@storybook/addon-essentials': 6.2.0-rc.10_svelte@3.35.0
@@ -1791,6 +1792,12 @@ packages:
       typescript: '>= 4.2.3'
     resolution:
       integrity: sha512-ANfAApBfPyFlKW5dLdLv2Fp4vLej7WLA0T1H+qzNCCzdFiu/DCnCfZ65+iV4bphYh39Fns6eZIisai+Oib/low==
+  /@nick-mazuk/lib/0.8.34:
+    dependencies:
+      validator: 13.5.2
+    dev: true
+    resolution:
+      integrity: sha512-LXVrklzd+TtbsmgjQx5jS0xi0U98rFnt0gOadY4Pm3OPIBMsfevkXhfDgx7UwDTgsEKqtDS6zjl3J5ZrdR/8qw==
   /@nick-mazuk/ui-config/0.8.10_cffda833bd6d58226fa3ac2ec4091d84:
     dependencies:
       '@tailwindcss/aspect-ratio': 0.2.0
@@ -13782,6 +13789,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
+  /validator/13.5.2:
+    dev: true
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha512-mD45p0rvHVBlY2Zuy3F3ESIe1h5X58GPfAtslBjY7EtTqGquZTj+VX/J4RnHWN8FKq0C9WRVt1oWAcytWRuYLQ==
   /vary/1.1.2:
     dev: true
     engines:
@@ -14181,6 +14194,7 @@ packages:
 specifiers:
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/eslint-config': ^0.7.40
+  '@nick-mazuk/lib': ^0.8.34
   '@nick-mazuk/ui-config': 0.8.10
   '@storybook/addon-a11y': ^6.2.0-rc.10
   '@storybook/addon-actions': ^6.2.0-rc.10

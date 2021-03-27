@@ -9,10 +9,12 @@
         "build": "npm run test:generate-output; build-storybook -c .storybook -o docs",
         "check-types": "tsc --noemit",
         "prettier": "prettier --write . --plugin-search-dir=.",
-        "lint": "npm run prettier && eslint . --quiet && npm run check-types"
+        "lint": "npm run prettier && eslint . --quiet && npm run check-types",
+        "create-component": "node cli/create-new-component.js"
     },
     "devDependencies": {
         "@nick-mazuk/eslint-config": "^0.7.40",
+        "@nick-mazuk/lib": "^0.8.34",
         "@storybook/addon-a11y": "^6.2.0-rc.10",
         "@storybook/addon-actions": "^6.2.0-rc.10",
         "@storybook/addon-essentials": "^6.2.0-rc.10",
@@ -58,5 +60,14 @@
         "@tailwindcss/jit": "^0.1.8",
         "@tailwindcss/line-clamp": "^0.2.0",
         "@tailwindcss/typography": "^0.4.0"
+    },
+    "peerDependencies": {
+        "@nick-mazuk/lib": "^0.8.34",
+        "@nick-mazuk/ui-config": "0.8.10",
+        "@tailwindcss/aspect-ratio": "^0.2.0",
+        "@tailwindcss/forms": "^0.2.1",
+        "@tailwindcss/line-clamp": "^0.2.0",
+        "@tailwindcss/typography": "^0.4.0",
+        "tailwindcss": "^2.0.4"
     }
 }
