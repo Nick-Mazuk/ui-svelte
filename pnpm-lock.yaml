@@ -2,7 +2,7 @@ dependencies:
   '@babel/preset-typescript': 7.13.0
   '@nick-mazuk/ui-config': 0.8.19_cffda833bd6d58226fa3ac2ec4091d84
   '@tailwindcss/aspect-ratio': 0.2.0
-  '@tailwindcss/forms': 0.2.1
+  '@tailwindcss/forms': 0.3.2_tailwindcss@2.0.4
   '@tailwindcss/jit': 0.1.8_postcss@7.0.35+tailwindcss@2.0.4
   '@tailwindcss/line-clamp': 0.2.0
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
@@ -2534,7 +2534,7 @@ packages:
   /@nick-mazuk/ui-config/0.8.19_cffda833bd6d58226fa3ac2ec4091d84:
     dependencies:
       '@tailwindcss/aspect-ratio': 0.2.0
-      '@tailwindcss/forms': 0.2.1
+      '@tailwindcss/forms': 0.3.2_tailwindcss@2.0.4
       '@tailwindcss/jit': 0.1.8_postcss@7.0.35+tailwindcss@2.0.4
       '@tailwindcss/line-clamp': 0.2.0
       '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
@@ -4288,12 +4288,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-v5LyHkwXj/4lI74B06zUrmWEdmSqS43+jw717pkt3fAXqb7ALwu77A8t7j+Bej+ZbdlIIqNMYheGN7wSGV1A6w==
-  /@tailwindcss/forms/0.2.1:
+  /@tailwindcss/forms/0.3.2_tailwindcss@2.0.4:
     dependencies:
       mini-svg-data-uri: 1.2.3
+      tailwindcss: /@tailwindcss/postcss7-compat/2.0.4
     dev: false
+    peerDependencies:
+      tailwindcss: '>=2.0.0'
     resolution:
-      integrity: sha512-czfvEdY+J2Ogfd6RUSr/ZSUmDxTujr34M++YLnp2cCPC3oJ4kFvFMaRXA6cEXKw7F1hJuapdjXRjsXIEXGgORg==
+      integrity: sha512-aj2/rJsGb2whAZ/BQWHWWQRSbhH0r/l1ozOByiv+ZNjBD84GMvb5dhAyfpeasFky+EJrAwX5eaqft8NQMZFWvA==
   /@tailwindcss/jit/0.1.8_postcss@7.0.35+tailwindcss@2.0.4:
     dependencies:
       chokidar: 3.5.1
@@ -14929,7 +14932,7 @@ specifiers:
   '@storybook/svelte': ^6.2.0-rc.10
   '@storybook/theming': ^6.2.0-rc.10
   '@tailwindcss/aspect-ratio': ^0.2.0
-  '@tailwindcss/forms': ^0.2.1
+  '@tailwindcss/forms': ^0.3.0
   '@tailwindcss/jit': ^0.1.8
   '@tailwindcss/line-clamp': ^0.2.0
   '@tailwindcss/postcss7-compat': ^2.0.4
