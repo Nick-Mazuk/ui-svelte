@@ -14,5 +14,5 @@
         "strict": true,
         "strictNullChecks": true
     },
-    "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte", "test-setup.ts"]
+    "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte", "test-setup.ts", "src/index.js", "src/badge/index.js"]
 }
