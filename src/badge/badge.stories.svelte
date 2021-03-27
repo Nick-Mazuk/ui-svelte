@@ -3,7 +3,7 @@
     import Badge from './badge.svelte'
 
     const meta = {
-        title: 'Badge',
+        title: 'Elements/Badge',
         component: Badge,
         argTypes: {
             children: {

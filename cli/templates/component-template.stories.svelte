@@ -3,7 +3,7 @@
     import ComponentTemplate from './component-template.svelte'
 
     const meta = {
-        title: 'ComponentTemplate',
+        title: 'ComponentTemplateWithCategory',
         component: ComponentTemplate,
         argTypes: {
             

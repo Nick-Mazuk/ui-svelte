@@ -3,7 +3,7 @@
     import StatusDot from './status-dot.svelte'
 
     const meta = {
-        title: 'StatusDot',
+        title: 'Elements/StatusDot',
         component: StatusDot,
         argTypes: {
             color: {

@@ -28,7 +28,6 @@ const getComponentName = () => {
         rl.on('line', (input) => {
             let error
             if (input.match(/[_A-Z]/u)) error = 'use kabob case'
-            if (input.match(/[/]/u)) error = "don't use a folder"
             if (input === '') error = 'cannot be blank'
             if (error) {
                 rl.setPrompt(`Invalid: ${error}\n${prompt}`)
@@ -40,18 +39,27 @@ const getComponentName = () => {
         })
 
         rl.on('close', () => {
-            const splitResponse = response.split('-')
-            const componentName = splitResponse.map((part) => (
+            const splitPath = response.split('/')
+            const fileName = splitPath.pop()
+            const splitName = fileName.split('-')
+            const componentName = splitName.map((part) => (
                 part.charAt(0).toUpperCase() + part.slice(1)
             )).join('')
-            resolve({ fileName: response, componentName })
+            const filePath = splitPath.join('/')
+            const categoryName = filePath.split('/').map((folder) => {
+                return folder.split('-').map((word) => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ')
+            }).join('/')
+            resolve({ fileName, componentName, filePath, categoryName })
         })
     })
 }
 
-const copyFile = (currentName, targetPath, fileName, componentName) => {;
+const copyFile = (currentName, targetPath, fileName, componentName, categoryName) => {;
     const contents = fs.readFileSync(path.join(TEMPLATE_LOCATION, currentName)).toString()
     let newContents = contents.replace(/component-template/g, fileName)
+    newContents = newContents.replace(/ComponentTemplateWithCategory/g, categoryName + '/' + componentName)
     newContents = newContents.replace(/ComponentTemplate/g, componentName)
 
     const targetFileName = currentName.replace('component-template', fileName)
@@ -62,13 +70,14 @@ const copyFile = (currentName, targetPath, fileName, componentName) => {;
 }
 
 const main = async () => {
-    const { fileName, componentName } = await getComponentName()
-    const folderName = `src/${fileName}`
+    const { fileName, componentName, filePath, categoryName } = await getComponentName()
+    const folderName = path.join('src', filePath, fileName)
+    console.log(folderName)
     if (!fs.existsSync(folderName)) fs.mkdirSync(folderName)
 
     const templateFiles = fs.readdirSync(TEMPLATE_LOCATION)
     templateFiles.forEach((file) => {
-        copyFile(file, folderName, fileName, componentName)
+        copyFile(file, folderName, fileName, componentName, categoryName)
     })
     console.log('Component created at ' + folderName)
 }
