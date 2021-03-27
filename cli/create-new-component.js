@@ -1,5 +1,5 @@
 const readline = require("readline")
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 
 const TEMPLATE_LOCATION = 'cli/templates'
@@ -51,7 +51,8 @@ const getComponentName = () => {
                     word.charAt(0).toUpperCase() + word.slice(1)
                 ).join(' ')
             }).join('/')
-            resolve({ fileName, componentName, filePath, categoryName })
+            const folderName = path.join('src', filePath, fileName)
+            resolve({ fileName, componentName, filePath, categoryName, folderName })
         })
     })
 }
@@ -70,11 +71,9 @@ const copyFile = (currentName, targetPath, fileName, componentName, categoryName
 }
 
 const main = async () => {
-    const { fileName, componentName, filePath, categoryName } = await getComponentName()
-    const folderName = path.join('src', filePath, fileName)
-    console.log(folderName)
-    if (!fs.existsSync(folderName)) fs.mkdirSync(folderName)
+    const { fileName, componentName, filePath, categoryName, folderName } = await getComponentName()
 
+    fs.ensureDirSync(folderName)
     const templateFiles = fs.readdirSync(TEMPLATE_LOCATION)
     templateFiles.forEach((file) => {
         copyFile(file, folderName, fileName, componentName, categoryName)
