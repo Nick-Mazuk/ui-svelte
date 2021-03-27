@@ -39,7 +39,7 @@
     }
 </script>
 
-<span class="rounded-full font-medium inline-flex items-center space-x-2 leading-tight {COLOR_MAP[color].container} {sizeClasses} {withDotClasses}">
+<span class="rounded-full font-medium inline-flex items-center space-x-2 leading-tight {COLOR_MAP[color].container} {sizeClasses}">
     {#if dot}
         <div class="w-1.5 h-1.5 rounded-full {COLOR_MAP[color].dot}"></div>
     {/if}
