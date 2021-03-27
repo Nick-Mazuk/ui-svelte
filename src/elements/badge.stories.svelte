@@ -10,7 +10,7 @@
                 control: {
                     type: 'text',
                 },
-                defaultValue: 'Hello world',
+                defaultValue: 'Badge',
                 name: 'children',
                 type: { name: 'string', required: true },
             },

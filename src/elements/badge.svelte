@@ -5,7 +5,6 @@
     export let dot: boolean = false
 
     $: sizeClasses = large ? 'text-sm px-3 py-1' : 'text-xs px-3 py-1'
-    $: withDotClasses = dot ? 'inline-flex items-center space-x-2' : 'inline-flex'
 
     type ColorValue = {
         container: string
@@ -40,7 +39,7 @@
     }
 </script>
 
-<span class="rounded-full font-medium {COLOR_MAP[color].container} {sizeClasses} {withDotClasses}">
+<span class="rounded-full font-medium inline-flex items-center space-x-2 leading-tight {COLOR_MAP[color].container} {sizeClasses} {withDotClasses}">
     {#if dot}
         <div class="w-1.5 h-1.5 rounded-full {COLOR_MAP[color].dot}"></div>
     {/if}
