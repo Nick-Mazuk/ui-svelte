@@ -1,8 +1,7 @@
 <script lang="ts">
     import marked from 'marked/lib/marked.esm'
     import { sanitize } from 'dompurify'
-    // import markdownContents from 'markdown-contents'
-    // import purify from 'dompurify'
+    import purify from 'dompurify'
     export let content = ''
     export let linkify = false
     export let headerIds = false
@@ -54,7 +53,7 @@
     $: {
         if(toc)
             content = tocTreeToMarkdown(creatToc(content))
-        renderedContent = sanitize(marked(content), {ALLOWED_TAGS: enabledTags, FORBID_ATTR: ['style']})
+        renderedContent = purify.sanitize(marked(content), {ALLOWED_TAGS: enabledTags, FORBID_ATTR: ['style']})
     }
 
 </script>
