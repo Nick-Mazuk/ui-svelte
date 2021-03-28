@@ -1,5 +1,5 @@
 <script lang="ts">
-    import markdown from 'markdown-it'
+    const markdown = require('markdown-it')
     export let content = ''
     export let linkify = false
     export let headerAnchors = false
