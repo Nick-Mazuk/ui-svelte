@@ -67,5 +67,10 @@
         "@tailwindcss/line-clamp": "^0.2.0",
         "@tailwindcss/typography": "^0.4.0",
         "tailwindcss": "^2.0.4"
+    },
+    "dependencies": {
+        "markdown-it": "^12.0.4",
+        "markdown-it-anchor": "^7.1.0",
+        "markdown-it-toc-done-right": "^4.2.0"
     }
 }

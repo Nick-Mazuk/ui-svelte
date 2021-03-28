@@ -30,10 +30,10 @@
 <Template let:args>
     <TextContent {...args}>
         <h1>Text content</h1>
-        <blockquote>
-            <p>Currently this does not work in storybook, but it does work in production. Likely because of bug in the Postcss Compat for Tailwind.</p>
-        </blockquote>
-        <p class="lead">Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.</p>
+
+        <p class="lead"><strong>Note</strong>: custom styles are currently not applied here in Storybook. They work in production, so expect things to look slightly different.</p>
+
+        <p>Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.</p>
         <p>
             By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you
             <em>really are</em> just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
