@@ -6,7 +6,7 @@
 
     const content = `# This is a header
                 
-Converts markdown into html in a safe way. Behind the scenes, this component uses markdown-it. Works great if wrapped with the \`TextContent\` component to style the output.
+Converts markdown into html in a safe way. Behind the scenes, this component uses markd and is sanitized with dompurify. Works great if wrapped with the \`TextContent\` component to style the output.
 
 ## These are some options
 
@@ -14,7 +14,9 @@ With \`linkify\`, this will be a link: https://example.com
 
 **bold**
 
-*italic*`
+*italic*
+
+"even quotes are curly"`
     
     const meta = {
         title: 'Typography/Markdown',
@@ -22,7 +24,7 @@ With \`linkify\`, this will be a link: https://example.com
         parameters: {
             docs: {
                 description: {
-                    component: `Converts markdown into html in a safe way. Behind the scenes, this component uses \`markdown-it\`. Works great if wrapped with the \`TextContent\` component to style the output.`
+                    component: `Converts markdown into html in a safe way. Behind the scenes, this component uses \`markd\` and is sanitized with \`dompurify\`. Works great if wrapped with the \`TextContent\` component to style the output.`
                 }
             }
         },
