@@ -3,12 +3,12 @@
     export let responsive = false
     export let fullWidth = false
 
-    $: responsiveClasses = responsive ? 'prose-sm lg:prose-lg sm:prose' : ''
     $: fullWidthClasses = fullWidth ? 'max-w-none w-full' : ''
 </script>
 
 <div
-    class="prose {responsiveClasses} {fullWidthClasses}"
+    class="prose {fullWidthClasses}"
+    class:responsive
     class:mx-auto={center}
 >
     <slot></slot>

@@ -10,13 +10,25 @@ Converts markdown into html in a safe way. Behind the scenes, this component use
 
 ## These are some options
 
-With \`linkify\`, this will be a link: https://example.com
+This will be a link: https://example.com
 
 **bold**
 
 *italic*
 
-"even quotes are curly"`
+"even quotes are curly"
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6`
     
     const meta = {
         title: 'Typography/Markdown',
@@ -41,37 +53,37 @@ With \`linkify\`, this will be a link: https://example.com
                 control: {
                     type: 'array',
                 },
-                defaultValue: ['heading', 'paragraph', 'list', 'image', 'hr', 'code', 'blockquote', 'text', 'backticks', 'strikethrough', 'emphasis', 'link', 'autolink', 'linkify'],
+                defaultValue: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'p', 'blockquote', 'img', 'code', 'pre', 'i', 'emphasis', 'b', 'strong', 'ol', 'ul', 'li'],
                 name: 'enabledTags',
-                description: 'Whitelist html tags. Options available: `heading`, `paragraph`, `list`, `image`, `hr`, `blockquote`, `code`, `table`, `reference`, `html_block`, `lheading`, `fence`, `text`, `newline`, `escape`, `backticks`, `strikethrough`, `emphasis`, `link`, `autolink`, `html_inline`, `entity`, `sub`, `sup`',
+                description: 'Whitelist html tags.',
                 type: { name: 'array', required: false },
             },
-            linkify: {
+            headerIds: {
                 control: {
                     type: 'boolean',
                 },
                 defaultValue: false,
-                name: 'linkify',
-                description: 'Automatically wrap `<a>` tags around links, even if no `<a>` tag was present.',
+                name: 'headerIds',
+                description: 'Adds `id`s to each header, useful for linking directly to them. Especially if you create a table of contents for them.',
                 type: { name: 'boolean', required: false },
             },
-            headerAnchors: {
+            toc: {
                 control: {
                     type: 'boolean',
                 },
                 defaultValue: false,
-                name: 'headerAnchors',
-                description: 'Adds `id`s to each header, useful for linking directly to them.',
-                type: { name: 'boolean', required: false },
-            },
-            tableOfContents: {
-                control: {
-                    type: 'boolean',
-                },
-                defaultValue: false,
-                name: 'tableOfContents',
+                name: 'toc',
                 description: 'Instead of displaying the markdown, generate a table of contents based on the headers.',
                 type: { name: 'boolean', required: false },
+            },
+            tocLevels: {
+                control: {
+                    type: 'number',
+                },
+                defaultValue: 2,
+                name: 'tocLevels',
+                description: 'The number of heading levels allowed in the table of contents. For instance, when `tocLevels` is 2, only `h1` and `h2` headings will be used for the table of contents.',
+                type: { name: 'number', required: false },
             },
         },
     }
