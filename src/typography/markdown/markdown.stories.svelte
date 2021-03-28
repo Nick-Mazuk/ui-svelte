@@ -6,11 +6,15 @@
 
     const content = `# This is a header
                 
-This is a paragraph.
+Converts markdown into html in a safe way. Behind the scenes, this component uses markdown-it. Works great if wrapped with the \`TextContent\` component to style the output.
 
-### These are some options
+## These are some options
 
-With \`linkify\`, this *will* **be** a link: https://example.com`
+With \`linkify\`, this will be a link: https://example.com
+
+**bold**
+
+*italic*`
     
     const meta = {
         title: 'Typography/Markdown',
@@ -80,7 +84,7 @@ With \`linkify\`, this *will* **be** a link: https://example.com`
 <Story name="Default" parameters={{jest: ['markdown.test.ts']}} />
 
 <Story name="With TextContent" parameters={{jest: ['markdown.test.ts']}} let:args>
-    <TextContent>
+    <TextContent responsive center>
         <Markdown {...args}></Markdown>
     </TextContent>
 </Story> 

@@ -10,7 +10,7 @@
     let renderedContent = ''
 
     $: {
-        const md = markdown('zero',{
+        const md = new markdown('zero',{
             linkify,
             typographer: true,
         }).enable(enabledTags)
