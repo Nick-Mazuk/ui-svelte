@@ -5,7 +5,7 @@
     import TextContent from '../text-content/text-content.svelte'
 
     const content = `# This is a header
-                
+
 Converts markdown into html in a safe way. Behind the scenes, this component uses markd and is sanitized with dompurify. Works great if wrapped with the \`TextContent\` component to style the output.
 
 ## These are some options

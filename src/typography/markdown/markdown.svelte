@@ -1,5 +1,5 @@
 <script lang="ts">
-    import marked from 'marked'
+    import marked from 'marked/lib/index.esm'
     // import purify from 'dompurify'
     export let content = ''
     export let linkify = false

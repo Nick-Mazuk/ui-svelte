@@ -13,6 +13,7 @@
         "create-component": "node cli/create-new-component.js"
     },
     "devDependencies": {
+        "@babel/core": "^7.13.13",
         "@babel/preset-typescript": "^7.13.0",
         "@nick-mazuk/eslint-config": "^0.7.40",
         "@nick-mazuk/lib": "^0.8.34",
