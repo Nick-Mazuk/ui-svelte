@@ -17,7 +17,7 @@
         "@babel/preset-typescript": "^7.13.0",
         "@nick-mazuk/eslint-config": "^0.7.40",
         "@nick-mazuk/lib": "^0.8.34",
-        "@nick-mazuk/ui-config": "0.8.24",
+        "@nick-mazuk/ui-config": "0.8.25",
         "@storybook/addon-a11y": "^6.2.0-rc.10",
         "@storybook/addon-actions": "^6.2.0-rc.10",
         "@storybook/addon-essentials": "^6.2.0-rc.10",
