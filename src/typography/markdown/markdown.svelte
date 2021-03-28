@@ -1,13 +1,14 @@
 <script lang="ts">
     import marked from 'marked/lib/marked.esm'
-    import { sanitize } from 'dompurify'
-    import purify from 'dompurify'
+    import dompurify from 'dompurify'
     export let content = ''
     export let linkify = false
     export let headerIds = false
     export let toc = false
     export let tocLevels = 2
     export let enabledTags: string[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'p', 'blockquote', 'img', 'code', 'pre', 'i', 'emphasis', 'b', 'strong', 'ol', 'ul', 'li']
+
+    const purify = dompurify()
 
     let renderedContent = ''
 
