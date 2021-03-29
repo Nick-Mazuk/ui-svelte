@@ -41,6 +41,7 @@ const getComponentName = (): string | Promise<string> => {
         })
 
         rl.on('close', () => {
+            if (response === '') process.exit(0)
             resolve(response)
         })
     })

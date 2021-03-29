@@ -10,7 +10,7 @@
         "check-types": "tsc --noemit",
         "prettier": "prettier --write . --plugin-search-dir=.",
         "lint": "npm run prettier && eslint . --quiet --fix && npm run check-types",
-        "create-component": "./node_modules/.bin/esbuild cli/create-new-component.ts --outfile=cli/dist/create-new-component.js --platform=node --target=node12.17 && node cli/dist/create-new-component.js"
+        "create-component": "./node_modules/.bin/esbuild cli/create-new-component.ts --outfile=cli/dist/create-new-component.mjs --platform=node --target=node12.17 && node cli/dist/create-new-component.mjs"
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
