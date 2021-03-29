@@ -14,5 +14,5 @@ jobs:
               with:
                   node-version: ${{ matrix.node }}
             - run: npx pnpm i
-            - run: npm lint
+            - run: npm run lint
             - run: npm run test
