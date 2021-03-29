@@ -10,5 +10,5 @@ module.exports = {
     },
     moduleFileExtensions: ['js', 'ts', 'svelte'],
     setupFilesAfterEnv: ['./test-setup.ts'],
-    testPathIgnorePatterns: ['./cli/templates']
+    testPathIgnorePatterns: ['./cli/templates'],
 }

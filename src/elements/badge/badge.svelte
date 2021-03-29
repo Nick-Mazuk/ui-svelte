@@ -1,8 +1,8 @@
 <script lang="ts">
     type Color = 'primary' | 'secondary' | 'error' | 'highlight' | 'warning' | 'success'
     export let color: Color = 'secondary'
-    export let large: boolean = false
-    export let dot: boolean = false
+    export let large = false
+    export let dot = false
 
     $: containerClasses = large ? 'text-sm px-3 py-0.5' : 'text-xs px-2.5 py-0.5'
     $: dotClasses = large ? 'w-1.5 h-1.5' : 'w-1 h-1'
@@ -51,6 +51,6 @@
         ></div>
     {/if}
     <span>
-        <slot></slot>
+        <slot />
     </span>
 </span>

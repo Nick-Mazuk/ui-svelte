@@ -15,9 +15,9 @@
     $: dotClasses = `absolute w-2 h-2 rounded-full ${COLOR_MAP[color]}`
 </script>
 
-<div class='relative w-2 h-2'>
-    <div class={dotClasses} />
+<div class="relative w-2 h-2">
+    <div class="{dotClasses}"></div>
     {#if ping}
-        <div class='{dotClasses} animate-ping' />
+        <div class="{dotClasses} animate-ping"></div>
     {/if}
 </div>

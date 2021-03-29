@@ -1,5 +1,6 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+
     import StatusDot from './status-dot.svelte'
 
     const meta = {
@@ -31,4 +32,4 @@
     <StatusDot {...args}>{args.children}</StatusDot>
 </Template>
 
-<Story name="Default" parameters={{jest: ['status-dot.test.ts']}} />
+<Story name="Default" parameters="{{ jest: ['status-dot.test.ts'] }}" />

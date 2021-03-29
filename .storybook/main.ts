@@ -10,7 +10,7 @@ module.exports = {
         'storybook-addon-themes',
         {
             name: '@storybook/addon-postcss',
-                options: {
+            options: {
                 postcssLoaderOptions: {
                     implementation: require('postcss'),
                 },

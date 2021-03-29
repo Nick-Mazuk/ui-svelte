@@ -1,27 +1,23 @@
-const readline = require("readline")
-const fs = require('fs-extra')
-const path = require('path')
+import readline from 'readline'
+import fs from 'fs-extra'
+import path from 'path'
 
 const TEMPLATE_LOCATION = 'cli/templates'
 
 const getComponentName = () => {
     let componentName = process.argv[2]
-    if (
-        typeof componentName === 'string'
-        && componentName !== ''
-        && componentName !== 'undefined'
-    )
+    if (typeof componentName === 'string' && componentName !== '' && componentName !== 'undefined')
         return componentName
 
     const rl = readline.createInterface({
         input: process.stdin,
-        output: process.stdout
+        output: process.stdout,
     })
 
     return new Promise((resolve) => {
         let response = ''
         const prompt = 'Name the component: '
-        
+
         rl.setPrompt(prompt)
         rl.prompt()
 
@@ -42,25 +38,32 @@ const getComponentName = () => {
             const splitPath = response.split('/')
             const fileName = splitPath.pop()
             const splitName = fileName.split('-')
-            const componentName = splitName.map((part) => (
-                part.charAt(0).toUpperCase() + part.slice(1)
-            )).join('')
+            const componentName = splitName
+                .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                .join('')
             const filePath = splitPath.join('/')
-            const categoryName = filePath.split('/').map((folder) => {
-                return folder.split('-').map((word) => 
-                    word.charAt(0).toUpperCase() + word.slice(1)
-                ).join(' ')
-            }).join('/')
+            const categoryName = filePath
+                .split('/')
+                .map((folder) => {
+                    return folder
+                        .split('-')
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ')
+                })
+                .join('/')
             const folderName = path.join('src', filePath, fileName)
             resolve({ fileName, componentName, filePath, categoryName, folderName })
         })
     })
 }
 
-const copyFile = (currentName, targetPath, fileName, componentName, categoryName) => {;
+const copyFile = (currentName, targetPath, fileName, componentName, categoryName) => {
     const contents = fs.readFileSync(path.join(TEMPLATE_LOCATION, currentName)).toString()
     let newContents = contents.replace(/component-template/g, fileName)
-    newContents = newContents.replace(/ComponentTemplateWithCategory/g, categoryName + '/' + componentName)
+    newContents = newContents.replace(
+        /ComponentTemplateWithCategory/g,
+        categoryName + '/' + componentName
+    )
     newContents = newContents.replace(/ComponentTemplate/g, componentName)
 
     const targetFileName = currentName.replace('component-template', fileName)

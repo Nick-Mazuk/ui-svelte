@@ -9,13 +9,13 @@
         "build": "npm run test:generate-output; build-storybook -c .storybook -o docs",
         "check-types": "tsc --noemit",
         "prettier": "prettier --write . --plugin-search-dir=.",
-        "lint": "npm run prettier && eslint . --quiet && npm run check-types",
+        "lint": "npm run prettier && eslint . --quiet --fix && npm run check-types",
         "create-component": "node cli/create-new-component.js"
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
         "@babel/preset-typescript": "^7.13.0",
-        "@nick-mazuk/eslint-config": "^0.7.40",
+        "@nick-mazuk/eslint-config": "^0.7.43",
         "@nick-mazuk/lib": "^0.8.34",
         "@nick-mazuk/ui-config": "0.8.31",
         "@storybook/addon-a11y": "^6.2.0-rc.10",
@@ -35,6 +35,7 @@
         "@tailwindcss/typography": "^0.4.0",
         "@testing-library/jest-dom": "^5.11.10",
         "@testing-library/svelte": "^3.0.3",
+        "@types/fs-extra": "^9.0.9",
         "@types/jest": "^26.0.22",
         "@types/node": "^14.14.36",
         "autoprefixer": "^10.2.5",

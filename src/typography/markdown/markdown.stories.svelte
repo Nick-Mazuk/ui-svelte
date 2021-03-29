@@ -1,8 +1,8 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
-    import Markdown from './markdown.svelte'
 
     import TextContent from '../text-content/text-content.svelte'
+    import Markdown from './markdown.svelte'
 
     const content = `# This is a header
 
@@ -31,16 +31,16 @@ This will be a link: https://example.com
 ##### Heading 5
 
 ###### Heading 6`
-    
+
     const meta = {
         title: 'Typography/Markdown',
         component: Markdown,
         parameters: {
             docs: {
                 description: {
-                    component: `Converts markdown into html in a safe way. Behind the scenes, this component uses \`markd\` and is sanitized with \`dompurify\`. Works great if wrapped with the \`TextContent\` component to style the output.`
-                }
-            }
+                    component: `Converts markdown into html in a safe way. Behind the scenes, this component uses \`markd\` and is sanitized with \`dompurify\`. Works great if wrapped with the \`TextContent\` component to style the output.`,
+                },
+            },
         },
         argTypes: {
             content: {
@@ -55,7 +55,27 @@ This will be a link: https://example.com
                 control: {
                     type: 'array',
                 },
-                defaultValue: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'p', 'blockquote', 'img', 'code', 'pre', 'i', 'emphasis', 'b', 'strong', 'ol', 'ul', 'li'],
+                defaultValue: [
+                    'h1',
+                    'h2',
+                    'h3',
+                    'h4',
+                    'h5',
+                    'h6',
+                    'a',
+                    'p',
+                    'blockquote',
+                    'img',
+                    'code',
+                    'pre',
+                    'i',
+                    'emphasis',
+                    'b',
+                    'strong',
+                    'ol',
+                    'ul',
+                    'li',
+                ],
                 name: 'enabledTags',
                 description: 'Whitelist html tags.',
                 type: { name: 'array', required: false },
@@ -66,7 +86,8 @@ This will be a link: https://example.com
                 },
                 defaultValue: false,
                 name: 'headerIds',
-                description: 'Adds `id`s to each header, useful for linking directly to them. Especially if you create a table of contents for them.',
+                description:
+                    'Adds `id`s to each header, useful for linking directly to them. Especially if you create a table of contents for them.',
                 type: { name: 'boolean', required: false },
             },
             toc: {
@@ -75,7 +96,8 @@ This will be a link: https://example.com
                 },
                 defaultValue: false,
                 name: 'toc',
-                description: 'Instead of displaying the markdown, generate a table of contents based on the headers.',
+                description:
+                    'Instead of displaying the markdown, generate a table of contents based on the headers.',
                 type: { name: 'boolean', required: false },
             },
             tocLevels: {
@@ -84,7 +106,8 @@ This will be a link: https://example.com
                 },
                 defaultValue: 2,
                 name: 'tocLevels',
-                description: 'The number of heading levels allowed in the table of contents. For instance, when `tocLevels` is 2, only `h1` and `h2` headings will be used for the table of contents.',
+                description:
+                    'The number of heading levels allowed in the table of contents. For instance, when `tocLevels` is 2, only `h1` and `h2` headings will be used for the table of contents.',
                 type: { name: 'number', required: false },
             },
         },
@@ -94,13 +117,13 @@ This will be a link: https://example.com
 <Meta {...meta} />
 
 <Template let:args>
-    <Markdown {...args}></Markdown>
+    <Markdown {...args} />
 </Template>
 
-<Story name="Default" parameters={{jest: ['markdown.test.ts']}} />
+<Story name="Default" parameters="{{ jest: ['markdown.test.ts'] }}" />
 
-<Story name="With TextContent" parameters={{jest: ['markdown.test.ts']}} let:args>
+<Story name="With TextContent" parameters="{{ jest: ['markdown.test.ts'] }}" let:args>
     <TextContent responsive center>
-        <Markdown {...args}></Markdown>
+        <Markdown {...args} />
     </TextContent>
-</Story> 
+</Story>

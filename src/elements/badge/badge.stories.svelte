@@ -1,5 +1,6 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+
     import Badge from './badge.svelte'
 
     const meta = {
@@ -42,4 +43,4 @@
     <Badge {...args}>{args.children}</Badge>
 </Template>
 
-<Story name="Default" parameters={{jest: ['badge.test.ts']}} />
+<Story name="Default" parameters="{{ jest: ['badge.test.ts'] }}" />

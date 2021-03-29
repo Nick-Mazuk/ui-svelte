@@ -4,7 +4,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.13.13
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
-  '@nick-mazuk/eslint-config': 0.7.40_eslint@7.23.0+svelte@3.35.0
+  '@nick-mazuk/eslint-config': 0.7.43_82834e191836c56312feb8dfd13cf146
   '@nick-mazuk/lib': 0.8.34
   '@nick-mazuk/ui-config': 0.8.31_889aa8308374042d1eb4d3346732eda7
   '@storybook/addon-a11y': 6.2.0-rc.10
@@ -24,6 +24,7 @@ devDependencies:
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
   '@testing-library/jest-dom': 5.11.10
   '@testing-library/svelte': 3.0.3_svelte@3.35.0
+  '@types/fs-extra': 9.0.9
   '@types/jest': 26.0.22
   '@types/node': 14.14.36
   autoprefixer: 10.2.5_postcss@8.2.8
@@ -2472,7 +2473,7 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==
-  /@nick-mazuk/eslint-config/0.7.40_eslint@7.23.0+svelte@3.35.0:
+  /@nick-mazuk/eslint-config/0.7.43_82834e191836c56312feb8dfd13cf146:
     dependencies:
       '@typescript-eslint/eslint-plugin': 4.19.0_74ed7481b9e9d74dbbdc605348ac41e8
       '@typescript-eslint/parser': 4.19.0_eslint@7.23.0
@@ -2495,14 +2496,14 @@ packages:
       eslint-plugin-testing-library: 3.10.2_eslint@7.23.0
       eslint-plugin-unicorn: 29.0.0_eslint@7.23.0
       eslint-plugin-unused-imports: 1.1.0
-      prettier: 2.2.1
     dev: true
     peerDependencies:
-      eslint: '>= 7.22.0'
+      eslint: '>= 7.23.0'
+      prettier: '*'
       svelte: '*'
       typescript: '>= 4.2.3'
     resolution:
-      integrity: sha512-ANfAApBfPyFlKW5dLdLv2Fp4vLej7WLA0T1H+qzNCCzdFiu/DCnCfZ65+iV4bphYh39Fns6eZIisai+Oib/low==
+      integrity: sha512-Oaqi1l7iQkxqL/76sxIXdsfINO0+KGraY/wrkL9bsjZRtZq7QZl6A0QFq72pl7pNSylPFBvcHc7DCZ3I+2vMfg==
   /@nick-mazuk/lib/0.8.34:
     dependencies:
       validator: 13.5.2
@@ -4408,6 +4409,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+  /@types/fs-extra/9.0.9:
+    dependencies:
+      '@types/node': 14.14.37
+    dev: true
+    resolution:
+      integrity: sha512-5TqDycCl0oMzwzd1cIjSJWMKMvLCDVErle4ZTjU4EmHDURR/+yZghe6GDHMCpHtcVfq0x0gMoOM546/5TbYHrg==
   /@types/glob-base/0.3.0:
     dev: true
     resolution:
@@ -14988,7 +14995,7 @@ packages:
 specifiers:
   '@babel/core': ^7.13.13
   '@babel/preset-typescript': ^7.13.0
-  '@nick-mazuk/eslint-config': ^0.7.40
+  '@nick-mazuk/eslint-config': ^0.7.43
   '@nick-mazuk/lib': ^0.8.34
   '@nick-mazuk/ui-config': 0.8.31
   '@storybook/addon-a11y': ^6.2.0-rc.10
@@ -15008,6 +15015,7 @@ specifiers:
   '@tailwindcss/typography': ^0.4.0
   '@testing-library/jest-dom': ^5.11.10
   '@testing-library/svelte': ^3.0.3
+  '@types/fs-extra': ^9.0.9
   '@types/jest': ^26.0.22
   '@types/node': ^14.14.36
   autoprefixer: ^10.2.5

@@ -1,5 +1,6 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+
     import LoadingSpinner from './loading-spinner.svelte'
 
     const meta = {
@@ -8,20 +9,18 @@
         parameters: {
             docs: {
                 description: {
-                    component: 'For whenever there content cannot display immediately'
-                }
-            }
+                    component: 'For whenever there content cannot display immediately',
+                },
+            },
         },
-        argTypes: {
-            
-        },
+        argTypes: {},
     }
 </script>
 
 <Meta {...meta} />
 
 <Template let:args>
-    <LoadingSpinner {...args}></LoadingSpinner>
+    <LoadingSpinner {...args} />
 </Template>
 
-<Story name="Default" parameters={{jest: ['loading-spinner.test.ts']}} />
+<Story name="Default" parameters="{{ jest: ['loading-spinner.test.ts'] }}" />
