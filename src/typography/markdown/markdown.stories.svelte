@@ -8,6 +8,8 @@
 
 Converts markdown into html in a safe way. Behind the scenes, this component uses markd and is sanitized with dompurify. Works great if wrapped with the \`TextContent\` component to style the output.
 
+> Note: Currently unsafe. While it works properly, there's a bug with importing \`dompurify\` in production. Therefore, it's not being used an XSS attacks are possible if you're rendering markdown from an untrusted source.
+
 ## These are some options
 
 This will be a link: https://example.com

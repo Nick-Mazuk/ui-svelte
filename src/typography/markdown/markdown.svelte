@@ -1,8 +1,7 @@
 <script lang="ts">
     import marked from 'marked/lib/marked.esm'
-    import purify from 'isomorphic-dompurify'
+    // import purify from 'isomorphic-dompurify'
     export let content = ''
-    export let linkify = false
     export let headerIds = false
     export let toc = false
     export let tocLevels = 2
@@ -53,7 +52,8 @@
     $: {
         if(toc)
             content = tocTreeToMarkdown(creatToc(content))
-        renderedContent = purify.sanitize(marked(content), {ALLOWED_TAGS: enabledTags, FORBID_ATTR: ['style']})
+        // renderedContent = purify.sanitize(marked(content), {ALLOWED_TAGS: enabledTags, FORBID_ATTR: ['style']})
+        renderedContent = marked(content)
     }
 
 </script>
