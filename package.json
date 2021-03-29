@@ -19,7 +19,7 @@
         "@babel/preset-typescript": "^7.13.0",
         "@nick-mazuk/eslint-config": "^0.7.46",
         "@nick-mazuk/lib": "^0.8.34",
-        "@nick-mazuk/ui-config": "0.8.31",
+        "@nick-mazuk/ui-config": "0.8.35",
         "@storybook/addon-a11y": "^6.2.0-rc.10",
         "@storybook/addon-actions": "^6.2.0-rc.10",
         "@storybook/addon-essentials": "^6.2.0-rc.10",
@@ -32,7 +32,7 @@
         "@storybook/theming": "^6.2.0-rc.10",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.3.2",
-        "@tailwindcss/jit": "^0.1.8",
+        "@tailwindcss/jit": "^0.1.17",
         "@tailwindcss/line-clamp": "^0.2.0",
         "@tailwindcss/typography": "^0.4.0",
         "@testing-library/jest-dom": "^5.11.10",
@@ -64,7 +64,8 @@
     ],
     "files": [
         "src/",
-        ".npmignore"
+        ".npmignore",
+        "types.d.ts"
     ],
     "peerDependencies": {
         "@nick-mazuk/lib": "^0.8.34",
