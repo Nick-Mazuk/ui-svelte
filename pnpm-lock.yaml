@@ -1,10 +1,11 @@
 dependencies:
   dompurify: 2.2.7
+  esbuild: 0.11.0
   marked: 2.0.1
 devDependencies:
   '@babel/core': 7.13.13
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
-  '@nick-mazuk/eslint-config': 0.7.43_82834e191836c56312feb8dfd13cf146
+  '@nick-mazuk/eslint-config': 0.7.44_82834e191836c56312feb8dfd13cf146
   '@nick-mazuk/lib': 0.8.34
   '@nick-mazuk/ui-config': 0.8.31_889aa8308374042d1eb4d3346732eda7
   '@storybook/addon-a11y': 6.2.0-rc.10
@@ -2473,7 +2474,7 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==
-  /@nick-mazuk/eslint-config/0.7.43_82834e191836c56312feb8dfd13cf146:
+  /@nick-mazuk/eslint-config/0.7.44_82834e191836c56312feb8dfd13cf146:
     dependencies:
       '@typescript-eslint/eslint-plugin': 4.19.0_74ed7481b9e9d74dbbdc605348ac41e8
       '@typescript-eslint/parser': 4.19.0_eslint@7.23.0
@@ -2503,7 +2504,7 @@ packages:
       svelte: '*'
       typescript: '>= 4.2.3'
     resolution:
-      integrity: sha512-Oaqi1l7iQkxqL/76sxIXdsfINO0+KGraY/wrkL9bsjZRtZq7QZl6A0QFq72pl7pNSylPFBvcHc7DCZ3I+2vMfg==
+      integrity: sha512-vSyPG75DsYC/hnGVSTenqSw5WqnJa/NrxA6u2I/EEaEgblUnKebp9Tuo8fDZkF8Ht1wdbl/pfYm/Rf7DCp0GPg==
   /@nick-mazuk/lib/0.8.34:
     dependencies:
       validator: 13.5.2
@@ -7326,6 +7327,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-EmTr31wppcaIAgblChZiuN/l9Y7DPyw8Xtbg7fIVngn6zMW+IEBJDJngeKC3x6wr0V/vcA2wqeFnaw1bFJbDdA==
+  /esbuild/0.11.0:
+    dev: false
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-soxN5dic/pDMM0LKLUKmpOY/MVfF+6n3RHLS2ez0YQoM0dmd2tTs/hmAC4pxfhm2Pvn/28UtMJyFedRYC+8olA==
   /escalade/3.1.1:
     dev: true
     engines:
@@ -14995,7 +15002,7 @@ packages:
 specifiers:
   '@babel/core': ^7.13.13
   '@babel/preset-typescript': ^7.13.0
-  '@nick-mazuk/eslint-config': ^0.7.43
+  '@nick-mazuk/eslint-config': ^0.7.44
   '@nick-mazuk/lib': ^0.8.34
   '@nick-mazuk/ui-config': 0.8.31
   '@storybook/addon-a11y': ^6.2.0-rc.10
@@ -15020,6 +15027,7 @@ specifiers:
   '@types/node': ^14.14.36
   autoprefixer: ^10.2.5
   dompurify: ^2.2.7
+  esbuild: ^0.11.0
   eslint: ^7.23.0
   fs-extra: ^9.1.0
   jest: ^26.6.3

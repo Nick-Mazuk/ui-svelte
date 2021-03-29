@@ -20,6 +20,7 @@
         "src/**/*.svelte",
         "test-setup.ts",
         "src/index.js",
-        "src/badge/index.js"
+        "src/badge/index.js",
+        "cli/**/*.ts"
     ]
 }

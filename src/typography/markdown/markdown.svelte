@@ -48,10 +48,7 @@
 
             articles.push({
                 level: level,
-                id: name
-                    .toLowerCase()
-                    .replace(/\W+/ug, '-')
-                    .trim(),
+                id: name.toLowerCase().replace(/\W+/gu, '-').trim(),
                 name: name,
             })
         })
@@ -74,8 +71,8 @@
 
     $: {
         if (toc) content = tocTreeToMarkdown(creatToc(content))
-    
-    // renderedContent = purify.sanitize(marked(content), {ALLOWED_TAGS: enabledTags, FORBID_ATTR: ['style']})
+
+        // renderedContent = purify.sanitize(marked(content), {ALLOWED_TAGS: enabledTags, FORBID_ATTR: ['style']})
         renderedContent = marked(content)
     }
 </script>
