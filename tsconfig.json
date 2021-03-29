@@ -21,6 +21,7 @@
         "test-setup.ts",
         "src/index.js",
         "src/badge/index.js",
-        "cli/**/*.ts"
+        "cli/**/*.ts",
+        "types.d.ts"
     ]
 }

@@ -2,7 +2,7 @@
     import LoadingSpinner from '../loading-spinner/loading-spinner.svelte'
 
     type Size = 'small' | 'default' | 'large'
-    export let size = 'default'
+    export let size: Size = 'default'
 
     const SIZE_MAP: Record<Size, string> = {
         small: 'py-16',

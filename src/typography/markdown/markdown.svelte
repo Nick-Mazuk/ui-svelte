@@ -28,6 +28,9 @@
         'li',
     ]
 
+    type TocTreeItem = { id: string; name: string; level: number }
+    type TocTree = TocTreeItem[]
+
     let renderedContent = ''
 
     marked.setOptions({
@@ -35,28 +38,28 @@
         headerIds,
     })
 
-    const creatToc = (markdown) => {
-        const articles = []
+    const createToc = (input: string) => {
+        const articles: TocTree = []
 
-        markdown = markdown.replace(/^```[\S\s]*?\n```/gmu, function (match) {
-            return ''
-        })
+        const markdown = input.replace(/^```[\S\s]*?\n```/gmu, '')
 
-        markdown.replace(/^(#+)(.*$)/gmu, function (match, level, name) {
-            level = level.length
-            name = name.trim()
+        markdown.replace(/^(#+)(.*$)/gmu, (match, levelString, nameString) => {
+            const level = levelString.length
+            const name = nameString.trim()
 
             articles.push({
-                level: level,
+                level,
                 id: name.toLowerCase().replace(/\W+/gu, '-').trim(),
-                name: name,
+                name,
             })
+
+            return match
         })
 
         return articles
     }
 
-    const tocTreeToMarkdown = (tree) => {
+    const tocTreeToMarkdown = (tree: TocTree) => {
         let result = ''
 
         tree.forEach((item) => {
@@ -70,7 +73,7 @@
     }
 
     $: {
-        if (toc) content = tocTreeToMarkdown(creatToc(content))
+        if (toc) content = tocTreeToMarkdown(createToc(content))
 
         // renderedContent = purify.sanitize(marked(content), {ALLOWED_TAGS: enabledTags, FORBID_ATTR: ['style']})
         renderedContent = marked(content)

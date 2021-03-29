@@ -122,8 +122,10 @@ This will be a link: https://example.com
 
 <Story name="Default" parameters="{{ jest: ['markdown.test.ts'] }}" />
 
-<Story name="With TextContent" parameters="{{ jest: ['markdown.test.ts'] }}" let:args>
+<Story name="With TextContent" let:args>
     <TextContent responsive center>
         <Markdown {...args} />
     </TextContent>
 </Story>
+
+<Story name="Table of contents" args="{{ toc: true }}" />
