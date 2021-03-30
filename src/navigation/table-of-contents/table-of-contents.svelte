@@ -30,10 +30,10 @@
             {#each item.children as child}
                 <a
                     href="{child.href}"
-                    class="block border-l border-gray-50 py-2 pl-5 text-gray hover:text-gray-900 transition-colors {currentItem ===
+                    class="block border-l border-gray-50 py-2 pl-5 hover:text-gray-900 transition-colors {currentItem ===
                     child.href
                         ? 'text-bold text-gray-900'
-                        : ''}"
+                        : 'text-gray-600'}"
                 >
                     {child.text}
                 </a>
