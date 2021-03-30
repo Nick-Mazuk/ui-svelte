@@ -3,7 +3,7 @@ import readline from 'readline'
 
 import fs from 'fs-extra'
 
-const TEMPLATE_LOCATION = 'cli/templates'
+const TEMPLATE_LOCATION = 'cli/create-new-component/templates'
 
 const isValidInput = (input: unknown): { valid: boolean; error: string } => {
     if (typeof input !== 'string') return { valid: false, error: 'must be a string' }

@@ -1,0 +1,32 @@
+<script lang="ts">
+    export let size = 6
+    export let strokeWidth = 1.5
+    export let color = ''
+    type Align = 'top' | 'middle' | 'bottom' | 'default'
+    export let align: Align = 'default'
+
+    const ALIGN_MAP: Record<Align, string> = {
+        top: 'vertical-align: text-top;',
+        middle: 'vertical-align: middle;',
+        bottom: 'vertical-align: text-bottom;',
+        default: '',
+    }
+
+    $: dimensions = size * 4
+    $: parsedColor = color ? `rgb(var(${color}))` : 'currentColor'
+</script>
+
+<svg
+    viewBox="0 0 24 24"
+    width="{dimensions}"
+    height="{dimensions}"
+    stroke="currentColor"
+    stroke-width="{strokeWidth}"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+    shape-rendering="geometricPrecision"
+    style="color: {parsedColor}; {ALIGN_MAP[align]}"
+>
+    <polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
+</svg>

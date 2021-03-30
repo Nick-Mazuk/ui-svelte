@@ -1,2 +1,3 @@
 pnpm-lock.yaml
 .jest-test-results.json
+src/elements/icon/*.svelte
