@@ -1,7 +1,5 @@
 <script lang="ts">
     import marked from 'marked/lib/marked.esm'
-
-    // import purify from 'isomorphic-dompurify'
     export let content = ''
     export let headerIds = false
     export let toc = false
