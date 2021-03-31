@@ -11,6 +11,7 @@
 
 <HeaderItemWrapper breakpoint="{breakpoint}">
     <a
+        sveltekit:prefetch
         href="{href}"
         class="flex items-center hover:text-current transition-color text-sm whitespace-nowrap {isCurrentPath
             ? 'text-current text-semibold'

@@ -13,7 +13,7 @@
 <header
     class="z-50 {stickyClasses} bg-white dark:bg-gray-40 border-b border-gray-50 {scrolledToTop
         ? 'border-opacity-100'
-        : 'border-opacity-0'}"
+        : 'border-opacity-0 dark:border-opacity-100'}"
     style="transform:translateZ(10000px)"
 >
     <a
