@@ -23,6 +23,14 @@
                 defaultValue: '#',
                 type: { name: 'string', required: true },
             },
+            title: {
+                control: {
+                    type: 'text',
+                },
+                name: 'title',
+                defaultValue: 'Github',
+                type: { name: 'string', required: true },
+            },
         },
     }
 </script>

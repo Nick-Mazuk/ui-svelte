@@ -11,7 +11,8 @@
         dispatch('change', event.currentTarget.value)
     }
 
-    export let hideIcon = false
+    export let hideArrow = false
+    export let title = ''
 </script>
 
 <div class="relative text-gray-700 hover:text-gray-900 transition-colors">
@@ -26,10 +27,11 @@
         class:pr-8="{$$slots.suffix}"
         on:input|self="{handleInput}"
         value="{value}"
+        title="{title}"
     >
         <slot />
     </select>
-    {#if !hideIcon || $$slots.suffix}
+    {#if !hideArrow || $$slots.suffix}
         <div class="absolute h-full flex items-center top-0 right-2.5 pointer-events-none w-4">
             {#if $$slots.suffix}
                 <slot name="suffix" />

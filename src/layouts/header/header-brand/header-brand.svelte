@@ -10,7 +10,7 @@
 
 <a href="{href}" sveltekit:prefetch class="flex items-center space-x-2 pr-2">
     {#if image}
-        <img src="{image}" alt="{text}" class="flex-none h-10" />
+        <img src="{image}" class="flex-none h-10" role="presentation" alt="" />
     {/if}
     <HeaderItemWrapper breakpoint="{breakpoint}">
         <p class="h6 font-display whitespace-nowrap">{text}</p>

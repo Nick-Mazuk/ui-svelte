@@ -31,7 +31,7 @@
             ©{new Date().getFullYear()} Nick Mazuk. All rights reserved.
         </svelte:fragment>
         <svelte:fragment slot="social-links">
-            <FooterSocialLink href="#">
+            <FooterSocialLink href="#" title="Github">
                 <Github />
             </FooterSocialLink>
         </svelte:fragment>

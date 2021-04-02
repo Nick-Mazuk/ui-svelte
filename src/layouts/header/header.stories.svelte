@@ -38,6 +38,7 @@
                 <HeaderBrand text="UI Svelte" />
             </svelte:fragment>
         </Header>
+        <div id="main-content"></div>
     </div>
 </Template>
 
@@ -49,13 +50,15 @@
                 <HeaderBrand text="UI Svelte" />
             </svelte:fragment>
         </Header>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
-        <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+        <div id="main-content">
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
+        </div>
     </div>
 </Story>

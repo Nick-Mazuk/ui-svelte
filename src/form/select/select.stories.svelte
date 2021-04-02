@@ -14,7 +14,18 @@
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            title: {
+                control: { type: 'text' },
+                defaultValue: 'Title',
+                type: { name: 'string' },
+            },
+            hideArrow: {
+                control: { type: 'boolean' },
+                defaultValue: false,
+                type: { name: 'boolean' },
+            },
+        },
     }
 </script>
 
@@ -30,7 +41,7 @@
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['select.test.ts'] }}" />
-<Story name="No arrow" args="{{ hideIcon: true }}" />
+<Story name="No arrow" args="{{ hideArrow: true }}" />
 <Story name="With prefix" let:args>
     <Select {...args}>
         <svelte:fragment slot="prefix">
