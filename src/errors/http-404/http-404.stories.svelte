@@ -35,8 +35,7 @@
                     type: 'text',
                 },
                 name: 'message',
-                defaultValue:
-                    "Looks like the page you're looking for doesn't exist or has been moved.",
+                defaultValue: "Looks like the page you're looking for doesn't exist.",
                 type: { name: 'string', required: false },
             },
             links: {
