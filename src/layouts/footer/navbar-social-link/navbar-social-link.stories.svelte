@@ -1,5 +1,6 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import Github from '../../../elements/icon/github.svelte'
 
     import NavbarSocialLink from './navbar-social-link.svelte'
 
@@ -13,14 +14,25 @@
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            href: {
+                control: {
+                    type: 'text',
+                },
+                name: 'href',
+                defaultValue: '#',
+                type: { name: 'string', required: true },
+            },
+        },
     }
 </script>
 
 <Meta {...meta} />
 
 <Template let:args>
-    <NavbarSocialLink {...args} />
+    <NavbarSocialLink {...args}>
+        <Github />
+    </NavbarSocialLink>
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['navbar-social-link.test.ts'] }}" />
