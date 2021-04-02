@@ -3,13 +3,11 @@
     import Moon from '../icon/moon.svelte'
     import Monitor from '../icon/monitor.svelte'
     import Select from '../../form/select/select.svelte'
+    import type SvelteStore from 'svelte/store'
 
     type Theme = 'system' | 'dark' | 'light'
 
-    export let store: {
-        subscribe: () => void
-        set: (theme: Theme) => void
-    }
+    export let store: SvelteStore.Writable<Theme>
 </script>
 
 <Select on:change="{(event) => store.set(event.detail)}" value="{$store}" title="Set site theme">
