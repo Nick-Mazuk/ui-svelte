@@ -14,7 +14,6 @@
     })
 
     onMount(() => {
-        console.log('mount', $opacity)
         progress.set(66)
     })
 

@@ -7,7 +7,7 @@
 
     type Theme = 'system' | 'dark' | 'light'
 
-    export let store: SvelteStore.Writable<Theme>
+    export let store: Omit<SvelteStore.Writable<Theme>, 'update'>
 </script>
 
 <Select on:change="{(event) => store.set(event.detail)}" value="{$store}" title="Set site theme">
