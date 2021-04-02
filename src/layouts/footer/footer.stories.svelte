@@ -3,7 +3,7 @@
     import Github from '../../elements/icon/github.svelte'
 
     import Footer from './footer.svelte'
-    import NavbarSocialLink from './navbar-social-link/navbar-social-link.svelte'
+    import FooterSocialLink from './footer-social-link/footer-social-link.svelte'
 
     const meta = {
         title: 'Layouts/Footer',
@@ -31,9 +31,9 @@
             ©{new Date().getFullYear()} Nick Mazuk. All rights reserved.
         </svelte:fragment>
         <svelte:fragment slot="social-links">
-            <NavbarSocialLink href="#">
+            <FooterSocialLink href="#">
                 <Github />
-            </NavbarSocialLink>
+            </FooterSocialLink>
         </svelte:fragment>
     </Footer>
 </Story>

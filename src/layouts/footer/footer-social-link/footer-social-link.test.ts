@@ -1,8 +1,8 @@
 import { render } from '@testing-library/svelte'
 
-import NavbarSocialLink from './navbar-social-link.svelte'
+import FooterSocialLink from './footer-social-link.svelte'
 
 it('renders without crashing', () => {
-    const { container } = render(NavbarSocialLink)
+    const { container } = render(FooterSocialLink)
     expect(container).not.toBeEmptyDOMElement()
 })

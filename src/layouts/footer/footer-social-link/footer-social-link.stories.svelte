@@ -2,11 +2,11 @@
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
     import Github from '../../../elements/icon/github.svelte'
 
-    import NavbarSocialLink from './navbar-social-link.svelte'
+    import FooterSocialLink from './footer-social-link.svelte'
 
     const meta = {
-        title: 'Layouts/Footer/NavbarSocialLink',
-        component: NavbarSocialLink,
+        title: 'Layouts/Footer/FooterSocialLink',
+        component: FooterSocialLink,
         parameters: {
             docs: {
                 description: {
@@ -30,9 +30,9 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <NavbarSocialLink {...args}>
+    <FooterSocialLink {...args}>
         <Github />
-    </NavbarSocialLink>
+    </FooterSocialLink>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['navbar-social-link.test.ts'] }}" />
+<Story name="Default" parameters="{{ jest: ['footer-social-link.test.ts'] }}" />
