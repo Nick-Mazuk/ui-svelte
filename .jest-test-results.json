@@ -1,0 +1,134 @@
+{
+    "numFailedTestSuites": 1,
+    "numFailedTests": 0,
+    "numPassedTestSuites": 5,
+    "numPassedTests": 5,
+    "numPendingTestSuites": 0,
+    "numPendingTests": 0,
+    "numRuntimeErrorTestSuites": 1,
+    "numTodoTests": 0,
+    "numTotalTestSuites": 6,
+    "numTotalTests": 5,
+    "openHandles": [],
+    "snapshot": {
+        "added": 0,
+        "didUpdate": false,
+        "failure": false,
+        "filesAdded": 0,
+        "filesRemoved": 0,
+        "filesRemovedList": [],
+        "filesUnmatched": 0,
+        "filesUpdated": 0,
+        "matched": 0,
+        "total": 0,
+        "unchecked": 0,
+        "uncheckedKeysByFile": [],
+        "unmatched": 0,
+        "updated": 0
+    },
+    "startTime": 1616975776278,
+    "success": false,
+    "testResults": [
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [],
+                    "failureMessages": [],
+                    "fullName": "renders without crashing",
+                    "location": null,
+                    "status": "passed",
+                    "title": "renders without crashing"
+                }
+            ],
+            "endTime": 1616975779142,
+            "message": "",
+            "name": "/Users/nickmazuk/Documents/Github/ui-svelte/src/elements/badge/badge.test.ts",
+            "startTime": 1616975777693,
+            "status": "passed",
+            "summary": ""
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [],
+                    "failureMessages": [],
+                    "fullName": "renders without crashing",
+                    "location": null,
+                    "status": "passed",
+                    "title": "renders without crashing"
+                }
+            ],
+            "endTime": 1616975779143,
+            "message": "",
+            "name": "/Users/nickmazuk/Documents/Github/ui-svelte/src/elements/status-dot/status-dot.test.ts",
+            "startTime": 1616975777694,
+            "status": "passed",
+            "summary": ""
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [],
+                    "failureMessages": [],
+                    "fullName": "renders without crashing",
+                    "location": null,
+                    "status": "passed",
+                    "title": "renders without crashing"
+                }
+            ],
+            "endTime": 1616975779143,
+            "message": "",
+            "name": "/Users/nickmazuk/Documents/Github/ui-svelte/src/utilities/loading-spinner/loading-spinner.test.ts",
+            "startTime": 1616975777694,
+            "status": "passed",
+            "summary": ""
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [],
+                    "failureMessages": [],
+                    "fullName": "renders without crashing",
+                    "location": null,
+                    "status": "passed",
+                    "title": "renders without crashing"
+                }
+            ],
+            "endTime": 1616975779145,
+            "message": "",
+            "name": "/Users/nickmazuk/Documents/Github/ui-svelte/src/utilities/loading-section/loading-section.test.ts",
+            "startTime": 1616975777693,
+            "status": "passed",
+            "summary": ""
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [],
+                    "failureMessages": [],
+                    "fullName": "renders without crashing",
+                    "location": null,
+                    "status": "passed",
+                    "title": "renders without crashing"
+                }
+            ],
+            "endTime": 1616975779790,
+            "message": "",
+            "name": "/Users/nickmazuk/Documents/Github/ui-svelte/src/typography/text-content/text-content.test.ts",
+            "startTime": 1616975777694,
+            "status": "passed",
+            "summary": ""
+        },
+        {
+            "assertionResults": [],
+            "coverage": {},
+            "endTime": 1616975779947,
+            "message": "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    \u001b[1m\u001b[31mJest encountered an unexpected token\u001b[39m\u001b[22m\n\n    This usually means that you are trying to import a file which Jest cannot parse, e.g. it's not plain JavaScript.\n\n    By default, if Jest sees a Babel config, it will use that to transform your files, ignoring \"node_modules\".\n\n    Here's what you can do:\n     • If you are trying to use ECMAScript Modules, see \u001b[4mhttps://jestjs.io/docs/en/ecmascript-modules\u001b[24m for how to enable it.\n     • To have some of your \"node_modules\" files transformed, you can specify a custom \u001b[1m\"transformIgnorePatterns\"\u001b[22m in your config.\n     • If you need a custom transformation specify a \u001b[1m\"transform\"\u001b[22m option in your config.\n     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the \u001b[1m\"moduleNameMapper\"\u001b[22m config option.\n\n    You'll find more details and examples of these config options in the docs:\n    \u001b[36mhttps://jestjs.io/docs/en/configuration.html\u001b[39m\n\n    \u001b[1m\u001b[31mDetails:\u001b[39m\u001b[22m\n\n    /Users/nickmazuk/Documents/Github/ui-svelte/node_modules/.pnpm/marked@2.0.1/node_modules/marked/lib/marked.esm.js:2625\n    export default marked_1;\n    ^^^^^^\n\n    SyntaxError: Unexpected token 'export'\n\n    \u001b[0m \u001b[90m 1 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mscript\u001b[39m lang\u001b[33m=\u001b[39m\u001b[32m\"ts\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 2 |\u001b[39m     \u001b[36mimport\u001b[39m marked \u001b[36mfrom\u001b[39m \u001b[32m'marked/lib/marked.esm'\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m   |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 3 |\u001b[39m     \u001b[90m// import { sanitize } from 'dompurify'\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 4 |\u001b[39m     \u001b[36mimport\u001b[39m dompurify \u001b[36mfrom\u001b[39m \u001b[32m'dompurify'\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 5 |\u001b[39m     \u001b[36mexport\u001b[39m \u001b[36mlet\u001b[39m content \u001b[33m=\u001b[39m \u001b[32m''\u001b[39m\u001b[0m\n\n      \u001b[2mat Runtime.createScriptFromCode (\u001b[22mnode_modules/.pnpm/jest-runtime@26.6.3/node_modules/jest-runtime/build/index.js\u001b[2m:1350:14)\u001b[22m\n      \u001b[2mat Object.<anonymous> (\u001b[22msrc/typography/markdown/markdown.svelte\u001b[2m:2:18)\u001b[22m\n",
+            "name": "/Users/nickmazuk/Documents/Github/ui-svelte/src/typography/markdown/markdown.test.ts",
+            "startTime": 1616975779947,
+            "status": "failed",
+            "summary": ""
+        }
+    ],
+    "wasInterrupted": false
+}
