@@ -4,6 +4,7 @@
     export let color = ''
     type Align = 'top' | 'middle' | 'bottom' | 'default'
     export let align: Align = 'default'
+    export let title = ''
 
     const ALIGN_MAP: Record<Align, string> = {
         top: 'vertical-align: text-top;',
@@ -28,5 +29,8 @@
     shape-rendering="geometricPrecision"
     style="color: {parsedColor}; {ALIGN_MAP[align]}"
 >
+    {#if title}
+        <title>{title}</title>
+    {/if}
     <line x1="1" y1="1" x2="23" y2="23"></line><path d="M21 21H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3m3-3h6l2 3h4a2 2 0 0 1 2 2v9.34m-7.72-2.06a4 4 0 1 1-5.56-5.56"></path>
 </svg>

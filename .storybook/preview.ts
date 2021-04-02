@@ -13,7 +13,7 @@ addDecorator(
     })
 )
 
-export const globalTypes = {
+export const parameters = {
     themes: {
         default: 'light',
         list: [
