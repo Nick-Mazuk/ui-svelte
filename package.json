@@ -18,9 +18,9 @@
     "devDependencies": {
         "@babel/core": "^7.13.13",
         "@babel/preset-typescript": "^7.13.0",
-        "@nick-mazuk/eslint-config": "^0.7.46",
+        "@nick-mazuk/eslint-config": "^0.7.50",
         "@nick-mazuk/lib": "^0.8.34",
-        "@nick-mazuk/ui-config": "0.8.35",
+        "@nick-mazuk/ui-config": "^0.8.54",
         "@storybook/addon-a11y": "^6.2.0-rc.10",
         "@storybook/addon-actions": "^6.2.0-rc.10",
         "@storybook/addon-essentials": "^6.2.0-rc.10",
@@ -76,7 +76,7 @@
     ],
     "peerDependencies": {
         "@nick-mazuk/lib": "^0.8.34",
-        "@nick-mazuk/ui-config": "0.8.24",
+        "@nick-mazuk/ui-config": "^0.8.54",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.3.0",
         "@tailwindcss/line-clamp": "^0.2.0",

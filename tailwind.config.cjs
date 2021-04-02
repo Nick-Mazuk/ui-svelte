@@ -2,7 +2,7 @@
 /* eslint-disable import/no-commonjs */
 /* eslint-disable import/unambiguous */
 
-const { tailwindExtractor } = require("tailwindcss/lib/lib/purgeUnusedStyles")
+const { tailwindExtractor } = require('tailwindcss/lib/lib/purgeUnusedStyles')
 
 module.exports = {
     presets: [require('@nick-mazuk/ui-config/tailwind')],
