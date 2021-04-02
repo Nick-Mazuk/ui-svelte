@@ -6,7 +6,7 @@ devDependencies:
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
   '@nick-mazuk/eslint-config': 0.7.50_82834e191836c56312feb8dfd13cf146
   '@nick-mazuk/lib': 0.8.34
-  '@nick-mazuk/ui-config': 0.8.54_c0a7780336633ced0f73e996837dca37
+  '@nick-mazuk/ui-config': 0.9.5_c0a7780336633ced0f73e996837dca37
   '@storybook/addon-a11y': 6.2.0-rc.10
   '@storybook/addon-actions': 6.2.0-rc.10
   '@storybook/addon-essentials': 6.2.0-rc.10_9817a2cbb695cf87586805b33765e463
@@ -2574,28 +2574,26 @@ packages:
     dev: true
     resolution:
       integrity: sha512-LXVrklzd+TtbsmgjQx5jS0xi0U98rFnt0gOadY4Pm3OPIBMsfevkXhfDgx7UwDTgsEKqtDS6zjl3J5ZrdR/8qw==
-  /@nick-mazuk/ui-config/0.8.54_c0a7780336633ced0f73e996837dca37:
+  /@nick-mazuk/ui-config/0.9.5_c0a7780336633ced0f73e996837dca37:
     dependencies:
       '@tailwindcss/aspect-ratio': 0.2.0
       '@tailwindcss/forms': 0.3.2_tailwindcss@2.0.4
       '@tailwindcss/jit': 0.1.17_postcss@8.2.8+tailwindcss@2.0.4
       '@tailwindcss/line-clamp': 0.2.0
       '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
-      flat: 5.0.2
       postcss: 8.2.8
       tailwindcss: 2.0.4_caf414ac65a978d0d57907a0ec9fb41e
-      typescript: 4.2.3
     dev: true
     peerDependencies:
       '@tailwindcss/aspect-ratio': ^0.2.0
-      '@tailwindcss/forms': ^0.2.1
+      '@tailwindcss/forms': ^0.3.2
       '@tailwindcss/jit': ^0.1.17
       '@tailwindcss/line-clamp': ^0.2.0
       '@tailwindcss/typography': ^0.4.0
       postcss: '>= 8.0.0'
       tailwindcss: '>= 2.0.3'
     resolution:
-      integrity: sha512-CKjHygNz0Ec9TuKpf40C+tsAqWu/dJRKUuuJYovIpk8evmmZyS7CB8b4NcmRxSvJV/YlBo0JMgLmOwrLl++62Q==
+      integrity: sha512-d2KaV5FvZXyp1hg7Nsuun5SIvu7tPZKi9GSpQCBt6a4T2D8hVuvZImxYKA0A7kbss2Fl+CLNNu9TT6Rr0xKfJg==
   /@nodelib/fs.scandir/2.1.4:
     dependencies:
       '@nodelib/fs.stat': 2.0.4
@@ -8335,11 +8333,6 @@ packages:
       node: ^10.12.0 || >=12.0.0
     resolution:
       integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==
-  /flat/5.0.2:
-    dev: true
-    hasBin: true
-    resolution:
-      integrity: sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==
   /flatted/2.0.2:
     dev: true
     resolution:
@@ -15262,7 +15255,7 @@ specifiers:
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/eslint-config': ^0.7.50
   '@nick-mazuk/lib': ^0.8.34
-  '@nick-mazuk/ui-config': ^0.8.54
+  '@nick-mazuk/ui-config': ^0.9.5
   '@storybook/addon-a11y': ^6.2.0-rc.10
   '@storybook/addon-actions': ^6.2.0-rc.10
   '@storybook/addon-essentials': ^6.2.0-rc.10

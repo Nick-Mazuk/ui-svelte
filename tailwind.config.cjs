@@ -5,7 +5,7 @@
 const { tailwindExtractor } = require('tailwindcss/lib/lib/purgeUnusedStyles')
 
 module.exports = {
-    presets: [require('@nick-mazuk/ui-config/tailwind')],
+    presets: [require('@nick-mazuk/ui-config/lib/tailwind').config],
     purge: {
         content: ['./src/**/*.svelte'],
         options: {

@@ -1,5 +1,5 @@
-import '@nick-mazuk/ui-config/colors.css'
-import '@nick-mazuk/ui-config/styles.css'
+import '@nick-mazuk/ui-config/lib/colors.css'
+import '@nick-mazuk/ui-config/lib/styles.css'
 
 import { withTests } from '@storybook/addon-jest'
 
