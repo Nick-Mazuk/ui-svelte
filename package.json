@@ -1,6 +1,6 @@
 {
     "name": "@nick-mazuk/ui-svelte",
-    "version": "0.1.33",
+    "version": "0.1.34",
     "scripts": {
         "test": "jest test ./src --json --outputFile=.jest-test-results.json",
         "test:watch": "npm test -- --watch",
