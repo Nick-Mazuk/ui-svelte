@@ -30,14 +30,14 @@
                 : 'opacity-100'}"
         ></div>
     {/if}
-    <nav class="mx-auto grid grid-cols-3 gap-6 wrapper {small ? 'h-12 text-sm' : 'h-16'}">
-        <div class="flex space-x-4">
+    <nav class="mx-auto flex wrapper space-x-4 {small ? 'h-12 text-sm' : 'h-16'}">
+        <div class="flex space-x-4 flex-1">
             <slot name="left" />
         </div>
         <div class="flex space-x-4 justify-center">
             <slot name="center" />
         </div>
-        <div class="flex space-x-4 ml-auto">
+        <div class="flex space-x-4 ml-auto justify-end flex-1">
             <slot name="right" />
         </div>
     </nav>
