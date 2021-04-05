@@ -57,13 +57,13 @@
                         {option}
                     </button>
                 {/each}
-            {:else if emptyMessage}
-                <div class="px-3 py-2 text-sm">
-                    {emptyMessage}
-                </div>
             {:else if isLoading}
                 <div class="px-3 py-2 text-center">
                     <LoadingDots text="Loading" />
+                </div>
+            {:else if emptyMessage}
+                <div class="px-3 py-2 text-sm">
+                    {emptyMessage}
                 </div>
             {/if}
         </div>
