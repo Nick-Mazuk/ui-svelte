@@ -28,6 +28,7 @@
     fill="none"
     shape-rendering="geometricPrecision"
     style="color: {parsedColor}; {ALIGN_MAP[align]}"
+    class="flex-none"
 >
     {#if title}
         <title>{title}</title>
