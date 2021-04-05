@@ -1,7 +1,7 @@
 <script lang="ts">
-    import LoadingDots from '../../utilities/loading-dots/loading-dots.svelte'
-
     import { fade } from 'svelte/transition'
+
+    import LoadingDots from '../../utilities/loading-dots/loading-dots.svelte'
     import Search from '../../elements/icon/search.svelte'
 
     export let options: string[] = []
@@ -47,6 +47,10 @@
         bind:value
         on:focus="{handleFocus}"
         on:blur="{handleBlur}"
+        on:focus
+        on:blur
+        on:input
+        on:change
     />
     {#if isOpen && !hideOptions}
         <div
