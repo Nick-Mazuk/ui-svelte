@@ -24,11 +24,7 @@
         <span class="text-bold">Note</span>: This component is still under active development. It is
         not fully tested or documented, and should not be used in production.
     </p>
-    <SearchInput {...args} options="{['hello', 'world']}">
-        <svelte:fragment slot="option" let:option>
-            <a href="https://google.com">thing {option}</a>
-        </svelte:fragment>
-    </SearchInput>
+    <SearchInput {...args} options="{['hello', 'world']}" />
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['search-input.test.ts'] }}" />

@@ -60,12 +60,12 @@
             {#if options.length > 0}
                 {#each options as option}
                     {#if $$slots.option}
-                        <button class="block" on:focus="{() => open()}" tabindex="{-1}">
+                        <button class="block w-full" on:focus="{() => open()}" tabindex="{-1}">
                             <slot name="option" option="{option}" />
                         </button>
                     {:else}
                         <button
-                            class="px-3 py-2 hover:bg-gray-30 transition-colors text-sm cursor-pointer hover:text-gray-900 block focus:outline-none text-left dark:hover:bg-gray-50"
+                            class="px-3 py-2 hover:bg-gray-30 w-full transition-colors text-sm cursor-pointer hover:text-gray-900 block focus:outline-none text-left dark:hover:bg-gray-50"
                             on:click="{() => onItemClick(option)}"
                             on:focus="{() => open()}"
                             tabindex="{-1}"
