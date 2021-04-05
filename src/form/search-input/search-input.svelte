@@ -28,7 +28,7 @@
     }
 </script>
 
-<div class="relative text-gray-500 hover:text-gray-700 transition-colors">
+<div class="relative text-gray-500 hover:text-gray-700 transition-colors isolate">
     <div class="absolute h-full flex items-center top-0 left-2.5 pointer-events-none w-4">
         <Search />
     </div>
