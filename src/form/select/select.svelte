@@ -15,14 +15,14 @@
     export let title = ''
 </script>
 
-<div class="relative text-gray-700 hover:text-gray-900 transition-colors">
+<div class="relative text-gray-500 hover:text-gray-700 transition-colors">
     {#if $$slots.prefix}
         <div class="absolute h-full flex items-center top-0 left-2.5 pointer-events-none w-4">
             <slot name="prefix" />
         </div>
     {/if}
     <select
-        class="text-sm bg-background w-full rounded text-gray-900 cursor-pointer border-gray-300 hover:border-gray focus:border-primary focus:ring-primary transition-colors"
+        class="text-sm bg-background w-full rounded text-gray-700 hover:text-gray-900 focus:text-gray-900 cursor-pointer border-gray-200 hover:border-gray focus:border-primary focus:ring-primary transition-colors"
         class:pl-8="{$$slots.prefix}"
         class:pr-8="{$$slots.suffix}"
         on:input|self="{handleInput}"
