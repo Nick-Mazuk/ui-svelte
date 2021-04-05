@@ -5,6 +5,7 @@
     type Align = 'top' | 'middle' | 'bottom' | 'default'
     export let align: Align = 'default'
     export let title = ''
+    export let flexNone = false
 
     const ALIGN_MAP: Record<Align, string> = {
         top: 'vertical-align: text-top;',
@@ -28,6 +29,7 @@
     fill="currentColor"
     shape-rendering="geometricPrecision"
     style="color: {parsedColor}; {ALIGN_MAP[align]}"
+    class:flex-none="{flexNone}"
 >
     {#if title}
         <title>{title}</title>
