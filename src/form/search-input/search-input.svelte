@@ -7,7 +7,11 @@
     export let options: string[] = []
     export let isLoading = false
     export let emptyMessage = 'No results found'
+    export let hideOptions = false
     export let value = ''
+    export let width: number = -1
+
+    $: widthStyle = width > 0 ? `width:${width * 4}px` : ''
 
     const animationDuration = 150
     let isOpen = false
@@ -28,7 +32,10 @@
     }
 </script>
 
-<div class="relative text-gray-500 hover:text-gray-700 transition-colors isolate">
+<div
+    class="relative text-gray-500 hover:text-gray-700 transition-colors isolate"
+    style="{widthStyle}"
+>
     <div class="absolute h-full flex items-center top-0 left-2.5 pointer-events-none w-4">
         <Search />
     </div>
@@ -41,7 +48,7 @@
         on:focus="{handleFocus}"
         on:blur="{handleBlur}"
     />
-    {#if isOpen}
+    {#if isOpen && !hideOptions}
         <div
             class="absolute shadow-xl w-full rounded overflow-hidden mt-2 text-gray-700 bg-background dark:border dark:border-gray"
             transition:fade="{{ duration: animationDuration }}"
