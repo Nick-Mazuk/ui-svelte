@@ -47,22 +47,34 @@
         text: {
             enabled: {
                 primary: `border-transparent bg-transparent text-primary ${
-                    shadow ? '' : 'hover:bg-primary-50 hover:border-primary-50'
+                    shadow
+                        ? ''
+                        : 'hover:bg-primary-50 hover:border-primary-50 active:bg-primary-100 active:border-primary-100'
                 } focus:ring-primary`,
                 error: `border-transparent bg-transparent text-error ${
-                    shadow ? '' : 'hover:bg-error-50 hover:border-error-50'
+                    shadow
+                        ? ''
+                        : 'hover:bg-error-50 hover:border-error-50 active:bg-error-100 active:border-error-100'
                 } focus:ring-error`,
                 success: `border-transparent bg-transparent text-success ${
-                    shadow ? '' : 'hover:bg-success-50 hover:border-success-50'
+                    shadow
+                        ? ''
+                        : 'hover:bg-success-50 hover:border-success-50 active:bg-success-100 active:border-success-100'
                 } focus:ring-success`,
                 warning: `border-transparent bg-transparent text-warning ${
-                    shadow ? '' : 'hover:bg-warning-50 hover:border-warning-50'
+                    shadow
+                        ? ''
+                        : 'hover:bg-warning-50 hover:border-warning-50 active:bg-warning-100 active:border-warning-100'
                 } focus:ring-warning`,
                 highlight: `border-transparent bg-transparent text-highlight ${
-                    shadow ? '' : 'hover:bg-highlight-50 hover:border-highlight-50'
+                    shadow
+                        ? ''
+                        : 'hover:bg-highlight-50 hover:border-highlight-50 active:bg-highlight-100 active:border-highlight-100'
                 } focus:ring-highlight`,
                 gray: `border-transparent bg-transparent text-gray ${
-                    shadow ? '' : 'hover:bg-gray-50 hover:border-gray-50'
+                    shadow
+                        ? ''
+                        : 'hover:bg-gray-50 hover:border-gray-50 active:bg-gray-100 active:border-gray-100'
                 } focus:ring-gray`,
             },
             disabled: 'text-gray-300 dark:text-gray-d300 border-transparent cursor-not-allowed',
