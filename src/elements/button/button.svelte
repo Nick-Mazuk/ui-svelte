@@ -44,14 +44,26 @@
         },
         text: {
             enabled: {
-                primary: '',
-                error: '',
-                success: '',
-                warning: '',
-                highlight: '',
-                gray: '',
+                primary: `border-transparent bg-transparent text-primary ${
+                    shadow ? '' : 'hover:bg-primary-50 hover:border-primary-50'
+                } focus:ring-primary`,
+                error: `border-transparent bg-transparent text-error ${
+                    shadow ? '' : 'hover:bg-error-50 hover:border-error-50'
+                } focus:ring-error`,
+                success: `border-transparent bg-transparent text-success ${
+                    shadow ? '' : 'hover:bg-success-50 hover:border-success-50'
+                } focus:ring-success`,
+                warning: `border-transparent bg-transparent text-warning ${
+                    shadow ? '' : 'hover:bg-warning-50 hover:border-warning-50'
+                } focus:ring-warning`,
+                highlight: `border-transparent bg-transparent text-highlight ${
+                    shadow ? '' : 'hover:bg-highlight-50 hover:border-highlight-50'
+                } focus:ring-highlight`,
+                gray: `border-transparent bg-transparent text-gray ${
+                    shadow ? '' : 'hover:bg-gray-50 hover:border-gray-50'
+                } focus:ring-gray`,
             },
-            disabled: 'text-gray-300 dark:text-gray-d300',
+            disabled: 'text-gray-300 dark:text-gray-d300 border-transparent cursor-not-allowed',
         },
     }
 
