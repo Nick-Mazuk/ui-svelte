@@ -13,7 +13,40 @@
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            color: {
+                control: {
+                    type: 'select',
+                    options: ['primary', 'error', 'success', 'warning', 'gray', 'highlight'],
+                },
+                defaultValue: 'primary',
+            },
+            variant: {
+                control: {
+                    type: 'select',
+                    options: ['filled', 'text'],
+                },
+                defaultValue: 'filled',
+            },
+            shadow: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            disabled: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            width: {
+                control: {
+                    type: 'text',
+                },
+                description: 'Width in Tailwind units, or `full` for 100%',
+            },
+        },
     }
 </script>
 
@@ -24,7 +57,7 @@
         <span class="text-bold">Note</span>: This component is still under active development. It is
         not fully tested or documented, and should not be used in production.
     </p>
-    <Button {...args} />
+    <Button {...args}>Click me</Button>
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['button.test.ts'] }}" />

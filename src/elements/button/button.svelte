@@ -1,70 +1,85 @@
 <script lang="ts">
-    type Style = 'filled' | 'text'
-    type Size = 'small' | 'default' | 'large'
-    type GluePosition = 'left' | 'right' | 'top' | 'bottom'
-    type IconPosition = 'before' | 'after'
-    type Color = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight' | 'white'
+    type Variant = 'filled' | 'text'
+    type Color = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
 
-    export let value: string
-    export let style: Style = 'filled'
-    export let href: string = ''
-    export let onClick: (() => void) | undefined = undefined
-    export let size: Size = 'default'
-    export let fullWidth = false
-    export let glue: GluePosition[] = []
-    export let color: Color = 'gray'
-    export let download = false
+    export let color: Color = 'primary'
+    export let variant: Variant = 'filled'
+    export let shadow = false
     export let disabled = false
-    export let loading = false
+    export let width: number | 'full' = 0
+
+    let isActive = false
+    let isClicking = false
 
     type ButtonStyling = {
-        global: string
         enabled: Record<Color, string>
         disabled: string
     }
 
-    const STYLES_MAP: Record<Style, ButtonStyling> = {
+    const STYLES_MAP: Record<Variant, ButtonStyling> = {
         filled: {
-            global: '',
             enabled: {
                 primary:
-                    'text-white bg-primary hover:bg-primary-600 hover:scale-101 focus:bg-primary-600 dark:text-black dark:bg-primary-d dark:hover:bg-primary-d600 dark:hover:scale-101 dark:focus:bg-primary-d600',
+                    'bg-primary border-primary text-white hover:bg-primary-600 hover:border-primary-600 focus:ring-primary',
                 error:
-                    'text-white bg-error hover:bg-error-600 hover:scale-101 focus:bg-error-600 dark:text-black dark:bg-error-d dark:hover:bg-error-d600 dark:hover:scale-101 dark:focus:bg-error-d600',
+                    'bg-error border-error text-white hover:bg-error-600 hover:border-error-600 focus:ring-error',
                 success:
-                    'text-white bg-success hover:bg-success-600 hover:scale-101 focus:bg-success-600 dark:text-black dark:bg-success-d dark:hover:bg-success-d600 dark:hover:scale-101 dark:focus:bg-success-d600',
+                    'bg-success border-success text-white hover:bg-success-600 hover:border-success-600 focus:ring-success',
                 warning:
-                    'text-warning-800 bg-warning-200 hover:bg-warning-300 hover:scale-101 focus:bg-warning-300 dark:text-black dark:bg-warning-d600 dark:hover:bg-warning-d700 dark:hover:scale-101 dark:focus:bg-warning-d700',
+                    'bg-warning border-warning text-white hover:bg-warning-600 hover:border-warning-600 focus:ring-warning',
                 highlight:
-                    'text-white bg-highlight hover:bg-highlight-600 hover:scale-101 focus:bg-highlight-600 dark:text-black dark:bg-highlight-d dark:hover:bg-highlight-d600 dark:hover:scale-101 dark:focus:bg-highlight-d600',
-                white:
-                    'text-gray-900 bg-white hover:bg-gray-50 hover:scale-101 focus:bg-gray-50 dark:text-gray-d900 dark:bg-gray-d50 dark:hover:bg-gray-d50 dark:hover:scale-101 dark:focus:bg-gray-d50',
+                    'bg-highlight border-highlight text-white hover:bg-highlight-600 hover:border-highlight-600 focus:ring-highlight',
                 gray:
-                    'text-white bg-gray-800 hover:bg-gray-900 hover:scale-101 focus:bg-gray-900 dark:text-black dark:bg-gray-d800 dark:hover:bg-gray-d900 dark:hover:scale-101 dark:focus:bg-gray-d900',
+                    'bg-gray border-gray text-white hover:bg-gray-600 hover:border-gray-600 focus:ring-gray',
             },
-            disabled: 'bg-gray-100 text-gray-600 dark:bg-gray-d100 dark:text-gray-d600',
+            disabled: 'bg-gray-100 border-gray-100 text-gray cursor-not-allowed',
         },
         text: {
-            global: '',
             enabled: {
-                primary:
-                    'bg-transparent text-primary hover:text-primary-600 hover:bg-primary-50 focus:text-primary-600 focus:bg-primary-50 dark:text-primary-d dark:hover:text-primary-d600 dark:hover:bg-primary-d50 dark:focus:text-primary-d600 dark:focus:bg-primary-d50',
-                error:
-                    'bg-transparent text-error hover:text-error-600 hover:bg-error-50 focus:text-error-600 focus:bg-error-50 dark:text-error-d dark:hover:text-error-d600 dark:hover:bg-error-d50 dark:focus:text-error-d600 dark:focus:bg-error-d50',
-                success:
-                    'bg-transparent text-success hover:text-success-600 hover:bg-success-50 focus:text-success-600 focus:bg-success-50 dark:text-success-d dark:hover:text-success-d600 dark:hover:bg-success-d50 dark:focus:text-success-d600 dark:focus:bg-success-d50',
-                warning:
-                    'bg-transparent text-warning hover:text-warning-600 hover:bg-warning-50 focus:text-warning-600 focus:bg-warning-50 dark:text-warning-d dark:hover:text-warning-d600 dark:hover:bg-warning-d50 dark:focus:text-warning-d600 dark:focus:bg-warning-d50',
-                highlight:
-                    'bg-transparent text-highlight hover:text-highlight-600 hover:bg-highlight-50 focus:text-highlight-600 focus:bg-highlight-50 dark:text-highlight-d dark:hover:text-highlight-d600 dark:hover:bg-highlight-d50 dark:focus:text-highlight-d600 dark:focus:bg-highlight-d50',
-                white:
-                    'bg-white bg-opacity-0 text-white hover:bg-opacity-20 focus:bg-opacity-20 dark:text-gray-d900 dark:hover:bg-gray-d50 dark:focus:bg-gray-d50',
-                gray:
-                    'bg-transparent text-gray hover:text-gray-600 hover:bg-gray-50 focus:text-gray-600 focus:bg-gray-50 dark:text-gray-d dark:hover:text-gray-d600 dark:hover:bg-gray-d50 dark:focus:text-gray-d600 dark:focus:bg-gray-d50',
+                primary: '',
+                error: '',
+                success: '',
+                warning: '',
+                highlight: '',
+                gray: '',
             },
             disabled: 'text-gray-300 dark:text-gray-d300',
         },
     }
+
+    const handleMouseDown: svelte.JSX.MouseEventHandler<HTMLButtonElement> = (event) => {
+        isClicking = true
+    }
+
+    const handleMouseUp: svelte.JSX.MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.currentTarget.blur()
+        isClicking = false
+    }
+
+    const handleKeydown: svelte.JSX.KeyboardEventHandler<HTMLButtonElement> = (event) => {
+        if (event.key === 'Enter') isActive = true
+    }
+    const handleKeyup: svelte.JSX.KeyboardEventHandler<HTMLButtonElement> = (event) => {
+        if (event.key === 'Enter') isActive = false
+    }
+
+    $: style = width && width !== 'full' ? `width: ${width * 4}px` : ''
+    $: shadowClasses = shadow
+        ? 'shadow-md hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0'
+        : ''
+    $: ringClasses = isActive || isClicking ? 'ring-offset-2 ring-0' : 'ring-offset-2 focus:ring-2'
 </script>
 
-<button></button>
+<button
+    class="text-sm border rounded px-4 py-2 transition focus:outline-none text-semibold truncate {shadowClasses} {ringClasses} {disabled
+        ? STYLES_MAP[variant].disabled
+        : STYLES_MAP[variant].enabled[color]}"
+    class:w-full="{width === 'full'}"
+    style="{style}"
+    on:mousedown="{handleMouseDown}"
+    on:mouseup="{handleMouseUp}"
+    on:keydown="{handleKeydown}"
+    on:keyup="{handleKeyup}"
+>
+    <slot />
+</button>
