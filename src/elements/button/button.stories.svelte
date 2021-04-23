@@ -2,6 +2,7 @@
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
 
     import Button from './button.svelte'
+    import ArrowUp from '../icon/arrow-up.svelte'
 
     const meta = {
         title: 'Elements/Button',
@@ -54,11 +55,23 @@
                 },
                 defaultValue: false,
             },
+            loading: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
             width: {
                 control: {
                     type: 'text',
                 },
                 description: 'Width in Tailwind units, or `full` for 100%',
+            },
+            submit: {
+                control: {
+                    type: 'boolean',
+                },
+                description: 'Sets `type="submit"`',
             },
         },
     }
@@ -67,11 +80,103 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <p class="mb-4 max-w-lg py-2 px-3 border rounded text-sm leading-tight balance">
-        <span class="text-bold">Note</span>: This component is still under active development. It is
-        not fully tested or documented, and should not be used in production.
-    </p>
     <Button {...args}>Click me</Button>
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['button.test.ts'] }}" />
+<Story name="Colors" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+    <div class="flex space-x-8">
+        <div><Button {...args} color="primary">Primary</Button></div>
+        <div><Button {...args} color="gray">Gray</Button></div>
+        <div><Button {...args} color="error">Error</Button></div>
+        <div><Button {...args} color="warning">Warning</Button></div>
+        <div><Button {...args} color="success">Success</Button></div>
+        <div><Button {...args} color="highlight">Highlight</Button></div>
+    </div>
+</Story>
+<Story
+    name="Text"
+    parameters="{{ jest: ['button.test.ts'] }}"
+    args="{{ variant: 'text' }}"
+    let:args
+>
+    <div class="flex space-x-8">
+        <div><Button {...args} color="primary">Primary</Button></div>
+        <div><Button {...args} color="gray">Gray</Button></div>
+        <div><Button {...args} color="error">Error</Button></div>
+        <div><Button {...args} color="warning">Warning</Button></div>
+        <div><Button {...args} color="success">Success</Button></div>
+        <div><Button {...args} color="highlight">Highlight</Button></div>
+    </div>
+</Story>
+<Story name="Sizes" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+    <div class="flex space-x-8">
+        <div><Button {...args} size="small">Click me</Button></div>
+        <div><Button {...args}>Click me</Button></div>
+        <div><Button {...args} size="large">Click me</Button></div>
+    </div>
+</Story>
+<Story name="Shapes" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+    <div class="flex space-x-8">
+        <div><Button {...args} size="small" shape="square"><ArrowUp /></Button></div>
+        <div><Button {...args} shape="square"><ArrowUp /></Button></div>
+        <div><Button {...args} size="large" shape="square"><ArrowUp /></Button></div>
+        <div><Button {...args} size="small" shape="circle"><ArrowUp /></Button></div>
+        <div><Button {...args} shape="circle"><ArrowUp /></Button></div>
+        <div><Button {...args} size="large" shape="circle"><ArrowUp /></Button></div>
+    </div>
+</Story>
+<Story name="Width" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+    <div class="grid gap-8">
+        <div><Button {...args} width="{32}">Width 32</Button></div>
+        <div><Button {...args} width="{64}">Width 64</Button></div>
+        <div><Button {...args} width="full">Width full</Button></div>
+    </div>
+</Story>
+<Story name="Prefix/Suffix" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+    <div class="flex space-x-8">
+        <div>
+            <Button {...args}>
+                <svelte:fragment slot="prefix">
+                    <ArrowUp />
+                </svelte:fragment>
+                Prefix
+            </Button>
+        </div>
+        <div>
+            <Button {...args}>
+                Suffix
+                <svelte:fragment slot="suffix">
+                    <ArrowUp />
+                </svelte:fragment>
+            </Button>
+        </div>
+        <div>
+            <Button {...args}>
+                <svelte:fragment slot="prefix">
+                    <ArrowUp />
+                </svelte:fragment>
+                Prefix and suffix
+                <svelte:fragment slot="suffix">
+                    <ArrowUp />
+                </svelte:fragment>
+            </Button>
+        </div>
+    </div>
+</Story>
+<Story
+    name="Disabled"
+    parameters="{{ jest: ['button.test.ts'] }}"
+    args="{{ disabled: true }}"
+    let:args
+>
+    <Button {...args}>I'm disabled</Button>
+</Story>
+<Story
+    name="Loading"
+    parameters="{{ jest: ['button.test.ts'] }}"
+    args="{{ loading: true }}"
+    let:args
+>
+    <Button {...args}>I'm loading</Button>
+</Story>

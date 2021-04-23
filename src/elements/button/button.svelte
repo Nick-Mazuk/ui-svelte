@@ -1,4 +1,6 @@
 <script lang="ts">
+    import LoadingSpinner from '../../utilities/loading-spinner/loading-spinner.svelte'
+
     type Variant = 'filled' | 'text'
     type Color = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
     type Size = 'small' | 'default' | 'large'
@@ -9,8 +11,10 @@
     export let size: Size = 'default'
     export let shadow = false
     export let disabled = false
+    export let loading = false
     export let width: number | 'full' = 0
     export let shape: Shape = 'none'
+    export let submit = false
 
     let isActive = false
     let isClicking = false
@@ -51,22 +55,44 @@
         },
     }
 
-    const SIZE_MAP: Record<Size, string> = {
-        small: 'text-sm px-3 py-1',
-        default: 'text-sm px-4 py-2',
-        large: 'px-4 py-3',
+    type SizeData = {
+        global: string
+        prefix: string
+        suffix: string
+        loadingSpinner: string
+    }
+
+    const SIZE_MAP: Record<Size, SizeData> = {
+        small: {
+            global: 'text-sm px-3 h-8',
+            loadingSpinner: 'transform scale-50 top-1/2 mt-0.5 -translate-y-1/2 absolute',
+            prefix: 'flex w-4 mr-2 -ml-1 relative',
+            suffix: 'flex w-4 ml-1 -mr-1',
+        },
+        default: {
+            global: 'text-sm px-4 h-10',
+            loadingSpinner: 'transform scale-75 top-1/2 mt-0.5 -translate-y-1/2 absolute',
+            prefix: 'flex w-5 mr-2 -ml-1 relative',
+            suffix: 'flex w-5 ml-2 -mr-1',
+        },
+        large: {
+            global: 'px-4 h-12',
+            loadingSpinner: 'transform scale-90 top-1/2 mt-0.5 -translate-y-1/2 absolute',
+            prefix: 'flex w-6 mr-2 -ml-1 relative',
+            suffix: 'flex w-6 ml-2 -mr-1',
+        },
     }
 
     const SHAPE_MAP: Record<Shape, Record<Size, string>> = {
         square: {
-            small: 'w-[30px]',
-            default: 'w-[38px]',
-            large: 'w-[48px]',
+            small: 'w-8 !px-1.5',
+            default: 'w-10 !px-2',
+            large: 'w-12 !px-2.5',
         },
         circle: {
-            small: 'w-[30px] rounded-full',
-            default: 'w-[38px] rounded-full',
-            large: 'w-[48px] rounded-full',
+            small: 'w-8 !px-1.5 rounded-full',
+            default: 'w-10 !px-2 rounded-full',
+            large: 'w-12 !px-2.5 rounded-full',
         },
         none: {
             small: '',
@@ -75,7 +101,7 @@
         },
     }
 
-    const handleMouseDown: svelte.JSX.MouseEventHandler<HTMLButtonElement> = (event) => {
+    const handleMouseDown: svelte.JSX.MouseEventHandler<HTMLButtonElement> = () => {
         isClicking = true
     }
 
@@ -91,29 +117,51 @@
         if (event.key === 'Enter') isActive = false
     }
 
-    $: style = width && width !== 'full' ? `width: ${width * 4}px` : ''
+    $: widthStyle = width && width !== 'full' ? `width: ${width * 4}px` : ''
     $: shadowClasses = shadow
         ? 'shadow-md hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0'
         : ''
-    $: ringClasses = isActive || isClicking ? 'ring-offset-2 ring-0' : 'ring-offset-2 focus:ring-2'
+    $: ringClasses =
+        isActive || isClicking
+            ? 'ring-offset-2 ring-0 ring-offset-white'
+            : 'ring-offset-2 focus:ring-2 ring-offset-white'
 </script>
 
 <button
     class="{`
         border transition focus:outline-none text-semibold truncate
+        flex justify-center items-center
         ${shadowClasses}
         ${ringClasses}
-        ${SIZE_MAP[size]}
+        ${SIZE_MAP[size].global}
         ${SHAPE_MAP[shape][size]}
-        ${disabled ? STYLES_MAP[variant].disabled : STYLES_MAP[variant].enabled[color]}
+        ${disabled || loading ? STYLES_MAP[variant].disabled : STYLES_MAP[variant].enabled[color]}
     `}"
     class:w-full="{width === 'full'}"
     class:rounded="{shape !== 'circle'}"
-    style="{style}"
+    style="{widthStyle}"
+    disabled="{disabled || loading}"
+    type="{submit ? 'submit' : 'button'}"
     on:mousedown="{handleMouseDown}"
     on:mouseup="{handleMouseUp}"
     on:keydown="{handleKeydown}"
     on:keyup="{handleKeyup}"
 >
-    <slot />
+    {#if loading}
+        <span class="{SIZE_MAP[size].prefix}">
+            <span class="{SIZE_MAP[size].loadingSpinner}">
+                <LoadingSpinner />
+            </span>
+        </span>
+    {:else if $$slots.prefix}
+        <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
+    {/if}
+    {#if shape === 'none'}
+        <span><slot /></span>
+    {:else}
+        <slot />
+    {/if}
+    {#if $$slots.suffix}
+        <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
+    {/if}
 </button>
