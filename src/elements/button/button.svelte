@@ -15,9 +15,11 @@
     export let width: number | 'full' = 0
     export let shape: Shape = 'none'
     export let submit = false
+    export let ariaLabel = ''
+    export let href = ''
 
     let isActive = false
-    let isClicking = false
+    let isHovered = false
 
     type ButtonStyling = {
         enabled: Record<Color, string>
@@ -28,17 +30,17 @@
         filled: {
             enabled: {
                 primary:
-                    'bg-primary border-primary text-white hover:bg-primary-600 hover:border-primary-600 focus:ring-primary',
+                    'bg-primary border-primary text-white hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700 focus:ring-primary',
                 error:
-                    'bg-error border-error text-white hover:bg-error-600 hover:border-error-600 focus:ring-error',
+                    'bg-error border-error text-white hover:bg-error-600 hover:border-error-600 active:bg-error-700 active:border-error-700 focus:ring-error',
                 success:
-                    'bg-success border-success text-white hover:bg-success-600 hover:border-success-600 focus:ring-success',
+                    'bg-success border-success text-white hover:bg-success-600 hover:border-success-600 active:bg-success-700 active:border-success-700 focus:ring-success',
                 warning:
-                    'bg-warning border-warning text-white hover:bg-warning-600 hover:border-warning-600 focus:ring-warning',
+                    'bg-warning border-warning text-white hover:bg-warning-600 hover:border-warning-600 active:bg-warning-700 active:border-warning-700 focus:ring-warning',
                 highlight:
-                    'bg-highlight border-highlight text-white hover:bg-highlight-600 hover:border-highlight-600 focus:ring-highlight',
+                    'bg-highlight border-highlight text-white hover:bg-highlight-600 hover:border-highlight-600 active:bg-highlight-700 active:border-highlight-700 focus:ring-highlight',
                 gray:
-                    'bg-gray border-gray text-white hover:bg-gray-600 hover:border-gray-600 focus:ring-gray',
+                    'bg-gray border-gray text-white hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray',
             },
             disabled: 'bg-gray-100 border-gray-100 text-gray cursor-not-allowed',
         },
@@ -113,67 +115,135 @@
         },
     }
 
-    const handleMouseDown: svelte.JSX.MouseEventHandler<HTMLButtonElement> = () => {
-        isClicking = true
+    const handleMouseEnter: svelte.JSX.MouseEventHandler<
+        HTMLButtonElement | HTMLAnchorElement
+    > = () => {
+        isHovered = true
     }
 
-    const handleMouseUp: svelte.JSX.MouseEventHandler<HTMLButtonElement> = (event) => {
+    const handleMouseLeave: svelte.JSX.MouseEventHandler<
+        HTMLButtonElement | HTMLAnchorElement
+    > = () => {
+        isHovered = false
+    }
+
+    const handleMouseUp: svelte.JSX.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
+        event
+    ) => {
         event.currentTarget.blur()
-        isClicking = false
     }
 
-    const handleKeydown: svelte.JSX.KeyboardEventHandler<HTMLButtonElement> = (event) => {
+    const handleKeydown: svelte.JSX.KeyboardEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
+        event
+    ) => {
         if (event.key === 'Enter') isActive = true
     }
-    const handleKeyup: svelte.JSX.KeyboardEventHandler<HTMLButtonElement> = (event) => {
+    const handleKeyup: svelte.JSX.KeyboardEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
+        event
+    ) => {
         if (event.key === 'Enter') isActive = false
     }
 
     $: widthStyle = width && width !== 'full' ? `width: ${width * 4}px` : ''
     $: shadowClasses = shadow
-        ? 'shadow-md hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0'
+        ? 'shadow-md hover:shadow-lg active:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
         : ''
     $: ringClasses =
-        isActive || isClicking
-            ? 'ring-offset-2 ring-0 ring-offset-white'
+        isActive || isHovered
+            ? 'ring-offset-2 ring-offset-white'
             : 'ring-offset-2 focus:ring-2 ring-offset-white'
 </script>
 
-<button
-    class="{`
-        border transition focus:outline-none text-semibold truncate
-        flex justify-center items-center
-        ${shadowClasses}
-        ${ringClasses}
-        ${SIZE_MAP[size].global}
-        ${SHAPE_MAP[shape][size]}
-        ${disabled || loading ? STYLES_MAP[variant].disabled : STYLES_MAP[variant].enabled[color]}
-    `}"
-    class:w-full="{width === 'full'}"
-    class:rounded="{shape !== 'circle'}"
-    style="{widthStyle}"
-    disabled="{disabled || loading}"
-    type="{submit ? 'submit' : 'button'}"
-    on:mousedown="{handleMouseDown}"
-    on:mouseup="{handleMouseUp}"
-    on:keydown="{handleKeydown}"
-    on:keyup="{handleKeyup}"
->
-    {#if loading}
-        <span class="{SIZE_MAP[size].prefix}">
-            <span class="{SIZE_MAP[size].loadingSpinner}">
-                <LoadingSpinner />
+{#if href}
+    <a
+        class="{`
+            border transition focus:outline-none text-semibold truncate
+            inline-flex justify-center items-center
+            ${shadowClasses}
+            ${ringClasses}
+            ${SIZE_MAP[size].global}
+            ${SHAPE_MAP[shape][size]}
+            ${
+                disabled || loading
+                    ? STYLES_MAP[variant].disabled
+                    : STYLES_MAP[variant].enabled[color]
+            }
+        `}"
+        class:w-full="{width === 'full'}"
+        class:rounded="{shape !== 'circle'}"
+        style="{widthStyle}"
+        disabled="{disabled || loading}"
+        on:mouseenter="{handleMouseEnter}"
+        on:mouseleave="{handleMouseLeave}"
+        on:mouseup="{handleMouseUp}"
+        on:keydown="{handleKeydown}"
+        on:keyup="{handleKeyup}"
+        on:click
+        aria-label="{ariaLabel}"
+        href="{href}"
+    >
+        {#if loading}
+            <span class="{SIZE_MAP[size].prefix}">
+                <span class="{SIZE_MAP[size].loadingSpinner}">
+                    <LoadingSpinner />
+                </span>
             </span>
-        </span>
-    {:else if $$slots.prefix}
-        <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
-    {/if}
-    {#if shape === 'none'}
-        <span><slot /></span>
-    {:else}
-        <slot />
-    {/if}
-    {#if $$slots.suffix}
-        <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
-    {/if}
-</button>
+        {:else if $$slots.prefix}
+            <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
+        {/if}
+        {#if shape === 'none'}
+            <span><slot /></span>
+        {:else}
+            <slot />
+        {/if}
+        {#if $$slots.suffix}
+            <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
+        {/if}
+    </a>
+{:else}
+    <button
+        class="{`
+            border transition focus:outline-none text-semibold truncate
+            flex justify-center items-center
+            ${shadowClasses}
+            ${ringClasses}
+            ${SIZE_MAP[size].global}
+            ${SHAPE_MAP[shape][size]}
+            ${
+                disabled || loading
+                    ? STYLES_MAP[variant].disabled
+                    : STYLES_MAP[variant].enabled[color]
+            }
+        `}"
+        class:w-full="{width === 'full'}"
+        class:rounded="{shape !== 'circle'}"
+        style="{widthStyle}"
+        disabled="{disabled || loading}"
+        type="{submit ? 'submit' : 'button'}"
+        on:mouseenter="{handleMouseEnter}"
+        on:mouseleave="{handleMouseLeave}"
+        on:mouseup="{handleMouseUp}"
+        on:keydown="{handleKeydown}"
+        on:keyup="{handleKeyup}"
+        on:click
+        aria-label="{ariaLabel}"
+    >
+        {#if loading}
+            <span class="{SIZE_MAP[size].prefix}">
+                <span class="{SIZE_MAP[size].loadingSpinner}">
+                    <LoadingSpinner />
+                </span>
+            </span>
+        {:else if $$slots.prefix}
+            <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
+        {/if}
+        {#if shape === 'none'}
+            <span><slot /></span>
+        {:else}
+            <slot />
+        {/if}
+        {#if $$slots.suffix}
+            <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
+        {/if}
+    </button>
+{/if}

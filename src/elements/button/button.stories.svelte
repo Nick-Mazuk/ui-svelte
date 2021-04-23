@@ -67,11 +67,22 @@
                 },
                 description: 'Width in Tailwind units, or `full` for 100%',
             },
+            href: {
+                control: {
+                    type: 'text',
+                },
+            },
             submit: {
                 control: {
                     type: 'boolean',
                 },
                 description: 'Sets `type="submit"`',
+            },
+            ariaLabel: {
+                control: {
+                    type: 'text',
+                },
+                description: "Make icon buttons accessible by labeling it's function",
             },
         },
     }
@@ -118,12 +129,20 @@
 </Story>
 <Story name="Shapes" parameters="{{ jest: ['button.test.ts'] }}" let:args>
     <div class="flex space-x-8">
-        <div><Button {...args} size="small" shape="square"><ArrowUp /></Button></div>
-        <div><Button {...args} shape="square"><ArrowUp /></Button></div>
-        <div><Button {...args} size="large" shape="square"><ArrowUp /></Button></div>
-        <div><Button {...args} size="small" shape="circle"><ArrowUp /></Button></div>
-        <div><Button {...args} shape="circle"><ArrowUp /></Button></div>
-        <div><Button {...args} size="large" shape="circle"><ArrowUp /></Button></div>
+        <div>
+            <Button {...args} size="small" shape="square" ariaLabel="Arrow up"><ArrowUp /></Button>
+        </div>
+        <div><Button {...args} shape="square" ariaLabel="Arrow up"><ArrowUp /></Button></div>
+        <div>
+            <Button {...args} size="large" shape="square" ariaLabel="Arrow up"><ArrowUp /></Button>
+        </div>
+        <div>
+            <Button {...args} size="small" shape="circle" ariaLabel="Arrow up"><ArrowUp /></Button>
+        </div>
+        <div><Button {...args} shape="circle" ariaLabel="Arrow up"><ArrowUp /></Button></div>
+        <div>
+            <Button {...args} size="large" shape="circle" ariaLabel="Arrow up"><ArrowUp /></Button>
+        </div>
     </div>
 </Story>
 <Story name="Width" parameters="{{ jest: ['button.test.ts'] }}" let:args>

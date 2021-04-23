@@ -4,7 +4,7 @@
     export let headerIds = false
     export let toc = false
     export let tocLevels = 2
-    export let enabledTags: string[] = [
+    export const enabledTags: string[] = [
         'h1',
         'h2',
         'h3',
