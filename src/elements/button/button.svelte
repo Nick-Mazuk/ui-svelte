@@ -1,12 +1,16 @@
 <script lang="ts">
     type Variant = 'filled' | 'text'
     type Color = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
+    type Size = 'small' | 'default' | 'large'
+    type Shape = 'square' | 'circle' | 'none'
 
     export let color: Color = 'primary'
     export let variant: Variant = 'filled'
+    export let size: Size = 'default'
     export let shadow = false
     export let disabled = false
     export let width: number | 'full' = 0
+    export let shape: Shape = 'none'
 
     let isActive = false
     let isClicking = false
@@ -47,6 +51,30 @@
         },
     }
 
+    const SIZE_MAP: Record<Size, string> = {
+        small: 'text-sm px-3 py-1',
+        default: 'text-sm px-4 py-2',
+        large: 'px-4 py-3',
+    }
+
+    const SHAPE_MAP: Record<Shape, Record<Size, string>> = {
+        square: {
+            small: 'w-[30px]',
+            default: 'w-[38px]',
+            large: 'w-[48px]',
+        },
+        circle: {
+            small: 'w-[30px] rounded-full',
+            default: 'w-[38px] rounded-full',
+            large: 'w-[48px] rounded-full',
+        },
+        none: {
+            small: '',
+            default: '',
+            large: '',
+        },
+    }
+
     const handleMouseDown: svelte.JSX.MouseEventHandler<HTMLButtonElement> = (event) => {
         isClicking = true
     }
@@ -71,10 +99,16 @@
 </script>
 
 <button
-    class="text-sm border rounded px-4 py-2 transition focus:outline-none text-semibold truncate {shadowClasses} {ringClasses} {disabled
-        ? STYLES_MAP[variant].disabled
-        : STYLES_MAP[variant].enabled[color]}"
+    class="{`
+        border transition focus:outline-none text-semibold truncate
+        ${shadowClasses}
+        ${ringClasses}
+        ${SIZE_MAP[size]}
+        ${SHAPE_MAP[shape][size]}
+        ${disabled ? STYLES_MAP[variant].disabled : STYLES_MAP[variant].enabled[color]}
+    `}"
     class:w-full="{width === 'full'}"
+    class:rounded="{shape !== 'circle'}"
     style="{style}"
     on:mousedown="{handleMouseDown}"
     on:mouseup="{handleMouseUp}"

@@ -23,10 +23,24 @@
             },
             variant: {
                 control: {
-                    type: 'select',
+                    type: 'radio',
                     options: ['filled', 'text'],
                 },
                 defaultValue: 'filled',
+            },
+            size: {
+                control: {
+                    type: 'radio',
+                    options: ['small', 'default', 'large'],
+                },
+                defaultValue: 'default',
+            },
+            shape: {
+                control: {
+                    type: 'radio',
+                    options: ['none', 'square', 'circle'],
+                },
+                defaultValue: 'none',
             },
             shadow: {
                 control: {
