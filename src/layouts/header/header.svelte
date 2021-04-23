@@ -11,13 +11,13 @@
 </script>
 
 <header
-    class="z-50 {stickyClasses} bg-white dark:bg-gray-40 border-b border-gray-50 isolate {scrolledToTop
+    class="z-50 {stickyClasses} bg-white dark:bg-gray-100 border-b border-gray-100 isolate {scrolledToTop
         ? 'border-opacity-100'
         : 'border-opacity-0 dark:border-opacity-100'}"
     style="transform:translateZ(10000px)"
 >
     <a
-        class="absolute top-2 left-8 border border-gray-50 transform -translate-y-20 text-semibold z-50 px-4 py-3 select-none bg-white rounded-lg shadow-lg focus:translate-y-0 focus:outline-none"
+        class="absolute top-2 left-8 border border-gray-50 transform -translate-y-20 text-semibold z-50 px-4 py-3 select-none bg-white rounded-lg shadow-lg focus:translate-y-0 focus:outline-none dark:shadow-none dark:border dark:bg-gray-200"
         href="#main-content"
     >
         Jump to content
@@ -25,7 +25,7 @@
 
     {#if sticky}
         <div
-            class="absolute w-full h-full shadow-lg pointer-events-none select-none block transition-opacity {scrolledToTop
+            class="absolute w-full h-full shadow-lg dark:shadow-none pointer-events-none select-none block transition-opacity {scrolledToTop
                 ? 'opacity-0'
                 : 'opacity-100'}"
         ></div>

@@ -2,9 +2,7 @@
     import FooterSection from './footer-section/footer-section.svelte'
 </script>
 
-<section
-    class="bg-gray-20 text-gray border-opacity-0 dark:border-opacity-100 border-light dark:border-t mt-auto"
->
+<section class="bg-gray-50 text-gray dark:border-t mt-auto">
     <div class="wrapper py-8">
         <slot />
 

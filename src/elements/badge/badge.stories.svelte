@@ -18,9 +18,10 @@
             color: {
                 control: {
                     type: 'select',
-                    options: ['primary', 'secondary', 'error', 'highlight', 'warning', 'success'],
+                    options: ['gray', 'primary', 'error', 'highlight', 'warning', 'success'],
                 },
                 name: 'color',
+                defaultValue: 'gray',
                 type: { name: 'string', required: false },
             },
             large: {

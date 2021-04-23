@@ -20,20 +20,19 @@
         "@babel/preset-typescript": "^7.13.0",
         "@nick-mazuk/eslint-config": "^0.7.50",
         "@nick-mazuk/lib": "^0.8.34",
-        "@nick-mazuk/ui-config": "^0.9.6",
-        "@storybook/addon-a11y": "^6.2.0-rc.10",
-        "@storybook/addon-actions": "^6.2.0-rc.10",
-        "@storybook/addon-essentials": "^6.2.0-rc.10",
-        "@storybook/addon-jest": "^6.1.21",
-        "@storybook/addon-links": "^6.2.0-rc.9",
+        "@nick-mazuk/ui-config": "^0.10.5",
+        "@storybook/addon-a11y": "^6.2.9",
+        "@storybook/addon-actions": "^6.2.9",
+        "@storybook/addon-essentials": "^6.2.9",
+        "@storybook/addon-jest": "^6.2.9",
+        "@storybook/addon-links": "^6.2.9",
         "@storybook/addon-postcss": "^2.0.0",
         "@storybook/addon-svelte-csf": "^1.0.0",
-        "@storybook/addons": "^6.2.0-rc.10",
-        "@storybook/svelte": "^6.2.0-rc.10",
-        "@storybook/theming": "^6.2.0-rc.10",
+        "@storybook/addons": "^6.2.9",
+        "@storybook/svelte": "^6.2.9",
+        "@storybook/theming": "^6.2.9",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.3.2",
-        "@tailwindcss/jit": "^0.1.17",
         "@tailwindcss/line-clamp": "^0.2.0",
         "@tailwindcss/typography": "^0.4.0",
         "@testing-library/jest-dom": "^5.11.10",
@@ -63,7 +62,7 @@
         "svelte-loader": "^3.0.0",
         "svelte-preprocess": "^4.7.0",
         "svg-parser": "^2.0.4",
-        "tailwindcss": "^2.0.4",
+        "tailwindcss": "^2.1.1",
         "ts-jest": "^26.5.4"
     },
     "keywords": [
@@ -84,6 +83,7 @@
         "tailwindcss": "^2.0.4"
     },
     "dependencies": {
+        "@tailwindcss/jit": "^0.1.18",
         "marked": "^2.0.1",
         "svelte-intersection-observer": "^0.6.0"
     }

@@ -1,6 +1,6 @@
 <script lang="ts">
-    type Color = 'primary' | 'secondary' | 'error' | 'highlight' | 'warning' | 'success'
-    export let color: Color = 'secondary'
+    type Color = 'primary' | 'gray' | 'error' | 'highlight' | 'warning' | 'success'
+    export let color: Color = 'gray'
     export let large = false
     export let dot = false
 
@@ -14,27 +14,27 @@
 
     const COLOR_MAP: Record<Color, ColorValue> = {
         primary: {
-            container: 'bg-primary-50 text-primary-700 border-primary-50',
+            container: 'bg-primary-50 text-primary-700',
             dot: 'bg-primary-300',
         },
-        secondary: {
-            container: 'bg-gray-50 text-gray-700 border-gray-50',
+        gray: {
+            container: 'bg-gray-50 text-gray-700',
             dot: 'bg-gray-300',
         },
         error: {
-            container: 'bg-error-50 text-error-700 border-error-50',
+            container: 'bg-error-50 text-error-700',
             dot: 'bg-error-300',
         },
         highlight: {
-            container: 'bg-highlight-50 text-highlight-700 border-highlight-50',
+            container: 'bg-highlight-50 text-highlight-700',
             dot: 'bg-highlight-300',
         },
         warning: {
-            container: 'bg-warning-50 text-warning-700 border-warning-50',
+            container: 'bg-warning-50 text-warning-700',
             dot: 'bg-warning-300',
         },
         success: {
-            container: 'bg-success-50 text-success-700 border-success-50',
+            container: 'bg-success-50 text-success-700',
             dot: 'bg-success-300',
         },
     }

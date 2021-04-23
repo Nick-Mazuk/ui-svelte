@@ -50,7 +50,7 @@
                 <HeaderBrand text="UI Svelte" />
             </svelte:fragment>
         </Header>
-        <div id="main-content">
+        <div id="main-content" class="wrapper">
             <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
             <div class="h-32 rounded-lg my-4 bg-gray-50"></div>
             <div class="h-32 rounded-lg my-4 bg-gray-50"></div>

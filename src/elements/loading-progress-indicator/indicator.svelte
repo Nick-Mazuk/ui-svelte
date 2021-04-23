@@ -2,6 +2,7 @@
     import { tweened } from 'svelte/motion'
     import { cubicOut } from 'svelte/easing'
     import { onMount } from 'svelte'
+    import { get } from 'svelte/store'
     const progress = tweened(0, {
         duration: 150,
         easing: cubicOut,
@@ -13,11 +14,19 @@
         delay: 500,
     })
 
+    let interval: NodeJS.Timeout
+
     onMount(() => {
-        progress.set(66)
+        interval = setInterval(() => {
+            const currentProgress = get(progress)
+            const remainingProgress = 100 - currentProgress
+            progress.set(currentProgress + remainingProgress / 15)
+        }, 333)
+        progress.set(25)
     })
 
     const handleNavigationEnd = () => {
+        clearInterval(interval)
         progress.set(100)
         opacity.set(0)
     }
