@@ -33,17 +33,7 @@
                     <GitHub />
                 </svelte:fragment>
             </EntityField>
-        </Entity>
-        <Entity {...args}>
-            <EntityField title="Title">description</EntityField>
-            <EntityField title="Title">description</EntityField>
-            <EntityField title="Title" />
-            <EntityField right title="Title">
-                description
-                <svelte:fragment slot="avatar">
-                    <GitHub />
-                </svelte:fragment>
-            </EntityField>
+            <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
         </Entity>
     </section>
 </Template>

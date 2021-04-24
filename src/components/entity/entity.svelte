@@ -2,8 +2,13 @@
 </script>
 
 <div data-entity class="border rounded-lg p-4 relative">
-    <div class="flex space-x-6 items-center">
-        <slot />
+    <slot name="check" />
+    <slot name="thumbnail" />
+    <div>
+        <div class="flex space-x-6 items-center">
+            <slot />
+        </div>
+        <slot name="footer" />
     </div>
 </div>
 
