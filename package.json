@@ -1,6 +1,6 @@
 {
     "name": "@nick-mazuk/ui-svelte",
-    "version": "0.1.52",
+    "version": "0.1.53",
     "scripts": {
         "test": "jest test ./src --json --outputFile=.jest-test-results.json",
         "test:watch": "npm test -- --watch",
@@ -75,7 +75,7 @@
     ],
     "peerDependencies": {
         "@nick-mazuk/lib": "^0.8.34",
-        "@nick-mazuk/ui-config": "^0.9.6",
+        "@nick-mazuk/ui-config": "^0.10.0",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.3.0",
         "@tailwindcss/line-clamp": "^0.2.0",
