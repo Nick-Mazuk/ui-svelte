@@ -4,7 +4,7 @@
     export let large = false
     export let dot = false
 
-    $: containerClasses = large ? 'text-sm px-3 py-0.5' : 'text-xs px-2.5 py-0.5'
+    $: containerClasses = large ? 'px-3 py-0.5' : 'text-sm px-2.5 py-0.5'
     $: dotClasses = large ? 'w-1.5 h-1.5' : 'w-1 h-1'
 
     type ColorValue = {
@@ -14,27 +14,27 @@
 
     const COLOR_MAP: Record<Color, ColorValue> = {
         primary: {
-            container: 'bg-primary-50 text-primary-700',
+            container: 'bg-primary-100 text-primary-700',
             dot: 'bg-primary-300',
         },
         gray: {
-            container: 'bg-gray-50 text-gray-700',
+            container: 'bg-gray-100 text-gray-700',
             dot: 'bg-gray-300',
         },
         error: {
-            container: 'bg-error-50 text-error-700',
+            container: 'bg-error-100 text-error-700',
             dot: 'bg-error-300',
         },
         highlight: {
-            container: 'bg-highlight-50 text-highlight-700',
+            container: 'bg-highlight-100 text-highlight-700',
             dot: 'bg-highlight-300',
         },
         warning: {
-            container: 'bg-warning-50 text-warning-700',
+            container: 'bg-warning-100 text-warning-700',
             dot: 'bg-warning-300',
         },
         success: {
-            container: 'bg-success-50 text-success-700',
+            container: 'bg-success-100 text-success-700',
             dot: 'bg-success-300',
         },
     }

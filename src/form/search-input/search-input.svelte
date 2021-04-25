@@ -41,7 +41,7 @@
     </div>
     <input
         type="text"
-        class="text-sm bg-transparent w-full rounded placeholder-gray-400 text-gray-900 border-gray-200 hover:border-gray focus:border-primary focus:ring-primary transition-colors"
+        class="bg-transparent w-full text-base rounded placeholder-gray-400 text-gray-900 border h-10 border-gray-200 hover:border-gray focus:border-primary focus:ring-primary transition-colors"
         class:pl-8="{true}"
         placeholder="Search"
         bind:value
@@ -65,7 +65,7 @@
                         </button>
                     {:else}
                         <button
-                            class="px-3 py-2 hover:bg-gray-50 w-full transition-colors text-sm cursor-pointer hover:text-gray-900 block focus:outline-none text-left dark:hover:bg-gray-50"
+                            class="px-3 py-2 hover:bg-gray-50 w-full transition-colors cursor-pointer hover:text-gray-900 block focus:outline-none text-left dark:hover:bg-gray-50"
                             on:click="{() => onItemClick(option)}"
                             on:focus="{() => open()}"
                             tabindex="{-1}"

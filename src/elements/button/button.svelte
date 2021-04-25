@@ -65,17 +65,17 @@
                     ? 'border-transparent'
                     : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-50'
             } focus:ring-gray-900`,
-            disabled: 'text-gray-300 dark:text-gray-d300 border-transparent cursor-not-allowed',
+            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
         },
         link: {
-            classes: `border-transparent bg-transparent text-link ${
-                shadow ? '' : 'hover:underline'
+            classes: `border-transparent bg-transparent link ${
+                shadow ? 'hover:no-underline' : ''
             } focus:ring-link`,
-            disabled: 'text-gray-300 dark:text-gray-d300 border-transparent cursor-not-allowed',
+            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
         },
         static: {
             classes: 'border-transparent focus:ring-gray-900',
-            disabled: '',
+            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
         },
     }
 
@@ -88,19 +88,19 @@
 
     const SIZE_MAP: Record<Size, SizeData> = {
         small: {
-            global: 'text-sm px-3 h-8',
+            global: 'px-3 h-8',
             loadingSpinner: 'transform scale-50 top-1/2 mt-0.5 -translate-y-1/2 absolute',
             prefix: 'flex w-4 mr-2 -ml-1 relative',
             suffix: 'flex w-4 ml-1 -mr-1',
         },
         default: {
-            global: 'text-sm px-4 h-10',
+            global: 'px-4 h-10',
             loadingSpinner: 'transform scale-75 top-1/2 mt-0.5 -translate-y-1/2 absolute',
             prefix: 'flex w-5 mr-2 -ml-1 relative',
             suffix: 'flex w-5 ml-2 -mr-1',
         },
         large: {
-            global: 'px-4 h-12',
+            global: 'px-4 h-12 text-lg',
             loadingSpinner: 'transform scale-90 top-1/2 mt-0.5 -translate-y-1/2 absolute',
             prefix: 'flex w-6 mr-2 -ml-1 relative',
             suffix: 'flex w-6 ml-2 -mr-1',

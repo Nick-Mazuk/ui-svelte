@@ -3,7 +3,7 @@
     export let right = false
 </script>
 
-<div class="text-sm flex-1 flex" class:justify-end="{right}" class:text-right="{right}">
+<div class="text-base flex-1 flex" class:justify-end="{right}" class:text-right="{right}">
     <div class="flex space-x-3 items-center">
         <div>
             {#if title}

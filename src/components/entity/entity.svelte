@@ -1,16 +1,19 @@
 <script lang="ts">
+    import Container from '../../utilities/container/container.svelte'
 </script>
 
-<div data-entity class="border rounded-lg p-4 relative">
+<Container padding="small">
     <slot name="check" />
     <slot name="thumbnail" />
     <div>
         <div class="flex space-x-6 items-center">
             <slot />
         </div>
-        <slot name="footer" />
+        {#if $$slots.footer}
+            <div class="border-t"><slot name="footer" /></div>
+        {/if}
     </div>
-</div>
+</Container>
 
 <style>
     :global(div[data-entity] + div[data-entity]) {

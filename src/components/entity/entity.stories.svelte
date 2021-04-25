@@ -22,20 +22,43 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <section class="wrapper">
-        <Entity {...args}>
-            <EntityField title="Title">description</EntityField>
-            <EntityField title="Title">description</EntityField>
-            <EntityField title="Title" />
-            <EntityField right title="Title">
-                description
-                <svelte:fragment slot="avatar">
-                    <GitHub />
-                </svelte:fragment>
-            </EntityField>
-            <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
-        </Entity>
-    </section>
+    <Entity {...args}>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title" />
+        <EntityField right title="Title">
+            description
+            <svelte:fragment slot="avatar">
+                <GitHub />
+            </svelte:fragment>
+        </EntityField>
+    </Entity>
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['entity.test.ts'] }}" />
+<Story name="Footer" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+    <Entity {...args}>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title" />
+        <EntityField right title="Title">
+            description
+            <svelte:fragment slot="avatar">
+                <GitHub />
+            </svelte:fragment>
+        </EntityField>
+        <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
+    </Entity>
+</Story>
+<Story name="Multiple entities" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+    <Entity {...args}>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title">description</EntityField>
+        <EntityField right>Updated one hour ago</EntityField>
+    </Entity>
+    <Entity {...args}>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title">description</EntityField>
+        <EntityField right />
+    </Entity>
+</Story>

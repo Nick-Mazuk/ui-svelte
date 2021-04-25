@@ -13,7 +13,7 @@
     <a
         sveltekit:prefetch
         href="{href}"
-        class="flex items-center hover:text-current transition-color text-sm whitespace-nowrap {isCurrentPath
+        class="flex items-center hover:text-current transition-color whitespace-nowrap {isCurrentPath
             ? 'text-current text-semibold'
             : 'text-gray-600'}"
     >

@@ -9,7 +9,7 @@
         {#if $$slots['copyright'] || $$slots['social-links'] || $$slots['theme-toggle']}
             <FooterSection>
                 {#if $$slots['copyright']}
-                    <p class="text-sm whitespace-nowrap">
+                    <p class="whitespace-nowrap">
                         <slot name="copyright" />
                     </p>
                 {/if}

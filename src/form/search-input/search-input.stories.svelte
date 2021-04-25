@@ -20,7 +20,7 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <p class="mb-4 max-w-lg py-2 px-3 border rounded text-sm leading-tight balance">
+    <p class="mb-4 max-w-lg py-2 px-3 border rounded leading-tight balance">
         <span class="text-bold">Note</span>: This component is still under active development. It is
         not fully tested or documented, and should not be used in production.
     </p>

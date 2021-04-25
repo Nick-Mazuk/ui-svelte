@@ -12,7 +12,7 @@
         <p class="h3">{title}</p>
         <p class="mt-8 mb-12 balance">{message}</p>
         {#if links.length > 0}
-            <div class="flex divide-x divide-light text-sm justify-center">
+            <div class="flex divide-x divide-light justify-center">
                 {#each links as link}
                     <a href="{link.href}" class="link px-4"> {link.text} </a>
                 {/each}
