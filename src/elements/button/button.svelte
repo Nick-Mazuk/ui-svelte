@@ -1,13 +1,20 @@
 <script lang="ts">
     import LoadingSpinner from '../../utilities/loading-spinner/loading-spinner.svelte'
 
-    type Variant = 'filled' | 'text'
-    type Color = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
+    type Variant =
+        | 'primary'
+        | 'error'
+        | 'success'
+        | 'warning'
+        | 'gray'
+        | 'highlight'
+        | 'secondary'
+        | 'link'
+        | 'static'
     type Size = 'small' | 'default' | 'large'
     type Shape = 'square' | 'circle' | 'none'
 
-    export let color: Color = 'primary'
-    export let variant: Variant = 'filled'
+    export let variant: Variant = 'primary'
     export let size: Size = 'default'
     export let shadow = false
     export let disabled = false
@@ -22,62 +29,53 @@
     let isHovered = false
 
     type ButtonStyling = {
-        enabled: Record<Color, string>
-        disabled: string
+        classes: string
+        disabled?: string
     }
 
+    const disabledClasses = 'bg-gray-100 border-gray-100 text-gray cursor-not-allowed'
     const STYLES_MAP: Record<Variant, ButtonStyling> = {
-        filled: {
-            enabled: {
-                primary:
-                    'bg-primary border-primary text-white hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700 focus:ring-primary',
-                error:
-                    'bg-error border-error text-white hover:bg-error-600 hover:border-error-600 active:bg-error-700 active:border-error-700 focus:ring-error',
-                success:
-                    'bg-success border-success text-white hover:bg-success-600 hover:border-success-600 active:bg-success-700 active:border-success-700 focus:ring-success',
-                warning:
-                    'bg-warning border-warning text-white hover:bg-warning-600 hover:border-warning-600 active:bg-warning-700 active:border-warning-700 focus:ring-warning',
-                highlight:
-                    'bg-highlight border-highlight text-white hover:bg-highlight-600 hover:border-highlight-600 active:bg-highlight-700 active:border-highlight-700 focus:ring-highlight',
-                gray:
-                    'bg-gray border-gray text-white hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray',
-            },
-            disabled: 'bg-gray-100 border-gray-100 text-gray cursor-not-allowed',
+        primary: {
+            classes:
+                'bg-primary border-primary text-white hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700 focus:ring-primary',
         },
-        text: {
-            enabled: {
-                primary: `border-transparent bg-transparent text-primary ${
-                    shadow
-                        ? ''
-                        : 'hover:bg-primary-50 hover:border-primary-50 active:bg-primary-100 active:border-primary-100'
-                } focus:ring-primary`,
-                error: `border-transparent bg-transparent text-error ${
-                    shadow
-                        ? ''
-                        : 'hover:bg-error-50 hover:border-error-50 active:bg-error-100 active:border-error-100'
-                } focus:ring-error`,
-                success: `border-transparent bg-transparent text-success ${
-                    shadow
-                        ? ''
-                        : 'hover:bg-success-50 hover:border-success-50 active:bg-success-100 active:border-success-100'
-                } focus:ring-success`,
-                warning: `border-transparent bg-transparent text-warning ${
-                    shadow
-                        ? ''
-                        : 'hover:bg-warning-50 hover:border-warning-50 active:bg-warning-100 active:border-warning-100'
-                } focus:ring-warning`,
-                highlight: `border-transparent bg-transparent text-highlight ${
-                    shadow
-                        ? ''
-                        : 'hover:bg-highlight-50 hover:border-highlight-50 active:bg-highlight-100 active:border-highlight-100'
-                } focus:ring-highlight`,
-                gray: `border-transparent bg-transparent text-gray ${
-                    shadow
-                        ? ''
-                        : 'hover:bg-gray-50 hover:border-gray-50 active:bg-gray-100 active:border-gray-100'
-                } focus:ring-gray`,
-            },
+        error: {
+            classes:
+                'bg-error border-error text-white hover:bg-error-600 hover:border-error-600 active:bg-error-700 active:border-error-700 focus:ring-error',
+        },
+        success: {
+            classes:
+                'bg-success border-success text-white hover:bg-success-600 hover:border-success-600 active:bg-success-700 active:border-success-700 focus:ring-success',
+        },
+        warning: {
+            classes:
+                'bg-warning border-warning text-white hover:bg-warning-600 hover:border-warning-600 active:bg-warning-700 active:border-warning-700 focus:ring-warning',
+        },
+        highlight: {
+            classes:
+                'bg-highlight border-highlight text-white hover:bg-highlight-600 hover:border-highlight-600 active:bg-highlight-700 active:border-highlight-700 focus:ring-highlight',
+        },
+        gray: {
+            classes:
+                'bg-gray border-gray text-white hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray',
+        },
+        secondary: {
+            classes: `bg-transparent text-gray-600 ${
+                shadow
+                    ? 'border-transparent'
+                    : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-50'
+            } focus:ring-gray-900`,
             disabled: 'text-gray-300 dark:text-gray-d300 border-transparent cursor-not-allowed',
+        },
+        link: {
+            classes: `border-transparent bg-transparent text-link ${
+                shadow ? '' : 'hover:underline'
+            } focus:ring-link`,
+            disabled: 'text-gray-300 dark:text-gray-d300 border-transparent cursor-not-allowed',
+        },
+        static: {
+            classes: 'border-transparent focus:ring-gray-900',
+            disabled: '',
         },
     }
 
@@ -177,8 +175,8 @@
             ${SHAPE_MAP[shape][size]}
             ${
                 disabled || loading
-                    ? STYLES_MAP[variant].disabled
-                    : STYLES_MAP[variant].enabled[color]
+                    ? STYLES_MAP[variant].disabled || disabledClasses
+                    : STYLES_MAP[variant].classes
             }
         `}"
         class:w-full="{width === 'full'}"
@@ -223,8 +221,8 @@
             ${SHAPE_MAP[shape][size]}
             ${
                 disabled || loading
-                    ? STYLES_MAP[variant].disabled
-                    : STYLES_MAP[variant].enabled[color]
+                    ? STYLES_MAP[variant].disabled || disabledClasses
+                    : STYLES_MAP[variant].classes
             }
         `}"
         class:w-full="{width === 'full'}"

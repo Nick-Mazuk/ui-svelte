@@ -15,19 +15,22 @@
             },
         },
         argTypes: {
-            color: {
-                control: {
-                    type: 'select',
-                    options: ['primary', 'error', 'success', 'warning', 'gray', 'highlight'],
-                },
-                defaultValue: 'primary',
-            },
             variant: {
                 control: {
-                    type: 'radio',
-                    options: ['filled', 'text'],
+                    type: 'select',
+                    options: [
+                        'primary',
+                        'error',
+                        'success',
+                        'warning',
+                        'gray',
+                        'highlight',
+                        'secondary',
+                        'link',
+                        'static',
+                    ],
                 },
-                defaultValue: 'filled',
+                defaultValue: 'primary',
             },
             size: {
                 control: {
@@ -95,29 +98,17 @@
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['button.test.ts'] }}" />
-<Story name="Colors" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+<Story name="Variants" parameters="{{ jest: ['button.test.ts'] }}" let:args>
     <div class="flex space-x-8">
-        <div><Button {...args} color="primary">Primary</Button></div>
-        <div><Button {...args} color="gray">Gray</Button></div>
-        <div><Button {...args} color="error">Error</Button></div>
-        <div><Button {...args} color="warning">Warning</Button></div>
-        <div><Button {...args} color="success">Success</Button></div>
-        <div><Button {...args} color="highlight">Highlight</Button></div>
-    </div>
-</Story>
-<Story
-    name="Text"
-    parameters="{{ jest: ['button.test.ts'] }}"
-    args="{{ variant: 'text' }}"
-    let:args
->
-    <div class="flex space-x-8">
-        <div><Button {...args} color="primary">Primary</Button></div>
-        <div><Button {...args} color="gray">Gray</Button></div>
-        <div><Button {...args} color="error">Error</Button></div>
-        <div><Button {...args} color="warning">Warning</Button></div>
-        <div><Button {...args} color="success">Success</Button></div>
-        <div><Button {...args} color="highlight">Highlight</Button></div>
+        <div><Button {...args} variant="primary">Primary</Button></div>
+        <div><Button {...args} variant="gray">Gray</Button></div>
+        <div><Button {...args} variant="error">Error</Button></div>
+        <div><Button {...args} variant="warning">Warning</Button></div>
+        <div><Button {...args} variant="success">Success</Button></div>
+        <div><Button {...args} variant="highlight">Highlight</Button></div>
+        <div><Button {...args} variant="secondary">Secondary</Button></div>
+        <div><Button {...args} variant="link">Link</Button></div>
+        <div><Button {...args} variant="static">Static</Button></div>
     </div>
 </Story>
 <Story name="Sizes" parameters="{{ jest: ['button.test.ts'] }}" let:args>
