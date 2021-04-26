@@ -11,7 +11,7 @@
 
 <Container
     padding="small"
-    class="entity relative !overflow-visible"
+    class="entity relative !overflow-visible {disabled ? 'disabled-entity' : ''}"
     variant="{disabled ? 'disable' : undefined}"
 >
     <div class="grid gap-x-4" style="{gridStyle}">
@@ -61,6 +61,10 @@
         left: 0;
         top: -9px;
         background: rgb(var(--c-background));
+        pointer-events: none;
         box-shadow: -1px 0 0 rgb(var(--c-gray-100)), 1px 0 0 rgb(var(--c-gray-100));
+    }
+    :global(.entity.disabled-entity + .entity:before) {
+        background: rgb(var(--c-gray-50));
     }
 </style>
