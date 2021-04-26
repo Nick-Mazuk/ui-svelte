@@ -10,6 +10,7 @@
     import Button from '../../elements/button/button.svelte'
 
     import Entity from './entity.svelte'
+    import ListItem from '../list/list-item/list-item.svelte'
 
     const meta = {
         title: 'Components/Entity',
@@ -76,7 +77,11 @@
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>
         <EntityField right>Updated one hour ago</EntityField>
-        <svelte:fragment slot="menu">hello</svelte:fragment>
+        <svelte:fragment slot="menu">
+            <ListItem>hello</ListItem>
+            <ListItem>hello</ListItem>
+            <ListItem>hello</ListItem>
+        </svelte:fragment>
     </Entity>
 </Story>
 <Story name="Footer" parameters="{{ jest: ['entity.test.ts'] }}" let:args>

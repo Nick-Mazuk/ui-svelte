@@ -3,6 +3,7 @@
     import MoreVertical from '../../elements/icon/more-vertical.svelte'
 
     import Container from '../../utilities/container/container.svelte'
+    import Menu from '../menu/menu.svelte'
 
     export let disabled = false
 
@@ -27,12 +28,12 @@
                 <div class="flex space-x-3"><slot name="actions" /></div>
             {/if}
             {#if $$slots.menu}
-                <div>
-                    <slot name="menu" />
-                    <Button shape="square" size="small" variant="static">
+                <Menu placement="left-start">
+                    <Button shape="square" size="small" variant="static" slot="button">
                         <MoreVertical />
                     </Button>
-                </div>
+                    <slot name="menu" />
+                </Menu>
             {/if}
         </div>
         {#if $$slots.footer}

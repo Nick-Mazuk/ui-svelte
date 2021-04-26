@@ -19,16 +19,19 @@
 
     export let loose = false
     export let placement: Placement = 'bottom-start'
+    export let width = 0
+    export let minWidth = 32
 </script>
 
 <Popover placement="{placement}">
     <svelte:fragment slot="trigger"><slot name="button" /></svelte:fragment>
     <div
-        class="w-64 shadow-lg border rounded-lg overflow-hidden bg-background"
+        class="shadow-lg border rounded-lg overflow-hidden bg-background"
         class:mt-2="{placement.startsWith('bottom')}"
         class:mr-2="{placement.startsWith('left')}"
         class:ml-2="{placement.startsWith('right')}"
         class:mb-2="{placement.startsWith('top')}"
+        style="width: {width * 4}px; min-width: {minWidth * 4}px"
     >
         <List compact="{!loose}" role="menu">
             <slot />

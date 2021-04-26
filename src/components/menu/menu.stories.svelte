@@ -41,6 +41,24 @@
                 },
                 defaultValue: 'bottom-start',
             },
+            loose: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            width: {
+                control: {
+                    type: 'number',
+                },
+                defaultValue: 0,
+            },
+            minWidth: {
+                control: {
+                    type: 'number',
+                },
+                defaultValue: 32,
+            },
         },
     }
 </script>
