@@ -115,10 +115,3 @@
         </ListSection>
     </List>
 </Story>
-<Story name="Overflow" parameters="{{ jest: ['list.test.ts'] }}" args="{{ height: 26 }}" let:args>
-    <List {...args}>
-        {#each Array(10) as _, i}
-            <ListItem>Item {i + 1}</ListItem>
-        {/each}
-    </List>
-</Story>

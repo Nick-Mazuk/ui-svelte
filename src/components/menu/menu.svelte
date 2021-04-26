@@ -1,19 +1,37 @@
 <script lang="ts">
+    import Popover from '../popover/popover.svelte'
+
     import List from '../list/list.svelte'
 
-    export let loose = false
+    type Placement =
+        | 'top'
+        | 'right'
+        | 'bottom'
+        | 'left'
+        | 'top-start'
+        | 'top-end'
+        | 'right-start'
+        | 'right-end'
+        | 'left-start'
+        | 'left-end'
+        | 'bottom-start'
+        | 'bottom-end'
 
-    let open = false
-    const toggleMenu = () => (open = !open)
-    const closeMenu = () => (open = false)
-    const openMenu = () => (open = true)
+    export let loose = false
+    export let placement: Placement = 'bottom-start'
 </script>
 
-<span on:click="{toggleMenu}"><slot name="button" /></span>
-{#if open}
-    <div class="w-64 shadow-lg border rounded-lg overflow-hidden" on:click="{closeMenu}">
+<Popover placement="{placement}">
+    <svelte:fragment slot="trigger"><slot name="button" /></svelte:fragment>
+    <div
+        class="w-64 shadow-lg border rounded-lg overflow-hidden bg-background"
+        class:mt-2="{placement.startsWith('bottom')}"
+        class:mr-2="{placement.startsWith('left')}"
+        class:ml-2="{placement.startsWith('right')}"
+        class:mb-2="{placement.startsWith('top')}"
+    >
         <List compact="{!loose}" role="menu">
             <slot />
         </List>
     </div>
-{/if}
+</Popover>

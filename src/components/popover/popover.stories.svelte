@@ -1,18 +1,19 @@
 <script>
-    import { Meta, Story } from '@storybook/addon-svelte-csf'
+    import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
     import ChevronDown from '../../elements/icon/chevron-down.svelte'
     import Button from '../../elements/button/button.svelte'
 
-    import Menu from './menu.svelte'
     import ListItem from '../list/list-item/list-item.svelte'
     import ListSection from '../list/list-section/list-section.svelte'
     import Home from '../../elements/icon/home.svelte'
     import Edit from '../../elements/icon/edit.svelte'
     import Settings from '../../elements/icon/settings.svelte'
 
+    import Popover from './popover.svelte'
+
     const meta = {
-        title: 'Components/Menu',
-        component: Menu,
+        title: 'Components/Popover',
+        component: Popover,
         parameters: {
             docs: {
                 description: {
@@ -39,7 +40,19 @@
                         'bottom-end',
                     ],
                 },
-                defaultValue: 'bottom-start',
+                defaultValue: 'right-start',
+            },
+            overlay: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            disabled: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
             },
         },
     }
@@ -47,28 +60,24 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['menu.test.ts'] }}" let:args>
+<Template let:args>
+    <Popover {...args} />
+</Template>
+
+<Story name="Default" parameters="{{ jest: ['popover.test.ts'] }}" let:args>
     <div class="min-w-screen min-h-screen flex items-center justify-center">
-        <Menu {...args}>
-            <Button shape="square" variant="secondary" slot="button" ariaLabel="Open menu">
-                <ChevronDown />
-            </Button>
-            <ListSection title="Dashboard">
-                <ListItem>
-                    <Home slot="prefix" />
-                    Home
-                </ListItem>
-                <ListItem>
-                    <Edit slot="prefix" />
-                    Posts
-                </ListItem>
-            </ListSection>
-            <ListSection title="Account">
-                <ListItem>
-                    <Settings slot="prefix" />
-                    Settings
-                </ListItem>
-            </ListSection>
-        </Menu>
+        <Popover {...args}>
+            <Button variant="secondary" slot="trigger">Open popover</Button>
+            <div class="bg-gray-900 p-2 rounded text-white">I'm a popover</div>
+        </Popover>
+    </div>
+</Story>
+
+<Story name="Events" parameters="{{ jest: ['popover.test.ts'] }}" let:args>
+    <div class="min-w-screen min-h-screen flex items-center justify-center">
+        <Popover {...args} on:close="{() => alert('closed')}" on:open="{() => alert('opened')}">
+            <Button variant="secondary" slot="trigger">Open popover</Button>
+            <div class="bg-gray-900 p-2 rounded text-white">I'm a popover</div>
+        </Popover>
     </div>
 </Story>

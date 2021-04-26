@@ -1,5 +1,7 @@
 <script lang="ts">
     import LoadingSpinner from '../../utilities/loading-spinner/loading-spinner.svelte'
+    import type { Writable } from 'svelte/store'
+    import { getContext } from 'svelte'
 
     type Variant =
         | 'primary'
@@ -24,6 +26,8 @@
     export let submit = false
     export let ariaLabel = ''
     export let href = ''
+
+    const disabledContext = getContext<Writable<boolean> | undefined>('disabled')
 
     let isActive = false
     let isHovered = false
@@ -65,7 +69,7 @@
                     ? 'border-transparent'
                     : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-50'
             } focus:ring-gray-900`,
-            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
+            disabled: 'text-gray-300 border cursor-not-allowed',
         },
         link: {
             classes: `border-transparent bg-transparent link ${
@@ -162,6 +166,7 @@
         isActive || isHovered
             ? 'ring-offset-2 ring-offset-white'
             : 'ring-offset-2 focus:ring-2 ring-offset-white'
+    $: isDisabled = typeof disabledContext !== 'undefined' ? $disabledContext || disabled : disabled
 </script>
 
 {#if href}
@@ -174,7 +179,7 @@
             ${SIZE_MAP[size].global}
             ${SHAPE_MAP[shape][size]}
             ${
-                disabled || loading
+                isDisabled || loading
                     ? STYLES_MAP[variant].disabled || disabledClasses
                     : STYLES_MAP[variant].classes
             }
@@ -182,7 +187,7 @@
         class:w-full="{width === 'full'}"
         class:rounded="{shape !== 'circle'}"
         style="{widthStyle}"
-        disabled="{disabled || loading}"
+        disabled="{isDisabled || loading}"
         on:mouseenter="{handleMouseEnter}"
         on:mouseleave="{handleMouseLeave}"
         on:mouseup="{handleMouseUp}"
@@ -220,7 +225,7 @@
             ${SIZE_MAP[size].global}
             ${SHAPE_MAP[shape][size]}
             ${
-                disabled || loading
+                isDisabled || loading
                     ? STYLES_MAP[variant].disabled || disabledClasses
                     : STYLES_MAP[variant].classes
             }
@@ -228,7 +233,7 @@
         class:w-full="{width === 'full'}"
         class:rounded="{shape !== 'circle'}"
         style="{widthStyle}"
-        disabled="{disabled || loading}"
+        disabled="{isDisabled || loading}"
         type="{submit ? 'submit' : 'button'}"
         on:mouseenter="{handleMouseEnter}"
         on:mouseleave="{handleMouseLeave}"
