@@ -2,7 +2,7 @@
     export let y: number = 0
     export let x: number = 0
 
-    const multiplier = 32
+    const multiplier = 24
 
     const getWidth = () => {
         if (x) return x * multiplier

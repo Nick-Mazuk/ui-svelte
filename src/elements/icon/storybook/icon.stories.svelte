@@ -22,7 +22,7 @@
                     step: 1,
                 },
                 name: 'size',
-                defaultValue: 6,
+                defaultValue: 8,
                 description:
                     'Size of the icon. Follows the TailwindCSS size scale, so `size={6}` is equivalent to the class `w-6`.',
                 type: { name: 'number', required: false },

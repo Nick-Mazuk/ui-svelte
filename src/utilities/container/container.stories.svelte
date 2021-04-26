@@ -50,6 +50,11 @@
                     type: 'text',
                 },
             },
+            class: {
+                control: {
+                    type: 'text',
+                },
+            },
         },
     }
 </script>
