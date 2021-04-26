@@ -7,6 +7,7 @@
     import Edit from '../../elements/icon/edit.svelte'
     import Info from '../../elements/icon/info.svelte'
     import ListDivider from './list-divider/list-divider.svelte'
+    import ListSection from './list-section/list-section.svelte'
 
     const meta = {
         title: 'Components/List',
@@ -18,7 +19,19 @@
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            compact: {
+                control: {
+                    type: 'boolean',
+                },
+            },
+            role: {
+                control: {
+                    type: 'text',
+                },
+                description: 'The aria role for the list',
+            },
+        },
     }
 </script>
 
@@ -80,5 +93,32 @@
             <Settings slot="prefix" />
             Settings
         </ListItem>
+    </List>
+</Story>
+<Story name="Sections" parameters="{{ jest: ['list.test.ts'] }}" let:args>
+    <List {...args}>
+        <ListSection title="Dashboard">
+            <ListItem>
+                <Home slot="prefix" />
+                Home
+            </ListItem>
+            <ListItem>
+                <Edit slot="prefix" />
+                Posts
+            </ListItem>
+        </ListSection>
+        <ListSection title="Account">
+            <ListItem>
+                <Settings slot="prefix" />
+                Settings
+            </ListItem>
+        </ListSection>
+    </List>
+</Story>
+<Story name="Overflow" parameters="{{ jest: ['list.test.ts'] }}" args="{{ height: 26 }}" let:args>
+    <List {...args}>
+        {#each Array(10) as _, i}
+            <ListItem>Item {i + 1}</ListItem>
+        {/each}
     </List>
 </Story>

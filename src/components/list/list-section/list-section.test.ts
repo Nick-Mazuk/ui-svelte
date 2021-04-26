@@ -1,8 +1,8 @@
 import { render } from '@testing-library/svelte'
 
-import MenuItem from './menu-item.svelte'
+import ListSection from './list-section.svelte'
 
 it('renders without crashing', () => {
-    const { container } = render(MenuItem)
+    const { container } = render(ListSection)
     expect(container).not.toBeEmptyDOMElement()
 })

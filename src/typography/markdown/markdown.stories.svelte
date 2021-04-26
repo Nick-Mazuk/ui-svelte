@@ -123,7 +123,7 @@ This will be a link: https://example.com
 <Story name="Default" parameters="{{ jest: ['markdown.test.ts'] }}" />
 
 <Story name="With TextContent" let:args>
-    <TextContent responsive center>
+    <TextContent center>
         <Markdown {...args} />
     </TextContent>
 </Story>
