@@ -5,7 +5,7 @@
     import FooterSocialLink from './footer-social-link.svelte'
 
     const meta = {
-        title: 'Layouts/Footer/FooterSocialLink',
+        title: 'Components/Footer/FooterSocialLink',
         component: FooterSocialLink,
         parameters: {
             docs: {

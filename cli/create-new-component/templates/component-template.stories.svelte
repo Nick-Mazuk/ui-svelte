@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
 
     import ComponentTemplate from './component-template.svelte'
