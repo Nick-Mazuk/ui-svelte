@@ -1,9 +1,19 @@
 <script lang="ts">
-    import { getContext } from 'svelte'
+    import { getContext, onMount } from 'svelte'
 
     export let href = ''
 
-    const compact = getContext('compact')
+    let element: HTMLAnchorElement | HTMLLIElement
+    let index: number = -1
+    let textContent: string | null
+
+    const compact = getContext<boolean>('compact')
+    const register = getContext<(text: string | null) => number>('registerListItem')
+
+    onMount(() => {
+        textContent = element.textContent
+        index = register(textContent)
+    })
 
     const classes = {
         container: [
@@ -17,10 +27,18 @@
             suffix: 'w-8 pl-3 ml-auto',
         },
     }
+
+    $: tabindex = index === 0 ? 0 : -1
 </script>
 
 {#if href}
-    <a href="{href}" sveltekit:prefetch class="{classes.container}">
+    <a
+        href="{href}"
+        sveltekit:prefetch
+        class="{classes.container}"
+        bind:this="{element}"
+        tabindex="{tabindex}"
+    >
         {#if $$slots.prefix}
             <div class="{classes.affix.default} {classes.affix.prefix}">
                 <slot name="prefix" />
@@ -36,7 +54,7 @@
         {/if}
     </a>
 {:else}
-    <li class="{classes.container}">
+    <li class="{classes.container}" bind:this="{element}" tabindex="{tabindex}">
         {#if $$slots.prefix}
             <div class="{classes.affix.default} {classes.affix.prefix}">
                 <slot name="prefix" />
