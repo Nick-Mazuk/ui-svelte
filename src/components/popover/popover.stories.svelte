@@ -68,7 +68,7 @@
     <div class="min-w-screen min-h-screen flex items-center justify-center">
         <Popover {...args}>
             <Button variant="secondary" slot="trigger">Open popover</Button>
-            <div class="bg-gray-900 p-2 rounded text-white">I'm a popover</div>
+            <div class="bg-gray-900 p-2 rounded text-background">I'm a popover</div>
         </Popover>
     </div>
 </Story>
@@ -77,7 +77,7 @@
     <div class="min-w-screen min-h-screen flex items-center justify-center">
         <Popover {...args} on:close="{() => alert('closed')}" on:open="{() => alert('opened')}">
             <Button variant="secondary" slot="trigger">Open popover</Button>
-            <div class="bg-gray-900 p-2 rounded text-white">I'm a popover</div>
+            <div class="bg-gray-900 p-2 rounded text-background">I'm a popover</div>
         </Popover>
     </div>
 </Story>

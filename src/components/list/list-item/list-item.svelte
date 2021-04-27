@@ -7,7 +7,7 @@
 
     const classes = {
         container: [
-            'list-none h-10 text-gray-700 items-center flex cursor-pointer hover:bg-gray-50 hover:text-gray-900 group',
+            'list-none h-10 text-gray-700 items-center flex cursor-pointer transition-colors hover:bg-gray-100 hover:text-gray-900 group',
             compact ? 'px-3' : 'px-4',
         ].join(' '),
         content: 'truncate',

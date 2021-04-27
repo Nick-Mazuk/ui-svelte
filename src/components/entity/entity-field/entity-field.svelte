@@ -9,7 +9,7 @@
     data-component="entity-field"
 >
     {#if title}
-        <p class="text-bold">{title}</p>
+        <p class="font-bold">{title}</p>
     {/if}
 
     <div

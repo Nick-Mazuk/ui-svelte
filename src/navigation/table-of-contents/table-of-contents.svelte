@@ -22,7 +22,7 @@
             {/if}
             <span
                 class="hover:text-gray-900 {currentItem.startsWith(item.href)
-                    ? 'text-gray-900 text-bold'
+                    ? 'text-gray-900 font-bold'
                     : 'text-gray-600'} transition-colors">{item.text}</span
             >
         </a>
@@ -33,7 +33,7 @@
                     sveltekit:prefetch
                     class="block border-l py-2 pl-5 hover:text-gray-900 transition-colors {currentItem ===
                     child.href
-                        ? 'text-bold text-gray-900'
+                        ? 'font-bold text-gray-900'
                         : 'text-gray-600'}"
                 >
                     {child.text}

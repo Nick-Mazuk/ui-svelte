@@ -9,7 +9,7 @@
 </script>
 
 <div class="border-b md:border-none">
-    <h3 class="hidden text-semibold md:block">{title}</h3>
+    <h3 class="hidden font-semibold md:block">{title}</h3>
     <div
         class="flex items-center h-10 justify-between cursor-pointer md:hidden"
         on:click="{() => (open = !open)}"

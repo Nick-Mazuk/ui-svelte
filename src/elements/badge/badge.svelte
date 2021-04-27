@@ -14,27 +14,27 @@
 
     const COLOR_MAP: Record<Color, ColorValue> = {
         primary: {
-            container: 'bg-primary-100 text-primary-700',
+            container: 'bg-primary-200 text-primary-700',
             dot: 'bg-primary-300',
         },
         gray: {
-            container: 'bg-gray-100 text-gray-700',
+            container: 'bg-gray-200 text-gray-700',
             dot: 'bg-gray-300',
         },
         error: {
-            container: 'bg-error-100 text-error-700',
+            container: 'bg-error-200 text-error-700',
             dot: 'bg-error-300',
         },
         highlight: {
-            container: 'bg-highlight-100 text-highlight-700',
+            container: 'bg-highlight-200 text-highlight-700',
             dot: 'bg-highlight-300',
         },
         warning: {
-            container: 'bg-warning-100 text-warning-700',
+            container: 'bg-warning-200 text-warning-700',
             dot: 'bg-warning-300',
         },
         success: {
-            container: 'bg-success-100 text-success-700',
+            container: 'bg-success-200 text-success-700',
             dot: 'bg-success-300',
         },
     }

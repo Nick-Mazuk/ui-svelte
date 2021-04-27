@@ -9,7 +9,7 @@
 
 <span
     aria-hidden="true"
-    class="text-sm text-semibold text-gray-700 my-2 block"
+    class="text-sm font-semibold text-gray-700 my-2 block"
     class:px-3="{compact}"
     class:px-4="{!compact}"
     >{title}

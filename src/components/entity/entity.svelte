@@ -66,7 +66,13 @@
                     {#if $$slots.menu}
                         <div>
                             <Menu placement="left-start">
-                                <Button shape="square" size="small" variant="static" slot="button">
+                                <Button
+                                    shape="square"
+                                    size="small"
+                                    variant="static"
+                                    slot="button"
+                                    ariaLabel="Open menu"
+                                >
                                     <MoreVertical />
                                 </Button>
                                 <slot name="menu" />
@@ -124,7 +130,7 @@
         top: -9px;
         background: rgb(var(--c-background));
         pointer-events: none;
-        box-shadow: -1px 0 0 rgb(var(--c-gray-100)), 1px 0 0 rgb(var(--c-gray-100));
+        box-shadow: -1px 0 0 rgb(var(--c-gray-200)), 1px 0 0 rgb(var(--c-gray-200));
     }
     :global(.entity.disabled-entity + .entity:before) {
         background: rgb(var(--c-gray-50));

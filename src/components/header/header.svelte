@@ -11,13 +11,13 @@
 </script>
 
 <header
-    class="z-50 {stickyClasses} bg-white  border-b isolate {scrolledToTop
+    class="z-50 {stickyClasses} bg-background  border-b isolate {scrolledToTop
         ? 'border-opacity-100'
         : 'border-opacity-0 dark:border-opacity-100'}"
     style="transform:translateZ(10000px)"
 >
     <a
-        class="absolute top-2 left-8 border border-gray-50 transform -translate-y-20 text-semibold z-50 px-4 py-3 select-none bg-white rounded-lg shadow-lg focus:translate-y-0 focus:outline-none dark:shadow-none dark:border dark:bg-gray-200"
+        class="absolute top-2 left-8 border border-gray-50 transform -translate-y-20 font-semibold z-50 px-4 py-3 select-none bg-background rounded-lg shadow-lg focus:translate-y-0 focus:outline-none dark:shadow-none dark:border dark:bg-gray-200"
         href="#main-content"
     >
         Jump to content

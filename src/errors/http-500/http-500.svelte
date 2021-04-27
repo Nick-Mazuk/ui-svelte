@@ -21,7 +21,7 @@
     </main>
     {#if isDevelopment}
         <pre
-            class="overflow-scroll mb-16 p-4 rounded-lg bg-error-50">
+            class="overflow-scroll mb-16 p-4 rounded-lg bg-error-100">
             <code>
         
                 {#each stack as line}

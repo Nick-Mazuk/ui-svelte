@@ -37,37 +37,37 @@
         disabled?: string
     }
 
-    const disabledClasses = 'bg-gray-100 text-gray cursor-not-allowed'
+    const disabledClasses = 'bg-gray-200 text-gray cursor-not-allowed'
     const STYLES_MAP: Record<Variant, ButtonStyling> = {
         primary: {
             classes:
-                'bg-primary border-primary text-white hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700 focus:ring-primary',
+                'bg-primary border-primary text-background hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700 focus:ring-primary dark:text-foreground',
         },
         error: {
             classes:
-                'bg-error border-error text-white hover:bg-error-600 hover:border-error-600 active:bg-error-700 active:border-error-700 focus:ring-error',
+                'bg-error border-error text-background hover:bg-error-600 hover:border-error-600 active:bg-error-700 active:border-error-700 focus:ring-error dark:text-foreground',
         },
         success: {
             classes:
-                'bg-success border-success text-white hover:bg-success-600 hover:border-success-600 active:bg-success-700 active:border-success-700 focus:ring-success',
+                'bg-success border-success text-background hover:bg-success-600 hover:border-success-600 active:bg-success-700 active:border-success-700 focus:ring-success dark:text-foreground',
         },
         warning: {
             classes:
-                'bg-warning border-warning text-white hover:bg-warning-600 hover:border-warning-600 active:bg-warning-700 active:border-warning-700 focus:ring-warning',
+                'bg-warning border-warning text-background hover:bg-warning-600 hover:border-warning-600 active:bg-warning-700 active:border-warning-700 focus:ring-warning dark:text-foreground',
         },
         highlight: {
             classes:
-                'bg-highlight border-highlight text-white hover:bg-highlight-600 hover:border-highlight-600 active:bg-highlight-700 active:border-highlight-700 focus:ring-highlight',
+                'bg-highlight border-highlight text-background hover:bg-highlight-600 hover:border-highlight-600 active:bg-highlight-700 active:border-highlight-700 focus:ring-highlight dark:text-foreground',
         },
         gray: {
             classes:
-                'bg-gray border-gray text-white hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray',
+                'bg-gray border-gray text-background hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray dark:text-foreground',
         },
         secondary: {
             classes: `bg-transparent text-gray-600 ${
                 shadow
                     ? 'border-transparent'
-                    : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-50'
+                    : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-200'
             } focus:ring-gray-900`,
             disabled: 'text-gray-300 border cursor-not-allowed',
         },
@@ -164,15 +164,15 @@
         : ''
     $: ringClasses =
         isActive || isHovered
-            ? 'ring-offset-2 ring-offset-white'
-            : 'ring-offset-2 focus:ring-2 ring-offset-white'
+            ? 'ring-offset-2 ring-offset-background'
+            : 'ring-offset-2 focus:ring-2 ring-offset-background'
     $: isDisabled = typeof disabledContext !== 'undefined' ? $disabledContext || disabled : disabled
 </script>
 
 {#if href}
     <a
         class="{`
-            border transition focus:outline-none text-semibold truncate
+            border transition focus:outline-none font-semibold truncate
             inline-flex justify-center items-center
             ${shadowClasses}
             ${ringClasses}
@@ -218,7 +218,7 @@
 {:else}
     <button
         class="{`
-            border transition focus:outline-none text-semibold truncate
+            border transition focus:outline-none font-semibold truncate
             flex justify-center items-center
             ${shadowClasses}
             ${ringClasses}

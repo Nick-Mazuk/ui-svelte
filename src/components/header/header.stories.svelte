@@ -51,14 +51,14 @@
             </svelte:fragment>
         </Header>
         <div id="main-content" class="wrapper">
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-100"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
         </div>
     </div>
 </Story>
