@@ -22,7 +22,20 @@
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            disabled: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            wrapPrefix: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+        },
     }
 </script>
 

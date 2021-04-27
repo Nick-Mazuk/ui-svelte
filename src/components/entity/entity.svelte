@@ -6,6 +6,28 @@
     import Menu from '../menu/menu.svelte'
 
     export let disabled = false
+    export let wrapPrefix = false
+
+    let mobileColumnCount: number
+    let firstFieldOffset: number
+    let firstEntityRow: number
+    let mobileColumns: string[]
+    $: {
+        mobileColumnCount = 1
+        firstFieldOffset = 1
+        firstEntityRow = 1
+        mobileColumns = ['auto']
+        if ($$slots.prefix && !wrapPrefix) {
+            mobileColumnCount++
+            firstFieldOffset = 2
+            mobileColumns.push('minmax(0, 1fr)')
+        }
+        if ($$slots.actions || $$slots.menu) {
+            mobileColumnCount++
+            mobileColumns.push('auto')
+        }
+        if (wrapPrefix && $$slots.prefix) firstEntityRow = 2
+    }
 </script>
 
 <Container
@@ -13,7 +35,13 @@
     class="entity relative !overflow-visible {disabled ? 'disabled-entity' : ''}"
     variant="{disabled ? 'disable' : undefined}"
 >
-    <div class="grid gap-x-4" class:has-prefix="{$$slots.prefix}">
+    <div
+        class="grid gap-x-4"
+        class:has-prefix="{$$slots.prefix}"
+        style="--entity-columns: {mobileColumns.join(
+            ' '
+        )};--entity-column-count: {mobileColumnCount}; --first-entity-field-offset: {firstFieldOffset}; --first-entity-row: {firstEntityRow}"
+    >
         {#if $$slots.prefix}
             <div class="place-self-center hidden sm:block">
                 <slot name="prefix" />
@@ -22,10 +50,11 @@
 
         <div
             class="grid grid-flow-cols gap-4 sm:flex sm:space-x-6 sm:gap-0 sm:flex-row sm:items-center"
+            data-component="entity-slot-container"
         >
             <slot />
             {#if $$slots.prefix}
-                <div class="place-self-center col-start-1 row-start-1 sm:hidden">
+                <div class="col-start-1 row-start-1 sm:hidden">
                     <slot name="prefix" />
                 </div>
             {/if}
@@ -49,8 +78,8 @@
         </div>
         {#if $$slots.footer}
             <div
-                class="border-t col-start-1 mt-4 pt-4 sm:row-start-2 text-gray sm:col-start-2"
-                class:col-start-2="{$$slots.prefix}"
+                class="border-t col-start-1 mt-4 pt-4 sm:row-start-2 text-gray"
+                class:sm:col-start-2="{$$slots.prefix}"
             >
                 <slot name="footer" />
             </div>
@@ -66,13 +95,16 @@
     }
 
     @media (max-width: 640px) {
+        :global([data-component='entity-slot-container']) {
+            grid-template-columns: var(--entity-columns);
+        }
         :global([data-component='entity-field']) {
-            grid-column: span 3 / span 3;
+            grid-column: span var(--entity-column-count) / span var(--entity-column-count);
             grid-column-start: 1;
         }
         :global([data-component='entity-field']:first-of-type) {
-            grid-row-start: 1;
-            grid-column-start: 2;
+            grid-row-start: var(--first-entity-row);
+            grid-column-start: var(--first-entity-field-offset);
             grid-column: span 1 / span 1;
         }
     }
