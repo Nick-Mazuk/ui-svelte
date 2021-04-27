@@ -6,8 +6,6 @@
     import Menu from '../menu/menu.svelte'
 
     export let disabled = false
-
-    $: gridStyle = $$slots.prefix ? 'grid-template-columns: auto minmax(0, 1fr)' : ''
 </script>
 
 <Container
@@ -15,30 +13,43 @@
     class="entity relative !overflow-visible {disabled ? 'disabled-entity' : ''}"
     variant="{disabled ? 'disable' : undefined}"
 >
-    <div class="grid gap-x-4" style="{gridStyle}">
+    <div class="grid gap-x-4" class:has-prefix="{$$slots.prefix}">
         {#if $$slots.prefix}
-            <div class="place-self-center">
+            <div class="place-self-center hidden sm:block">
                 <slot name="prefix" />
             </div>
         {/if}
 
-        <div class="flex space-x-6 items-center">
+        <div
+            class="grid grid-flow-cols gap-4 sm:flex sm:space-x-6 sm:gap-0 sm:flex-row sm:items-center"
+        >
             <slot />
-            {#if $$slots.actions}
-                <div class="flex space-x-3"><slot name="actions" /></div>
+            {#if $$slots.prefix}
+                <div class="place-self-center col-start-1 row-start-1 sm:hidden">
+                    <slot name="prefix" />
+                </div>
             {/if}
-            {#if $$slots.menu}
-                <Menu placement="left-start">
-                    <Button shape="square" size="small" variant="static" slot="button">
-                        <MoreVertical />
-                    </Button>
-                    <slot name="menu" />
-                </Menu>
+            {#if $$slots.actions || $$slots.menu}
+                <div class="flex space-x-2 row-start-1 justify-end">
+                    {#if $$slots.actions}
+                        <div class="flex space-x-3"><slot name="actions" /></div>
+                    {/if}
+                    {#if $$slots.menu}
+                        <div>
+                            <Menu placement="left-start">
+                                <Button shape="square" size="small" variant="static" slot="button">
+                                    <MoreVertical />
+                                </Button>
+                                <slot name="menu" />
+                            </Menu>
+                        </div>
+                    {/if}
+                </div>
             {/if}
         </div>
         {#if $$slots.footer}
             <div
-                class="border-t mt-4 pt-4 row-start-2 text-gray"
+                class="border-t col-start-1 mt-4 pt-4 sm:row-start-2 text-gray sm:col-start-2"
                 class:col-start-2="{$$slots.prefix}"
             >
                 <slot name="footer" />
@@ -48,6 +59,24 @@
 </Container>
 
 <style>
+    @media (min-width: 640px) {
+        .has-prefix {
+            grid-template-columns: auto minmax(0, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        :global([data-component='entity-field']) {
+            grid-column: span 3 / span 3;
+            grid-column-start: 1;
+        }
+        :global([data-component='entity-field']:first-of-type) {
+            grid-row-start: 1;
+            grid-column-start: 2;
+            grid-column: span 1 / span 1;
+        }
+    }
+
     :global(.entity + .entity) {
         border-top-left-radius: 0;
         border-top-right-radius: 0;

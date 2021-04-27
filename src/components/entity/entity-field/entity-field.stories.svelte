@@ -2,7 +2,7 @@
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
 
     import EntityField from './entity-field.svelte'
-    import Image from '../../../elements/icon/image.svelte'
+    import User from '../../../elements/icon/user.svelte'
 
     const meta = {
         title: 'Components/Entity/EntityField',
@@ -24,7 +24,7 @@
     <EntityField {...args} title="Title">
         Description
         <svelte:fragment slot="avatar">
-            <Image />
+            <User />
         </svelte:fragment>
     </EntityField>
 </Template>

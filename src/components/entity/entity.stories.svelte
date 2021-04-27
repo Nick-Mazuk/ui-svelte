@@ -91,11 +91,37 @@
         <EntityField title="Title" />
         <EntityField right title="Title">
             description
-            <svelte:fragment slot="avatar">
-                <GitHub />
-            </svelte:fragment>
+            <GitHub slot="avatar" />
         </EntityField>
         <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
+    </Entity>
+</Story>
+<Story name="Everything" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+    <Entity {...args}>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title" />
+        <EntityField right title="Title">
+            description
+            <GitHub slot="avatar" />
+        </EntityField>
+        <svelte:fragment slot="actions">
+            <Button size="small" variant="secondary">Delete</Button>
+            <Button size="small">Edit</Button>
+        </svelte:fragment>
+        <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
+        <svelte:fragment slot="menu">
+            <ListItem>hello</ListItem>
+            <ListItem>hello</ListItem>
+            <ListItem>hello</ListItem>
+        </svelte:fragment>
+        <svelte:fragment slot="prefix">
+            <img
+                src="https://cdn.fakercloud.com/avatars/bartjo_128.jpg"
+                class="w-8 h-8 rounded-full"
+                alt="Avatar"
+            />
+        </svelte:fragment>
     </Entity>
 </Story>
 <Story name="Multiple entities" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
