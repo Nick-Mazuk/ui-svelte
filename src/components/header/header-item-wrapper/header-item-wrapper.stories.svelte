@@ -4,7 +4,7 @@
     import HeaderItemWrapper from './header-item-wrapper.svelte'
 
     const meta = {
-        title: 'Layouts/Header/HeaderItemWrapper',
+        title: 'Components/Header/HeaderItemWrapper',
         component: HeaderItemWrapper,
         parameters: {
             docs: {

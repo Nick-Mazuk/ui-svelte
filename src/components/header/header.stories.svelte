@@ -5,7 +5,7 @@
     import Header from './header.svelte'
 
     const meta = {
-        title: 'Layouts/Header',
+        title: 'Components/Header',
         component: Header,
         parameters: {
             docs: {

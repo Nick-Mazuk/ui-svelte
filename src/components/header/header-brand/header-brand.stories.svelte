@@ -5,7 +5,7 @@
     import HeaderBrand from './header-brand.svelte'
 
     const meta = {
-        title: 'Layouts/Header/HeaderBrand',
+        title: 'Components/Header/HeaderBrand',
         component: HeaderBrand,
         parameters: {
             docs: {

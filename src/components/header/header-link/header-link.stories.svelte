@@ -2,7 +2,7 @@
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
 
     const meta = {
-        title: 'Layouts/Header/HeaderLink',
+        title: 'Components/Header/HeaderLink',
         parameters: {
             docs: {
                 description: {
