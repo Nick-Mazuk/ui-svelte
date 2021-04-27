@@ -31,7 +31,7 @@
                 <a
                     href="{child.href}"
                     sveltekit:prefetch
-                    class="block border-l border-gray-100 py-2 pl-5 hover:text-gray-900 transition-colors {currentItem ===
+                    class="block border-l py-2 pl-5 hover:text-gray-900 transition-colors {currentItem ===
                     child.href
                         ? 'text-bold text-gray-900'
                         : 'text-gray-600'}"

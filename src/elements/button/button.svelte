@@ -37,7 +37,7 @@
         disabled?: string
     }
 
-    const disabledClasses = 'bg-gray-100 border-gray-100 text-gray cursor-not-allowed'
+    const disabledClasses = 'bg-gray-100 text-gray cursor-not-allowed'
     const STYLES_MAP: Record<Variant, ButtonStyling> = {
         primary: {
             classes:

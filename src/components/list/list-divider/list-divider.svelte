@@ -4,4 +4,4 @@
     const compact = getContext('compact')
 </script>
 
-<li role="separator" class="border-t" class:my-2="{!compact}"></li>
+<li role="separator" class="border-t list-none" class:my-2="{!compact}"></li>

@@ -34,12 +34,17 @@
 
 <Meta {...meta} />
 
-<Template let:args>
+<Story name="Vertical" parameters="{{ jest: ['spacer.test.ts'] }}" let:args>
     <section class="wrapper">
         <div class="rounded-lg bg-gray-200 h-16"></div>
         <Spacer {...args} />
         <div class="rounded-lg bg-gray-200 h-16"></div>
     </section>
-</Template>
-
-<Story name="Default" parameters="{{ jest: ['spacer.test.ts'] }}" />
+</Story>
+<Story name="Horizontal" parameters="{{ jest: ['spacer.test.ts'] }}" let:args>
+    <section class="wrapper flex">
+        <div class="rounded-lg bg-gray-200 w-full h-16"></div>
+        <Spacer {...args} />
+        <div class="rounded-lg bg-gray-200 w-full h-16"></div>
+    </section>
+</Story>

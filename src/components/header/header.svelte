@@ -11,7 +11,7 @@
 </script>
 
 <header
-    class="z-50 {stickyClasses} bg-white dark:bg-gray-100 border-b border-gray-100 isolate {scrolledToTop
+    class="z-50 {stickyClasses} bg-white  border-b isolate {scrolledToTop
         ? 'border-opacity-100'
         : 'border-opacity-0 dark:border-opacity-100'}"
     style="transform:translateZ(10000px)"
