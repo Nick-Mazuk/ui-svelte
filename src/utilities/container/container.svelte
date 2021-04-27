@@ -12,7 +12,7 @@
         | 'largest'
 
     type Rounded = 'none' | 'small' | 'default' | 'large' | 'larger'
-    type Variant = 'disable' | 'click' | 'fill' | 'border'
+    type Variant = 'disable' | 'click' | 'fill' | 'border' | 'card'
 
     export let padding: Padding | boolean = 'default'
     export let rounded: Rounded = 'default'
@@ -49,6 +49,7 @@
             'border bg-background border-opacity-100 hover:shadow-xl hover:border-transparent dark:hover:shadow-none dark:hover:border-gray-900 transition cursor-pointer',
         fill: 'border bg-gray-50',
         border: 'border bg-background',
+        card: 'border border-transparent shadow-md dark:shadow-none dark:border-gray-100',
     }
 
     const getPadding = (): string => {

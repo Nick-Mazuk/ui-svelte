@@ -42,7 +42,7 @@
             variant: {
                 control: {
                     type: 'select',
-                    options: ['border', 'click', 'fill', 'disable'],
+                    options: ['border', 'card', 'click', 'fill', 'disable'],
                 },
             },
             href: {

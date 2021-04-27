@@ -5,7 +5,7 @@ specifiers:
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/eslint-config': ^0.7.50
   '@nick-mazuk/lib': ^0.8.34
-  '@nick-mazuk/ui-config': ^0.10.19
+  '@nick-mazuk/ui-config': ^0.10.20
   '@storybook/addon-a11y': ^6.2.9
   '@storybook/addon-actions': ^6.2.9
   '@storybook/addon-essentials': ^6.2.9
@@ -65,7 +65,7 @@ devDependencies:
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
   '@nick-mazuk/eslint-config': 0.7.50_82834e191836c56312feb8dfd13cf146
   '@nick-mazuk/lib': 0.8.34
-  '@nick-mazuk/ui-config': 0.10.19_postcss@8.2.8+tailwindcss@2.1.1
+  '@nick-mazuk/ui-config': 0.10.20_postcss@8.2.8+tailwindcss@2.1.1
   '@storybook/addon-a11y': 6.2.9
   '@storybook/addon-actions': 6.2.9
   '@storybook/addon-essentials': 6.2.9_9817a2cbb695cf87586805b33765e463
@@ -2210,8 +2210,8 @@ packages:
       validator: 13.5.2
     dev: true
 
-  /@nick-mazuk/ui-config/0.10.19_postcss@8.2.8+tailwindcss@2.1.1:
-    resolution: {integrity: sha512-Ax02FeoP/gkO7Y5N2DqR3zPJq2egQsxjDRLjwa2uxeafTOudhOgwMsy2hzZEO/6EHsr4aLbZH5sLc2OLNd9A/w==}
+  /@nick-mazuk/ui-config/0.10.20_postcss@8.2.8+tailwindcss@2.1.1:
+    resolution: {integrity: sha512-puqeAe6eVk/XuiqG3jm9tkiDGSAOx/kjC41vepXoV1xawVr3DirZA8/XqfhtFAEI4mqfnJAeFXoD2U3HOAI3vw==}
     peerDependencies:
       postcss: '>= 8.0.0'
       tailwindcss: ^2.1.1
