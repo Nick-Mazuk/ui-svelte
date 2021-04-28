@@ -1,17 +1,22 @@
 <script lang="ts">
     import { getContext, onMount } from 'svelte'
     import type { Writable } from 'svelte/store'
+    import { createEventDispatcher } from 'svelte'
 
     type Variant = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
 
     export let href = ''
     export let variant: Variant | undefined = undefined
+    let activeProp = false
+    export { activeProp as active }
 
     let element: HTMLAnchorElement | HTMLLIElement
     let index: number = -1
     let textContent: string | null
+    let dispatch = createEventDispatcher()
 
     const compact = getContext<boolean>('compact')
+    const autofocus = getContext<boolean>('autofocusList')
     const register = getContext<(text: string | null) => number>('registerListItem')
     const focused = getContext<Writable<number>>('focusedListItem')
     const active = getContext<Writable<number>>('activeListItem')
@@ -20,6 +25,7 @@
     onMount(() => {
         textContent = element.textContent
         index = register(textContent)
+        if (autofocus && index === 0) element.focus()
     })
     const handleFocus: svelte.JSX.FocusEventHandler<HTMLAnchorElement | HTMLLIElement> = () => {
         focused.set(index)
@@ -73,7 +79,7 @@
             text: { default: 'text-gray-700 hover:text-gray-900', focused: 'text-gray-900' },
         },
     }
-
+    $: if (activeProp) active.set(index)
     $: isFocused = $focused === index
     $: isActive = $active === index
     $: currentVariant = variant ?? listVariant ?? 'primary'
@@ -99,12 +105,18 @@
             suffix: 'w-8 pl-3 ml-auto',
         },
     }
-
-    $: tabindex = index === 0 ? 0 : -1
+    let tabindex: number
+    $: {
+        if ($active >= 0) tabindex = index === $active ? 0 : -1
+        else tabindex = index === 0 ? 0 : -1
+    }
+    $: {
+        if ($active === index) dispatch('action')
+    }
 </script>
 
 {#if href}
-    <li>
+    <li role="none">
         <a
             href="{href}"
             sveltekit:prefetch
@@ -113,6 +125,9 @@
             tabindex="{tabindex}"
             on:focus="{handleFocus}"
             on:click="{handleClick}"
+            aria-selected="{isActive ? true : undefined}"
+            aria-current="{isFocused ? true : undefined}"
+            role="option"
         >
             {#if $$slots.prefix}
                 <div class="{classes.affix.default} {classes.affix.prefix}">
@@ -136,6 +151,9 @@
         tabindex="{tabindex}"
         on:focus="{handleFocus}"
         on:click="{handleClick}"
+        aria-selected="{isActive ? true : undefined}"
+        aria-current="{isFocused ? true : undefined}"
+        role="option"
     >
         {#if $$slots.prefix}
             <div class="{classes.affix.default} {classes.affix.prefix}">

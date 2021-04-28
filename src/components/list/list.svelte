@@ -1,24 +1,23 @@
 <script lang="ts">
     // todo
-    // wrap focused
-    // add events (activatedItem)
-    // static
-    // auto-focus
-    // list items have aria-selected and aria-current
-    // Clear all accessibility warnings from StoryBook (at end)
-    // Add all accessibility suggestions from MDC https://material.io/components/lists/web#using-lists
+    // static (roles = ['list', 'listitem'])
     import { setContext } from 'svelte'
     import { get, writable } from 'svelte/store'
+    import { createEventDispatcher } from 'svelte'
 
     type Variant = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
 
     export let compact = false
     export let role: svelte.JSX.HTMLAttributes<HTMLUListElement>['role'] = 'listbox'
     export let variant: Variant = 'gray'
+    export let rotateFocus = false
+    export let autofocus = false
+    export let ariaLabel: string | undefined = undefined
 
     let listItems: (string | null)[] = []
     const focusedListItem = writable(-1)
     const activeListItem = writable(-1)
+    const dispatch = createEventDispatcher()
 
     const registerListItem = (text: string | null): number => {
         listItems = [...listItems, text]
@@ -31,12 +30,16 @@
         setContext('focusedListItem', focusedListItem)
         setContext('activeListItem', activeListItem)
         setContext('listItemVariant', variant)
+        setContext('autofocusList', autofocus)
     }
 
     $: rotateFocusedItem = (amount: 1 | -1) => {
         focusedListItem.update((current) => {
             let newItem = current + amount
-            return Math.min(listItems.length - 1, Math.max(0, newItem))
+            if (!rotateFocus) return Math.min(listItems.length - 1, Math.max(0, newItem))
+            if (newItem < 0) return listItems.length - 1
+            if (newItem > listItems.length - 1) return 0
+            return newItem
         })
     }
 
@@ -53,6 +56,10 @@
     const handleFocusOut: svelte.JSX.FocusEventHandler<HTMLUListElement> = () => {
         focusedListItem.set(-1)
     }
+    $: {
+        if ($activeListItem >= 0)
+            dispatch('change', { index: $activeListItem, value: listItems[$activeListItem] })
+    }
 </script>
 
 <ul
@@ -60,6 +67,7 @@
     role="{role}"
     on:keydown="{handleKeypress}"
     on:focusout="{handleFocusOut}"
+    aria-label="{ariaLabel}"
 >
     <slot />
 </ul>

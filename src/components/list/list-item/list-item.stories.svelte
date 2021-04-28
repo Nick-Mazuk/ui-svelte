@@ -28,6 +28,11 @@
                 },
                 description: 'Color of the list item when active',
             },
+            active: {
+                control: {
+                    type: 'boolean',
+                },
+            },
         },
     }
 </script>
@@ -65,6 +70,32 @@
 >
     <List>
         <ListItem {...args}>
+            Hello world
+            <Plus slot="prefix" />
+        </ListItem>
+    </List>
+</Story>
+<Story
+    name="Active"
+    parameters="{{ jest: ['list-item.test.ts'] }}"
+    args="{{ active: true, variant: 'primary' }}"
+    let:args
+>
+    <List>
+        <ListItem {...args}>
+            Hello world
+            <Plus slot="prefix" />
+        </ListItem>
+    </List>
+</Story>
+<Story
+    name="On action"
+    parameters="{{ jest: ['list-item.test.ts'] }}"
+    args="{{ variant: 'primary' }}"
+    let:args
+>
+    <List>
+        <ListItem {...args} on:action="{() => alert('I have been activated')}">
             Hello world
             <Plus slot="prefix" />
         </ListItem>

@@ -39,6 +39,22 @@
                 defaultValue: 'gray',
                 description: 'Color of the list item when active',
             },
+            rotateFocus: {
+                control: {
+                    type: 'boolean',
+                },
+            },
+            autofocus: {
+                control: {
+                    type: 'boolean',
+                },
+            },
+            ariaLabel: {
+                control: {
+                    type: 'text',
+                },
+                defaultValue: 'List component',
+            },
         },
     }
 </script>
@@ -128,6 +144,71 @@
     name="Variant"
     parameters="{{ jest: ['list.test.ts'] }}"
     args="{{ variant: 'primary' }}"
+    let:args
+>
+    <List {...args}>
+        <ListItem>
+            <Home slot="prefix" />
+            Home
+        </ListItem>
+        <ListItem>
+            <Edit slot="prefix" />
+            Posts
+        </ListItem>
+        <ListDivider />
+        <ListItem>
+            <Settings slot="prefix" />
+            Settings
+        </ListItem>
+    </List>
+</Story>
+<Story
+    name="Rotate focus"
+    parameters="{{ jest: ['list.test.ts'] }}"
+    args="{{ rotateFocus: true }}"
+    let:args
+>
+    <List {...args}>
+        <ListItem>
+            <Home slot="prefix" />
+            Home
+        </ListItem>
+        <ListItem>
+            <Edit slot="prefix" />
+            Posts
+        </ListItem>
+        <ListDivider />
+        <ListItem>
+            <Settings slot="prefix" />
+            Settings
+        </ListItem>
+    </List>
+</Story>
+<Story name="On change" parameters="{{ jest: ['list.test.ts'] }}" let:args>
+    <List
+        {...args}
+        on:change="{(event) => alert(`Selected item ${event.detail.index}: ${event.detail.value}`)}"
+    >
+        <ListItem>
+            <Home slot="prefix" />
+            Home
+        </ListItem>
+        <ListItem>
+            <Edit slot="prefix" />
+            Posts
+        </ListItem>
+        <ListDivider />
+        <ListItem>
+            <Settings slot="prefix" />
+            Settings
+        </ListItem>
+    </List>
+</Story>
+
+<Story
+    name="Autofocus"
+    parameters="{{ jest: ['list.test.ts'] }}"
+    args="{{ autofocus: true }}"
     let:args
 >
     <List {...args}>
