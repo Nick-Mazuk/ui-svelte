@@ -7,21 +7,17 @@
         title: 'Elements/StatusDot',
         component: StatusDot,
         argTypes: {
-            color: {
+            variant: {
                 control: {
                     type: 'select',
                     options: ['gray', 'primary', 'error', 'highlight', 'warning', 'success'],
                 },
-                name: 'color',
                 defaultValue: 'gray',
-                type: { name: 'string', required: false },
             },
             ping: {
                 control: {
                     type: 'boolean',
                 },
-                name: 'ping',
-                type: { name: 'boolean', required: false },
             },
         },
     }
@@ -29,8 +25,19 @@
 
 <Meta {...meta} />
 
-<Template let:args>
-    <StatusDot {...args}>{args.children}</StatusDot>
-</Template>
-
-<Story name="Default" parameters="{{ jest: ['status-dot.test.ts'] }}" />
+<Story name="Default" parameters="{{ jest: ['status-dot.test.ts'] }}" let:args>
+    <StatusDot {...args} />
+</Story>
+<Story name="Variants" parameters="{{ jest: ['status-dot.test.ts'] }}" let:args>
+    <div class="flex space-x-4">
+        <StatusDot {...args} variant="gray" />
+        <StatusDot {...args} variant="primary" />
+        <StatusDot {...args} variant="error" />
+        <StatusDot {...args} variant="highlight" />
+        <StatusDot {...args} variant="warning" />
+        <StatusDot {...args} variant="success" />
+    </div>
+</Story>
+<Story name="Ping" parameters="{{ jest: ['status-dot.test.ts'] }}" args="{{ ping: true }}" let:args>
+    <StatusDot {...args} />
+</Story>

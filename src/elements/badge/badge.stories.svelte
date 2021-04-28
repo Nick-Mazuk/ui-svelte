@@ -7,15 +7,7 @@
         title: 'Elements/Badge',
         component: Badge,
         argTypes: {
-            children: {
-                control: {
-                    type: 'text',
-                },
-                defaultValue: 'Hello world',
-                name: 'children',
-                type: { name: 'string', required: true },
-            },
-            color: {
+            variant: {
                 control: {
                     type: 'select',
                     options: ['gray', 'primary', 'error', 'highlight', 'warning', 'success'],
@@ -24,10 +16,12 @@
                 defaultValue: 'gray',
                 type: { name: 'string', required: false },
             },
-            large: {
-                control: { type: 'boolean' },
-                name: 'large',
-                type: { name: 'boolean', required: false },
+            size: {
+                control: {
+                    type: 'select',
+                    options: ['default', 'large'],
+                },
+                name: 'size',
             },
             dot: {
                 control: { type: 'boolean' },
@@ -40,8 +34,25 @@
 
 <Meta {...meta} />
 
-<Template let:args>
-    <Badge {...args}>{args.children}</Badge>
-</Template>
-
-<Story name="Default" parameters="{{ jest: ['badge.test.ts'] }}" />
+<Story name="Default" parameters="{{ jest: ['badge.test.ts'] }}" let:args>
+    <Badge {...args}>Badge</Badge>
+</Story>
+<Story name="Sizes" parameters="{{ jest: ['badge.test.ts'] }}" let:args>
+    <div class="flex space-x-4">
+        <div><Badge {...args} size="default">Badge</Badge></div>
+        <div><Badge {...args} size="large">Badge</Badge></div>
+    </div>
+</Story>
+<Story name="Variants" parameters="{{ jest: ['badge.test.ts'] }}" let:args>
+    <div class="flex space-x-4">
+        <div><Badge {...args} variant="gray">Badge</Badge></div>
+        <div><Badge {...args} variant="primary">Badge</Badge></div>
+        <div><Badge {...args} variant="error">Badge</Badge></div>
+        <div><Badge {...args} variant="highlight">Badge</Badge></div>
+        <div><Badge {...args} variant="warning">Badge</Badge></div>
+        <div><Badge {...args} variant="success">Badge</Badge></div>
+    </div>
+</Story>
+<Story name="Dot" parameters="{{ jest: ['badge.test.ts'] }}" args="{{ dot: true }}" let:args>
+    <Badge {...args}>Badge</Badge>
+</Story>

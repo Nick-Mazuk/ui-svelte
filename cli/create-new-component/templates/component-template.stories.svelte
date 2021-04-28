@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import { Meta, Story } from '@storybook/addon-svelte-csf'
 
     import ComponentTemplate from './component-template.svelte'
 
@@ -19,8 +19,6 @@
 
 <Meta {...meta} />
 
-<Template let:args>
+<Story name="Default" parameters="{{ jest: ['component-template.test.ts'] }}" let:args>
     <ComponentTemplate {...args} />
-</Template>
-
-<Story name="Default" parameters="{{ jest: ['component-template.test.ts'] }}" />
+</Story>

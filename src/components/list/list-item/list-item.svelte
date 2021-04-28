@@ -4,11 +4,13 @@
     import { createEventDispatcher } from 'svelte'
 
     type Variant = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
+    type Shape = 'rounded' | 'none'
 
     export let href = ''
     export let variant: Variant | undefined = undefined
-    let activeProp = false
+    let activeProp: boolean
     export { activeProp as active }
+    export let shape: Shape | undefined = undefined
 
     let element: HTMLAnchorElement | HTMLLIElement
     let index: number = -1
@@ -21,17 +23,23 @@
     const focused = getContext<Writable<number>>('focusedListItem')
     const active = getContext<Writable<number>>('activeListItem')
     const listVariant = getContext<Variant>('listItemVariant')
+    const listShape = getContext<Shape>('listItemShape')
+    const listRole = getContext<svelte.JSX.HTMLAttributes<HTMLUListElement>['role']>('listRole')
+    const mode = getContext<'display' | 'focus' | 'active'>('listMode')
 
     onMount(() => {
         textContent = element.textContent
         index = register(textContent)
         if (autofocus && index === 0) element.focus()
     })
+
+    let hasFocusedAlready = false
     const handleFocus: svelte.JSX.FocusEventHandler<HTMLAnchorElement | HTMLLIElement> = () => {
-        focused.set(index)
+        if (!hasFocusedAlready && autofocus && index === 0) hasFocusedAlready = true
+        else if (mode !== 'display') focused.set(index)
     }
     const handleClick: svelte.JSX.MouseEventHandler<HTMLAnchorElement | HTMLLIElement> = () => {
-        active.set(index)
+        if (mode !== 'display') active.set(index)
     }
 
     type VariantColors = {
@@ -75,23 +83,30 @@
         },
         gray: {
             container: { active: '!bg-gray-200 !text-gray-700' },
-            affix: { default: 'text-gray group-hover:text-gray-900', active: 'text-gray-700' },
+            affix: {
+                default: `text-gray ${mode === 'display' ? '' : 'group-hover:text-gray-900'}`,
+                active: 'text-gray-700',
+            },
             text: { default: 'text-gray-700 hover:text-gray-900', focused: 'text-gray-900' },
         },
     }
     $: if (activeProp) active.set(index)
     $: isFocused = $focused === index
-    $: isActive = $active === index
+    $: isActive = ($active === index && mode === 'active') || activeProp
+    $: isRounded = shape ? shape === 'rounded' : listShape === 'rounded'
     $: currentVariant = variant ?? listVariant ?? 'primary'
     $: classes = {
         container: [
-            'list-none h-10 items-center flex cursor-pointer transition-colors group focus:outline-none hover:bg-gray-100',
+            'list-none h-10 items-center flex transition-colors group focus:outline-none',
+            mode === 'display' ? '' : 'hover:bg-gray-100 cursor-pointer',
             VARIANT_MAP[variant ?? 'gray'].text.default,
             compact ? 'px-3' : 'px-4',
             isFocused
-                ? 'bg-gray-200 hover:bg-gray-200 ' + VARIANT_MAP[variant ?? 'gray'].text.focused
+                ? 'bg-gray-200 bg-opacity-50 hover:bg-gray-200 ' +
+                  VARIANT_MAP[variant ?? 'gray'].text.focused
                 : '',
             isActive ? VARIANT_MAP[currentVariant].container.active : '',
+            isRounded ? 'rounded-r-full' : '',
         ].join(' '),
         content: 'truncate',
         affix: {
@@ -107,16 +122,18 @@
     }
     let tabindex: number
     $: {
-        if ($active >= 0) tabindex = index === $active ? 0 : -1
+        if (mode === 'display') tabindex = -1
+        else if ($active >= 0) tabindex = index === $active ? 0 : -1
         else tabindex = index === 0 ? 0 : -1
     }
     $: {
         if ($active === index) dispatch('action')
     }
+    $: listItemRole = listRole === 'menu' && mode !== 'display' ? 'menuitem' : 'option'
 </script>
 
 {#if href}
-    <li role="none">
+    <li role="{mode === 'display' ? undefined : 'none'}">
         <a
             href="{href}"
             sveltekit:prefetch
@@ -127,7 +144,7 @@
             on:click="{handleClick}"
             aria-selected="{isActive ? true : undefined}"
             aria-current="{isFocused ? true : undefined}"
-            role="option"
+            role="{mode === 'display' ? undefined : listItemRole}"
         >
             {#if $$slots.prefix}
                 <div class="{classes.affix.default} {classes.affix.prefix}">
@@ -153,7 +170,7 @@
         on:click="{handleClick}"
         aria-selected="{isActive ? true : undefined}"
         aria-current="{isFocused ? true : undefined}"
-        role="option"
+        role="{mode === 'display' ? undefined : listItemRole}"
     >
         {#if $$slots.prefix}
             <div class="{classes.affix.default} {classes.affix.prefix}">

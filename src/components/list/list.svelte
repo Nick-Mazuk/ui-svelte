@@ -1,23 +1,28 @@
 <script lang="ts">
     // todo
     // static (roles = ['list', 'listitem'])
-    import { setContext } from 'svelte'
+    import { onMount, setContext } from 'svelte'
     import { get, writable } from 'svelte/store'
     import { createEventDispatcher } from 'svelte'
 
-    type Variant = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
+    type Variant = 'primary' | 'error' | 'success' | 'warning' | 'highlight'
+    type Shape = 'rounded' | 'none'
+    type Mode = 'display' | 'focus' | 'active'
 
     export let compact = false
-    export let role: svelte.JSX.HTMLAttributes<HTMLUListElement>['role'] = 'listbox'
-    export let variant: Variant = 'gray'
+    export let role: svelte.JSX.HTMLAttributes<HTMLUListElement>['role'] = undefined
+    export let variant: Variant = 'primary'
     export let rotateFocus = false
-    export let autofocus = false
+    export let autofocus: boolean | number = false
     export let ariaLabel: string | undefined = undefined
+    export let shape: Shape = 'none'
+    export let mode: Mode = 'display'
 
     let listItems: (string | null)[] = []
-    const focusedListItem = writable(-1)
+    const focusedListItem = writable(typeof autofocus === 'number' ? autofocus : -1)
     const activeListItem = writable(-1)
     const dispatch = createEventDispatcher()
+    let element: HTMLUListElement
 
     const registerListItem = (text: string | null): number => {
         listItems = [...listItems, text]
@@ -30,8 +35,15 @@
         setContext('focusedListItem', focusedListItem)
         setContext('activeListItem', activeListItem)
         setContext('listItemVariant', variant)
-        setContext('autofocusList', autofocus)
+        setContext('listItemShape', shape)
+        setContext('autofocusList', autofocus !== false)
+        setContext('listMode', mode)
+        setContext('listRole', role)
     }
+
+    onMount(() => {
+        if (autofocus) element.focus()
+    })
 
     $: rotateFocusedItem = (amount: 1 | -1) => {
         focusedListItem.update((current) => {
@@ -55,19 +67,27 @@
     }
     const handleFocusOut: svelte.JSX.FocusEventHandler<HTMLUListElement> = () => {
         focusedListItem.set(-1)
+        if (mode !== 'active') activeListItem.set(-1)
     }
     $: {
         if ($activeListItem >= 0)
             dispatch('change', { index: $activeListItem, value: listItems[$activeListItem] })
     }
+    let listRole: svelte.JSX.HTMLAttributes<HTMLUListElement>['role']
+    $: {
+        if (role) listRole = role
+        else if (mode !== 'display') listRole = 'listbox'
+    }
 </script>
 
 <ul
     class:py-2="{!compact && role !== 'group'}"
-    role="{role}"
+    role="{listRole}"
     on:keydown="{handleKeypress}"
     on:focusout="{handleFocusOut}"
     aria-label="{ariaLabel}"
+    bind:this="{element}"
+    class="focus:bg-primary"
 >
     <slot />
 </ul>

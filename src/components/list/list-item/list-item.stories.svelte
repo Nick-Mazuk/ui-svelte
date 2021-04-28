@@ -33,6 +33,13 @@
                     type: 'boolean',
                 },
             },
+            shape: {
+                control: {
+                    type: 'select',
+                    options: ['none', 'rounded'],
+                },
+                defaultValue: 'none',
+            },
         },
     }
 </script>
@@ -40,14 +47,14 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <List>
+    <List mode="active">
         <ListItem {...args}>Hello world</ListItem>
     </List>
 </Template>
 
 <Story name="Default" parameters="{{ jest: ['list-item.test.ts'] }}" />
 <Story name="Prefix" parameters="{{ jest: ['list-item.test.ts'] }}" let:args>
-    <List>
+    <List mode="active">
         <ListItem {...args}>
             <Plus slot="prefix" />
             Hello world
@@ -55,7 +62,7 @@
     </List>
 </Story>
 <Story name="Suffix" parameters="{{ jest: ['list-item.test.ts'] }}" let:args>
-    <List>
+    <List mode="active">
         <ListItem {...args}>
             Hello world
             <Plus slot="suffix" />
@@ -68,7 +75,7 @@
     args="{{ variant: 'primary' }}"
     let:args
 >
-    <List>
+    <List mode="active">
         <ListItem {...args}>
             Hello world
             <Plus slot="prefix" />
@@ -81,7 +88,20 @@
     args="{{ active: true, variant: 'primary' }}"
     let:args
 >
-    <List>
+    <List mode="active">
+        <ListItem {...args}>
+            Hello world
+            <Plus slot="prefix" />
+        </ListItem>
+    </List>
+</Story>
+<Story
+    name="Rounded"
+    parameters="{{ jest: ['list-item.test.ts'] }}"
+    args="{{ active: true, variant: 'primary', shape: 'rounded' }}"
+    let:args
+>
+    <List mode="active">
         <ListItem {...args}>
             Hello world
             <Plus slot="prefix" />
@@ -94,7 +114,7 @@
     args="{{ variant: 'primary' }}"
     let:args
 >
-    <List>
+    <List mode="active">
         <ListItem {...args} on:action="{() => alert('I have been activated')}">
             Hello world
             <Plus slot="prefix" />

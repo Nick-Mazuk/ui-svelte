@@ -33,7 +33,7 @@
         class:mb-2="{placement.startsWith('top')}"
         style="width: {width * 4}px; min-width: {minWidth * 4}px"
     >
-        <List compact="{!loose}" role="menu">
+        <List compact="{!loose}" role="menu" autofocus mode="focus">
             <slot />
         </List>
     </div>
