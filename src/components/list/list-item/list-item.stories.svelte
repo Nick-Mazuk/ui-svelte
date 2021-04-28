@@ -15,7 +15,20 @@
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            href: {
+                control: {
+                    type: 'text',
+                },
+            },
+            variant: {
+                control: {
+                    type: 'select',
+                    options: ['primary', 'error', 'success', 'warning', 'gray', 'highlight'],
+                },
+                description: 'Color of the list item when active',
+            },
+        },
     }
 </script>
 
@@ -31,9 +44,7 @@
 <Story name="Prefix" parameters="{{ jest: ['list-item.test.ts'] }}" let:args>
     <List>
         <ListItem {...args}>
-            <svelte:fragment slot="prefix">
-                <Plus />
-            </svelte:fragment>
+            <Plus slot="prefix" />
             Hello world
         </ListItem>
     </List>
@@ -42,9 +53,20 @@
     <List>
         <ListItem {...args}>
             Hello world
-            <svelte:fragment slot="suffix">
-                <Plus />
-            </svelte:fragment>
+            <Plus slot="suffix" />
+        </ListItem>
+    </List>
+</Story>
+<Story
+    name="Variant"
+    parameters="{{ jest: ['list-item.test.ts'] }}"
+    args="{{ variant: 'primary' }}"
+    let:args
+>
+    <List>
+        <ListItem {...args}>
+            Hello world
+            <Plus slot="prefix" />
         </ListItem>
     </List>
 </Story>

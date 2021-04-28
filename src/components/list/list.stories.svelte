@@ -31,6 +31,14 @@
                 },
                 description: 'The aria role for the list',
             },
+            variant: {
+                control: {
+                    type: 'select',
+                    options: ['primary', 'error', 'success', 'warning', 'gray', 'highlight'],
+                },
+                defaultValue: 'gray',
+                description: 'Color of the list item when active',
+            },
         },
     }
 </script>
@@ -42,6 +50,7 @@
         <ListItem>Item 1</ListItem>
         <ListItem>Item 2</ListItem>
         <ListItem>Item 3</ListItem>
+        <ListItem variant="error">Delete</ListItem>
     </List>
 </Template>
 
@@ -113,5 +122,27 @@
                 Settings
             </ListItem>
         </ListSection>
+    </List>
+</Story>
+<Story
+    name="Variant"
+    parameters="{{ jest: ['list.test.ts'] }}"
+    args="{{ variant: 'primary' }}"
+    let:args
+>
+    <List {...args}>
+        <ListItem>
+            <Home slot="prefix" />
+            Home
+        </ListItem>
+        <ListItem>
+            <Edit slot="prefix" />
+            Posts
+        </ListItem>
+        <ListDivider />
+        <ListItem>
+            <Settings slot="prefix" />
+            Settings
+        </ListItem>
     </List>
 </Story>
