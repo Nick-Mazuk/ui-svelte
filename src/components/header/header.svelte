@@ -1,13 +1,20 @@
 <script lang="ts">
     import IntersectionObserver from 'svelte-intersection-observer'
+    import { setContext } from 'svelte'
+    import { writable } from 'svelte/store'
 
     export let sticky = false
     export let small = false
+    export let page: string = ''
 
     let scrolledToTop = true
     let sentinal: HTMLElement
 
+    const pageStore = writable(page)
+    setContext('headerPage', pageStore)
+
     $: stickyClasses = sticky ? 'sticky top-0 overflow-visible' : 'relative'
+    $: pageStore.set(page)
 </script>
 
 <header

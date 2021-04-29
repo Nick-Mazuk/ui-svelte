@@ -1,6 +1,7 @@
 <script lang="ts">
     type Breakpoint = 'sm' | 'md' | 'none'
     export let breakpoint: Breakpoint = 'sm'
+    export let center = true
 
     const BREAKPOINT_MAP: Record<Breakpoint, string> = {
         none: 'flex',
@@ -9,6 +10,6 @@
     }
 </script>
 
-<div class="{BREAKPOINT_MAP[breakpoint]}">
+<div class="{BREAKPOINT_MAP[breakpoint]} flex" class:items-center="{center}">
     <slot />
 </div>

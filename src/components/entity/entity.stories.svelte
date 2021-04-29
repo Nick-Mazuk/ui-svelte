@@ -1,9 +1,4 @@
 <script>
-    // todo
-    // responsiveness (with breakpoints)
-    // menu
-    // form
-    // disabled
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
     import EntityField from './entity-field/entity-field.svelte'
     import GitHub from '../../elements/icon/github.svelte'

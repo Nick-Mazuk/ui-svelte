@@ -1,12 +1,22 @@
 <script lang="ts">
+    import { getContext } from 'svelte'
+    import type { Writable } from 'svelte/store'
+
     import HeaderItemWrapper from '../header-item-wrapper/header-item-wrapper.svelte'
-    import { page } from '$app/stores'
 
     type Breakpoint = 'sm' | 'md' | 'none'
     export let breakpoint: Breakpoint = 'sm'
     export let href: string
+    export let matchExact = false
 
-    $: isCurrentPath = $page.path.includes(href)
+    const page = getContext<Writable<string> | undefined>('headerPage')
+    let isCurrentPath = false
+
+    $: {
+        if (typeof page === 'undefined' || $page === undefined) isCurrentPath = false
+        else if (matchExact) isCurrentPath = $page === href
+        else isCurrentPath = $page.startsWith(href)
+    }
 </script>
 
 <HeaderItemWrapper breakpoint="{breakpoint}">

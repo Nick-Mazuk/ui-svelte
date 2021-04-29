@@ -1,6 +1,8 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import Button from '../../elements/button/button.svelte'
     import HeaderBrand from './header-brand/header-brand.svelte'
+    import HeaderItemWrapper from './header-item-wrapper/header-item-wrapper.svelte'
 
     import Header from './header.svelte'
 
@@ -34,9 +36,7 @@
 <Template let:args>
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
-            <svelte:fragment slot="left">
-                <HeaderBrand text="UI Svelte" />
-            </svelte:fragment>
+            <HeaderBrand text="UI Svelte" slot="left" />
         </Header>
         <div id="main-content"></div>
     </div>
@@ -46,9 +46,7 @@
 <Story name="Sticky" parameters="{{ jest: ['header.test.ts'] }}" args="{{ sticky: true }}" let:args>
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
-            <svelte:fragment slot="left">
-                <HeaderBrand text="UI Svelte" />
-            </svelte:fragment>
+            <HeaderBrand text="UI Svelte" slot="left" />
         </Header>
         <div id="main-content" class="wrapper">
             <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
@@ -61,4 +59,22 @@
             <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
         </div>
     </div>
+</Story>
+<Story
+    name="Buttons"
+    parameters="{{ jest: ['header.test.ts'] }}"
+    args="{{ sticky: true }}"
+    let:args
+>
+    <Header {...args}>
+        <HeaderBrand text="UI Svelte" slot="left" />
+        <svelte:fragment slot="right">
+            <HeaderItemWrapper>
+                <Button size="small" variant="secondary">Sign in</Button>
+            </HeaderItemWrapper>
+            <HeaderItemWrapper>
+                <Button size="small">Register</Button>
+            </HeaderItemWrapper>
+        </svelte:fragment>
+    </Header>
 </Story>
