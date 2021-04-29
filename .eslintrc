@@ -7,5 +7,12 @@
                 "no-alert": "off"
             }
         }
-    ]
+    ],
+    "globals": {
+        "svelte": "readonly",
+        "NodeJS": "readonly"
+    },
+    "rules": {
+        "@typescript-eslint/prefer-nullish-coalescing": "warn"
+    }
 }

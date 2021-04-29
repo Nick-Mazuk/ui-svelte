@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let y: number = 0
-    export let x: number = 0
+    export let y = 0
+    export let x = 0
 
     const multiplier = 24
 

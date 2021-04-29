@@ -2,7 +2,7 @@
     export let status: number
     export let error: Error
     export let isDevelopment: boolean
-    export let message: string =
+    export let message =
         "It's not you, it's me. Our systems made a mistake and we could not process your request. Try refreshing the page."
 
     let stack: string[]

@@ -1,7 +1,7 @@
 <script lang="ts">
     import Portal from '../../utilities/portal/portal.svelte'
-    import { createEventDispatcher } from 'svelte'
-    import { setContext } from 'svelte'
+    import { createEventDispatcher, setContext } from 'svelte'
+
     import { writable } from 'svelte/store'
 
     type Placement =
@@ -97,7 +97,8 @@
             y: () => boundingRect.y + triggerHeight - popoverHeight,
         },
     }
-    $: boundingRect = open ? trigger?.getBoundingClientRect() : trigger?.getBoundingClientRect()
+    let boundingRect: DOMRect
+    $: if (open) boundingRect = trigger?.getBoundingClientRect()
     $: disabledStore.set(disabled)
     $: x = boundingRect && open ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && open ? PLACEMENT_MAP[placement].y() : 0

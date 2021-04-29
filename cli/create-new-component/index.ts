@@ -13,7 +13,6 @@ const isValidInput = (input: unknown): { valid: boolean; error: string } => {
 }
 
 const getComponentName = (): string | Promise<string> => {
-    // eslint-disable-next-line prefer-destructuring -- unwieldy otherwise
     const initialInput = process.argv[2]
     if (isValidInput(initialInput).valid) return initialInput
 

@@ -1,8 +1,9 @@
 <script lang="ts">
     import { tweened } from 'svelte/motion'
     import { cubicOut } from 'svelte/easing'
-    import { onMount } from 'svelte'
+    import { onDestroy, onMount } from 'svelte'
     import { get } from 'svelte/store'
+
     const progress = tweened(0, {
         duration: 150,
         easing: cubicOut,
@@ -23,6 +24,10 @@
             progress.set(currentProgress + remainingProgress / 15)
         }, 333)
         progress.set(25)
+    })
+
+    onDestroy(() => {
+        clearInterval(interval)
     })
 
     const handleNavigationEnd = () => {

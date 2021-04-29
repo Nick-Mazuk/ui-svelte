@@ -1,7 +1,6 @@
 <script lang="ts">
-    import { onMount, setContext } from 'svelte'
+    import { onMount, setContext, createEventDispatcher } from 'svelte'
     import { get, writable } from 'svelte/store'
-    import { createEventDispatcher } from 'svelte'
 
     type Variant = 'primary' | 'error' | 'success' | 'warning' | 'highlight'
     type Shape = 'rounded' | 'none'
@@ -34,7 +33,7 @@
         setContext('activeListItem', activeListItem)
         setContext('listItemVariant', variant)
         setContext('listItemShape', shape)
-        setContext('autofocusList', autofocus !== false)
+        setContext('autofocusList', autofocus)
         setContext('listMode', mode)
         setContext('listRole', role)
     }
@@ -45,7 +44,7 @@
 
     $: rotateFocusedItem = (amount: 1 | -1) => {
         focusedListItem.update((current) => {
-            let newItem = current + amount
+            const newItem = current + amount
             if (!rotateFocus) return Math.min(listItems.length - 1, Math.max(0, newItem))
             if (newItem < 0) return listItems.length - 1
             if (newItem > listItems.length - 1) return 0

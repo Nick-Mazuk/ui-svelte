@@ -1,5 +1,6 @@
 <script lang="ts">
     import marked from 'marked/lib/marked.esm'
+
     export let content = ''
     export let headerIds = false
     export let toc = false

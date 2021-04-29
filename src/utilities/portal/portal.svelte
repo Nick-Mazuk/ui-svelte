@@ -2,8 +2,8 @@
     import { createEventDispatcher } from 'svelte'
     import Portal from 'svelte-portal/src/Portal.svelte'
 
-    export let x: number = 0
-    export let y: number = 0
+    export let x = 0
+    export let y = 0
     export let center = false
     export let overlay: boolean | 'color' = false
 

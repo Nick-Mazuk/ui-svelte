@@ -1,21 +1,20 @@
 <script lang="ts">
-    import { getContext, onMount } from 'svelte'
+    import { getContext, onMount, createEventDispatcher } from 'svelte'
     import type { Writable } from 'svelte/store'
-    import { createEventDispatcher } from 'svelte'
 
     type Variant = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
     type Shape = 'rounded' | 'none'
 
     export let href = ''
     export let variant: Variant | undefined = undefined
-    let activeProp: boolean
-    export { activeProp as active }
+    let activeProperty: boolean | undefined = undefined
+    export { activeProperty as active }
     export let shape: Shape | undefined = undefined
 
     let element: HTMLAnchorElement | HTMLLIElement
-    let index: number = -1
+    let index = -1
     let textContent: string | null
-    let dispatch = createEventDispatcher()
+    const dispatch = createEventDispatcher()
 
     const compact = getContext<boolean>('compact')
     const autofocus = getContext<boolean>('autofocusList')
@@ -90,9 +89,9 @@
             text: { default: 'text-gray-700 hover:text-gray-900', focused: 'text-gray-900' },
         },
     }
-    $: if (activeProp) active.set(index)
+    $: if (activeProperty) active.set(index)
     $: isFocused = $focused === index
-    $: isActive = ($active === index && mode === 'active') || activeProp
+    $: isActive = ($active === index && mode === 'active') || activeProperty
     $: isRounded = shape ? shape === 'rounded' : listShape === 'rounded'
     $: currentVariant = variant ?? listVariant ?? 'primary'
     $: classes = {
@@ -102,8 +101,9 @@
             VARIANT_MAP[variant ?? 'gray'].text.default,
             compact ? 'px-3' : 'px-4',
             isFocused
-                ? 'bg-gray-200 bg-opacity-50 hover:bg-gray-200 ' +
-                  VARIANT_MAP[variant ?? 'gray'].text.focused
+                ? `bg-gray-200 bg-opacity-50 hover:bg-gray-200 ${
+                      VARIANT_MAP[variant ?? 'gray'].text.focused
+                  }`
                 : '',
             isActive ? VARIANT_MAP[currentVariant].container.active : '',
             isRounded ? 'rounded-r-full' : '',

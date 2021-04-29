@@ -1,5 +1,5 @@
 <script lang="ts">
-    import LoadingSpinner from '../../elements/loading-spinner/loading-spinner.svelte'
+    import LoadingSpinner from '../loading-spinner/loading-spinner.svelte'
     import type { Writable } from 'svelte/store'
     import { getContext } from 'svelte'
 
@@ -158,7 +158,7 @@
         if (event.key === 'Enter') isActive = false
     }
 
-    $: widthStyle = typeof width === 'number' && width > 0 ? `width: ${width * 4}px` : ''
+    $: widthStyle = width && width !== 'full' ? `width: ${width * 4}px` : ''
     $: shadowClasses = shadow
         ? 'shadow-md hover:shadow-lg active:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
         : ''
@@ -166,7 +166,7 @@
         isActive || isHovered
             ? 'ring-offset-2 ring-offset-background'
             : 'ring-offset-2 focus:ring-2 ring-offset-background'
-    $: isDisabled = typeof disabledContext !== 'undefined' ? $disabledContext || disabled : disabled
+    $: isDisabled = typeof disabledContext === 'undefined' ? disabled : $disabledContext || disabled
 </script>
 
 {#if href}

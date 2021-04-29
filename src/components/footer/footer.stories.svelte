@@ -8,7 +8,7 @@
     import FooterSocialLink from './footer-social-link/footer-social-link.svelte'
 
     import Footer from './footer.svelte'
-    import FooterSocialContainer from './footer-social-link-container/footer-social-link-container.svelte'
+    import FooterSocialLinkWrapper from './footer-social-link-wrapper/footer-social-link-wrapper.svelte'
     import FooterColumn from './footer-column/footer-column.svelte'
 
     const meta = {
@@ -112,7 +112,7 @@
         </FooterGroup>
         <svelte:fragment slot="subfooter">
             <p>©{new Date().getFullYear()} Nick Mazuk.</p>
-            <FooterSocialContainer>
+            <FooterSocialLinkWrapper>
                 <FooterSocialLink href="#" title="Facebook">
                     <Facebook />
                 </FooterSocialLink>
@@ -122,7 +122,7 @@
                 <FooterSocialLink href="#" title="YouTube">
                     <YouTube />
                 </FooterSocialLink>
-            </FooterSocialContainer>
+            </FooterSocialLinkWrapper>
         </svelte:fragment>
     </Footer>
 </Story>

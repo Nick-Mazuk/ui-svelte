@@ -19,8 +19,6 @@
         "src/**/*.ts",
         "src/**/*.svelte",
         "test-setup.ts",
-        "src/index.js",
-        "src/badge/index.js",
         "cli/**/*.ts",
         "types.d.ts"
     ]

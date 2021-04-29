@@ -5,7 +5,7 @@
 
     export let sticky = false
     export let small = false
-    export let page: string = ''
+    export let page = ''
 
     let scrolledToTop = true
     let sentinal: HTMLElement

@@ -1,5 +1,6 @@
 <script lang="ts">
     import Indicator from './indicator.svelte'
+
     let count: number[] = []
 
     let timeout: NodeJS.Timeout

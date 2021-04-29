@@ -9,7 +9,7 @@
     export let emptyMessage = 'No results found'
     export let hideOptions = false
     export let value = ''
-    export let width: number = -1
+    export let width = -1
 
     $: widthStyle = width > 0 ? `width:${width * 4}px` : ''
 

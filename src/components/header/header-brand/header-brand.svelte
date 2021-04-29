@@ -3,9 +3,9 @@
 
     type Breakpoint = 'sm' | 'md' | 'none'
     export let breakpoint: Breakpoint = 'none'
-    export let text: string = ''
-    export let href: string = '/'
-    export let image: string = ''
+    export let text = ''
+    export let href = '/'
+    export let image = ''
 </script>
 
 <a href="{href}" sveltekit:prefetch class="flex items-center space-x-2 pr-2">

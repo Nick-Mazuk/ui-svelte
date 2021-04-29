@@ -5,11 +5,11 @@
     import YouTube from '../../../elements/icon/youtube.svelte'
     import Facebook from '../../../elements/icon/facebook.svelte'
 
-    import FooterSocialLinkContainer from './footer-social-link-container.svelte'
+    import FooterSocialLinkWrapper from './footer-social-link-wrapper.svelte'
 
     const meta = {
-        title: 'Components/Footer/FooterSocialLinkContainer',
-        component: FooterSocialLinkContainer,
+        title: 'Components/Footer/FooterSocialLinkWrapper',
+        component: FooterSocialLinkWrapper,
         parameters: {
             docs: {
                 description: {
@@ -24,7 +24,7 @@
 <Meta {...meta} />
 
 <Template let:args>
-    <FooterSocialLinkContainer {...args}>
+    <FooterSocialLinkWrapper {...args}>
         <FooterSocialLink href="#" title="Facebook">
             <Facebook />
         </FooterSocialLink>
@@ -34,7 +34,7 @@
         <FooterSocialLink href="#" title="YouTube">
             <YouTube />
         </FooterSocialLink>
-    </FooterSocialLinkContainer>
+    </FooterSocialLinkWrapper>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['footer-social-link-container.test.ts'] }}" />
+<Story name="Default" parameters="{{ jest: ['footer-social-link-wrapper.test.ts'] }}" />
