@@ -4,7 +4,7 @@
     import Http404 from './http-404.svelte'
 
     const meta = {
-        title: 'Errors/Http404',
+        title: 'Layouts/Http404',
         component: Http404,
         parameters: {
             docs: {
@@ -53,8 +53,20 @@
 
 <Meta {...meta} />
 
-<Template let:args>
+<Story name="Default" parameters="{{ jest: ['http-404.test.ts'] }}" let:args>
     <Http404 {...args} />
-</Template>
-
-<Story name="Default" parameters="{{ jest: ['http-404.test.ts'] }}" />
+</Story>
+<Story
+    name="Links"
+    parameters="{{ jest: ['http-404.test.ts'] }}"
+    args="{{
+        links: [
+            { href: '#', text: 'Home' },
+            { href: '#', text: 'Docs' },
+            { href: '#', text: 'Help' },
+        ],
+    }}"
+    let:args
+>
+    <Http404 {...args} />
+</Story>
