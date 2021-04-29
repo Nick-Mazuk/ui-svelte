@@ -19,10 +19,10 @@
     const close = () => (isOpen = false)
     const open = () => (isOpen = true)
 
-    const handleFocus = () => resetListToAllItemsAndOpen()
+    const handleFocus = () => resetListAndOpen()
     const handleBlur = () => close()
 
-    const resetListToAllItemsAndOpen = () => {
+    const resetListAndOpen = () => {
         open()
     }
 

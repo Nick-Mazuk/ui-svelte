@@ -10,8 +10,7 @@
     const dispatch = createEventDispatcher()
 
     $: container = center
-        ? // ? 'fixed top-0 left-0 flex items-center justify-center h-screen w-screen bg-success'
-          'fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2'
+        ? 'fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2'
         : 'absolute inset-0 bottom-auto right-auto'
     $: transform = center ? '' : `transform: translate3d(${x}px, ${y}px, 0px)`
 </script>

@@ -1,8 +1,8 @@
 import { render } from '@testing-library/svelte'
 
-import FooterSocialLinkContainer from './footer-social-link-container.svelte'
+import FooterSocialContainer from './footer-social-link-container.svelte'
 
 it('renders without crashing', () => {
-    const { container } = render(FooterSocialLinkContainer)
+    const { container } = render(FooterSocialContainer)
     expect(container).not.toBeEmptyDOMElement()
 })

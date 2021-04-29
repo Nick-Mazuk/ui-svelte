@@ -13,7 +13,7 @@
     let isCurrentPath = false
 
     $: {
-        if (typeof page === 'undefined' || $page === undefined) isCurrentPath = false
+        if (typeof page === 'undefined' || typeof $page === 'undefined') isCurrentPath = false
         else if (matchExact) isCurrentPath = $page === href
         else isCurrentPath = $page.startsWith(href)
     }

@@ -158,7 +158,7 @@
         if (event.key === 'Enter') isActive = false
     }
 
-    $: widthStyle = width && width !== 'full' ? `width: ${width * 4}px` : ''
+    $: widthStyle = typeof width === 'number' && width > 0 ? `width: ${width * 4}px` : ''
     $: shadowClasses = shadow
         ? 'shadow-md hover:shadow-lg active:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
         : ''
