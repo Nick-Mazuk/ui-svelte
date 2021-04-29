@@ -4,7 +4,7 @@
     import LoadingSpinner from './loading-spinner.svelte'
 
     const meta = {
-        title: 'Utilities/LoadingSpinner',
+        title: 'Elements/LoadingSpinner',
         component: LoadingSpinner,
         parameters: {
             docs: {

@@ -4,7 +4,7 @@
     import LoadingDots from './loading-dots.svelte'
 
     const meta = {
-        title: 'Utilities/LoadingDots',
+        title: 'Elements/LoadingDots',
         component: LoadingDots,
         parameters: {
             docs: {

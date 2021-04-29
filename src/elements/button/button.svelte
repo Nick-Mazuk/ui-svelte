@@ -1,5 +1,5 @@
 <script lang="ts">
-    import LoadingSpinner from '../../utilities/loading-spinner/loading-spinner.svelte'
+    import LoadingSpinner from '../../elements/loading-spinner/loading-spinner.svelte'
     import type { Writable } from 'svelte/store'
     import { getContext } from 'svelte'
 

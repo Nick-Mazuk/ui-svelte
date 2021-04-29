@@ -4,7 +4,7 @@
     import LoadingSection from './loading-section.svelte'
 
     const meta = {
-        title: 'Utilities/LoadingSection',
+        title: 'Elements/LoadingSection',
         component: LoadingSection,
         parameters: {
             docs: {

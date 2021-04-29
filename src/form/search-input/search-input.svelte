@@ -1,7 +1,7 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
 
-    import LoadingDots from '../../utilities/loading-dots/loading-dots.svelte'
+    import LoadingDots from '../../elements/loading-dots/loading-dots.svelte'
     import Search from '../../elements/icon/search.svelte'
 
     export let options: string[] = []
