@@ -62,6 +62,8 @@
         if (event.key === 'End') focusedListItem.set(listItems.length - 1)
         if (event.key === ' ') activeListItem.set(get(focusedListItem))
         if (event.key === 'Enter') activeListItem.set(get(focusedListItem))
+
+        if (['ArrowUp', 'ArrowDown'].includes(event.key)) event.preventDefault()
     }
     const handleFocusOut: svelte.JSX.FocusEventHandler<HTMLUListElement> = () => {
         focusedListItem.set(-1)

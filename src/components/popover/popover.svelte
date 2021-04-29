@@ -21,6 +21,7 @@
     export let overlay = false
     export let disabled = false
     export let placement: Placement = 'right-start'
+    export let open = false
 
     type GetPlacement = () => number
     let PLACEMENT_MAP: Record<Placement, { x: GetPlacement; y: GetPlacement }>
@@ -35,7 +36,6 @@
     const disabledStore = writable(disabled)
     setContext('disabled', disabledStore)
 
-    let open = false
     const closePopover = () => {
         if (disabled) return
         open = false
@@ -102,6 +102,12 @@
     $: x = boundingRect && open ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && open ? PLACEMENT_MAP[placement].y() : 0
 </script>
+
+<svelte:window
+    on:keydown="{(event) => {
+        if (event.key === 'Escape') open = false
+    }}"
+/>
 
 <div
     class="inline-flex"

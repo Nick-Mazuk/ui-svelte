@@ -19,8 +19,9 @@
 <Portal>
     {#if overlay}
         <button
-            class="fixed inset-0 bg-gray w-screen h-screen cursor-default {overlay === 'color'
-                ? 'opacity-50'
+            class="fixed inset-0 bg-foreground dark:bg-background w-screen h-screen cursor-default {overlay ===
+            'color'
+                ? 'opacity-25'
                 : 'opacity-0'}"
             on:click="{() => dispatch('close', true)}"
             tabindex="{-1}"

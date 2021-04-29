@@ -16,7 +16,7 @@
         parameters: {
             docs: {
                 description: {
-                    component: '',
+                    component: 'Dropdown menu opened via button. Supports keyboard navigation.',
                 },
             },
         },
@@ -66,27 +66,53 @@
 <Meta {...meta} />
 
 <Story name="Default" parameters="{{ jest: ['menu.test.ts'] }}" let:args>
-    <div class="min-w-screen min-h-screen flex items-center justify-center">
-        <Menu {...args}>
-            <Button shape="square" variant="secondary" slot="button" ariaLabel="Open menu">
-                <ChevronDown />
-            </Button>
-            <ListSection title="Dashboard">
-                <ListItem>
-                    <Home slot="prefix" />
-                    Home
-                </ListItem>
-                <ListItem>
-                    <Edit slot="prefix" />
-                    Posts
-                </ListItem>
-            </ListSection>
-            <ListSection title="Account">
-                <ListItem>
-                    <Settings slot="prefix" />
-                    Settings
-                </ListItem>
-            </ListSection>
-        </Menu>
-    </div>
+    <Menu {...args}>
+        <Button shape="square" slot="button" ariaLabel="Open menu">
+            <ChevronDown />
+        </Button>
+        <ListSection title="Dashboard">
+            <ListItem>
+                <Home slot="prefix" />
+                Home
+            </ListItem>
+            <ListItem>
+                <Edit slot="prefix" />
+                Posts
+            </ListItem>
+        </ListSection>
+        <ListSection title="Account">
+            <ListItem>
+                <Settings slot="prefix" />
+                Settings
+            </ListItem>
+        </ListSection>
+    </Menu>
+</Story>
+<Story
+    name="Custom width"
+    parameters="{{ jest: ['menu.test.ts'] }}"
+    args="{{ minWidth: 64 }}"
+    let:args
+>
+    <Menu {...args}>
+        <Button shape="square" slot="button" ariaLabel="Open menu">
+            <ChevronDown />
+        </Button>
+        <ListSection title="Dashboard">
+            <ListItem>
+                <Home slot="prefix" />
+                Home
+            </ListItem>
+            <ListItem>
+                <Edit slot="prefix" />
+                Posts
+            </ListItem>
+        </ListSection>
+        <ListSection title="Account">
+            <ListItem>
+                <Settings slot="prefix" />
+                Settings
+            </ListItem>
+        </ListSection>
+    </Menu>
 </Story>

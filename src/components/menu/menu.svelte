@@ -23,9 +23,11 @@
     export let placement: Placement = 'bottom-start'
     export let width = 0
     export let minWidth = 32
+
+    let open: boolean
 </script>
 
-<Popover placement="{placement}">
+<Popover placement="{placement}" bind:open>
     <svelte:fragment slot="trigger"><slot name="button" /></svelte:fragment>
     <div
         class="shadow-lg border rounded-lg overflow-hidden bg-background"
@@ -35,7 +37,13 @@
         class:mb-2="{placement.startsWith('top')}"
         style="width: {width * 4}px; min-width: {minWidth * 4}px"
     >
-        <List compact="{!loose}" role="menu" autofocus mode="focus">
+        <List
+            compact="{!loose}"
+            role="menu"
+            autofocus
+            mode="focus"
+            on:change="{() => (open = false)}"
+        >
             <slot />
         </List>
     </div>
