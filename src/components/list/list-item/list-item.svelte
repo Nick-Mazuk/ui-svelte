@@ -111,7 +111,7 @@
         content: 'truncate',
         affix: {
             default: [
-                `flex`,
+                `flex transition-colors`,
                 isActive
                     ? VARIANT_MAP[currentVariant].affix.active
                     : VARIANT_MAP[variant ?? 'gray'].affix.default,

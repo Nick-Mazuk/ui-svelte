@@ -12,7 +12,7 @@
         | 'largest'
 
     type Rounded = 'none' | 'small' | 'default' | 'large' | 'larger'
-    type Variant = 'disable' | 'click' | 'fill' | 'border' | 'card'
+    type Variant = 'disable' | 'click' | 'fill' | 'border' | 'shadow'
 
     export let padding: Padding | boolean = 'default'
     export let rounded: Rounded = 'default'
@@ -46,10 +46,10 @@
     const VARIANT_MAP: Record<Variant, string> = {
         disable: 'border bg-gray-100 text-gray cursor-not-allowed select-none filter grayscale',
         click:
-            'border bg-background border-opacity-100 hover:shadow-xl hover:border-transparent dark:hover:shadow-none dark:hover:border-gray-900 transition cursor-pointer',
+            'border bg-background border-opacity-100 hover:shadow-xl hover:border-transparent dark:hover:shadow-none dark:hover:border-gray-900 transition cursor-pointer active:bg-gray-100',
         fill: 'border bg-gray-100',
         border: 'border bg-background',
-        card: 'border border-transparent shadow-md dark:shadow-none dark:border-gray-200',
+        shadow: 'border border-transparent shadow-lg dark:shadow-none dark:border-gray-200',
     }
 
     const getPadding = (): string => {

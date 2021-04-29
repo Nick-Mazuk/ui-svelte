@@ -11,13 +11,13 @@
     {/if}
     <div class="inline-grid grid-cols-3 gap-0.5">
         <span
-            class="rounded-full inline-block bg-gray-700 m-0"
+            class="rounded-full inline-block bg-gray-700 m-0 opacity-10"
             style="width:{parsedSize}px;height:{parsedSize}px"></span>
         <span
-            class="rounded-full inline-block bg-gray-700 m-0"
+            class="rounded-full inline-block bg-gray-700 m-0 opacity-10"
             style="width:{parsedSize}px;height:{parsedSize}px"></span>
         <span
-            class="rounded-full inline-block bg-gray-700 m-0"
+            class="rounded-full inline-block bg-gray-700 m-0 opacity-10"
             style="width:{parsedSize}px;height:{parsedSize}px"></span>
     </div>
 </div>

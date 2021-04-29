@@ -9,7 +9,7 @@
 </script>
 
 <div class="border-b md:border-none">
-    <h3 class="hidden font-semibold md:block">{title}</h3>
+    <h3 class="hidden font-bold text-gray md:block">{title}</h3>
     <div
         class="flex items-center h-10 justify-between cursor-pointer md:hidden"
         on:click="{() => (open = !open)}"
@@ -26,7 +26,7 @@
             </div>
         </Button>
     </div>
-    <ul class="ml-4 md:block md:ml-0" class:hidden="{!open}">
+    <ul class="md:block" class:hidden="{!open}">
         <slot />
     </ul>
 </div>

@@ -1,6 +1,4 @@
 <script lang="ts">
-    // todo
-    // static (roles = ['list', 'listitem'])
     import { onMount, setContext } from 'svelte'
     import { get, writable } from 'svelte/store'
     import { createEventDispatcher } from 'svelte'
