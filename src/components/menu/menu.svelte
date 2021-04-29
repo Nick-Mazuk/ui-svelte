@@ -1,6 +1,4 @@
 <script lang="ts">
-    // todo
-    // closes on click
     import Popover from '../popover/popover.svelte'
 
     import List from '../list/list.svelte'
