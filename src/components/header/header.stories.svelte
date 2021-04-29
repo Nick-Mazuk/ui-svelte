@@ -1,5 +1,5 @@
 <script>
-    import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import { Meta, Story } from '@storybook/addon-svelte-csf'
     import Button from '../../elements/button/button.svelte'
     import HeaderBrand from './header-brand/header-brand.svelte'
     import HeaderItemWrapper from './header-item-wrapper/header-item-wrapper.svelte'
@@ -33,16 +33,14 @@
 
 <Meta {...meta} />
 
-<Template let:args>
+<Story name="Default" parameters="{{ jest: ['header.test.ts'] }}" let:args>
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
             <HeaderBrand text="UI Svelte" slot="left" />
         </Header>
         <div id="main-content"></div>
     </div>
-</Template>
-
-<Story name="Default" parameters="{{ jest: ['header.test.ts'] }}" />
+</Story>
 <Story name="Sticky" parameters="{{ jest: ['header.test.ts'] }}" args="{{ sticky: true }}" let:args>
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>

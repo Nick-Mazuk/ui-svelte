@@ -1,5 +1,5 @@
 <script>
-    import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import { Meta, Story } from '@storybook/addon-svelte-csf'
     import GitHub from '../../elements/icon/github.svelte'
     import YouTube from '../../elements/icon/youtube.svelte'
     import Facebook from '../../elements/icon/facebook.svelte'

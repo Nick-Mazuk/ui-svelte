@@ -1,5 +1,5 @@
 <script>
-    import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import { Meta, Story } from '@storybook/addon-svelte-csf'
     import Header from '../header.svelte'
 
     import HeaderItemWrapper from './header-item-wrapper.svelte'
