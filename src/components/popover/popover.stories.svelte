@@ -1,13 +1,6 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
-    import ChevronDown from '../../elements/icon/chevron-down.svelte'
     import Button from '../../elements/button/button.svelte'
-
-    import ListItem from '../list/list-item/list-item.svelte'
-    import ListSection from '../list/list-section/list-section.svelte'
-    import Home from '../../elements/icon/home.svelte'
-    import Edit from '../../elements/icon/edit.svelte'
-    import Settings from '../../elements/icon/settings.svelte'
 
     import Popover from './popover.svelte'
 
