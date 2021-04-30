@@ -4,6 +4,7 @@ declare module 'marked/lib/marked.esm'
 declare namespace Cypress {
     interface Chainable {
         loadStory(component: string, story: string): Chainable<Element>
+        tab(): Chainable<Element>
     }
 }
 

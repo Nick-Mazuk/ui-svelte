@@ -1,5 +1,6 @@
 {
     "integrationFolder": "src",
     "testFiles": "**/*.test.ts",
-    "baseUrl": "http://localhost:6006"
+    "baseUrl": "http://localhost:6006",
+    "viewportWidth": 1024
 }
