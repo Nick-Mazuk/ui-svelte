@@ -1,5 +1,5 @@
 module.exports = {
-    stories: ['../src/**/*.stories.svelte'],
+    stories: ['../src/**/*.stories.svelte', '../src/**/*.stories.mdx'],
     addons: [
         // '@storybook/addon-actions',
         'storybook-addon-turbo-build',

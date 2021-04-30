@@ -5,7 +5,7 @@ specifiers:
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/eslint-config': ^0.7.79
   '@nick-mazuk/lib': ^0.8.34
-  '@nick-mazuk/ui-config': ^0.10.28
+  '@nick-mazuk/ui-config': ^0.10.30
   '@storybook/addon-a11y': ^6.2.9
   '@storybook/addon-actions': ^6.2.9
   '@storybook/addon-essentials': ^6.2.9
@@ -24,11 +24,12 @@ specifiers:
   '@testing-library/jest-dom': ^5.11.10
   '@testing-library/svelte': ^3.0.3
   '@types/feather-icons': ^4.7.0
-  '@types/fs-extra': ^9.0.9
+  '@types/fs-extra': ^9.0.11
   '@types/jest': ^26.0.22
   '@types/marked': ^2.0.0
   '@types/node': ^14.14.36
   '@types/svg-parser': ^2.0.1
+  ac-colors: ^1.4.2
   autoprefixer: ^10.2.5
   esbuild: ^0.11.0
   eslint: ^7.23.0
@@ -65,7 +66,7 @@ devDependencies:
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
   '@nick-mazuk/eslint-config': 0.7.79_82834e191836c56312feb8dfd13cf146
   '@nick-mazuk/lib': 0.8.34
-  '@nick-mazuk/ui-config': 0.10.28_postcss@8.2.8+tailwindcss@2.1.1
+  '@nick-mazuk/ui-config': 0.10.30_postcss@8.2.8+tailwindcss@2.1.1
   '@storybook/addon-a11y': 6.2.9
   '@storybook/addon-actions': 6.2.9
   '@storybook/addon-essentials': 6.2.9_9817a2cbb695cf87586805b33765e463
@@ -83,11 +84,12 @@ devDependencies:
   '@testing-library/jest-dom': 5.11.10
   '@testing-library/svelte': 3.0.3_svelte@3.35.0
   '@types/feather-icons': 4.7.0
-  '@types/fs-extra': 9.0.9
+  '@types/fs-extra': 9.0.11
   '@types/jest': 26.0.22
   '@types/marked': 2.0.0
   '@types/node': 14.14.36
   '@types/svg-parser': 2.0.1
+  ac-colors: 1.4.2
   autoprefixer: 10.2.5_postcss@8.2.8
   esbuild: 0.11.0
   eslint: 7.23.0
@@ -3092,8 +3094,8 @@ packages:
       validator: 13.5.2
     dev: true
 
-  /@nick-mazuk/ui-config/0.10.28_postcss@8.2.8+tailwindcss@2.1.1:
-    resolution: {integrity: sha512-9MGxYhVnEyRKULMTzO2nFjggLpYxHjFzd2ZQB+I1mDCH0HeObR8D5xa/kgrE4IBFKW+6yDxsKbmsWea+2IzvXA==}
+  /@nick-mazuk/ui-config/0.10.30_postcss@8.2.8+tailwindcss@2.1.1:
+    resolution: {integrity: sha512-TqLPSHkq/SEcfaqaJKSRyaeSlMJnUTzaumIaLY/Q2TM1aKw+WWpvI55+c0qHETnAi3wdXDfzZ5L235tV4Dz3CA==}
     peerDependencies:
       postcss: '>= 8.0.0'
       tailwindcss: ^2.1.1
@@ -4969,10 +4971,10 @@ packages:
     resolution: {integrity: sha512-vflOrmlHMGIGVN4AEl6ErPCNKBLcP1ehEpLqnJkTgf69r5QmJzy7BF1WzbBc8Hqs9KffROPT/JqlSKH4o5vB/w==}
     dev: true
 
-  /@types/fs-extra/9.0.9:
-    resolution: {integrity: sha512-5TqDycCl0oMzwzd1cIjSJWMKMvLCDVErle4ZTjU4EmHDURR/+yZghe6GDHMCpHtcVfq0x0gMoOM546/5TbYHrg==}
+  /@types/fs-extra/9.0.11:
+    resolution: {integrity: sha512-mZsifGG4QeQ7hlkhO56u7zt/ycBgGxSVsFI/6lGTU34VtwkiqrrSDgw0+ygs8kFGWcXnFQWMrzF2h7TtDFNixA==}
     dependencies:
-      '@types/node': 14.14.37
+      '@types/node': 14.14.43
     dev: true
 
   /@types/glob-base/0.3.0:
@@ -5538,6 +5540,10 @@ packages:
 
   /abab/2.0.5:
     resolution: {integrity: sha512-9IK9EadsbHo6jLWIpxpR6pL0sazTXV6+SQv25ZB+F7Bj9mJNaOc4nCRabwd5M/JwmUa8idz6Eci6eKfJryPs6Q==}
+    dev: true
+
+  /ac-colors/1.4.2:
+    resolution: {integrity: sha512-Gi9IFuxUSuIZiEecAOHZSHBLoHTMMEw6IBchJSLhYVLOCbH8Jl9ZEYHJDwqlwfNPPsVCiLIkKrIF8zuflKmxoQ==}
     dev: true
 
   /accepts/1.3.7:

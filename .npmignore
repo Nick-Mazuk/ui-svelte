@@ -1,3 +1,4 @@
 **/*.test.ts
 **/*.stories.svelte
 src/svg
+src/getting-started
