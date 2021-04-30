@@ -15,9 +15,9 @@ const capitalizeFirstLetter = (string: string) => {
 
 const createColorSectionStart = (baseName: string) => {
     const capitalizedName = capitalizeFirstLetter(baseName)
-    return `<section class='my-8'>
+    return `<section class='my-16'>
     <div class='prose'>
-        <h3>${capitalizedName}</h3>
+        <h3 class='!text-5xl'>${capitalizedName}</h3>
     </div>
     <div class='border !my-8 rounded-lg overflow-hidden !-mx-3 md:!-mx-6'>`
 }
@@ -36,9 +36,9 @@ const createColorItemHtml = (colorName: string, hex: string, accent: boolean) =>
         darkTextColor = contrastOnWhite < 4.5 ? 'dark:text-background' : 'dark:text-foreground'
     return `
         <div class='px-3 md:px-6 py-8 grid grid-cols-1 md:grid-cols-5 text-${textColor} ${darkTextColor} bg-${colorName}'>
-            <div class='!text-2xl font-bold col-span-2'>${capitalizedName}</div>
-            <div class='!text-base md:!text-lg opacity-60 md:opacity-100 font-semibold col-span-2'>var(--c-${colorName})</div>
-            <div class='!text-base md:!text-lg opacity-60 md:opacity-100 font-semibold md:text-right'>${hex}</div>
+            <div class='!text-2xl font-bold col-span-2 !font-sans'>${capitalizedName}</div>
+            <div class='!text-base md:!text-lg opacity-60 md:opacity-100 font-semibold col-span-2 !font-sans'>var(--c-${colorName})</div>
+            <div class='!text-base md:!text-lg opacity-60 md:opacity-100 font-semibold md:text-right !font-sans'>${hex}</div>
         </div>`
 }
 
