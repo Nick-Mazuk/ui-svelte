@@ -40,7 +40,7 @@
     </Select>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['select.test.ts'] }}" />
+<Story name="Default" />
 <Story name="No arrow" args="{{ hideArrow: true }}" />
 <Story name="With prefix" let:args>
     <Select {...args}>

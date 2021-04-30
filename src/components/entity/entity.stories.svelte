@@ -50,8 +50,8 @@
     </Entity>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['entity.test.ts'] }}" />
-<Story name="Prefix" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+<Story name="Default" />
+<Story name="Prefix" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>
@@ -69,7 +69,7 @@
         </svelte:fragment>
     </Entity>
 </Story>
-<Story name="Actions" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+<Story name="Actions" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>
@@ -80,7 +80,7 @@
         </svelte:fragment>
     </Entity>
 </Story>
-<Story name="Menu" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+<Story name="Menu" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>
@@ -92,7 +92,7 @@
         </svelte:fragment>
     </Entity>
 </Story>
-<Story name="Footer" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+<Story name="Footer" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>
@@ -104,7 +104,7 @@
         <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
     </Entity>
 </Story>
-<Story name="Everything" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+<Story name="Everything" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>
@@ -132,7 +132,7 @@
         </svelte:fragment>
     </Entity>
 </Story>
-<Story name="Multiple entities" parameters="{{ jest: ['entity.test.ts'] }}" let:args>
+<Story name="Multiple entities" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>

@@ -57,7 +57,7 @@
     <Popover {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['popover.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <div class="min-w-screen min-h-screen flex items-center justify-center">
         <Popover {...args}>
             <Button variant="secondary" slot="trigger">Open popover</Button>
@@ -66,7 +66,7 @@
     </div>
 </Story>
 
-<Story name="Events" parameters="{{ jest: ['popover.test.ts'] }}" let:args>
+<Story name="Events" let:args>
     <div class="min-w-screen min-h-screen flex items-center justify-center">
         <Popover {...args} on:close="{() => alert('closed')}" on:open="{() => alert('opened')}">
             <Button variant="secondary" slot="trigger">Open popover</Button>

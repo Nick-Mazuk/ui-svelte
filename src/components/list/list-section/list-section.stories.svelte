@@ -39,4 +39,4 @@
     </List>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['list-section.test.ts'] }}" />
+<Story name="Default" />

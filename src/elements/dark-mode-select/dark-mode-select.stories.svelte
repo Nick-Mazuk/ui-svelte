@@ -31,4 +31,4 @@
     <DarkModeSelect {...args} store="{store}" />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['dark-mode-select.test.ts'] }}" />
+<Story name="Default" />

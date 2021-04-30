@@ -33,7 +33,7 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['header.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
             <HeaderBrand text="UI Svelte" slot="left" />
@@ -41,7 +41,7 @@
         <div id="main-content"></div>
     </div>
 </Story>
-<Story name="Sticky" parameters="{{ jest: ['header.test.ts'] }}" args="{{ sticky: true }}" let:args>
+<Story name="Sticky" args="{{ sticky: true }}" let:args>
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
             <HeaderBrand text="UI Svelte" slot="left" />
@@ -58,12 +58,7 @@
         </div>
     </div>
 </Story>
-<Story
-    name="Buttons"
-    parameters="{{ jest: ['header.test.ts'] }}"
-    args="{{ sticky: true }}"
-    let:args
->
+<Story name="Buttons" args="{{ sticky: true }}" let:args>
     <Header {...args}>
         <HeaderBrand text="UI Svelte" slot="left" />
         <svelte:fragment slot="right">

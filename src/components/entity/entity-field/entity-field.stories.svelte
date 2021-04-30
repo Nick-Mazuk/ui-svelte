@@ -29,4 +29,4 @@
     </EntityField>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['entity-field.test.ts'] }}" />
+<Story name="Default" />

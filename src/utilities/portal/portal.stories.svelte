@@ -48,42 +48,27 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['portal.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Portal {...args} on:close="{() => alert('close event dispatched')}">
         <Container>Contents of the portal</Container>
     </Portal>
 </Story>
-<Story name="Center" parameters="{{ jest: ['portal.test.ts'] }}" args="{{ center: true }}" let:args>
+<Story name="Center" args="{{ center: true }}" let:args>
     <Portal {...args} on:close="{() => alert('close event dispatched')}">
         <Container>Contents of the portal</Container>
     </Portal>
 </Story>
-<Story
-    name="Overlay"
-    parameters="{{ jest: ['portal.test.ts'] }}"
-    args="{{ overlay: true }}"
-    let:args
->
+<Story name="Overlay" args="{{ overlay: true }}" let:args>
     <Portal {...args} on:close="{() => alert('close event dispatched')}">
         <Container>Contents of the portal</Container>
     </Portal>
 </Story>
-<Story
-    name="Overlay color"
-    parameters="{{ jest: ['portal.test.ts'] }}"
-    args="{{ overlay: 'color' }}"
-    let:args
->
+<Story name="Overlay color" args="{{ overlay: 'color' }}" let:args>
     <Portal {...args} on:close="{() => alert('close event dispatched')}">
         <Container>Contents of the portal</Container>
     </Portal>
 </Story>
-<Story
-    name="Coordinates"
-    parameters="{{ jest: ['portal.test.ts'] }}"
-    args="{{ x: 256, y: 128 }}"
-    let:args
->
+<Story name="Coordinates" args="{{ x: 256, y: 128 }}" let:args>
     <Portal {...args} on:close="{() => alert('close event dispatched')}">
         <Container>Contents of the portal</Container>
     </Portal>

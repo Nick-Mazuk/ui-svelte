@@ -43,4 +43,4 @@
     </FooterSocialLink>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['footer-social-link.test.ts'] }}" />
+<Story name="Default" />

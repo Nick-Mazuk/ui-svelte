@@ -38,12 +38,12 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['header-item-wrapper.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Header>
         <HeaderItemWrapper {...args} slot="left">Some text</HeaderItemWrapper>
     </Header>
 </Story>
-<Story name="Breakpoints" parameters="{{ jest: ['header-item-wrapper.test.ts'] }}" let:args>
+<Story name="Breakpoints" let:args>
     <Header>
         <svelte:fragment slot="left">
             <HeaderItemWrapper {...args} breakpoint="none">breakpoint='none'</HeaderItemWrapper>

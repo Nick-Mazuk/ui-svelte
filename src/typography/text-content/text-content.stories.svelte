@@ -369,4 +369,4 @@
     </TextContent>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['text-content.test.ts'] }}" />
+<Story name="Default" />

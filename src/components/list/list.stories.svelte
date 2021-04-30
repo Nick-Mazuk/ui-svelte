@@ -94,8 +94,8 @@
     </List>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['list.test.ts'] }}" />
-<Story name="Leading icon" parameters="{{ jest: ['list.test.ts'] }}" let:args>
+<Story name="Default" />
+<Story name="Leading icon" let:args>
     <List {...args}>
         <ListItem>
             <Home slot="prefix" />
@@ -111,7 +111,7 @@
         </ListItem>
     </List>
 </Story>
-<Story name="Trailing icon" parameters="{{ jest: ['list.test.ts'] }}" let:args>
+<Story name="Trailing icon" let:args>
     <List {...args}>
         <ListItem>
             Home
@@ -127,7 +127,7 @@
         </ListItem>
     </List>
 </Story>
-<Story name="Divider" parameters="{{ jest: ['list.test.ts'] }}" let:args>
+<Story name="Divider" let:args>
     <List {...args}>
         <ListItem>
             <Home slot="prefix" />
@@ -144,7 +144,7 @@
         </ListItem>
     </List>
 </Story>
-<Story name="Sections" parameters="{{ jest: ['list.test.ts'] }}" let:args>
+<Story name="Sections" let:args>
     <List {...args}>
         <ListSection title="Dashboard">
             <ListItem>
@@ -164,7 +164,7 @@
         </ListSection>
     </List>
 </Story>
-<Story name="Modes" parameters="{{ jest: ['list.test.ts'] }}" let:args>
+<Story name="Modes" let:args>
     <div class="max-w-md">
         <h2 class="h5 mt-8">Display</h2>
         <p class="mt-2">For lists which are purely presentational.</p>
@@ -198,12 +198,7 @@
         <ListItem>Item 3</ListItem>
     </List>
 </Story>
-<Story
-    name="Variant"
-    parameters="{{ jest: ['list.test.ts'] }}"
-    args="{{ variant: 'error', mode: 'active' }}"
-    let:args
->
+<Story name="Variant" args="{{ variant: 'error', mode: 'active' }}" let:args>
     <List {...args}>
         <ListItem>
             <Home slot="prefix" />
@@ -220,12 +215,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="Rotate focus"
-    parameters="{{ jest: ['list.test.ts'] }}"
-    args="{{ rotateFocus: true, mode: 'active' }}"
-    let:args
->
+<Story name="Rotate focus" args="{{ rotateFocus: true, mode: 'active' }}" let:args>
     <List {...args}>
         <ListItem>
             <Home slot="prefix" />
@@ -242,12 +232,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="Autofocus"
-    parameters="{{ jest: ['list.test.ts'] }}"
-    args="{{ autofocus: true, mode: 'active' }}"
-    let:args
->
+<Story name="Autofocus" args="{{ autofocus: true, mode: 'active' }}" let:args>
     <List {...args}>
         <ListItem>
             <Home slot="prefix" />
@@ -264,12 +249,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="Shape"
-    parameters="{{ jest: ['list.test.ts'] }}"
-    args="{{ shape: 'rounded', autofocus: true, mode: 'active' }}"
-    let:args
->
+<Story name="Shape" args="{{ shape: 'rounded', autofocus: true, mode: 'active' }}" let:args>
     <List {...args}>
         <ListItem>
             <Home slot="prefix" />
@@ -286,12 +266,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="On change"
-    parameters="{{ jest: ['list.test.ts'] }}"
-    args="{{ mode: 'active' }}"
-    let:args
->
+<Story name="On change" args="{{ mode: 'active' }}" let:args>
     <List
         {...args}
         on:change="{(event) => alert(`Selected item ${event.detail.index}: ${event.detail.value}`)}"

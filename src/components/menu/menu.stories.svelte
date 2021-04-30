@@ -65,7 +65,7 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['menu.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Menu {...args}>
         <Button shape="square" slot="button" ariaLabel="Open menu">
             <ChevronDown />
@@ -88,12 +88,7 @@
         </ListSection>
     </Menu>
 </Story>
-<Story
-    name="Custom width"
-    parameters="{{ jest: ['menu.test.ts'] }}"
-    args="{{ minWidth: 64 }}"
-    let:args
->
+<Story name="Custom width" args="{{ minWidth: 64 }}" let:args>
     <Menu {...args}>
         <Button shape="square" slot="button" ariaLabel="Open menu">
             <ChevronDown />

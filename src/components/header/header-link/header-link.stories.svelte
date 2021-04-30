@@ -43,14 +43,14 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['header-link.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Header>
         <svelte:fragment slot="right">
             <HeaderLink {...args}>Docs</HeaderLink>
         </svelte:fragment>
     </Header>
 </Story>
-<Story name="Current page" parameters="{{ jest: ['header-link.test.ts'] }}" let:args>
+<Story name="Current page" let:args>
     <Header page="/docs">
         <svelte:fragment slot="right">
             <HeaderLink {...args} href="/">Home</HeaderLink>
@@ -58,12 +58,7 @@
         </svelte:fragment>
     </Header>
 </Story>
-<Story
-    name="Current page - exact"
-    parameters="{{ jest: ['header-link.test.ts'] }}"
-    args="{{ matchExact: true }}"
-    let:args
->
+<Story name="Current page - exact" args="{{ matchExact: true }}" let:args>
     <Header page="/docs">
         <svelte:fragment slot="right">
             <HeaderLink {...args} href="/">Home</HeaderLink>
@@ -71,12 +66,7 @@
         </svelte:fragment>
     </Header>
 </Story>
-<Story
-    name="Breakpoints"
-    parameters="{{ jest: ['header-link.test.ts'] }}"
-    args="{{ matchExact: true }}"
-    let:args
->
+<Story name="Breakpoints" args="{{ matchExact: true }}" let:args>
     <Header page="/">
         <svelte:fragment slot="right">
             <HeaderLink {...args} breakpoint="none">none</HeaderLink>

@@ -27,4 +27,4 @@
     <SearchInput {...args} options="{['hello', 'world']}" />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['search-input.test.ts'] }}" />
+<Story name="Default" />

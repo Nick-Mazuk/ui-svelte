@@ -40,14 +40,9 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['http-500.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Http500 {...args} />
 </Story>
-<Story
-    name="Development"
-    parameters="{{ jest: ['http-500.test.ts'] }}"
-    args="{{ isDevelopment: true }}"
-    let:args
->
+<Story name="Development" args="{{ isDevelopment: true }}" let:args>
     <Http500 {...args} />
 </Story>

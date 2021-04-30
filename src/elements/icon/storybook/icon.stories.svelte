@@ -63,4 +63,4 @@
     <Icon {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['icon.test.ts'] }}" />
+<Story name="Default" />

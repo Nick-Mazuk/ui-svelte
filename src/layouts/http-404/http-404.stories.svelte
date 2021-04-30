@@ -53,12 +53,11 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['http-404.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Http404 {...args} />
 </Story>
 <Story
     name="Links"
-    parameters="{{ jest: ['http-404.test.ts'] }}"
     args="{{
         links: [
             { href: '#', text: 'Home' },

@@ -34,4 +34,4 @@
     <LoadingSection {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['loading-section.test.ts'] }}" />
+<Story name="Default" />

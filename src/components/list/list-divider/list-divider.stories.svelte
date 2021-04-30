@@ -23,4 +23,4 @@
     <ListDivider {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['list-divider.test.ts'] }}" />
+<Story name="Default" />

@@ -27,7 +27,7 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['footer.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Footer {...args}>
         <FooterGroup title="Group 1">
             <FooterLink href="#">Home</FooterLink>
@@ -55,7 +55,7 @@
         </FooterGroup>
     </Footer>
 </Story>
-<Story name="Light" parameters="{{ jest: ['footer.test.ts'] }}" args="{{ light: true }}" let:args>
+<Story name="Light" args="{{ light: true }}" let:args>
     <Footer {...args}>
         <FooterGroup title="Group 1">
             <FooterLink href="#">Home</FooterLink>
@@ -84,7 +84,7 @@
     </Footer>
 </Story>
 
-<Story name="Subfooter" parameters="{{ jest: ['footer.test.ts'] }}" let:args>
+<Story name="Subfooter" let:args>
     <Footer {...args}>
         <FooterGroup title="Group 1">
             <FooterLink href="#">Home</FooterLink>
@@ -127,7 +127,7 @@
     </Footer>
 </Story>
 
-<Story name="Multi-group column" parameters="{{ jest: ['footer.test.ts'] }}" let:args>
+<Story name="Multi-group column" let:args>
     <Footer {...args}>
         <FooterGroup title="Group 1">
             <FooterLink href="#">Home</FooterLink>

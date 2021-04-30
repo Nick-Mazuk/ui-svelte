@@ -23,4 +23,4 @@
     <LoadingDots {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['loading-dots.test.ts'] }}" />
+<Story name="Default" />

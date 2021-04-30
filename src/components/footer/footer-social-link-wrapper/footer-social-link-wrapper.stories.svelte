@@ -37,4 +37,4 @@
     </FooterSocialLinkWrapper>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['footer-social-link-wrapper.test.ts'] }}" />
+<Story name="Default" />

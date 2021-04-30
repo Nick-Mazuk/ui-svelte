@@ -23,4 +23,4 @@
     <LoadingSpinner {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['loading-spinner.test.ts'] }}" />
+<Story name="Default" />

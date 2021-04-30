@@ -61,10 +61,10 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['container.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Container {...args}>This is some content</Container>
 </Story>
-<Story name="Variants" parameters="{{ jest: ['container.test.ts'] }}" let:args>
+<Story name="Variants" let:args>
     <main class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
         <Container {...args} variant="border">border</Container>
         <Container {...args} variant="shadow">shadow</Container>
@@ -73,7 +73,7 @@
         <Container {...args} variant="disable">disable</Container>
     </main>
 </Story>
-<Story name="Rounded" parameters="{{ jest: ['container.test.ts'] }}" let:args>
+<Story name="Rounded" let:args>
     <main class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
         <Container {...args} rounded="none" variant="fill">none</Container>
         <Container {...args} rounded="small" variant="fill">small</Container>
@@ -82,7 +82,7 @@
         <Container {...args} rounded="larger" variant="fill">larger</Container>
     </main>
 </Story>
-<Story name="Padding" parameters="{{ jest: ['container.test.ts'] }}" let:args>
+<Story name="Padding" let:args>
     <main class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
         <div><Container {...args} padding="none" variant="fill">none</Container></div>
         <div><Container {...args} padding="smallest" variant="fill">smallest</Container></div>
@@ -98,7 +98,6 @@
 </Story>
 <Story
     name="Custom classes"
-    parameters="{{ jest: ['container.test.ts'] }}"
     args="{{
         class:
             'h-64 flex items-center justify-center h4 bg-primary text-background border-none hover:bg-gradient-to-r hover:from-accent-magenta hover:to-error transition-colors',

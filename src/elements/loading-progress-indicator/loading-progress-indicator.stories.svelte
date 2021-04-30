@@ -24,4 +24,4 @@
     <Indicator {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['loading-progress-indicator.test.ts'] }}" />
+<Story name="Default" />

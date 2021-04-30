@@ -120,7 +120,7 @@ This will be a link: https://example.com
     <Markdown {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['markdown.test.ts'] }}" />
+<Story name="Default" />
 
 <Story name="With TextContent" let:args>
     <TextContent center>

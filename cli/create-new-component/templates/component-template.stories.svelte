@@ -19,6 +19,6 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['component-template.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <ComponentTemplate {...args} />
 </Story>

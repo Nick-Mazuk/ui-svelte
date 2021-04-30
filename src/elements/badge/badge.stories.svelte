@@ -34,16 +34,16 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['badge.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <Badge {...args}>Badge</Badge>
 </Story>
-<Story name="Sizes" parameters="{{ jest: ['badge.test.ts'] }}" let:args>
+<Story name="Sizes" let:args>
     <div class="flex space-x-4">
         <div><Badge {...args} size="default">Badge</Badge></div>
         <div><Badge {...args} size="large">Badge</Badge></div>
     </div>
 </Story>
-<Story name="Variants" parameters="{{ jest: ['badge.test.ts'] }}" let:args>
+<Story name="Variants" let:args>
     <div class="flex space-x-4">
         <div><Badge {...args} variant="gray">Badge</Badge></div>
         <div><Badge {...args} variant="primary">Badge</Badge></div>
@@ -53,6 +53,6 @@
         <div><Badge {...args} variant="success">Badge</Badge></div>
     </div>
 </Story>
-<Story name="Dot" parameters="{{ jest: ['badge.test.ts'] }}" args="{{ dot: true }}" let:args>
+<Story name="Dot" args="{{ dot: true }}" let:args>
     <Badge {...args}>Badge</Badge>
 </Story>

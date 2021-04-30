@@ -21,7 +21,7 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['footer-column.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <FooterColumn {...args}>
         <FooterGroup title="Pages">
             <FooterLink href="#">Home</FooterLink>

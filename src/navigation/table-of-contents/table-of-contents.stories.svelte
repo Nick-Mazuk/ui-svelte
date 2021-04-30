@@ -65,4 +65,4 @@
     <TableOfContents {...args} />
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['table-of-contents.test.ts'] }}" />
+<Story name="Default" />

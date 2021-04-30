@@ -105,8 +105,8 @@
     <Button {...args}>Click me</Button>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['button.test.ts'] }}" />
-<Story name="Variants" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+<Story name="Default" />
+<Story name="Variants" let:args>
     <div class="flex space-x-8">
         <div><Button {...args} variant="primary">Primary</Button></div>
         <div><Button {...args} variant="gray">Gray</Button></div>
@@ -119,7 +119,7 @@
         <div><Button {...args} variant="static">Static</Button></div>
     </div>
 </Story>
-<Story name="Hovered" parameters="{{ jest: ['button.test.ts'], pseudo: { hover: true } }}" let:args>
+<Story name="Hovered" parameters="{{ pseudo: { hover: true } }}" let:args>
     <div class="flex space-x-8">
         <div><Button {...args} variant="primary">Primary</Button></div>
         <div><Button {...args} variant="gray">Gray</Button></div>
@@ -132,7 +132,7 @@
         <div><Button {...args} variant="static">Static</Button></div>
     </div>
 </Story>
-<Story name="Focused" parameters="{{ jest: ['button.test.ts'], pseudo: { focus: true } }}" let:args>
+<Story name="Focused" parameters="{{ pseudo: { focus: true } }}" let:args>
     <div class="flex space-x-8">
         <div><Button {...args} variant="primary">Primary</Button></div>
         <div><Button {...args} variant="gray">Gray</Button></div>
@@ -145,14 +145,14 @@
         <div><Button {...args} variant="static">Static</Button></div>
     </div>
 </Story>
-<Story name="Sizes" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+<Story name="Sizes" let:args>
     <div class="flex space-x-8">
         <div><Button {...args} size="small">Click me</Button></div>
         <div><Button {...args}>Click me</Button></div>
         <div><Button {...args} size="large">Click me</Button></div>
     </div>
 </Story>
-<Story name="Shapes" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+<Story name="Shapes" let:args>
     <div class="flex space-x-8">
         <div>
             <Button {...args} size="small" shape="square" ariaLabel="Arrow up"><ArrowUp /></Button>
@@ -170,14 +170,14 @@
         </div>
     </div>
 </Story>
-<Story name="Width" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+<Story name="Width" let:args>
     <div class="grid gap-8">
         <div><Button {...args} width="{32}">Width 32</Button></div>
         <div><Button {...args} width="{64}">Width 64</Button></div>
         <div><Button {...args} width="full">Width full</Button></div>
     </div>
 </Story>
-<Story name="Prefix/Suffix" parameters="{{ jest: ['button.test.ts'] }}" let:args>
+<Story name="Prefix/Suffix" let:args>
     <div class="flex space-x-8">
         <div>
             <Button {...args}>
@@ -208,19 +208,9 @@
         </div>
     </div>
 </Story>
-<Story
-    name="Disabled"
-    parameters="{{ jest: ['button.test.ts'] }}"
-    args="{{ disabled: true }}"
-    let:args
->
+<Story name="Disabled" args="{{ disabled: true }}" let:args>
     <Button {...args}>I'm disabled</Button>
 </Story>
-<Story
-    name="Loading"
-    parameters="{{ jest: ['button.test.ts'] }}"
-    args="{{ loading: true }}"
-    let:args
->
+<Story name="Loading" args="{{ loading: true }}" let:args>
     <Button {...args}>I'm loading</Button>
 </Story>

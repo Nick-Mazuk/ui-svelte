@@ -35,4 +35,4 @@
     </ul>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['footer-link.test.ts'] }}" />
+<Story name="Default" />

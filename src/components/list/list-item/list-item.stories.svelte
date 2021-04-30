@@ -52,8 +52,8 @@
     </List>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['list-item.test.ts'] }}" />
-<Story name="Prefix" parameters="{{ jest: ['list-item.test.ts'] }}" let:args>
+<Story name="Default" />
+<Story name="Prefix" let:args>
     <List mode="active">
         <ListItem {...args}>
             <Plus slot="prefix" />
@@ -61,7 +61,7 @@
         </ListItem>
     </List>
 </Story>
-<Story name="Suffix" parameters="{{ jest: ['list-item.test.ts'] }}" let:args>
+<Story name="Suffix" let:args>
     <List mode="active">
         <ListItem {...args}>
             Hello world
@@ -69,12 +69,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="Variant"
-    parameters="{{ jest: ['list-item.test.ts'] }}"
-    args="{{ variant: 'primary' }}"
-    let:args
->
+<Story name="Variant" args="{{ variant: 'primary' }}" let:args>
     <List mode="active">
         <ListItem {...args}>
             Hello world
@@ -82,12 +77,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="Active"
-    parameters="{{ jest: ['list-item.test.ts'] }}"
-    args="{{ active: true, variant: 'primary' }}"
-    let:args
->
+<Story name="Active" args="{{ active: true, variant: 'primary' }}" let:args>
     <List mode="active">
         <ListItem {...args}>
             Hello world
@@ -95,12 +85,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="Rounded"
-    parameters="{{ jest: ['list-item.test.ts'] }}"
-    args="{{ active: true, variant: 'primary', shape: 'rounded' }}"
-    let:args
->
+<Story name="Rounded" args="{{ active: true, variant: 'primary', shape: 'rounded' }}" let:args>
     <List mode="active">
         <ListItem {...args}>
             Hello world
@@ -108,12 +93,7 @@
         </ListItem>
     </List>
 </Story>
-<Story
-    name="On action"
-    parameters="{{ jest: ['list-item.test.ts'] }}"
-    args="{{ variant: 'primary' }}"
-    let:args
->
+<Story name="On action" args="{{ variant: 'primary' }}" let:args>
     <List mode="active">
         <ListItem {...args} on:action="{() => alert('I have been activated')}">
             Hello world

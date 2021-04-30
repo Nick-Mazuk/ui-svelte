@@ -25,10 +25,10 @@
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ jest: ['status-dot.test.ts'] }}" let:args>
+<Story name="Default" let:args>
     <StatusDot {...args} />
 </Story>
-<Story name="Variants" parameters="{{ jest: ['status-dot.test.ts'] }}" let:args>
+<Story name="Variants" let:args>
     <div class="flex space-x-4">
         <StatusDot {...args} variant="gray" />
         <StatusDot {...args} variant="primary" />
@@ -38,6 +38,6 @@
         <StatusDot {...args} variant="success" />
     </div>
 </Story>
-<Story name="Ping" parameters="{{ jest: ['status-dot.test.ts'] }}" args="{{ ping: true }}" let:args>
+<Story name="Ping" args="{{ ping: true }}" let:args>
     <StatusDot {...args} />
 </Story>

@@ -39,4 +39,4 @@
     </FooterGroup>
 </Template>
 
-<Story name="Default" parameters="{{ jest: ['footer-group.test.ts'] }}" />
+<Story name="Default" />
