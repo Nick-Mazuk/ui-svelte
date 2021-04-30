@@ -81,7 +81,7 @@
         "@tailwindcss/jit": "^0.1.18",
         "marked": "^2.0.1",
         "storybook-addon-outline": "^1.2.0",
-        "svelte-intersection-observer": "^0.6.0",
+        "svelte-intersection-observer": "^0.7.0",
         "svelte-portal": "^2.1.2"
     }
 }
