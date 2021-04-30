@@ -16,7 +16,7 @@
         "prepublish": "npm run build-icons && npm run generate-docs",
         "cy:open": "cypress open",
         "cy:run": "cypress run",
-        "text:ci": "concurrently 'npm run dev' 'npm run cy:test' -k -s first"
+        "test:ci": "concurrently 'npm run dev' 'npm run cy:test' -k -s first"
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",

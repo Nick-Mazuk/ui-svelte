@@ -31,7 +31,7 @@ jobs:
                 headless: true
                 record: true
                 install: false
-                start: npm run cy:run
+                start: npm run dev
                 wait-on: "http://localhost:6006"
                 wait-on-timeout: 180
                 parallel: true
