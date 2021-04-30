@@ -1,7 +1,7 @@
 <script lang="ts">
     import Portal from '../../utilities/portal/portal.svelte'
-    import { createEventDispatcher, setContext } from 'svelte'
-
+    import { createEventDispatcher, getContext, setContext } from 'svelte'
+    import type { Writable } from 'svelte/store'
     import { writable } from 'svelte/store'
 
     type Placement =
@@ -33,16 +33,21 @@
     let trigger: HTMLDivElement
 
     const dispatch = createEventDispatcher()
-    const disabledStore = writable(disabled)
-    setContext('disabled', disabledStore)
+
+    const outerDisabledStore = getContext<Writable<boolean> | undefined>('disabled')
+    const disabledStore = outerDisabledStore || writable(disabled)
+
+    if (typeof outerDisabledStore === 'undefined') {
+        setContext('disabled', disabledStore)
+    }
 
     const closePopover = () => {
-        if (disabled) return
+        if (isDisabled) return
         open = false
         dispatch('close', true)
     }
     const openPopover = () => {
-        if (disabled) return
+        if (isDisabled) return
         open = true
         dispatch('open', true)
     }
@@ -99,9 +104,10 @@
     }
     let boundingRect: DOMRect
     $: if (open) boundingRect = trigger?.getBoundingClientRect()
-    $: disabledStore.set(disabled)
+    $: if (typeof outerDisabledStore === 'undefined') disabledStore.set(disabled)
     $: x = boundingRect && open ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && open ? PLACEMENT_MAP[placement].y() : 0
+    $: isDisabled = typeof outerDisabledStore === 'undefined' ? disabled : $outerDisabledStore
 </script>
 
 <svelte:window
