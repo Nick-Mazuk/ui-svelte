@@ -13,6 +13,9 @@
                     component: '',
                 },
             },
+            actions: {
+                argTypesRegex: '^on:*',
+            },
         },
         argTypes: {
             variant: {
@@ -86,6 +89,11 @@
                     type: 'text',
                 },
                 description: "Make icon buttons accessible by labeling it's function",
+            },
+
+            'on:click': {
+                action: 'clicked',
+                description: 'The forwarded on:click DOM event',
             },
         },
     }

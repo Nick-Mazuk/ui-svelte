@@ -1,9 +1,8 @@
 module.exports = {
     stories: ['../src/**/*.stories.svelte', '../src/**/*.stories.mdx'],
     addons: [
-        // '@storybook/addon-actions',
         'storybook-addon-turbo-build',
-        { name: '@storybook/addon-essentials', options: { backgrounds: false, actions: false } },
+        { name: '@storybook/addon-essentials', options: { backgrounds: false, actions: true } },
         '@storybook/addon-links',
         '@storybook/addon-a11y',
         '@storybook/addon-svelte-csf',
