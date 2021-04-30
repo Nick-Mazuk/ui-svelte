@@ -18,7 +18,7 @@ jobs:
     cypress:
         runs-on: ubuntu-latest
         timeout-minutes: 15
-        container: cypress/browsers:node12.18.3-chrome87-ff82
+        container: cypress/browsers:node14.16.0-chrome89-ff86
         strategy:
             matrix:
                 browser:
@@ -34,7 +34,6 @@ jobs:
               uses: cypress-io/github-action@v2
               with:
                   browser: ${{ matrix.browser }}
-                  headless: true
                   record: true
                   install: false
                   start: npm run dev
