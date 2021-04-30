@@ -2,5 +2,6 @@
     "integrationFolder": "src",
     "testFiles": "**/*.test.ts",
     "baseUrl": "http://localhost:6006",
-    "viewportWidth": 1024
+    "viewportWidth": 1024,
+    "projectId": "e5fxt3"
 }
