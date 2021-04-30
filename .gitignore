@@ -4,3 +4,4 @@ node_modules
 docs
 cli/dist
 build-storybook.log
+cypress/videos

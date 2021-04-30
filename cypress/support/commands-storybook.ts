@@ -1,26 +1,28 @@
 Cypress.Commands.add(
     'loadStory',
     (component: string, story: string, knobs?: { [knob: string]: string }) => {
-        const componentParam = component.replace(/[|/]/g, '-').toLowerCase()
-        const storyParam = story
-            .replace(/\s/g, '-')
-            .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
+        const componentParameter = component.replace(/[|/]/gu, '-').toLowerCase()
+        const storyParameter = story
+            .replace(/\s/gu, '-')
+            .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/gu, '$1-$2')
             .toLowerCase()
-        const queryParams: Record<string, string> = {
-            id: `${componentParam}-${storyParam}`,
+        const queryParameters: Record<string, string> = {
+            id: `${componentParameter}-${storyParameter}`,
             viewMode: 'story',
         }
         if (knobs) {
-            let knobParams: string[] = []
+            const knobParameters: string[] = []
             Object.keys(knobs).forEach((knob) => {
-                knobParams.push(`${knob}:${knobs[knob]}`)
+                knobParameters.push(`${knob}:${knobs[knob]}`)
             })
-            queryParams.args = knobParams.join(';')
+            queryParameters.args = knobParameters.join(';')
         }
-        let queryStrings: string[] = []
-        Object.keys(queryParams).forEach((param) => {
-            queryStrings.push(`${param}=${queryParams[param]}`)
+        const queryStrings: string[] = []
+        Object.keys(queryParameters).forEach((parameter) => {
+            queryStrings.push(`${parameter}=${queryParameters[parameter]}`)
         })
         return cy.visit(`iframe.html?${queryStrings.join('&')}`)
     }
 )
+
+export {}
