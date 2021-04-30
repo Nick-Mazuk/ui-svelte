@@ -15,8 +15,7 @@
         "generate-docs": "./node_modules/.bin/esbuild cli/generate-docs/index.ts --outfile=cli/dist/generate-docs.js  --bundle --platform=node --target=node12.17 && node cli/dist/generate-docs.js",
         "prepublish": "npm run build-icons && npm run generate-docs",
         "cy:open": "cypress open",
-        "cy:run": "cypress run",
-        "test:ci": "concurrently 'npm run dev' 'npm run cy:test' -k -s first"
+        "cy:run": "cypress run"
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
