@@ -11,8 +11,8 @@
         "svelte-check": "svelte-check",
         "lint": "npm run prettier && npm run svelte-check && npm run eslint && npm run check-types",
         "create-component": "./node_modules/.bin/esbuild cli/create-new-component --outfile=cli/dist/create-new-component.mjs --platform=node --target=node12.17 && node cli/dist/create-new-component.mjs",
-        "build-icons": "./node_modules/.bin/esbuild cli/build-icons --outfile=cli/dist/build-icons.mjs --platform=node --target=node12.17 && node cli/dist/build-icons.mjs",
-        "generate-docs": "./node_modules/.bin/esbuild cli/generate-docs/index.ts --outfile=cli/dist/generate-docs.js  --bundle --platform=node --target=node12.17 && node cli/dist/generate-docs.js",
+        "build-icons": "./node_modules/.bin/esbuild ./cli/build-icons --outfile=cli/dist/build-icons.mjs --platform=node --target=node12.17 && node cli/dist/build-icons.mjs",
+        "generate-docs": "./node_modules/.bin/esbuild ./cli/generate-docs/index.ts --outfile=cli/dist/generate-docs.js  --bundle --platform=node --target=node12.17 && node cli/dist/generate-docs.js",
         "prepublish": "npm run build-icons && npm run generate-docs",
         "cy:open": "cypress open",
         "cy:run": "cypress run"

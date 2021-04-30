@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let size = 6
+    export let size = 8
     export let strokeWidth = 1.5
     export let color = ''
     type Align = 'top' | 'middle' | 'bottom' | 'default'
