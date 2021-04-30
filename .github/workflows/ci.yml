@@ -18,12 +18,10 @@ jobs:
     cypress:
         runs-on: ubuntu-latest
         timeout-minutes: 15
-        container: cypress/browsers:node14.16.0-chrome89-ff86
         strategy:
             matrix:
                 browser:
                     - chrome
-                    - firefox
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2.1.5
