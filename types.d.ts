@@ -1,6 +1,12 @@
 declare module '@storybook/addon-svelte-csf'
 declare module 'marked/lib/marked.esm'
 
+declare namespace Cypress {
+    interface Chainable {
+        loadStory(component: string, story: string): Chainable<Element>
+    }
+}
+
 type ColorSpace = 'rgb' | 'hex' | 'hsl' | 'xyz' | 'lab' | 'lchab' | 'luv' | 'lchuv'
 
 declare module 'ac-colors' {

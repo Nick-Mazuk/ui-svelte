@@ -1,7 +1,9 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
-        "target": "es2018",
+        "target": "es5",
+        "lib": ["es5", "dom"],
+        "types": ["cypress"],
         "importsNotUsedAsValues": "error",
         "isolatedModules": true,
         "sourceMap": true,
@@ -20,6 +22,7 @@
         "src/**/*.svelte",
         "test-setup.ts",
         "cli/**/*.ts",
-        "types.d.ts"
+        "types.d.ts",
+        "cypress/**/*.ts"
     ]
 }
