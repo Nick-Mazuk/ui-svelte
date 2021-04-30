@@ -4,3 +4,5 @@ node_modules
 *.d.ts
 *.config.js
 cli/dist
+src/style-guide/colors.stories.mdx
+src/style-guide/icons.stories.mdx
