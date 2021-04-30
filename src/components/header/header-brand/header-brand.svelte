@@ -6,9 +6,15 @@
     export let text = ''
     export let href = '/'
     export let image = ''
+    export let ariaLabel = 'Go to homepage'
 </script>
 
-<a href="{href}" sveltekit:prefetch class="flex items-center space-x-2 pr-2">
+<a
+    href="{href}"
+    sveltekit:prefetch
+    class="flex items-center space-x-2 pr-2"
+    aria-label="{ariaLabel}"
+>
     {#if image}
         <img src="{image}" class="flex-none h-10" role="presentation" alt="" />
     {/if}

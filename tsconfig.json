@@ -3,7 +3,7 @@
         "moduleResolution": "node",
         "target": "es5",
         "lib": ["es5", "dom"],
-        "types": ["cypress"],
+        "types": ["cypress", "cypress-axe"],
         "importsNotUsedAsValues": "error",
         "isolatedModules": true,
         "sourceMap": true,

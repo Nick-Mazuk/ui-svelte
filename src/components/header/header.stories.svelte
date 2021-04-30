@@ -12,7 +12,8 @@
         parameters: {
             docs: {
                 description: {
-                    component: '',
+                    component:
+                        "A header component for the top of your webpages. For accesibility, make sure you add a `<main id='main-content'>` to the final webpage, so screenreaders and keyboard users can skip directly to the main content.",
                 },
             },
         },

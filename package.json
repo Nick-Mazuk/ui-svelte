@@ -2,7 +2,7 @@
     "name": "@nick-mazuk/ui-svelte",
     "version": "0.1.53",
     "scripts": {
-        "dev": "concurrently 'start-storybook -p 6006' 'npm run cy:open'",
+        "dev": "start-storybook -p 6006",
         "build": "build-storybook -c .storybook -o docs",
         "prebuild": "npm run generate-docs",
         "check-types": "tsc --noemit",
@@ -41,6 +41,7 @@
         "chromatic": "^5.8.0",
         "concurrently": "^6.0.2",
         "cypress": "^7.2.0",
+        "cypress-axe": "^0.12.2",
         "cypress-plugin-tab": "^1.0.5",
         "esbuild": "^0.11.0",
         "eslint": "^7.23.0",

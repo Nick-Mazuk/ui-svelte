@@ -24,6 +24,7 @@ specifiers:
   chromatic: ^5.8.0
   concurrently: ^6.0.2
   cypress: ^7.2.0
+  cypress-axe: ^0.12.2
   cypress-plugin-tab: ^1.0.5
   esbuild: ^0.11.0
   eslint: ^7.23.0
@@ -78,6 +79,7 @@ devDependencies:
   chromatic: 5.8.0
   concurrently: 6.0.2
   cypress: 7.2.0
+  cypress-axe: 0.12.2_cypress@7.2.0
   cypress-plugin-tab: 1.0.5
   esbuild: 0.11.0
   eslint: 7.23.0
@@ -7022,6 +7024,16 @@ packages:
 
   /cyclist/1.0.1:
     resolution: {integrity: sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=}
+    dev: true
+
+  /cypress-axe/0.12.2_cypress@7.2.0:
+    resolution: {integrity: sha512-gn+rVJ2JnvUWhBshbZ/8dkJdANaEB96zgtAEClJ7vNvDgmqAYb+HhQpW0GM04EqtIiPhenqUeKNQDoqrquY5+w==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      axe-core: ^3 || ^4
+      cypress: ^3 || ^4 || ^5 || ^6
+    dependencies:
+      cypress: 7.2.0
     dev: true
 
   /cypress-plugin-tab/1.0.5:

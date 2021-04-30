@@ -1,3 +1,5 @@
+import 'cypress-axe'
+
 Cypress.Commands.add(
     'loadStory',
     (component: string, story: string, knobs?: { [knob: string]: string }) => {
@@ -21,8 +23,16 @@ Cypress.Commands.add(
         Object.keys(queryParameters).forEach((parameter) => {
             queryStrings.push(`${parameter}=${queryParameters[parameter]}`)
         })
-        return cy.visit(`iframe.html?${queryStrings.join('&')}`)
+        cy.visit(`iframe.html?${queryStrings.join('&')}`)
+        cy.injectAxe()
+        cy.configureAxe({
+            rules: [
+                { id: 'landmark-one-main', enabled: false },
+                { id: 'page-has-heading-one', enabled: false },
+                { id: 'region', enabled: false },
+                { id: 'bypass', enabled: false },
+                { id: 'skip-link', enabled: false },
+            ],
+        })
     }
 )
-
-export {}

@@ -34,6 +34,12 @@
                 description:
                     'Only shows the brand text above the breakpoint. Equivalent to using responsive utilities in Tailwind. The image will always be visible.',
             },
+            ariaLabel: {
+                control: {
+                    type: 'text',
+                },
+                defaultValue: 'Go to homepage',
+            },
         },
     }
 </script>
