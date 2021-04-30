@@ -37,9 +37,7 @@
     const outerDisabledStore = getContext<Writable<boolean> | undefined>('disabled')
     const disabledStore = outerDisabledStore || writable(disabled)
 
-    if (typeof outerDisabledStore === 'undefined') {
-        setContext('disabled', disabledStore)
-    }
+    if (typeof outerDisabledStore === 'undefined') setContext('disabled', disabledStore)
 
     const closePopover = () => {
         if (isDisabled) return

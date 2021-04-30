@@ -6,7 +6,6 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-a11y',
         '@storybook/addon-svelte-csf',
-        '@storybook/addon-jest',
         'storybook-addon-themes',
         {
             name: '@storybook/addon-postcss',
