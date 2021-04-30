@@ -36,43 +36,43 @@ export const parameters = {
                 styles: {
                     width: '300px',
                     height: '600px',
-                }
+                },
             },
             smMax: {
                 name: 'sm - max',
                 styles: {
                     width: '639px',
                     height: '600px',
-                }
+                },
             },
             mdMin: {
                 name: 'md - min',
                 styles: {
                     width: '640px',
                     height: '600px',
-                }
+                },
             },
             mdMax: {
                 name: 'md - max',
                 styles: {
                     width: '767px',
                     height: '600px',
-                }
+                },
             },
             lgMin: {
                 name: 'lg - min',
                 styles: {
                     width: '768px',
                     height: '600px',
-                }
+                },
             },
             lgMax: {
                 name: 'lg - max',
                 styles: {
                     width: '1023px',
                     height: '600px',
-                }
+                },
             },
-        }
-    }
+        },
+    },
 }

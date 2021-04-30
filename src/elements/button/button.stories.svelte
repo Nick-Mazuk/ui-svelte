@@ -119,6 +119,32 @@
         <div><Button {...args} variant="static">Static</Button></div>
     </div>
 </Story>
+<Story name="Hovered" parameters="{{ jest: ['button.test.ts'], pseudo: { hover: true } }}" let:args>
+    <div class="flex space-x-8">
+        <div><Button {...args} variant="primary">Primary</Button></div>
+        <div><Button {...args} variant="gray">Gray</Button></div>
+        <div><Button {...args} variant="error">Error</Button></div>
+        <div><Button {...args} variant="warning">Warning</Button></div>
+        <div><Button {...args} variant="success">Success</Button></div>
+        <div><Button {...args} variant="highlight">Highlight</Button></div>
+        <div><Button {...args} variant="secondary">Secondary</Button></div>
+        <div><Button {...args} variant="link">Link</Button></div>
+        <div><Button {...args} variant="static">Static</Button></div>
+    </div>
+</Story>
+<Story name="Focused" parameters="{{ jest: ['button.test.ts'], pseudo: { focus: true } }}" let:args>
+    <div class="flex space-x-8">
+        <div><Button {...args} variant="primary">Primary</Button></div>
+        <div><Button {...args} variant="gray">Gray</Button></div>
+        <div><Button {...args} variant="error">Error</Button></div>
+        <div><Button {...args} variant="warning">Warning</Button></div>
+        <div><Button {...args} variant="success">Success</Button></div>
+        <div><Button {...args} variant="highlight">Highlight</Button></div>
+        <div><Button {...args} variant="secondary">Secondary</Button></div>
+        <div><Button {...args} variant="link">Link</Button></div>
+        <div><Button {...args} variant="static">Static</Button></div>
+    </div>
+</Story>
 <Story name="Sizes" parameters="{{ jest: ['button.test.ts'] }}" let:args>
     <div class="flex space-x-8">
         <div><Button {...args} size="small">Click me</Button></div>

@@ -55,6 +55,7 @@
         "postcss": "^8.2.8",
         "prettier": "^2.2.1",
         "prettier-plugin-svelte": "^2.2.0",
+        "storybook-addon-pseudo-states": "^1.0.0",
         "storybook-addon-themes": "^6.0.1",
         "storybook-addon-turbo-build": "^1.0.0-beta.0",
         "storybook-dark-mode": "^1.0.8-canary.138.3320.0",
@@ -87,6 +88,7 @@
     "dependencies": {
         "@tailwindcss/jit": "^0.1.18",
         "marked": "^2.0.1",
+        "storybook-addon-outline": "^1.2.0",
         "svelte-intersection-observer": "^0.6.0",
         "svelte-portal": "^2.1.2"
     }

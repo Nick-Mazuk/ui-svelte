@@ -16,6 +16,8 @@ module.exports = {
                 },
             },
         },
+        'storybook-addon-pseudo-states',
+        'storybook-addon-outline',
         // 'storybook-dark-mode'
     ],
     webpackFinal: async (config) => {
