@@ -14,21 +14,21 @@ it('responds to breakpoints', () => {
     cy.get('p').contains("breakpoint='none'").should('be.visible')
     cy.get('p').contains("breakpoint='sm'").should('be.visible')
     cy.get('p').contains("breakpoint='md'").should('be.visible')
-    cy.checkA11y()
+    cy.checkAccessibility()
 
-    cy.viewport(767, 640)
+    cy.screenSize('md')
     cy.get('img:visible').should('have.length', 3).should('be.visible')
     cy.get('p').contains("breakpoint='none'").should('be.visible')
     cy.get('p').contains("breakpoint='sm'").should('be.visible')
     cy.get('p').contains("breakpoint='md'").should('not.be.visible')
-    cy.checkA11y()
+    cy.checkAccessibility()
 
-    cy.viewport(639, 640)
+    cy.screenSize('sm')
     cy.get('img:visible').should('have.length', 3).should('be.visible')
     cy.get('p').contains("breakpoint='none'").should('be.visible')
     cy.get('p').contains("breakpoint='sm'").should('not.be.visible')
     cy.get('p').contains("breakpoint='md'").should('not.be.visible')
-    cy.checkA11y()
+    cy.checkAccessibility()
 })
 
 export {}

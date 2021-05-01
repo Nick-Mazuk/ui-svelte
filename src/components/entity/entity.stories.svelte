@@ -1,5 +1,5 @@
 <script>
-    import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
+    import { Meta, Story } from '@storybook/addon-svelte-csf'
     import EntityField from './entity-field/entity-field.svelte'
     import GitHub from '../../elements/icon/github.svelte'
     import Button from '../../elements/button/button.svelte'
@@ -36,21 +36,34 @@
 
 <Meta {...meta} />
 
-<Template let:args>
+<Story name="Default" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title">description</EntityField>
         <EntityField title="Title" />
         <EntityField right title="Title">
             description
-            <svelte:fragment slot="avatar">
-                <GitHub />
-            </svelte:fragment>
+            <GitHub slot="avatar" />
         </EntityField>
+        <svelte:fragment slot="actions">
+            <Button size="small" variant="secondary">Delete</Button>
+            <Button size="small">Edit</Button>
+        </svelte:fragment>
+        <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
+        <svelte:fragment slot="menu">
+            <ListItem>hello</ListItem>
+            <ListItem>hello</ListItem>
+            <ListItem>hello</ListItem>
+        </svelte:fragment>
+        <svelte:fragment slot="prefix">
+            <img
+                src="https://cdn.fakercloud.com/avatars/bartjo_128.jpg"
+                class="w-8 h-8 rounded-full"
+                alt="Avatar"
+            />
+        </svelte:fragment>
     </Entity>
-</Template>
-
-<Story name="Default" />
+</Story>
 <Story name="Prefix" let:args>
     <Entity {...args}>
         <EntityField title="Title">description</EntityField>
@@ -102,34 +115,6 @@
             <GitHub slot="avatar" />
         </EntityField>
         <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
-    </Entity>
-</Story>
-<Story name="Everything" let:args>
-    <Entity {...args}>
-        <EntityField title="Title">description</EntityField>
-        <EntityField title="Title">description</EntityField>
-        <EntityField title="Title" />
-        <EntityField right title="Title">
-            description
-            <GitHub slot="avatar" />
-        </EntityField>
-        <svelte:fragment slot="actions">
-            <Button size="small" variant="secondary">Delete</Button>
-            <Button size="small">Edit</Button>
-        </svelte:fragment>
-        <svelte:fragment slot="footer">Hello world, this is the footer</svelte:fragment>
-        <svelte:fragment slot="menu">
-            <ListItem>hello</ListItem>
-            <ListItem>hello</ListItem>
-            <ListItem>hello</ListItem>
-        </svelte:fragment>
-        <svelte:fragment slot="prefix">
-            <img
-                src="https://cdn.fakercloud.com/avatars/bartjo_128.jpg"
-                class="w-8 h-8 rounded-full"
-                alt="Avatar"
-            />
-        </svelte:fragment>
     </Entity>
 </Story>
 <Story name="Multiple entities" let:args>

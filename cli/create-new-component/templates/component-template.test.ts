@@ -1,6 +1,6 @@
 it('renders', () => {
     cy.loadStory('ComponentTemplateWithCategory', 'Default')
-    cy.checkA11y()
+    cy.checkAccessibility()
 })
 
 export {}

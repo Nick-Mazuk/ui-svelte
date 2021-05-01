@@ -43,6 +43,7 @@
         "cypress": "^7.2.0",
         "cypress-axe": "^0.12.2",
         "cypress-plugin-tab": "^1.0.5",
+        "cypress-real-events": "^1.4.0",
         "esbuild": "^0.11.0",
         "eslint": "^7.23.0",
         "feather-icons": "^4.28.0",

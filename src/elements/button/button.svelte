@@ -64,7 +64,7 @@
                 'bg-gray border-gray text-background hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray dark:text-foreground',
         },
         secondary: {
-            classes: `bg-transparent text-gray-600 ${
+            classes: `bg-background text-gray-600 ${
                 shadow
                     ? 'border-transparent'
                     : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-200'

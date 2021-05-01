@@ -26,6 +26,7 @@ specifiers:
   cypress: ^7.2.0
   cypress-axe: ^0.12.2
   cypress-plugin-tab: ^1.0.5
+  cypress-real-events: ^1.4.0
   esbuild: ^0.11.0
   eslint: ^7.23.0
   feather-icons: ^4.28.0
@@ -81,6 +82,7 @@ devDependencies:
   cypress: 7.2.0
   cypress-axe: 0.12.2_cypress@7.2.0
   cypress-plugin-tab: 1.0.5
+  cypress-real-events: 1.4.0_cypress@7.2.0
   esbuild: 0.11.0
   eslint: 7.23.0
   feather-icons: 4.28.0
@@ -7040,6 +7042,14 @@ packages:
     resolution: {integrity: sha512-QtTJcifOVwwbeMP3hsOzQOKf3EqKsLyjtg9ZAGlYDntrCRXrsQhe4ZQGIthRMRLKpnP6/tTk6G0gJ2sZUfRliQ==}
     dependencies:
       ally.js: 1.4.1
+    dev: true
+
+  /cypress-real-events/1.4.0_cypress@7.2.0:
+    resolution: {integrity: sha512-1s4BQN1D++vFSuaad0qKsWcoApM5tQqPBFyDJEa6JeCZIsAdgMdGLuKi5QNIdl5KTJix0jxglzFJAThyz3borQ==}
+    peerDependencies:
+      cypress: ^4.x || ^5.x || ^6.x || ^7.x
+    dependencies:
+      cypress: 7.2.0
     dev: true
 
   /cypress/7.2.0:

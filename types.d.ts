@@ -9,6 +9,9 @@ declare namespace Cypress {
             knobs?: { [knob: string]: string }
         ): Chainable<Element>
         tab(): Chainable<Element>
+        toggleDarkMode(): Chainable<Element>
+        checkAccessibility(): Chainable<Element>
+        screenSize(size: 'tiny' | 'sm' | 'md' | 'lg'): Chainable<Element>
     }
 }
 
