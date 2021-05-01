@@ -11,13 +11,12 @@ it('responds to breakpoints', () => {
     cy.contains("breakpoint='sm'").should('be.visible')
     cy.contains("breakpoint='md'").should('not.be.visible')
     cy.checkAccessibility()
-    
+
     cy.screenSize('sm')
     cy.contains("breakpoint='none'").should('be.visible')
     cy.contains("breakpoint='sm'").should('not.be.visible')
     cy.contains("breakpoint='md'").should('not.be.visible')
     cy.checkAccessibility()
-    
 })
 
 export {}
