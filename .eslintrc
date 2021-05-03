@@ -1,5 +1,5 @@
 {
-    "extends": ["@nick-mazuk/eslint-config/svelte"],
+    "extends": ["@nick-mazuk/eslint-config/svelte", "@nick-mazuk/eslint-config/+cypress"],
     "overrides": [
         {
             "files": ["*.stories.svelte"],

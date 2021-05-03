@@ -39,7 +39,7 @@ Cypress.Commands.add(
 
 Cypress.Commands.add('toggleDarkMode', () => {
     cy.window().then((window) => {
-        window.document.querySelector('body')?.classList.toggle('dark')
+        return window.document.querySelector('body')?.classList.toggle('dark')
     })
 })
 

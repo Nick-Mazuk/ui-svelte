@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@babel/core': ^7.13.13
   '@babel/preset-typescript': ^7.13.0
-  '@nick-mazuk/eslint-config': ^0.8.0
+  '@nick-mazuk/eslint-config': ^0.8.2
   '@nick-mazuk/lib': ^0.8.34
   '@nick-mazuk/ui-config': ^0.10.30
   '@storybook/addon-a11y': ^6.2.9
@@ -59,7 +59,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.13.13
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
-  '@nick-mazuk/eslint-config': 0.8.0_4149a662fa3025ebd2690398e68fc970
+  '@nick-mazuk/eslint-config': 0.8.2_4149a662fa3025ebd2690398e68fc970
   '@nick-mazuk/lib': 0.8.34
   '@nick-mazuk/ui-config': 0.10.30_postcss@8.2.8+tailwindcss@2.1.1
   '@storybook/addon-a11y': 6.2.9
@@ -2353,7 +2353,7 @@ packages:
   /@babel/runtime-corejs3/7.14.0:
     resolution: {integrity: sha512-0R0HTZWHLk6G8jIk0FtoX+AatCtKnswS98VhXwGImFc759PJRp4Tru0PQYZofyijTFUr+gT8Mu7sgXVJLQ0ceg==}
     dependencies:
-      core-js-pure: 3.11.1
+      core-js-pure: 3.11.2
       regenerator-runtime: 0.13.7
     dev: true
 
@@ -2791,8 +2791,8 @@ packages:
       glob-to-regexp: 0.3.0
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.0_4149a662fa3025ebd2690398e68fc970:
-    resolution: {integrity: sha512-VlGp61HFUsn31Qkh7eZcjMAXtwwjYFT4/uV0m6g9IE/BNzOIW2onMmAN2CxgZ243DC3whstBsxLdAX4dyAhAKw==}
+  /@nick-mazuk/eslint-config/0.8.2_4149a662fa3025ebd2690398e68fc970:
+    resolution: {integrity: sha512-skzW5iZfwGazbc0ia/tEhMPm019CFxV/IbjMW1KuFQFpOEgBEk2QCJg69UDySs1nrAZlDxY5Zwu3MR7jJU9l7A==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -2815,7 +2815,7 @@ packages:
       eslint-plugin-react-hooks: 4.2.0_eslint@7.23.0
       eslint-plugin-sonarjs: 0.7.0_eslint@7.23.0
       eslint-plugin-svelte3: 3.2.0_eslint@7.23.0+svelte@3.35.0
-      eslint-plugin-testing-library: 4.1.2_eslint@7.23.0+typescript@4.2.4
+      eslint-plugin-testing-library: 4.2.0_eslint@7.23.0+typescript@4.2.4
       eslint-plugin-unicorn: 31.0.0_eslint@7.23.0
       eslint-plugin-unused-imports: 1.1.1
       typescript: 4.2.4
@@ -6114,9 +6114,9 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001219
+      caniuse-lite: 1.0.30001220
       colorette: 1.2.2
-      electron-to-chromium: 1.3.723
+      electron-to-chromium: 1.3.725
       escalade: 3.1.1
       node-releases: 1.1.71
     dev: true
@@ -6272,6 +6272,10 @@ packages:
 
   /caniuse-lite/1.0.30001219:
     resolution: {integrity: sha512-c0yixVG4v9KBc/tQ2rlbB3A/bgBFRvl8h8M4IeUbqCca4gsiCfvtaheUssbnux/Mb66Vjz7x8yYjDgYcNQOhyQ==}
+    dev: true
+
+  /caniuse-lite/1.0.30001220:
+    resolution: {integrity: sha512-pjC2T4DIDyGAKTL4dMvGUQaMUHRmhvPpAgNNTa14jaBWHu+bLQgvpFqElxh9L4829Fdx0PlKiMp3wnYldRtECA==}
     dev: true
 
   /capture-exit/2.0.0:
@@ -6789,6 +6793,11 @@ packages:
 
   /core-js-pure/3.11.1:
     resolution: {integrity: sha512-2JukQi8HgAOCD5CSimxWWXVrUBoA9Br796uIA5Z06bIjt7PBBI19ircFaAxplgE1mJf3x2BY6MkT/HWA/UryPg==}
+    requiresBuild: true
+    dev: true
+
+  /core-js-pure/3.11.2:
+    resolution: {integrity: sha512-DQxdEKm+zFsnON7ZGOgUAQXBt1UJJ01tOzN/HgQ7cNf0oEHW1tcBLfCQQd1q6otdLu5gAdvKYxKHAoXGwE/kiQ==}
     requiresBuild: true
     dev: true
 
@@ -7519,6 +7528,10 @@ packages:
     resolution: {integrity: sha512-L+WXyXI7c7+G1V8ANzRsPI5giiimLAUDC6Zs1ojHHPhYXb3k/iTABFmWjivEtsWrRQymjnO66/rO2ZTABGdmWg==}
     dev: true
 
+  /electron-to-chromium/1.3.725:
+    resolution: {integrity: sha512-2BbeAESz7kc6KBzs7WVrMc1BY5waUphk4D4DX5dSQXJhsc3tP5ZFaiyuL0AB7vUKzDYpIeYwTYlEfxyjsGUrhw==}
+    dev: true
+
   /elegant-spinner/1.0.1:
     resolution: {integrity: sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=}
     engines: {node: '>=0.10.0'}
@@ -7971,8 +7984,8 @@ packages:
       svelte: 3.35.0
     dev: true
 
-  /eslint-plugin-testing-library/4.1.2_eslint@7.23.0+typescript@4.2.4:
-    resolution: {integrity: sha512-eJR1drH2yFcGM9As3C5Q17lyOolMPKalQA3l8pD61sAIt8+8w/KjHe7u9Sa4eYy7r76UikCoP9CAtVkGdGCZ/w==}
+  /eslint-plugin-testing-library/4.2.0_eslint@7.23.0+typescript@4.2.4:
+    resolution: {integrity: sha512-do+F2gQPLHjzXRl8E4/5WwXZSAOvSvuewxCO/Km6aLk4g0UVFDy5CtlpmDT83q3Hx2urR9Cvb02ai9cPQbbXHQ==}
     engines: {node: ^10.12.0 || >=12.0.0, npm: '>=6'}
     peerDependencies:
       eslint: ^7.5.0

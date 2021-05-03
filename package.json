@@ -2,12 +2,12 @@
     "name": "@nick-mazuk/ui-svelte",
     "version": "0.1.53",
     "scripts": {
-        "dev": "start-storybook -p 6006",
+        "dev": "start-storybook -p 6006 --quiet",
         "build": "build-storybook -c .storybook -o docs",
         "prebuild": "npm run generate-docs",
         "check-types": "tsc --noemit",
         "prettier": "prettier --write . --plugin-search-dir=.",
-        "eslint": "eslint . --quiet --fix",
+        "eslint": "eslint . --quiet",
         "svelte-check": "svelte-check",
         "lint": "npm run prettier && npm run svelte-check && npm run eslint && npm run check-types",
         "create-component": "./node_modules/.bin/esbuild cli/create-new-component --outfile=cli/dist/create-new-component.mjs --platform=node --target=node12.17 && node cli/dist/create-new-component.mjs",
@@ -20,7 +20,7 @@
     "devDependencies": {
         "@babel/core": "^7.13.13",
         "@babel/preset-typescript": "^7.13.0",
-        "@nick-mazuk/eslint-config": "^0.8.0",
+        "@nick-mazuk/eslint-config": "^0.8.2",
         "@nick-mazuk/lib": "^0.8.34",
         "@nick-mazuk/ui-config": "^0.10.30",
         "@storybook/addon-a11y": "^6.2.9",
