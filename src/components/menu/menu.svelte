@@ -34,6 +34,7 @@
         class:ml-2="{placement.startsWith('right')}"
         class:mb-2="{placement.startsWith('top')}"
         style="width: {width * 4}px; min-width: {minWidth * 4}px"
+        data-test="menu"
     >
         <List
             compact="{!loose}"

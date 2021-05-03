@@ -196,6 +196,7 @@
         on:click
         aria-label="{ariaLabel}"
         href="{href}"
+        data-test="button"
     >
         {#if loading}
             <span class="{SIZE_MAP[size].prefix}">
@@ -242,6 +243,7 @@
         on:keyup="{handleKeyup}"
         on:click
         aria-label="{ariaLabel}"
+        data-test="button"
     >
         {#if loading}
             <span class="{SIZE_MAP[size].prefix}">

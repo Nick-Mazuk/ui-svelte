@@ -124,11 +124,18 @@
     <slot name="trigger" />
 </div>
 {#if open && !disabled}
-    <Portal on:close="{closePopover}" overlay="{overlay ? 'color' : true}" x="{x}" y="{y}">
+    <Portal
+        on:close="{closePopover}"
+        overlay="{overlay ? 'color' : true}"
+        x="{x}"
+        y="{y}"
+        overlayAriaLabel="close"
+    >
         <div
             class="inline-flex"
             bind:offsetHeight="{popoverHeight}"
             bind:offsetWidth="{popoverWidth}"
+            data-test="popover"
         >
             <slot />
         </div>

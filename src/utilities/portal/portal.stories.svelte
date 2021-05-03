@@ -42,6 +42,11 @@
                 },
                 defaultValue: false,
             },
+            overlayAriaLabel: {
+                control: {
+                    type: 'text',
+                },
+            },
         },
     }
 </script>

@@ -6,6 +6,7 @@
     export let y = 0
     export let center = false
     export let overlay: boolean | 'color' = false
+    export let overlayAriaLabel: string | undefined = undefined
 
     const dispatch = createEventDispatcher()
 
@@ -24,6 +25,7 @@
                 : 'opacity-0'}"
             on:click="{() => dispatch('close', true)}"
             tabindex="{-1}"
+            aria-label="{overlayAriaLabel}"
         >
         </button>
     {/if}

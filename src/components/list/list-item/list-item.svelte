@@ -86,7 +86,10 @@
                 default: `text-gray ${mode === 'display' ? '' : 'group-hover:text-gray-900'}`,
                 active: 'text-gray-700',
             },
-            text: { default: 'text-gray-700 hover:text-gray-900', focused: 'text-gray-900' },
+            text: {
+                default: `text-gray-700${mode === 'display' ? '' : 'hover:text-gray-900'}`,
+                focused: 'text-gray-900',
+            },
         },
     }
     $: if (activeProperty) active.set(index)
@@ -96,7 +99,7 @@
     $: currentVariant = variant ?? listVariant ?? 'primary'
     $: classes = {
         container: [
-            'list-none h-10 items-center flex transition-colors group focus:outline-none',
+            'list-none h-10 items-center flex bg-background transition-colors group focus:outline-none',
             mode === 'display' ? '' : 'hover:bg-gray-100 cursor-pointer',
             VARIANT_MAP[variant ?? 'gray'].text.default,
             compact ? 'px-3' : 'px-4',
@@ -145,6 +148,7 @@
             aria-selected="{isActive ? true : undefined}"
             aria-current="{isFocused ? true : undefined}"
             role="{mode === 'display' ? undefined : listItemRole}"
+            data-test="list-item"
         >
             {#if $$slots.prefix}
                 <div class="{classes.affix.default} {classes.affix.prefix}">
@@ -171,6 +175,7 @@
         aria-selected="{isActive ? true : undefined}"
         aria-current="{isFocused ? true : undefined}"
         role="{mode === 'display' ? undefined : listItemRole}"
+        data-test="list-item"
     >
         {#if $$slots.prefix}
             <div class="{classes.affix.default} {classes.affix.prefix}">

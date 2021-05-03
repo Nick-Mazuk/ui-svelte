@@ -87,6 +87,7 @@
     aria-label="{ariaLabel}"
     bind:this="{element}"
     class="focus:bg-primary"
+    data-test="list"
 >
     <slot />
 </ul>
