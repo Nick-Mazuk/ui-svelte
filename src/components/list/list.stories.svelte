@@ -60,9 +60,9 @@
             shape: {
                 control: {
                     type: 'select',
-                    options: ['none', 'rounded'],
+                    options: ['default', 'rounded', 'square'],
                 },
-                defaultValue: 'none',
+                defaultValue: 'default',
                 description:
                     "When `mode='focus'` or `mode='active'` and a list item is hovered, focused, or active, this sets the background shape.",
             },

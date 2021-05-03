@@ -4,6 +4,7 @@
     import ListItem from './list-item.svelte'
     import Plus from '../../../elements/icon/plus.svelte'
     import List from '../list.svelte'
+    import Spacer from '../../../utilities/spacer/spacer.svelte'
 
     const meta = {
         title: 'Components/List/ListItem',
@@ -36,9 +37,9 @@
             shape: {
                 control: {
                     type: 'select',
-                    options: ['none', 'rounded'],
+                    options: ['default', 'rounded', 'square'],
                 },
-                defaultValue: 'none',
+                defaultValue: 'default',
             },
         },
     }
@@ -85,10 +86,24 @@
         </ListItem>
     </List>
 </Story>
-<Story name="Rounded" args="{{ active: true, variant: 'primary', shape: 'rounded' }}" let:args>
+<Story name="Shapes" args="{{ active: true, variant: 'primary' }}" let:args>
     <List mode="active">
-        <ListItem {...args}>
-            Hello world
+        <ListItem {...args} shape="default">
+            Default
+            <Plus slot="prefix" />
+        </ListItem>
+    </List>
+    <Spacer />
+    <List mode="active">
+        <ListItem {...args} shape="rounded">
+            Rounded
+            <Plus slot="prefix" />
+        </ListItem>
+    </List>
+    <Spacer />
+    <List mode="active">
+        <ListItem {...args} shape="square">
+            Square
             <Plus slot="prefix" />
         </ListItem>
     </List>

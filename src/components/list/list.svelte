@@ -3,7 +3,7 @@
     import { get, writable } from 'svelte/store'
 
     type Variant = 'primary' | 'error' | 'success' | 'warning' | 'highlight'
-    type Shape = 'rounded' | 'none'
+    type Shape = 'rounded' | 'square' | 'default'
     type Mode = 'display' | 'focus' | 'active'
 
     export let compact = false
@@ -12,7 +12,7 @@
     export let rotateFocus = false
     export let autofocus: boolean | number = false
     export let ariaLabel: string | undefined = undefined
-    export let shape: Shape = 'none'
+    export let shape: Shape = 'default'
     export let mode: Mode = 'display'
 
     let listItems: (string | null)[] = []

@@ -3,7 +3,7 @@
     import type { Writable } from 'svelte/store'
 
     type Variant = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
-    type Shape = 'rounded' | 'none'
+    type Shape = 'rounded' | 'square' | 'default'
 
     export let href = ''
     export let variant: Variant | undefined = undefined
@@ -22,7 +22,7 @@
     const focused = getContext<Writable<number>>('focusedListItem')
     const active = getContext<Writable<number>>('activeListItem')
     const listVariant = getContext<Variant>('listItemVariant')
-    const listShape = getContext<Shape>('listItemShape')
+    const listShape = getContext<Shape | undefined>('listItemShape')
     const listRole = getContext<svelte.JSX.HTMLAttributes<HTMLUListElement>['role']>('listRole')
     const mode = getContext<'display' | 'focus' | 'active'>('listMode')
 
@@ -92,10 +92,17 @@
             },
         },
     }
+    const SHAPE_MAP: Record<Shape, string> = {
+        default: 'rounded',
+        rounded: 'rounded rounded-r-full',
+        square: '',
+    }
+
     $: if (activeProperty) active.set(index)
     $: isFocused = $focused === index
     $: isActive = ($active === index && mode === 'active') || activeProperty
-    $: isRounded = shape ? shape === 'rounded' : listShape === 'rounded'
+    let itemShape: Shape
+    $: itemShape = (shape ? shape : listShape) ?? 'default'
     $: currentVariant = variant ?? listVariant ?? 'primary'
     $: classes = {
         container: [
@@ -109,7 +116,7 @@
                   }`
                 : '',
             isActive ? VARIANT_MAP[currentVariant].container.active : '',
-            isRounded ? 'rounded-r-full' : '',
+            SHAPE_MAP[itemShape],
         ].join(' '),
         content: 'truncate',
         affix: {
