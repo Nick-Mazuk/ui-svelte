@@ -5,7 +5,6 @@
 
     import Menu from './menu.svelte'
     import ListItem from '../list/list-item/list-item.svelte'
-    import ListSection from '../list/list-section/list-section.svelte'
     import Home from '../../elements/icon/home.svelte'
     import Edit from '../../elements/icon/edit.svelte'
     import Settings from '../../elements/icon/settings.svelte'
