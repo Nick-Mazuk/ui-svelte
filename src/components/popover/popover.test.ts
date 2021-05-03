@@ -11,7 +11,12 @@ it('functions correctly', () => {
 
     cy.tab().realType(' ')
     cy.get('[data-test="popover"]').should('exist')
-    cy.tab().realPress('Escape')
+    cy.realPress('Escape')
+    cy.get('[data-test="popover"]').should('not.exist')
+
+    cy.realType(' ')
+    cy.get('[data-test="popover"]').should('exist')
+    cy.realType(' ')
     cy.get('[data-test="popover"]').should('not.exist')
 
     cy.get('[data-test="button"]').should('be.focused')

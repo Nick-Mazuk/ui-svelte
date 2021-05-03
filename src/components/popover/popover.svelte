@@ -49,6 +49,10 @@
         open = true
         dispatch('open', true)
     }
+    $: togglePopover = () => {
+        if (open) closePopover()
+        else openPopover()
+    }
 
     $: PLACEMENT_MAP = {
         top: {
@@ -116,10 +120,12 @@
 
 <div
     class="inline-flex"
-    on:click="{openPopover}"
+    on:click="{togglePopover}"
     bind:this="{trigger}"
     bind:offsetWidth="{triggerWidth}"
     bind:offsetHeight="{triggerHeight}"
+    aria-haspopup="true"
+    aria-expanded="{open && !disabled}"
 >
     <slot name="trigger" />
 </div>
