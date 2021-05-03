@@ -1,0 +1,26 @@
+<script lang="ts">
+    import { getContext, setContext } from 'svelte'
+    import type { Writable } from 'svelte/store'
+    import { writable } from 'svelte/store'
+
+    import TableOfContents from '../../../navigation/table-of-contents/table-of-contents.svelte'
+    import HeaderMobileItemWrapper from '../header-mobile-item-wrapper/header-mobile-item-wrapper.svelte'
+
+    type TocItem = { href: string; text: string }
+    type SectionItem = TocItem & { children: TocItem[] }
+
+    export let items: (TocItem | SectionItem)[]
+    export let visible = false
+
+    const isMainItemActive = writable(false)
+    setContext('headerMobileSubgroup', isMainItemActive)
+    const page = getContext<Writable<string> | undefined>('headerPage')
+    $: currentPage = typeof page === 'undefined' ? '' : $page
+</script>
+
+<slot name="main" />
+{#if $isMainItemActive || visible}
+    <HeaderMobileItemWrapper class="bg-gray-100">
+        <TableOfContents items="{items}" currentItem="{currentPage}" />
+    </HeaderMobileItemWrapper>
+{/if}

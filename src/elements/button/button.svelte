@@ -26,6 +26,7 @@
     export let submit = false
     export let ariaLabel = ''
     export let href = ''
+    export let testId = 'button'
 
     const disabledContext = getContext<Writable<boolean> | undefined>('disabled')
 
@@ -196,7 +197,7 @@
         on:click
         aria-label="{ariaLabel}"
         href="{href}"
-        data-test="button"
+        data-test="{testId}"
     >
         {#if loading}
             <span class="{SIZE_MAP[size].prefix}">
@@ -243,7 +244,7 @@
         on:keyup="{handleKeyup}"
         on:click
         aria-label="{ariaLabel}"
-        data-test="button"
+        data-test="{testId}"
     >
         {#if loading}
             <span class="{SIZE_MAP[size].prefix}">

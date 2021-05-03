@@ -1,0 +1,31 @@
+<script lang="ts">
+    import { getContext } from 'svelte'
+    import type { Writable } from 'svelte/store'
+    import HeaderMobileItemWrapper from '../header-mobile-item-wrapper/header-mobile-item-wrapper.svelte'
+
+    export let href: string
+    export let matchExact = false
+
+    const page = getContext<Writable<string> | undefined>('headerPage')
+    const subgroupContext = getContext<Writable<boolean> | undefined>('headerMobileSubgroup')
+    let isCurrentPath = false
+
+    $: {
+        if (typeof page === 'undefined' || typeof $page === 'undefined') isCurrentPath = false
+        else if (matchExact) isCurrentPath = $page === href
+        else isCurrentPath = $page.startsWith(href)
+    }
+    $: if (subgroupContext) subgroupContext.set(isCurrentPath)
+</script>
+
+<HeaderMobileItemWrapper>
+    <a
+        sveltekit:prefetch
+        href="{href}"
+        class="hover:text-current transition-color whitespace-nowrap {isCurrentPath
+            ? 'text-current font-semibold'
+            : 'text-gray-600'}"
+    >
+        <slot />
+    </a>
+</HeaderMobileItemWrapper>

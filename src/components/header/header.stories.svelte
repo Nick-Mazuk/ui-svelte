@@ -5,6 +5,8 @@
     import HeaderItemWrapper from './header-item-wrapper/header-item-wrapper.svelte'
 
     import Header from './header.svelte'
+    import HeaderLink from './header-link/header-link.svelte'
+    import HeaderMobileLink from './header-mobile-link/header-mobile-link.svelte'
 
     const meta = {
         title: 'Components/Header',
@@ -34,18 +36,38 @@
 
 <Meta {...meta} />
 
-<Story name="Default" let:args>
+<Story name="Default" let:args parameters="{{ layout: 'fullscreen' }}">
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
             <HeaderBrand text="UI Svelte" slot="left" />
+            <svelte:fragment slot="right">
+                <HeaderLink href="#">Docs</HeaderLink>
+                <HeaderLink href="#">About</HeaderLink>
+                <HeaderLink href="#">Contact</HeaderLink>
+            </svelte:fragment>
+            <svelte:fragment slot="mobile">
+                <HeaderMobileLink href="#">Docs</HeaderMobileLink>
+                <HeaderMobileLink href="#">About</HeaderMobileLink>
+                <HeaderMobileLink href="#">Contact</HeaderMobileLink>
+            </svelte:fragment>
         </Header>
         <div id="main-content"></div>
     </div>
 </Story>
-<Story name="Sticky" args="{{ sticky: true }}" let:args>
+<Story name="Sticky" args="{{ sticky: true }}" let:args parameters="{{ layout: 'fullscreen' }}">
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
             <HeaderBrand text="UI Svelte" slot="left" />
+            <svelte:fragment slot="right">
+                <HeaderLink href="#">Docs</HeaderLink>
+                <HeaderLink href="#">About</HeaderLink>
+                <HeaderLink href="#">Contact</HeaderLink>
+            </svelte:fragment>
+            <svelte:fragment slot="mobile">
+                <HeaderMobileLink href="#">Docs</HeaderMobileLink>
+                <HeaderMobileLink href="#">About</HeaderMobileLink>
+                <HeaderMobileLink href="#">Contact</HeaderMobileLink>
+            </svelte:fragment>
         </Header>
         <div id="main-content" class="wrapper">
             <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
@@ -59,7 +81,7 @@
         </div>
     </div>
 </Story>
-<Story name="Buttons" args="{{ sticky: true }}" let:args>
+<Story name="Buttons" args="{{ sticky: true }}" let:args parameters="{{ layout: 'fullscreen' }}">
     <Header {...args}>
         <HeaderBrand text="UI Svelte" slot="left" />
         <svelte:fragment slot="right">
