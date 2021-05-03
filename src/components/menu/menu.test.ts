@@ -33,11 +33,4 @@ it('width can be customized', () => {
         .should('be.gte', width * 4)
 })
 
-it.only('test vercel menu', () => {
-    cy.visit('https://vercel.com/design/menu')
-    cy.get('[aria-controls="menu-106"]').click()
-    cy.injectAxe()
-    cy.checkA11y()
-})
-
 export {}
