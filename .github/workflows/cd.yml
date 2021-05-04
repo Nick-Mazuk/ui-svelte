@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node: [10, 12, 14]
+                node: [12, 14]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2.1.5
@@ -17,6 +17,23 @@ jobs:
                   node-version: ${{ matrix.node }}
             - run: npx pnpm i
             - run: npm lint
+
+            - name: Cypress run
+              uses: cypress-io/github-action@v2
+              with:
+                  browser: chrome
+                  record: true
+                  install: false
+                  start: npm run dev
+                  wait-on: 'http://localhost:6006'
+                  wait-on-timeout: 180
+                  parallel: true
+                  group: 'UI - chrome'
+              env:
+                  # pass the Dashboard record key as an environment variable
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  # pass GitHub token to allow accurately detecting a build vs a re-run build
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     deploy:
         runs-on: ubuntu-latest
