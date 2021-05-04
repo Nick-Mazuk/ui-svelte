@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node }}
-      - run: npx pnpm i
+      - run: npx pnpm i --frozen-lockfile=false
       - run: npm run lint
   cypress:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: 14
-      - run: npx pnpm i
+      - run: npx pnpm i --frozen-lockfile=false
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
