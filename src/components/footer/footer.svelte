@@ -2,7 +2,7 @@
     export let light = false
 </script>
 
-<footer class="py-12" class:bg-gray-100="{!light}" class:border-t="{light}">
+<footer class="py-12 mt-auto" class:bg-gray-100="{!light}" class:border-t="{light}">
     <div class="wrapper">
         <nav class="flex flex-col sm:space-x-6 justify-between sm:flex-row">
             <slot />
