@@ -3,44 +3,44 @@ name: CI
 on: [push]
 
 jobs:
-    test-push:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node: [12, 14]
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2.1.5
-              with:
-                  node-version: ${{ matrix.node }}
-            - run: npx pnpm i
-            - run: npm run lint
-    cypress:
-        runs-on: ubuntu-latest
-        timeout-minutes: 15
-        strategy:
-            matrix:
-                browser:
-                    - chrome
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2.1.5
-              with:
-                  node-version: 14
-            - run: npx pnpm i
-            - name: Cypress run
-              uses: cypress-io/github-action@v2
-              with:
-                  browser: ${{ matrix.browser }}
-                  record: true
-                  install: false
-                  start: npm run dev
-                  wait-on: 'http://localhost:6006'
-                  wait-on-timeout: 180
-                  parallel: true
-                  group: 'UI - ${{ matrix.browser }}'
-              env:
-                  # pass the Dashboard record key as an environment variable
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  # pass GitHub token to allow accurately detecting a build vs a re-run build
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  test-push:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12, 14]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npx pnpm i
+      - run: npm run lint
+  cypress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        browser:
+          - chrome
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 14
+      - run: npx pnpm i
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: ${{ matrix.browser }}
+          record: true
+          install: false
+          start: npm run dev
+          wait-on: "http://localhost:6006"
+          wait-on-timeout: 180
+          parallel: true
+          group: "UI - ${{ matrix.browser }}"
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
