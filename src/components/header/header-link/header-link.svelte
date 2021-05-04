@@ -26,6 +26,7 @@
         class="flex items-center hover:text-current transition-color whitespace-nowrap {isCurrentPath
             ? 'text-current font-semibold'
             : 'text-gray-600'}"
+        aria-current="{isCurrentPath ? 'page' : undefined}"
     >
         <slot />
     </a>

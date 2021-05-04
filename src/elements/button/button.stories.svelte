@@ -181,29 +181,21 @@
     <div class="flex space-x-8">
         <div>
             <Button {...args}>
-                <svelte:fragment slot="prefix">
-                    <ArrowUp />
-                </svelte:fragment>
+                <ArrowUp slot="prefix" />
                 Prefix
             </Button>
         </div>
         <div>
             <Button {...args}>
                 Suffix
-                <svelte:fragment slot="suffix">
-                    <ArrowUp />
-                </svelte:fragment>
+                <ArrowUp slot="suffix" />
             </Button>
         </div>
         <div>
             <Button {...args}>
-                <svelte:fragment slot="prefix">
-                    <ArrowUp />
-                </svelte:fragment>
+                <ArrowUp slot="prefix" />
                 Prefix and suffix
-                <svelte:fragment slot="suffix">
-                    <ArrowUp />
-                </svelte:fragment>
+                <ArrowUp slot="suffix" />
             </Button>
         </div>
     </div>

@@ -3,7 +3,7 @@ it('functions', () => {
     cy.checkAccessibility()
 })
 
-it.only('works on mobile', () => {
+it('works on mobile', () => {
     cy.loadStory('Components/Header', 'Default')
     cy.screenSize('lg')
 

@@ -2,7 +2,6 @@
     import { Meta, Story } from '@storybook/addon-svelte-csf'
 
     import HeaderMobileSubgroup from './header-mobile-subgroup.svelte'
-    import TableOfContents from '../../../navigation/table-of-contents/table-of-contents.svelte'
     import HeaderMobileLink from '../header-mobile-link/header-mobile-link.svelte'
 
     const meta = {

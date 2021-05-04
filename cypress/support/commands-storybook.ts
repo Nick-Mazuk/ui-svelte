@@ -46,6 +46,8 @@ Cypress.Commands.add('toggleDarkMode', () => {
 Cypress.Commands.add('checkAccessibility', () => {
     cy.checkA11y()
     cy.toggleDarkMode()
+    // eslint-disable-next-line cypress/no-unnecessary-waiting -- wait needed https://stackoverflow.com/questions/67377305/cypress-updating-dom-class-produces-race-condition
+    cy.wait(300)
     cy.checkA11y()
     cy.toggleDarkMode()
 })
