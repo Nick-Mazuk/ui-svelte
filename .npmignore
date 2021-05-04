@@ -1,5 +1,5 @@
-**/*.test.ts
-**/*.stories.svelte
+src/**/*.test.ts
+src/**/*.stories.svelte
 src/svg
-src/getting-started
+src/style-guide
 build-storybook.log
