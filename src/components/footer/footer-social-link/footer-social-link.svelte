@@ -5,7 +5,7 @@
 
 <a
     href="{href}"
-    class="text-gray-400 transition-colors hover:text-gray-700"
+    class="text-gray-400 flex w-6 transition-colors hover:text-gray-700"
     title="{title}"
     target="_blank"
     rel="noreferrer"
