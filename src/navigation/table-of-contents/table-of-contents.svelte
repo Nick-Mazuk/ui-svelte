@@ -8,9 +8,10 @@
 
     export let currentItem: string
     export let items: (TocItem | SectionItem)[]
+    export let large = false
 </script>
 
-<nav>
+<nav class:text-lg="{large}">
     {#each items as item}
         <a href="{item.href}" sveltekit:prefetch class="py-2 flex items-center space-x-3 -ml-2">
             {#if !('children' in item)}
