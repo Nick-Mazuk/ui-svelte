@@ -2,20 +2,12 @@
     import { writable } from 'svelte/store'
     import { setContext } from 'svelte'
 
-    type Padding =
-        | 'none'
-        | 'smallest'
-        | 'smaller'
-        | 'small'
-        | 'default'
-        | 'large'
-        | 'larger'
-        | 'largest'
+    type Padding = 0 | 1 | 2 | 4 | 6 | 8 | 12 | 16
 
     type Rounded = 'none' | 'small' | 'default' | 'large' | 'larger'
     type Variant = 'disable' | 'click' | 'fill' | 'border' | 'shadow'
 
-    export let padding: Padding | boolean = 'default'
+    export let padding: Padding | boolean = 6
     export let rounded: Rounded = 'default'
     export let variant: Variant | undefined = undefined
     export let href = ''
@@ -26,14 +18,14 @@
     setContext('disabled', disabledStore)
 
     const PADDING_MAP: Record<Padding, string> = {
-        none: '',
-        smallest: 'p-1',
-        smaller: 'p-2',
-        small: 'p-4',
-        default: 'p-6',
-        large: 'p-8',
-        larger: 'p-12',
-        largest: 'p-16',
+        0: '',
+        1: 'p-1',
+        2: 'p-2',
+        4: 'p-4',
+        6: 'p-6',
+        8: 'p-8',
+        12: 'p-12',
+        16: 'p-16',
     }
 
     const ROUNDED_MAP: Record<Rounded, string> = {
@@ -54,8 +46,8 @@
     }
 
     const getPadding = (): string => {
-        if (padding === true) return PADDING_MAP.default
-        if (padding === false || padding === 'none') return PADDING_MAP.none
+        if (padding === true) return PADDING_MAP[6]
+        if (padding === false || padding === 0) return PADDING_MAP[0]
         return PADDING_MAP[padding]
     }
 
