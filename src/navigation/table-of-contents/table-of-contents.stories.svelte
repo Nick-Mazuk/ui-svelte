@@ -55,6 +55,12 @@
                 ],
                 type: { name: 'string', required: true },
             },
+            large: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
         },
     }
 </script>
