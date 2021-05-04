@@ -15,7 +15,8 @@
     const pageStore = writable(page)
     setContext('headerPage', pageStore)
 
-    window.addEventListener('sveltekit:navigation-end', () => (mobileOpen = false))
+    if (typeof window !== 'undefined')
+        window.addEventListener('sveltekit:navigation-end', () => (mobileOpen = false))
 
     $: stickyClasses = sticky ? 'sticky top-0 overflow-visible' : 'relative'
     $: pageStore.set(page)
