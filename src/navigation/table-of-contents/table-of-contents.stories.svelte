@@ -55,11 +55,12 @@
                 ],
                 type: { name: 'string', required: true },
             },
-            large: {
+            size: {
                 control: {
-                    type: 'boolean',
+                    type: 'radio',
+                    options: ['default', 'large'],
                 },
-                defaultValue: false,
+                defaultValue: 'default',
             },
         },
     }
