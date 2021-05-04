@@ -30,6 +30,10 @@
                 name: 'small',
                 type: { name: 'boolean', required: false },
             },
+            page: {
+                control: { type: 'string' },
+                description: 'Current page of the website',
+            },
         },
     }
 </script>

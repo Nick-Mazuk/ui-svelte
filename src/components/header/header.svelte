@@ -15,6 +15,8 @@
     const pageStore = writable(page)
     setContext('headerPage', pageStore)
 
+    window.addEventListener('sveltekit:navigation-end', () => (mobileOpen = false))
+
     $: stickyClasses = sticky ? 'sticky top-0 overflow-visible' : 'relative'
     $: pageStore.set(page)
 </script>
@@ -82,9 +84,11 @@
 
 {#if mobileOpen && $$slots.mobile}
     <nav
-        class="fixed z-50 w-screen h-screen bg-background overflow-scroll text-lg sm:hidden"
+        class="fixed z-50 w-screen h-screen bg-background border-t overflow-scroll text-lg sm:hidden"
         class:pb-16="{!small}"
         class:pb-12="{small}"
+        class:top-16="{!small}"
+        class:top-12="{small}"
         style="transform:translateZ(9999px)"
         data-test="mobile-nav"
         aria-label="mobile navigation"

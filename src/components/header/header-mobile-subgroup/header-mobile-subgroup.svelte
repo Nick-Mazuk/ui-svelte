@@ -11,15 +11,17 @@
 
     export let items: (TocItem | SectionItem)[]
     export let visible = false
+    export let basePath: string | undefined = undefined
 
     const isMainItemActive = writable(false)
     setContext('headerMobileSubgroup', isMainItemActive)
     const page = getContext<Writable<string> | undefined>('headerPage')
     $: currentPage = typeof page === 'undefined' ? '' : $page
+    $: isActive = basePath ? currentPage.startsWith(basePath) : $isMainItemActive
 </script>
 
 <slot name="main" />
-{#if $isMainItemActive || visible}
+{#if isActive || visible}
     <HeaderMobileItemWrapper class="bg-gray-100">
         <TableOfContents items="{items}" currentItem="{currentPage}" />
     </HeaderMobileItemWrapper>
