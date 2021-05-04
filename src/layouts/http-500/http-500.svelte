@@ -16,7 +16,7 @@
         <section class="border border-error rounded-lg w-full text-error px-8 py-6">
             <p class="h5">Oops…</p>
             <p class="h3">Internal error</p>
-            <p class="mt-8 balance">{isDevelopment ? error.message : message}</p>
+            <p class="mt-8 balance text-lg">{isDevelopment ? error.message : message}</p>
         </section>
     </main>
     {#if isDevelopment}

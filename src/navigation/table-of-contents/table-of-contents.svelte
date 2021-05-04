@@ -5,13 +5,14 @@
 
     type TocItem = { href: string; text: string }
     type SectionItem = TocItem & { children: TocItem[] }
+    type Size = 'default' | 'large'
 
     export let currentItem: string
     export let items: (TocItem | SectionItem)[]
-    export let large = false
+    export let size: Size = 'default'
 </script>
 
-<nav class:text-lg="{large}">
+<nav class:text-lg="{size === 'large'}">
     {#each items as item}
         <a href="{item.href}" sveltekit:prefetch class="py-2 flex items-center space-x-3 -ml-2">
             {#if !('children' in item)}
