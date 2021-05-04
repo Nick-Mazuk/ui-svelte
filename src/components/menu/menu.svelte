@@ -41,6 +41,7 @@
             role="menu"
             autofocus
             mode="focus"
+            shape="square"
             on:change="{() => (open = false)}"
         >
             <slot />
