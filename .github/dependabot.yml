@@ -4,9 +4,11 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    prefix: "ci: "
+    commit-message:
+      prefix: "ci: "
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
-    prefix: "bump: "
+    commit-message:
+      prefix: "bump: "
