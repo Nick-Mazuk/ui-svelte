@@ -1,6 +1,6 @@
 {
     "name": "@nick-mazuk/ui-svelte",
-    "version": "0.1.54",
+    "version": "0.0.0-development",
     "scripts": {
         "dev": "start-storybook -p 6006 --quiet",
         "build": "build-storybook -c .storybook -o docs",
@@ -15,7 +15,8 @@
         "generate-docs": "./node_modules/.bin/esbuild ./cli/generate-docs/index.ts --outfile=cli/dist/generate-docs.js  --bundle --platform=node --target=node12.17 && node cli/dist/generate-docs.js",
         "prepublish": "npm run build-icons && npm run generate-docs",
         "cy:open": "cypress open",
-        "cy:run": "cypress run"
+        "cy:run": "cypress run",
+        "semantic-release": "semantic-release"
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
@@ -23,6 +24,7 @@
         "@nick-mazuk/eslint-config": "^0.8.5",
         "@nick-mazuk/lib": "^0.8.34",
         "@nick-mazuk/ui-config": "^0.10.30",
+        "@semantic-release/changelog": "^5.0.1",
         "@storybook/addon-a11y": "^6.2.9",
         "@storybook/addon-essentials": "^6.2.9",
         "@storybook/addon-links": "^6.2.9",
@@ -52,6 +54,7 @@
         "postcss": "^8.2.8",
         "prettier": "^2.2.1",
         "prettier-plugin-svelte": "^2.2.0",
+        "semantic-release": "^17.4.2",
         "storybook-addon-outline": "^1.2.0",
         "storybook-addon-pseudo-states": "^1.0.0",
         "storybook-addon-themes": "^6.0.1",
@@ -82,5 +85,9 @@
         "marked": "^2.0.1",
         "svelte-intersection-observer": "^0.7.0",
         "svelte-portal": "^2.1.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Nick-Mazuk/ui-svelte.git"
     }
 }
