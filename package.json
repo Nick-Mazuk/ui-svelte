@@ -1,6 +1,6 @@
 {
     "name": "@nick-mazuk/ui-svelte",
-    "version": "0.1.54",
+    "version": "0.1.55",
     "scripts": {
         "dev": "start-storybook -p 6006 --quiet",
         "build": "build-storybook -c .storybook -o docs",
@@ -48,7 +48,7 @@
         "eslint": "^7.23.0",
         "feather-icons": "^4.28.0",
         "fs-extra": "^10.0.0",
-        "hast-util-to-html": "^7.1.2",
+        "hast-util-to-html": "^8.0.0",
         "postcss": "^8.2.8",
         "prettier": "^2.2.1",
         "prettier-plugin-svelte": "^2.2.0",
