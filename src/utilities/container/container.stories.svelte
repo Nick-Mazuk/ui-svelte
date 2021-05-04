@@ -17,20 +17,9 @@
             padding: {
                 control: {
                     type: 'select',
-                    options: [
-                        'none',
-                        'smallest',
-                        'smaller',
-                        'small',
-                        'default',
-                        'large',
-                        'larger',
-                        'largest',
-                        true,
-                        false,
-                    ],
+                    options: [0, 1, 2, 4, 6, 8, 12, 16, true, false],
                 },
-                defaultValue: 'default',
+                defaultValue: 6,
             },
             rounded: {
                 control: {

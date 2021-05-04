@@ -31,7 +31,7 @@
 </script>
 
 <Container
-    padding="small"
+    padding="{4}"
     class="entity relative !overflow-visible {disabled ? 'disabled-entity' : ''}"
     variant="{disabled ? 'disable' : undefined}"
 >
