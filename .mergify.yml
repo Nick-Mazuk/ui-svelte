@@ -1,0 +1,27 @@
+pull_request_rules:
+  - name: Merge my PRs
+    conditions:
+      - author=Nick-Mazuk
+      - base=main
+      - check-success=test-push (12)
+      - check-success=test-push (14)
+      - check-success=cypress (chrome)
+      - check-success=Vercel
+    actions:
+      merge:
+        method: merge
+        priority: high
+        strict: smart+fasttrack
+  - name: Merge dependabot
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - base=main
+      - check-success=test-push (12)
+      - check-success=test-push (14)
+      - check-success=cypress (chrome)
+      - check-success=Vercel
+    actions:
+      merge:
+        method: merge
+        priority: low
+        strict: smart+fasttrack
