@@ -7,8 +7,9 @@
     },
     "packageRules": [
         {
-          "matchPackagePatterns": ["^@nick-mazuk"],
-          "prPriority": 5
+            "matchPackagePatterns": ["^@nick-mazuk"],
+            "prPriority": 5
         }
-    ]
+    ],
+    "commitMessageAction": "bump: bump"
 }

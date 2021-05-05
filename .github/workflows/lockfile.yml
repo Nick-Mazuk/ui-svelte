@@ -1,9 +1,9 @@
-name: Dependabot
+name: Fix lockfile
 
 on:
   push:
     branches:
-      - "main"
+      - "renovate**"
 
 jobs:
   update-lockfile:
