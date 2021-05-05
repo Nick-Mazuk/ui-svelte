@@ -1,5 +1,7 @@
 name: Dependabot
 
+# SECURITY RISK: pull_request_target hook can lead to arbitrary code execution if not careful
+# https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
 on:
   pull_request_target:
     branches:
