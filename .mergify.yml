@@ -11,7 +11,7 @@ pull_request_rules:
           merge:
               method: merge
               strict: smart+fasttrack
-    - name: Merge dependabot
+    - name: Merge renovate
       conditions:
           - author=renovate-bot
           - base=main
