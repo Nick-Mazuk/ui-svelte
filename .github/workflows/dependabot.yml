@@ -1,7 +1,9 @@
 name: Dependabot
 
+# SECURITY RISK: pull_request_target hook can lead to arbitrary code execution if not careful
+# https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
 on:
-  push:
+  pull_request_target:
     branches:
       - "dependabot**"
 
@@ -19,3 +21,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+          message: "build: update lockfile"
