@@ -45,14 +45,13 @@ Cypress.Commands.add('toggleDarkMode', () => {
 
 Cypress.Commands.add('checkAccessibility', () => {
     cy.checkA11y()
-
-    // race condition with dark mode https://stackoverflow.com/questions/67377305/cypress-updating-dom-class-produces-race-condition
 })
 
 /* cy.toggleDarkMode()
-       cy.wait(300)
-       cy.checkA11y()
-       cy.toggleDarkMode() */
+   // race condition with dark mode https://stackoverflow.com/questions/67377305/cypress-updating-dom-class-produces-race-condition
+   cy.wait(100)
+   cy.checkA11y(undefined, { runOnly: { type: 'rule', values: ['color-contrast'] } })
+   cy.toggleDarkMode() */
 
 type ScreenSize = 'tiny' | 'sm' | 'md' | 'lg'
 

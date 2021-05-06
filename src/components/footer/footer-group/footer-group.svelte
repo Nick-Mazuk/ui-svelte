@@ -8,13 +8,13 @@
     let open = false
 </script>
 
-<div class="border-b md:border-none">
-    <h3 class="hidden font-bold text-gray md:block">{title}</h3>
+<div class="border-b md:border-none" data-test="footer-group">
+    <h3 class="hidden font-bold text-gray-600 md:block" data-test="footer-group-title">{title}</h3>
     <div
         class="flex items-center h-10 justify-between cursor-pointer md:hidden"
         on:click="{() => (open = !open)}"
     >
-        <h3>{title}</h3>
+        <h3 data-test="footer-group-title">{title}</h3>
         <Button
             shape="square"
             variant="static"

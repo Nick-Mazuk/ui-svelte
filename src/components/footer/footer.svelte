@@ -11,7 +11,7 @@
         {/if}
         {#if $$slots.subfooter}
             <div
-                class="flex text-gray justify-between md:space-x-6 space-y-4 md:space-y-0 items-center md:flex-row flex-col"
+                class="flex text-gray-600 justify-between md:space-x-6 space-y-4 md:space-y-0 items-center md:flex-row flex-col"
             >
                 <slot name="subfooter" />
             </div>
