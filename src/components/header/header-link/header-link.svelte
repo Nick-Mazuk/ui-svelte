@@ -1,6 +1,7 @@
 <script lang="ts">
     import { getContext } from 'svelte'
     import type { Writable } from 'svelte/store'
+    import { isParentPath } from '@nick-mazuk/lib/js/url'
 
     import HeaderItemWrapper from '../header-item-wrapper/header-item-wrapper.svelte'
 
@@ -15,7 +16,7 @@
     $: {
         if (typeof page === 'undefined' || typeof $page === 'undefined') isCurrentPath = false
         else if (matchExact) isCurrentPath = $page === href
-        else isCurrentPath = $page.startsWith(href)
+        else isCurrentPath = isParentPath($page, href)
     }
 </script>
 

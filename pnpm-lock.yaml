@@ -4,7 +4,7 @@ specifiers:
   '@babel/core': ^7.13.13
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/eslint-config': ^0.8.5
-  '@nick-mazuk/lib': ^0.8.34
+  '@nick-mazuk/lib': ^0.8.43
   '@nick-mazuk/semantic-release-config': ^1.1.3
   '@nick-mazuk/ui-config': ^0.10.30
   '@semantic-release/changelog': ^5.0.1
@@ -20,7 +20,7 @@ specifiers:
   '@types/feather-icons': ^4.7.0
   '@types/fs-extra': ^9.0.11
   '@types/marked': ^2.0.0
-  '@types/node': ^14.14.36
+  '@types/node': ^15.0.2
   '@types/svg-parser': ^2.0.1
   ac-colors: ^1.4.2
   autoprefixer: ^10.2.5
@@ -53,6 +53,7 @@ specifiers:
   svelte-preprocess: ^4.7.0
   svg-parser: ^2.0.4
   tailwindcss: ^2.1.1
+  ts-loader: ^9.1.2
   typescript: ^4.2.4
 
 dependencies:
@@ -64,7 +65,7 @@ devDependencies:
   '@babel/core': 7.13.13
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
   '@nick-mazuk/eslint-config': 0.8.5_4149a662fa3025ebd2690398e68fc970
-  '@nick-mazuk/lib': 0.8.34
+  '@nick-mazuk/lib': 0.8.43
   '@nick-mazuk/semantic-release-config': 1.1.3_96e29e7a57c65d488f627694047bf5b5
   '@nick-mazuk/ui-config': 0.10.30_postcss@8.2.8+tailwindcss@2.1.1
   '@semantic-release/changelog': 5.0.1_semantic-release@17.4.2
@@ -80,7 +81,7 @@ devDependencies:
   '@types/feather-icons': 4.7.0
   '@types/fs-extra': 9.0.11
   '@types/marked': 2.0.0
-  '@types/node': 14.14.36
+  '@types/node': 15.0.2
   '@types/svg-parser': 2.0.1
   ac-colors: 1.4.2
   autoprefixer: 10.2.5_postcss@8.2.8
@@ -110,6 +111,7 @@ devDependencies:
   svelte-preprocess: 4.7.0_901ef700f8b39447489c4424b7c46226
   svg-parser: 2.0.4
   tailwindcss: 2.1.1_caf414ac65a978d0d57907a0ec9fb41e
+  ts-loader: 9.1.2_typescript@4.2.4
   typescript: 4.2.4
 
 packages:
@@ -2846,10 +2848,10 @@ packages:
       - svelte
     dev: true
 
-  /@nick-mazuk/lib/0.8.34:
-    resolution: {integrity: sha512-LXVrklzd+TtbsmgjQx5jS0xi0U98rFnt0gOadY4Pm3OPIBMsfevkXhfDgx7UwDTgsEKqtDS6zjl3J5ZrdR/8qw==}
+  /@nick-mazuk/lib/0.8.43:
+    resolution: {integrity: sha512-U+qoqm7u2LLmgzy3ZBY6QD+PzlG3nFZOBLKm0tw3t8PJMQ5NY2H9egqij9gXbgdVJ2mZDq4R1zhnDt9u9llP6A==}
     dependencies:
-      validator: 13.5.2
+      validator: 13.6.0
     dev: true
 
   /@nick-mazuk/semantic-release-config/1.1.3_96e29e7a57c65d488f627694047bf5b5:
@@ -4962,16 +4964,16 @@ packages:
       form-data: 3.0.1
     dev: true
 
-  /@types/node/14.14.36:
-    resolution: {integrity: sha512-kjivUwDJfIjngzbhooRnOLhGYz6oRFi+L+EpMjxroDYXwDw9lHrJJ43E+dJ6KAd3V3WxWAJ/qZE9XKYHhjPOFQ==}
-    dev: true
-
   /@types/node/14.14.37:
     resolution: {integrity: sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==}
     dev: true
 
   /@types/node/14.14.43:
     resolution: {integrity: sha512-3pwDJjp1PWacPTpH0LcfhgjvurQvrZFBrC6xxjaUEZ7ifUtT32jtjPxEMMblpqd2Mvx+k8haqQJLQxolyGN/cQ==}
+    dev: true
+
+  /@types/node/15.0.2:
+    resolution: {integrity: sha512-p68+a+KoxpoB47015IeYZYRrdqMUcpbK8re/zpFB8Ld46LHC1lPEbp3EXgkEhAYEcPvjJF6ZO+869SQ0aH1dcA==}
     dev: true
 
   /@types/normalize-package-data/2.4.0:
@@ -7977,6 +7979,14 @@ packages:
       graceful-fs: 4.2.6
       memory-fs: 0.5.0
       tapable: 1.1.3
+    dev: true
+
+  /enhanced-resolve/5.8.0:
+    resolution: {integrity: sha512-Sl3KRpJA8OpprrtaIswVki3cWPiPKxXuFxJXBp+zNb6s6VwNWwFRUdtmzd2ReUut8n+sCPx7QCtQ7w5wfJhSgQ==}
+    engines: {node: '>=10.13.0'}
+    dependencies:
+      graceful-fs: 4.2.6
+      tapable: 2.2.0
     dev: true
 
   /enquirer/2.3.6:
@@ -14708,6 +14718,11 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /tapable/2.2.0:
+    resolution: {integrity: sha512-FBk4IesMV1rBxX2tfiK8RAmogtWn53puLOQlvO8XuwlgxcYbP4mVPS9Ph4aeamSyyVjOl24aYWAuc8U5kCVwMw==}
+    engines: {node: '>=6'}
+    dev: true
+
   /tar/6.1.0:
     resolution: {integrity: sha512-DUCttfhsnLCjwoDoFcI+B2iJgYa93vBnDUATYEeRx6sntCTdN01VnqsIuTlALXla/LWooNg0yEGeB+Y8WdFxGA==}
     engines: {node: '>= 10'}
@@ -14996,6 +15011,20 @@ packages:
 
   /ts-essentials/2.0.12:
     resolution: {integrity: sha512-3IVX4nI6B5cc31/GFFE+i8ey/N2eA0CZDbo6n0yrz0zDX8ZJ8djmU1p+XRz7G3is0F3bB3pu2pAroFdAWQKU3w==}
+    dev: true
+
+  /ts-loader/9.1.2_typescript@4.2.4:
+    resolution: {integrity: sha512-ryMgATvLLl+z8zQvdlm6Pep0slmwxFWIEnq/5VdiLVjqQXnFJgO+qNLGIIP+d2N2jsFZ9MibZCVDb2bSp7OmEA==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      typescript: '*'
+      webpack: '*'
+    dependencies:
+      chalk: 4.1.1
+      enhanced-resolve: 5.8.0
+      micromatch: 4.0.4
+      semver: 7.3.5
+      typescript: 4.2.4
     dev: true
 
   /ts-pnp/1.2.0_typescript@4.2.4:
@@ -15480,8 +15509,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /validator/13.5.2:
-    resolution: {integrity: sha512-mD45p0rvHVBlY2Zuy3F3ESIe1h5X58GPfAtslBjY7EtTqGquZTj+VX/J4RnHWN8FKq0C9WRVt1oWAcytWRuYLQ==}
+  /validator/13.6.0:
+    resolution: {integrity: sha512-gVgKbdbHgtxpRyR8K0O6oFZPhhB5tT1jeEHZR0Znr9Svg03U0+r9DXWMrnRAB+HtCStDQKlaIZm42tVsVjqtjg==}
     engines: {node: '>= 0.10'}
     dev: true
 
