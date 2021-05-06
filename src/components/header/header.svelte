@@ -20,12 +20,12 @@
 
     $: stickyClasses = sticky ? 'sticky top-0 overflow-visible' : 'relative'
     $: pageStore.set(page)
+    $: borderClasses =
+        !sticky || scrolledToTop ? 'border-b' : 'border-b border-background dark:border-gray-200'
 </script>
 
 <header
-    class="z-50 {stickyClasses} bg-background border-b isolate {scrolledToTop
-        ? 'border-opacity-100'
-        : 'border-opacity-0 dark:border-opacity-100'}"
+    class="z-50 {stickyClasses} bg-background border-b isolate {borderClasses}"
     style="transform:translateZ(10000px)"
 >
     <a
