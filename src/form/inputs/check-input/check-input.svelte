@@ -17,7 +17,6 @@
     export let optional = false
     export let hideOptionalLabel = false
     export let hideError = false
-    export let info = ''
     export let requiredMessage: string = 'This is required'
 
     const labelValue = getContext<Writable<string> | undefined>('label')
@@ -68,24 +67,30 @@
     }
 </script>
 
-<Label value="{label}" info="{info}" on:mouseup="{handleMouseUp}">
+<Label value="{label}" on:mouseup="{handleMouseUp}">
     <div class="inline-flex space-x-2 group" class:cursor-not-allowed="{disabled}">
         <span class="flex-none self-start flex items-center">
             <span>&ZeroWidthSpace;</span>
-            <input
-                type="checkbox"
-                class="rounded cursor-pointer disabled:cursor-not-allowed checked:text-primary transition focus:ring-primary focus-ring focus:outline-none disabled:text-gray-300 disabled:border-gray-300 active:bg-gray-200 {borderClasses}"
-                indeterminate="{value === 'indeterminate'}"
-                checked="{value === 'checked'}"
-                aria-label="{ariaLabel}"
-                aria-invalid="{!isValid}"
-                disabled="{disabled}"
-                class:text-primary="{value === 'indeterminate'}"
-                on:change="{handleChange}"
-                name="{name}"
-                required="{!optional}"
-                bind:this="{checkElement}"
-            />
+            <div
+                class="h-10 w-10 -m-3 rounded-full flex items-center justify-center {disabled
+                    ? 'cursor-not-allowed'
+                    : 'cursor-pointer'}"
+            >
+                <input
+                    type="checkbox"
+                    class="rounded w-4 h-4 bg-transparent cursor-pointer focus-ring focus:ring-primary disabled:cursor-not-allowed checked:text-primary transition focus:outline-none disabled:text-gray-300 disabled:border-gray-300 active:bg-gray-200 {borderClasses}"
+                    indeterminate="{value === 'indeterminate'}"
+                    checked="{value === 'checked'}"
+                    aria-label="{ariaLabel}"
+                    aria-invalid="{!isValid}"
+                    disabled="{disabled}"
+                    class:text-primary="{value === 'indeterminate'}"
+                    on:change="{handleChange}"
+                    name="{name}"
+                    required="{!optional}"
+                    bind:this="{checkElement}"
+                />
+            </div>
         </span>
         {#if $$slots.default}
             <span class:text-gray="{disabled}">

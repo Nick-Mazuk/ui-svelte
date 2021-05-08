@@ -6,6 +6,8 @@
 
     import Entity from './entity.svelte'
     import ListItem from '../list/list-item/list-item.svelte'
+    import Spacer from '../../utilities/spacer/spacer.svelte'
+    import CheckInput from '../../form/inputs/check-input/check-input.svelte'
 
     const meta = {
         title: 'Components/Entity',
@@ -75,6 +77,19 @@
                 class="w-8 h-8 rounded-full"
                 alt="Avatar"
             />
+        </svelte:fragment>
+        <svelte:fragment slot="actions">
+            <Button size="small" variant="secondary">Delete</Button>
+            <Button size="small">Edit</Button>
+        </svelte:fragment>
+    </Entity>
+    <Spacer />
+    <Entity {...args}>
+        <EntityField title="Title">description</EntityField>
+        <EntityField title="Title">description</EntityField>
+        <EntityField right>Updated one hour ago</EntityField>
+        <svelte:fragment slot="prefix">
+            <CheckInput optional />
         </svelte:fragment>
         <svelte:fragment slot="actions">
             <Button size="small" variant="secondary">Delete</Button>

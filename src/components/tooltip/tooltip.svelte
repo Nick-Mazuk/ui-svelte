@@ -55,13 +55,7 @@
     on:focusin="{() => (isFocused = true)}"
     on:focusout="{() => (isFocused = false)}"
 >
-    <slot name="trigger">
-        <div
-            tabindex="{0}"
-            class="bg-gray-200 h-4 w-4 rounded-full focus:outline-none"
-            data-test="tooltip-trigger"
-        ></div>
-    </slot>
+    <slot name="trigger" />
 </span>
 {#if isOpen}
     <Portal x="{x}" y="{y}">

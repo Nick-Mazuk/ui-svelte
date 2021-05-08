@@ -1,9 +1,9 @@
 <script lang="ts">
     import { setContext } from 'svelte'
     import { writable } from 'svelte/store'
+    import Tooltip from '../../components/tooltip/tooltip.svelte'
 
     export let value: string = ''
-    export let info: string = ''
 
     setContext('label', writable(value))
 </script>
