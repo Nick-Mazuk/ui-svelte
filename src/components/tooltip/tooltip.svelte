@@ -4,7 +4,6 @@
     type Placement = 'top' | 'bottom' | 'left' | 'right'
 
     export let placement: Placement = 'bottom'
-    export let forButton = false
 
     let spanElement: HTMLSpanElement | undefined
     let boundingRect: DOMRect
@@ -17,9 +16,10 @@
     type GetPlacement = () => number
     let PLACEMENT_MAP: Record<Placement, { x: GetPlacement; y: GetPlacement }>
 
+    $: isOpen = isHovered || isFocused
     $: {
         const trigger = spanElement?.children?.[0]
-        if (trigger) {
+        if (trigger && isOpen) {
             boundingRect = trigger.getBoundingClientRect()
             triggerWidth = trigger.clientWidth
             triggerHeight = trigger.clientHeight
@@ -43,25 +43,27 @@
             y: () => boundingRect.y + triggerHeight / 2 - tooltipHeight / 2,
         },
     }
-    $: open = isHovered || isFocused
-    $: x = boundingRect && open ? PLACEMENT_MAP[placement].x() : 0
-    $: y = boundingRect && open ? PLACEMENT_MAP[placement].y() : 0
+    $: x = boundingRect && isOpen ? PLACEMENT_MAP[placement].x() : 0
+    $: y = boundingRect && isOpen ? PLACEMENT_MAP[placement].y() : 0
 </script>
 
 <span
-    class="display-contents focus:outline-none"
+    class="contents focus:outline-none"
     bind:this="{spanElement}"
-    tabindex="{forButton ? undefined : 0}"
     on:mouseenter="{() => (isHovered = true)}"
     on:mouseleave="{() => (isHovered = false)}"
     on:focusin="{() => (isFocused = true)}"
     on:focusout="{() => (isFocused = false)}"
 >
     <slot name="trigger">
-        <div class="bg-gray-200 h-4 w-4 rounded-full" data-test="tooltip-trigger"></div>
+        <div
+            tabindex="{0}"
+            class="bg-gray-200 h-4 w-4 rounded-full focus:outline-none"
+            data-test="tooltip-trigger"
+        ></div>
     </slot>
 </span>
-{#if open}
+{#if isOpen}
     <Portal x="{x}" y="{y}">
         <div
             role="tooltip"

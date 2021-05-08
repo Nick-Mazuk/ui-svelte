@@ -22,14 +22,6 @@
                 },
                 defaultValue: 'bottom',
             },
-            forButton: {
-                control: {
-                    type: 'boolean',
-                },
-                defaultValue: false,
-                description:
-                    'If the tooltip is for a button or some other focusable element, this should be true. Otherwise, keyboard users will need to double-tab to focus on the button.',
-            },
         },
     }
 </script>

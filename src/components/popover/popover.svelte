@@ -30,7 +30,7 @@
     let triggerHeight = 0
     let popoverWidth = 0
     let popoverHeight = 0
-    let trigger: HTMLDivElement
+    let spanElement: HTMLSpanElement
 
     const dispatch = createEventDispatcher()
 
@@ -105,7 +105,14 @@
         },
     }
     let boundingRect: DOMRect
-    $: if (open) boundingRect = trigger?.getBoundingClientRect()
+    $: {
+        const trigger = spanElement?.children?.[0]
+        if (trigger && open) {
+            boundingRect = trigger.getBoundingClientRect()
+            triggerWidth = trigger.clientWidth
+            triggerHeight = trigger.clientHeight
+        }
+    }
     $: if (typeof outerDisabledStore === 'undefined') disabledStore.set(disabled)
     $: x = boundingRect && open ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && open ? PLACEMENT_MAP[placement].y() : 0
@@ -118,17 +125,15 @@
     }}"
 />
 
-<div
-    class="inline-flex"
+<span
+    class="contents"
     on:click="{togglePopover}"
-    bind:this="{trigger}"
-    bind:offsetWidth="{triggerWidth}"
-    bind:offsetHeight="{triggerHeight}"
+    bind:this="{spanElement}"
     aria-haspopup="true"
     aria-expanded="{open && !disabled}"
 >
     <slot name="trigger" />
-</div>
+</span>
 {#if open && !disabled}
     <Portal
         on:close="{closePopover}"
