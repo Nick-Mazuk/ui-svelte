@@ -7,7 +7,7 @@ const { tailwindExtractor } = require('tailwindcss/lib/lib/purgeUnusedStyles')
 module.exports = {
     presets: [require('@nick-mazuk/ui-config').config],
     purge: {
-        content: ['./src/**/*.svelte', './src/**/*.stories.mdx'],
+        content: ['./src/**/*.svelte', './src/**/*.stories.mdx', './src/actions/**/*.ts'],
         options: {
             defaultExtractor: (content) => [
                 // If this stops working, please open an issue at https://github.com/svelte-add/tailwindcss/issues rather than bothering Tailwind Labs about it

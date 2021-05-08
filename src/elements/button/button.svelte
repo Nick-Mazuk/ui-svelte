@@ -30,9 +30,6 @@
 
     const disabledContext = getContext<Writable<boolean> | undefined>('disabled')
 
-    let isActive = false
-    let isHovered = false
-
     type ButtonStyling = {
         classes: string
         disabled?: string
@@ -130,43 +127,16 @@
         },
     }
 
-    const handleMouseEnter: svelte.JSX.MouseEventHandler<
-        HTMLButtonElement | HTMLAnchorElement
-    > = () => {
-        isHovered = true
-    }
-
-    const handleMouseLeave: svelte.JSX.MouseEventHandler<
-        HTMLButtonElement | HTMLAnchorElement
-    > = () => {
-        isHovered = false
-    }
-
     const handleMouseUp: svelte.JSX.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
         event
     ) => {
         event.currentTarget.blur()
     }
 
-    const handleKeydown: svelte.JSX.KeyboardEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
-        event
-    ) => {
-        if (event.key === 'Enter') isActive = true
-    }
-    const handleKeyup: svelte.JSX.KeyboardEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
-        event
-    ) => {
-        if (event.key === 'Enter') isActive = false
-    }
-
     $: widthStyle = width && width !== 'full' ? `width: ${width * 4}px` : ''
     $: shadowClasses = shadow
         ? 'shadow-md hover:shadow-lg active:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
         : ''
-    $: ringClasses =
-        isActive || isHovered
-            ? 'ring-offset-2 ring-offset-background'
-            : 'ring-offset-2 focus:ring-2 ring-offset-background'
     $: isDisabled = typeof disabledContext === 'undefined' ? disabled : $disabledContext || disabled
 </script>
 
@@ -175,8 +145,8 @@
         class="{`
             border transition focus:outline-none font-semibold truncate
             inline-flex justify-center items-center
+            focus-ring
             ${shadowClasses}
-            ${ringClasses}
             ${SIZE_MAP[size].global}
             ${SHAPE_MAP[shape][size]}
             ${
@@ -189,11 +159,7 @@
         class:rounded="{shape !== 'circle'}"
         style="{widthStyle}"
         disabled="{isDisabled || loading}"
-        on:mouseenter="{handleMouseEnter}"
-        on:mouseleave="{handleMouseLeave}"
         on:mouseup="{handleMouseUp}"
-        on:keydown="{handleKeydown}"
-        on:keyup="{handleKeyup}"
         on:click
         aria-label="{ariaLabel}"
         href="{href}"
@@ -222,8 +188,8 @@
         class="{`
             border transition focus:outline-none font-semibold truncate
             flex justify-center items-center
+            focus-ring
             ${shadowClasses}
-            ${ringClasses}
             ${SIZE_MAP[size].global}
             ${SHAPE_MAP[shape][size]}
             ${
@@ -237,11 +203,7 @@
         style="{widthStyle}"
         disabled="{isDisabled || loading}"
         type="{submit ? 'submit' : 'button'}"
-        on:mouseenter="{handleMouseEnter}"
-        on:mouseleave="{handleMouseLeave}"
         on:mouseup="{handleMouseUp}"
-        on:keydown="{handleKeydown}"
-        on:keyup="{handleKeyup}"
         on:click
         aria-label="{ariaLabel}"
         data-test="{testId}"
