@@ -62,10 +62,10 @@
                 'bg-gray border-gray text-background hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray dark:text-foreground',
         },
         secondary: {
-            classes: `bg-background text-gray-600 ${
+            classes: `bg-background text-gray-700 ${
                 shadow
                     ? 'border-transparent'
-                    : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-200'
+                    : 'border-gray-300 hover:border-foreground hover:text-foreground active:bg-gray-200'
             } focus:ring-gray-900`,
             disabled: 'text-gray-300 border cursor-not-allowed',
         },
