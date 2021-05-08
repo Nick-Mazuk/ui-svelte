@@ -22,27 +22,29 @@
                 },
                 defaultValue: 'bottom',
             },
+            value: {
+                control: {
+                    type: 'text',
+                },
+                type: {
+                    required: true,
+                },
+            },
         },
     }
 </script>
 
 <Meta {...meta} />
 
-<Story name="Default" parameters="{{ layout: 'fullscreen' }}" let:args>
-    <main class="w-screen h-screen flex items-center justify-center">
-        <Tooltip {...args}>I'm a tooltip</Tooltip>
-    </main>
-</Story>
 <Story
-    name="Custom trigger"
-    args="{{ forButton: true }}"
+    name="Default"
     parameters="{{ layout: 'fullscreen' }}"
+    args="{{ value: "I'm a tooltip" }}"
     let:args
 >
     <main class="w-screen h-screen flex items-center justify-center">
         <Tooltip {...args}>
-            <Button slot="trigger" variant="error">Delete</Button>
-            This cannot be undone
+            <Button slot="trigger">Hover me</Button>
         </Tooltip>
     </main>
 </Story>

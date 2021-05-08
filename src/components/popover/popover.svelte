@@ -56,52 +56,52 @@
 
     $: PLACEMENT_MAP = {
         top: {
-            x: () => boundingRect.x + triggerWidth / 2 - popoverWidth / 2,
-            y: () => boundingRect.y - popoverHeight,
+            x: () => boundingRect.x + triggerWidth / 2 - popoverWidth / 2 + window.scrollX,
+            y: () => boundingRect.y - popoverHeight + window.scrollY,
         },
         right: {
-            x: () => boundingRect.x + triggerWidth,
-            y: () => boundingRect.y + triggerHeight / 2 - popoverHeight / 2,
+            x: () => boundingRect.x + triggerWidth + window.scrollX,
+            y: () => boundingRect.y + triggerHeight / 2 - popoverHeight / 2 + window.scrollY,
         },
         bottom: {
-            x: () => boundingRect.x + triggerWidth / 2 - popoverWidth / 2,
-            y: () => boundingRect.y + triggerHeight,
+            x: () => boundingRect.x + triggerWidth / 2 - popoverWidth / 2 + window.scrollX,
+            y: () => boundingRect.y + triggerHeight + window.scrollY,
         },
         left: {
-            x: () => boundingRect.x - popoverWidth,
-            y: () => boundingRect.y + triggerHeight / 2 - popoverHeight / 2,
+            x: () => boundingRect.x - popoverWidth + window.scrollX,
+            y: () => boundingRect.y + triggerHeight / 2 - popoverHeight / 2 + window.scrollY,
         },
         'top-start': {
-            x: () => boundingRect.x,
-            y: () => boundingRect.y - popoverHeight,
+            x: () => boundingRect.x + window.scrollX,
+            y: () => boundingRect.y - popoverHeight + window.scrollY,
         },
         'top-end': {
-            x: () => boundingRect.x + triggerWidth - popoverWidth,
-            y: () => boundingRect.y - popoverHeight,
+            x: () => boundingRect.x + triggerWidth - popoverWidth + window.scrollX,
+            y: () => boundingRect.y - popoverHeight + window.scrollY,
         },
         'right-start': {
-            x: () => boundingRect.x + triggerWidth,
-            y: () => boundingRect.y,
+            x: () => boundingRect.x + triggerWidth + window.scrollX,
+            y: () => boundingRect.y + window.scrollY,
         },
         'right-end': {
-            x: () => boundingRect.x + triggerWidth,
-            y: () => boundingRect.y + triggerHeight - popoverHeight,
+            x: () => boundingRect.x + triggerWidth + window.scrollX,
+            y: () => boundingRect.y + triggerHeight - popoverHeight + window.scrollY,
         },
         'bottom-start': {
-            x: () => boundingRect.x,
-            y: () => boundingRect.y + triggerHeight,
+            x: () => boundingRect.x + window.scrollX,
+            y: () => boundingRect.y + triggerHeight + window.scrollY,
         },
         'bottom-end': {
-            x: () => boundingRect.x + triggerWidth - popoverWidth,
-            y: () => boundingRect.y + triggerHeight,
+            x: () => boundingRect.x + triggerWidth - popoverWidth + window.scrollX,
+            y: () => boundingRect.y + triggerHeight + window.scrollY,
         },
         'left-start': {
-            x: () => boundingRect.x - popoverWidth,
-            y: () => boundingRect.y,
+            x: () => boundingRect.x - popoverWidth + window.scrollX,
+            y: () => boundingRect.y + window.scrollY,
         },
         'left-end': {
-            x: () => boundingRect.x - popoverWidth,
-            y: () => boundingRect.y + triggerHeight - popoverHeight,
+            x: () => boundingRect.x - popoverWidth + window.scrollX,
+            y: () => boundingRect.y + triggerHeight - popoverHeight + window.scrollY,
         },
     }
     let boundingRect: DOMRect

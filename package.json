@@ -24,7 +24,7 @@
         "@nick-mazuk/eslint-config": "^0.8.5",
         "@nick-mazuk/lib": "^0.8.43",
         "@nick-mazuk/semantic-release-config": "^1.1.3",
-        "@nick-mazuk/ui-config": "^0.10.36",
+        "@nick-mazuk/ui-config": "^0.10.41",
         "@semantic-release/changelog": "^5.0.1",
         "@semantic-release/git": "^9.0.0",
         "@storybook/addon-a11y": "^6.2.9",
@@ -81,7 +81,7 @@
     ],
     "peerDependencies": {
         "@nick-mazuk/lib": "^0.8.43",
-        "@nick-mazuk/ui-config": "^0.10.36",
+        "@nick-mazuk/ui-config": "^0.10.41",
         "tailwindcss": "^2.1.1"
     },
     "dependencies": {

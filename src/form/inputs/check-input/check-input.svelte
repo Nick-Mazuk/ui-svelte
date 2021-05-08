@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { afterUpdate, getContext } from 'svelte'
+    import { getContext } from 'svelte'
     import type { Writable } from 'svelte/store'
 
     import Label from '../../label/label.svelte'
@@ -24,6 +24,8 @@
     let checkElement: HTMLInputElement | undefined
     let showError = false
     let isValid = false
+    let isHovered = false
+    let isFocused = false
 
     let justClicked = false
     const handleChange: svelte.JSX.FormEventHandler<HTMLInputElement> = (event) => {
@@ -39,6 +41,10 @@
         value = defaultValue
         showError = false
     }
+    const handleMouseEnter = () => (isHovered = true)
+    const handleMouseLeave = () => (isHovered = false)
+    const handleFocusIn = () => (isFocused = true)
+    const handleFocusOut = () => (isFocused = false)
 
     $: borderClasses = value === 'unchecked' && !disabled ? 'group-hover:border-foreground' : ''
     let name = ''
@@ -68,17 +74,30 @@
 </script>
 
 <Label value="{label}" on:mouseup="{handleMouseUp}">
-    <div class="inline-flex space-x-2 group" class:cursor-not-allowed="{disabled}">
+    <div class="inline-flex space-x-4" class:cursor-not-allowed="{disabled}">
         <span class="flex-none self-start flex items-center">
             <span>&ZeroWidthSpace;</span>
             <div
-                class="h-10 w-10 -m-3 rounded-full flex items-center justify-center {disabled
+                class="h-10 w-10 relative -m-3 rounded-full flex items-center justify-center {disabled
                     ? 'cursor-not-allowed'
                     : 'cursor-pointer'}"
+                on:mouseenter="{handleMouseEnter}"
+                on:mouseleave="{handleMouseLeave}"
+                on:focusin="{handleFocusIn}"
+                on:focusout="{handleFocusOut}"
             >
+                <div
+                    class="absolute rounded-full h-8 w-8 transform -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 transition-opacity"
+                    class:bg-gray="{value === 'unchecked'}"
+                    class:bg-primary="{value !== 'unchecked'}"
+                    class:hidden="{disabled}"
+                    class:opacity-0="{!isHovered && !isFocused}"
+                    class:opacity-10="{isHovered && !isFocused}"
+                    class:opacity-20="{isFocused}"
+                ></div>
                 <input
                     type="checkbox"
-                    class="rounded w-4 h-4 bg-transparent cursor-pointer focus-ring focus:ring-primary disabled:cursor-not-allowed checked:text-primary transition focus:outline-none disabled:text-gray-300 disabled:border-gray-300 active:bg-gray-200 {borderClasses}"
+                    class="rounded-sm w-4 h-4 z-10 bg-transparent cursor-pointer focus:ring-0 focus:ring-offset-0 disabled:cursor-not-allowed checked:text-primary transition focus:outline-none disabled:text-gray-300 disabled:border-gray-300 active:bg-gray-200 disabled:active:bg-background {borderClasses}"
                     indeterminate="{value === 'indeterminate'}"
                     checked="{value === 'checked'}"
                     aria-label="{ariaLabel}"

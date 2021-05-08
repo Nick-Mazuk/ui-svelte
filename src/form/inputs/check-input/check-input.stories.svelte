@@ -75,38 +75,7 @@
     <CheckInput {...args}>I agree to the terms and privacy policy.</CheckInput>
 </Story>
 <Story name="Disabled" args="{{ disabled: true }}" let:args>
-    <p class="font-bold mb-1">Label</p>
-    <div class="input-wrapper flex group items-center h-10">
-        <div class="pl-3 pr-2">
-            <Mail size="{5}" />
-        </div>
-        <input
-            type="text"
-            value="Some text content"
-            class="p-0 border-none text-base focus:ring-0 w-full self-stretch"
-        />
-    </div>
-    <div class="mt-1">
-        <Error>Required</Error>
-    </div>
-    <Spacer />
-    <p class="font-bold mb-1">Label</p>
-    <input
-        type="text"
-        value="Some text content"
-        class="bg-background px-3 h-10 w-full text-base rounded border-gray-300 text-gray-700 hover:text-gray-900 focus:text-gray-900 cursor-pointer hover:border-foreground focus:border-primary ring-gray hover:ring-foreground focus:ring-primary transition"
-    />
-    <div class="mt-1">
-        <Error>Required</Error>
-    </div>
-    <Spacer />
-    <Button>
-        Send email
-        <Mail slot="prefix" />
-    </Button>
-
-    <Spacer />
-    <CheckInput label="Label" {...args}>I agree to the terms and privacy policy.</CheckInput>
+    <CheckInput {...args}>I agree to the terms and privacy policy.</CheckInput>
     <Spacer />
     <CheckInput {...args} value="checked">I agree to the terms and privacy policy.</CheckInput>
     <Spacer />

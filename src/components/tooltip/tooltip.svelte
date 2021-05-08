@@ -4,6 +4,7 @@
     type Placement = 'top' | 'bottom' | 'left' | 'right'
 
     export let placement: Placement = 'bottom'
+    export let value = ''
 
     let spanElement: HTMLSpanElement | undefined
     let boundingRect: DOMRect
@@ -27,52 +28,56 @@
     }
     $: PLACEMENT_MAP = {
         top: {
-            x: () => boundingRect.x + triggerWidth / 2 - tooltipWidth / 2,
-            y: () => boundingRect.y - tooltipHeight,
+            x: () => boundingRect.x + triggerWidth / 2 - tooltipWidth / 2 + window.scrollX,
+            y: () => boundingRect.y - tooltipHeight + window.scrollY,
         },
         right: {
-            x: () => boundingRect.x + triggerWidth,
-            y: () => boundingRect.y + triggerHeight / 2 - tooltipHeight / 2,
+            x: () => boundingRect.x + triggerWidth + window.scrollX,
+            y: () => boundingRect.y + triggerHeight / 2 - tooltipHeight / 2 + window.scrollY,
         },
         bottom: {
-            x: () => boundingRect.x + triggerWidth / 2 - tooltipWidth / 2,
-            y: () => boundingRect.y + triggerHeight,
+            x: () => boundingRect.x + triggerWidth / 2 - tooltipWidth / 2 + window.scrollX,
+            y: () => boundingRect.y + triggerHeight + window.scrollY,
         },
         left: {
-            x: () => boundingRect.x - tooltipWidth,
-            y: () => boundingRect.y + triggerHeight / 2 - tooltipHeight / 2,
+            x: () => boundingRect.x - tooltipWidth + window.scrollX,
+            y: () => boundingRect.y + triggerHeight / 2 - tooltipHeight / 2 + window.scrollY,
         },
     }
     $: x = boundingRect && isOpen ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && isOpen ? PLACEMENT_MAP[placement].y() : 0
 </script>
 
-<span
-    class="contents focus:outline-none"
-    bind:this="{spanElement}"
-    on:mouseenter="{() => (isHovered = true)}"
-    on:mouseleave="{() => (isHovered = false)}"
-    on:focusin="{() => (isFocused = true)}"
-    on:focusout="{() => (isFocused = false)}"
->
-    <slot name="trigger" />
-</span>
-{#if isOpen}
-    <Portal x="{x}" y="{y}">
-        <div
-            role="tooltip"
-            class="inline-flex p-2 pointer-events-none select-none"
-            bind:offsetHeight="{tooltipHeight}"
-            bind:offsetWidth="{tooltipWidth}"
-            data-test="tooltip"
-        >
+{#if value}
+    <span
+        class="contents focus:outline-none"
+        bind:this="{spanElement}"
+        on:mouseenter="{() => (isHovered = true)}"
+        on:mouseleave="{() => (isHovered = false)}"
+        on:focusin="{() => (isFocused = true)}"
+        on:focusout="{() => (isFocused = false)}"
+    >
+        <slot name="trigger" />
+    </span>
+    {#if isOpen}
+        <Portal x="{x}" y="{y}">
             <div
-                class="bg-gray-700 text-background orign-top inline-flex items-center jusitfy-center rounded py-1 px-2 max-w-xs pointer-events-none select-none"
-                out:fade="{{ duration: 100 }}"
-                in:scale="{{ duration: 150, start: 0.8 }}"
+                role="tooltip"
+                class="inline-flex p-2 pointer-events-none select-none"
+                bind:offsetHeight="{tooltipHeight}"
+                bind:offsetWidth="{tooltipWidth}"
+                data-test="tooltip"
             >
-                <slot />
+                <div
+                    class="bg-gray-700 text-background orign-top inline-flex items-center jusitfy-center rounded py-1 px-2 max-w-xs pointer-events-none select-none"
+                    out:fade="{{ duration: 100 }}"
+                    in:scale="{{ duration: 150, start: 0.8 }}"
+                >
+                    {value}
+                </div>
             </div>
-        </div>
-    </Portal>
+        </Portal>
+    {/if}
+{:else}
+    <slot name="trigger" />
 {/if}
