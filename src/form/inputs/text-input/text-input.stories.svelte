@@ -1,6 +1,15 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
 
+    import {
+        isNumber,
+        formatNumber,
+        truncateDecimals,
+        addThousandsSeparators,
+        fixedDecimals,
+        stringToNumber,
+    } from '@nick-mazuk/lib/js/number-styling'
+
     import Mail from '../../../elements/icon/mail.svelte'
     import Eye from '../../../elements/icon/eye.svelte'
     import Lock from '../../../elements/icon/lock.svelte'
@@ -18,6 +27,8 @@
         },
         argTypes: {},
     }
+
+    let formatterValue = '150.00'
 </script>
 
 <Meta {...meta} />
@@ -26,7 +37,7 @@
     <TextInput {...args} />
 </Story>
 <Story name="Anatomy" let:args>
-    <div class="grid grid-cols-1 gap-6">
+    <div class="grid grid-cols-1 gap-4">
         <TextInput
             {...args}
             label="Label"
@@ -34,12 +45,13 @@
             suffix="Suffix"
             helpText="Help text"
             placeholder="Placeholder"
+            feedback="Feedback"
             optional
         />
     </div>
 </Story>
 <Story name="Prefix/Suffix" let:args>
-    <div class="grid grid-cols-1 gap-6">
+    <div class="grid grid-cols-1 gap-4">
         <TextInput {...args} label="Prefix" prefix="https://" />
         <TextInput {...args} label="Icon prefix" prefix="{Mail}" />
         <TextInput {...args} label="Suffix" suffix=".com" />
@@ -58,7 +70,7 @@
     </div>
 </Story>
 <Story name="States" let:args>
-    <div class="grid grid-cols-1 gap-6">
+    <div class="grid grid-cols-1 gap-4">
         <TextInput {...args} label="Active" helpText="Ready for user input" />
         <TextInput
             {...args}
@@ -78,5 +90,49 @@
             label="Error"
             helpText="For when the value of the input is not correct."
         />
+    </div>
+</Story>
+<Story name="Validation" let:args>
+    <div class="grid grid-cols-1 gap-4">
+        <TextInput
+            {...args}
+            label="Password"
+            validationRules="{[
+                {
+                    assert: (value) => value.length >= 8,
+                    error: 'Password must be at least 8 characters',
+                },
+                {
+                    assert: (value) => (value.match(/[A-Z]/gu) || []).length >= 2,
+                    error: 'Password must have at least 2 uppercase characters',
+                },
+                {
+                    assert: (value) => (value.match(/[a-z]/gu) || []).length >= 2,
+                    error: 'Password must have at least 2 lowercase characters',
+                },
+                {
+                    assert: (value) => (value.match(/\d/gu) || []).length >= 2,
+                    error: 'Password must have at least 2 numbers',
+                },
+            ]}"
+        />
+    </div>
+</Story>
+<Story name="Formatters" let:args>
+    <div class="grid grid-cols-1 gap-4">
+        <TextInput
+            {...args}
+            label="Number"
+            bind:value="{formatterValue}"
+            updater="{(number, oldNumber) => {
+                if (number === '' || number === '-') return number
+                if (isNumber(number)) {
+                    let string = addThousandsSeparators(number)
+                    return string
+                }
+                return oldNumber
+            }}"
+        />
+        <p>Value: "{formatterValue}"</p>
     </div>
 </Story>
