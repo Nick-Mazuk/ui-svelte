@@ -2,6 +2,7 @@
     import { Meta, Story } from '@storybook/addon-svelte-csf'
     import Button from '../../elements/button/button.svelte'
     import CheckInput from '../inputs/check-input/check-input.svelte'
+    import TextInput from '../inputs/text-input/text-input.svelte'
 
     import Form from './form.svelte'
 
@@ -29,6 +30,7 @@
         resetOnSubmit
     >
         <CheckInput name="check">This is a checkbox</CheckInput>
+        <TextInput label="Text input" />
         <Button submit>Submit</Button>
     </Form>
 </Story>

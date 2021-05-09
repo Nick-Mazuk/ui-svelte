@@ -29,6 +29,7 @@
     }
 
     let formatterValue = '150.00'
+    let formatterParsedValue = '150'
 </script>
 
 <Meta {...meta} />
@@ -123,7 +124,7 @@
         <TextInput
             {...args}
             label="Number"
-            bind:value="{formatterValue}"
+            defaultValue="150.00"
             updater="{(number, oldNumber) => {
                 if (number === '' || number === '-') return number
                 if (isNumber(number)) {
@@ -132,7 +133,14 @@
                 }
                 return oldNumber
             }}"
+            formatter="{formatNumber}"
+            parser="{stringToNumber}"
+            on:change="{(event) => {
+                formatterValue = event.detail.value
+                formatterParsedValue = event.detail.parsedValue
+            }}"
         />
         <p>Value: "{formatterValue}"</p>
+        <p>Parsed value: "{formatterParsedValue}"</p>
     </div>
 </Story>

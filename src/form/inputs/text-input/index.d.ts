@@ -8,7 +8,15 @@ export type Formatter = ((value: string) => string) | undefined
 
 // native HTML typings
 export type TextInputType = 'text' | 'email' | 'number' | 'password' | 'search' | 'textarea' | 'url'
-export type TextInputKeyboard = 'decimal' | 'none' | 'email' | 'numeric' | 'search' | 'tel' | 'url'
+export type TextInputKeyboard =
+    | 'decimal'
+    | 'none'
+    | 'email'
+    | 'numeric'
+    | 'search'
+    | 'tel'
+    | 'url'
+    | undefined
 export type TextInputAutocomplete =
     | 'off'
     | 'on'
@@ -64,4 +72,13 @@ export type TextInputAutocomplete =
     | 'impp'
     | 'url'
     | 'photo'
-    | ''
+    | undefined
+
+export type ChangeDetail = {
+    value: string
+    parsedValue: string
+}
+export type TextInputChangeEvent = CustomEvent<ChangeDetail>
+export type TextInputDispatcher = {
+    change: ChangeDetail
+}

@@ -1,9 +1,21 @@
 <script lang="ts">
     import { slugify } from '@nick-mazuk/lib/js/text-styling'
+    import { diffChars } from 'diff'
+
     import Label from '../../label/label.svelte'
     import Error from '../../../elements/error/error.svelte'
     import TextInputAffix from './text-input-affix.svelte'
-    import type { Formatter, Parser, Updater, ValidationRules } from '.'
+    import type {
+        Formatter,
+        Parser,
+        TextInputAutocomplete,
+        TextInputDispatcher,
+        TextInputKeyboard,
+        Updater,
+        ValidationRules,
+    } from '.'
+    import { createEventDispatcher, getContext, tick } from 'svelte'
+    import type { FormSync } from '../..'
 
     export let label = ''
     let nameProp = ''
@@ -14,7 +26,6 @@
     export let hideOptionalLabel = false
     export let placeholder = ''
     export let defaultValue = ''
-    export let value = defaultValue
     export let prefix: string | Function = ''
     export let suffix: string | Function = ''
     export let prefixButton: { label: string; onClick: () => void } | undefined = undefined
@@ -27,16 +38,66 @@
     export let parser: Parser = undefined
     export let updater: Updater = undefined
     export let formatter: Formatter = undefined
+    export let tabularNumbers = false
+    export let keyboard: TextInputKeyboard = undefined
+    export let autocomplete: TextInputAutocomplete = undefined
 
     const disabledClasses = disabled
         ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
         : 'hover:text-gray-800 focus-within:text-gray-800 text-gray'
+    const dispatch = createEventDispatcher<TextInputDispatcher>()
+    const formSync = getContext<FormSync>('formSync')
 
     let isValid: boolean
-    let showErrorMessage: boolean
+    let showError: boolean
     let errorMessage: string
-    const handleBlur = () => (showErrorMessage = true)
+    let value = defaultValue
+    let parsedValue: string
+    let formattedValue: string
+    const handleBlur = () => {
+        showError = true
+        if (formatter) value = formatter(value)
+    }
+    const handleInput: svelte.JSX.FormEventHandler<HTMLInputElement | HTMLTextAreaElement> = async (
+        event
+    ) => {
+        const inputtedValue = event.currentTarget.value
+        const selection = event.currentTarget.selectionStart
+        value = updater ? updater(event.currentTarget.value, value) : event.currentTarget.value
+        event.currentTarget.value = value
+
+        if (typeof selection !== 'number' || typeof updater === 'undefined') return
+
+        const diff = diffChars(inputtedValue, value)
+        let newSelection = selection
+        let currentCharacter = 0
+        diff.forEach((change) => {
+            if (typeof change.count !== 'number') return
+            if (currentCharacter < selection) {
+                if (change.removed) newSelection -= change.count
+                if (change.added) newSelection += change.count
+            }
+            currentCharacter += change.count
+        })
+        await tick()
+        event.currentTarget.selectionStart = newSelection
+        event.currentTarget.selectionEnd = newSelection
+    }
+    const reset = () => {
+        value = defaultValue
+        showError = false
+    }
     $: name = nameProp ? nameProp : slugify(label)
+    $: if (formSync)
+        formSync.updateForm(
+            name,
+            parsedValue,
+            () => {
+                showError = true
+                return isValid
+            },
+            reset
+        )
     $: {
         let tempIsValid = true
         let tempErrorMessage = ''
@@ -54,6 +115,12 @@
 
         isValid = tempIsValid
         errorMessage = tempErrorMessage
+        if (isValid) showError = false
+    }
+    $: {
+        formattedValue = formatter ? formatter(value) : value
+        parsedValue = parser ? parser(formattedValue) : formattedValue
+        dispatch('change', { parsedValue, value })
     }
 </script>
 
@@ -84,12 +151,16 @@
             class:pl-3="{!prefix}"
             class:pr-3="{!suffix}"
             class:text-right="{textRight}"
-            bind:value
+            class:tabular-nums="{tabularNumbers}"
+            value="{value}"
             disabled="{disabled}"
             readonly="{readonly}"
             placeholder="{placeholder}"
+            inputmode="{keyboard}"
+            autocomplete="{autocomplete}"
             name="{name}"
             on:blur="{handleBlur}"
+            on:input="{handleInput}"
         />
         {#if suffix}
             <TextInputAffix
@@ -111,7 +182,7 @@
         {#if feedback}
             <p class="col-start-2 text-sm text-gray-700 text-right">{feedback}</p>
         {/if}
-        {#if !isValid && showErrorMessage}
+        {#if !isValid && showError}
             <div class="col-start-1" class:row-start-1="{!helpText}">
                 <Error label="">{errorMessage}</Error>
             </div>

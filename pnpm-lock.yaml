@@ -17,6 +17,7 @@ specifiers:
   '@storybook/addons': ^6.2.9
   '@storybook/svelte': ^6.2.9
   '@storybook/theming': ^6.2.9
+  '@types/diff': ^5.0.0
   '@types/feather-icons': ^4.7.0
   '@types/fs-extra': ^9.0.11
   '@types/marked': ^2.0.0
@@ -30,6 +31,7 @@ specifiers:
   cypress-axe: ^0.12.2
   cypress-plugin-tab: ^1.0.5
   cypress-real-events: ^1.4.0
+  diff: ^5.0.0
   esbuild: ^0.11.0
   eslint: ^7.23.0
   feather-icons: ^4.28.0
@@ -57,6 +59,7 @@ specifiers:
   typescript: ^4.2.4
 
 dependencies:
+  diff: 5.0.0
   marked: 2.0.1
   svelte-intersection-observer: 0.7.0
   svelte-portal: 2.1.2
@@ -78,6 +81,7 @@ devDependencies:
   '@storybook/addons': 6.2.9
   '@storybook/svelte': 6.2.9_cdc494356dc37338df12e5f7e1e996b0
   '@storybook/theming': 6.2.9
+  '@types/diff': 5.0.0
   '@types/feather-icons': 4.7.0
   '@types/fs-extra': 9.0.11
   '@types/marked': 2.0.0
@@ -4860,6 +4864,10 @@ packages:
     resolution: {integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==}
     dev: true
 
+  /@types/diff/5.0.0:
+    resolution: {integrity: sha512-jrm2K65CokCCX4NmowtA+MfXyuprZC13jbRuwprs6/04z/EcFg/MCwYdsHn+zgV4CQBiATiI7AEq7y1sZCtWKA==}
+    dev: true
+
   /@types/feather-icons/4.7.0:
     resolution: {integrity: sha512-vflOrmlHMGIGVN4AEl6ErPCNKBLcP1ehEpLqnJkTgf69r5QmJzy7BF1WzbBc8Hqs9KffROPT/JqlSKH4o5vB/w==}
     dev: true
@@ -7672,6 +7680,11 @@ packages:
   /didyoumean/1.2.1:
     resolution: {integrity: sha1-6S7f2tplN9SE1zwBcv0eugxJdv8=}
     dev: true
+
+  /diff/5.0.0:
+    resolution: {integrity: sha512-/VTCrvm5Z0JGty/BWHljh+BAiw3IK+2j87NGMu8Nwc/f48WoDAC395uomO9ZD117ZOBaHmkX1oyLvkVM/aIT3w==}
+    engines: {node: '>=0.3.1'}
+    dev: false
 
   /diffie-hellman/5.0.3:
     resolution: {integrity: sha512-kqag/Nl+f3GwyK25fhUMYj81BUOrZ9IuJsjIcDE5icNM9FJHAVm3VcUDxdLPoQtTuUylWm6ZIknYJwwaPxsUzg==}
