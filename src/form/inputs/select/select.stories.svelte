@@ -1,11 +1,11 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
-    import User from '../../elements/icon/user.svelte'
+    import User from '../../../elements/icon/user.svelte'
 
     import Select from './select.svelte'
 
     const meta = {
-        title: 'Form/Select',
+        title: 'Form/Inputs/Select',
         component: Select,
         parameters: {
             docs: {

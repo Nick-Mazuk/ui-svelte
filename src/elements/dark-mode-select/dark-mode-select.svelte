@@ -2,7 +2,7 @@
     import Sun from '../icon/sun.svelte'
     import Moon from '../icon/moon.svelte'
     import Monitor from '../icon/monitor.svelte'
-    import Select from '../../form/select/select.svelte'
+    import Select from '../../form/inputs/select/select.svelte'
     import type SvelteStore from 'svelte/store'
 
     type Theme = 'system' | 'dark' | 'light'

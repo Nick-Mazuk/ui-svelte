@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ChevronDown from '../../elements/icon/chevron-down.svelte'
+    import ChevronDown from '../../../elements/icon/chevron-down.svelte'
     import { createEventDispatcher } from 'svelte'
 
     export let value = ''
@@ -22,7 +22,7 @@
         </div>
     {/if}
     <select
-        class="bg-background h-10 w-full text-base rounded border-gray-200 text-gray-700 hover:text-gray-900 focus:text-gray-900 cursor-pointer hover:border-gray focus:border-primary focus:ring-primary transition-colors"
+        class="input-wrapper input-wrapper-active h-10 w-full text-base text-gray-700 hover:text-gray-900 focus:text-gray-900 cursor-pointer"
         class:pl-8="{$$slots.prefix}"
         class:pr-8="{$$slots.suffix}"
         on:input|self="{handleInput}"
