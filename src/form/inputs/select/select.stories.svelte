@@ -25,6 +25,10 @@
                 defaultValue: false,
                 type: { name: 'boolean' },
             },
+            size: {
+                control: { type: 'inline-radio', options: ['small', 'default', 'large'] },
+                defaultValue: 'default',
+            },
         },
     }
 </script>
@@ -43,10 +47,7 @@
 <Story name="Default" />
 <Story name="No arrow" args="{{ hideArrow: true }}" />
 <Story name="With prefix" let:args>
-    <Select {...args}>
-        <svelte:fragment slot="prefix">
-            <User />
-        </svelte:fragment>
+    <Select {...args} prefix="{User}">
         <option>John Smith</option>
         <option>Jane Doe</option>
     </Select>

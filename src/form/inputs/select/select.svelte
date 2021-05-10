@@ -1,8 +1,15 @@
 <script lang="ts">
     import ChevronDown from '../../../elements/icon/chevron-down.svelte'
     import { createEventDispatcher } from 'svelte'
+    import Label from '../../label/label.svelte'
+    import type { FormItemSize } from '../../form-sizes'
+    import { FORM_SIZE_MAP } from '../../form-sizes'
 
     export let value = ''
+    export let hideArrow = false
+    export let title = ''
+    export let size: FormItemSize = 'default'
+    export let prefix: Function | undefined = undefined
 
     const dispatch = createEventDispatcher()
 
@@ -11,33 +18,38 @@
         dispatch('change', event.currentTarget.value)
     }
 
-    export let hideArrow = false
-    export let title = ''
+    $: sizeClasses = [
+        FORM_SIZE_MAP[size].textSize,
+        FORM_SIZE_MAP[size].height,
+        prefix
+            ? FORM_SIZE_MAP[size].content.paddingLeftWithPrefix
+            : FORM_SIZE_MAP[size].content.paddingLeft,
+        hideArrow
+            ? FORM_SIZE_MAP[size].content.paddingRightWithPrefix
+            : FORM_SIZE_MAP[size].content.paddingRight,
+    ].join(' ')
+    const affixClasses = 'absolute top-0 h-full flex items-center pointer-events-none'
 </script>
 
-<div class="relative text-gray-500 hover:text-gray-700 transition-colors">
-    {#if $$slots.prefix}
-        <div class="absolute h-full flex items-center top-0 left-2.5 pointer-events-none w-4">
-            <slot name="prefix" />
-        </div>
-    {/if}
-    <select
-        class="input-wrapper input-wrapper-active h-10 w-full text-base text-gray-700 hover:text-gray-900 focus:text-gray-900 cursor-pointer"
-        class:pl-8="{$$slots.prefix}"
-        class:pr-8="{$$slots.suffix}"
-        on:input|self="{handleInput}"
-        value="{value}"
-        title="{title}"
-    >
-        <slot />
-    </select>
-    {#if !hideArrow || $$slots.suffix}
-        <div class="absolute h-full flex items-center top-0 right-2.5 pointer-events-none w-4">
-            {#if $$slots.suffix}
-                <slot name="suffix" />
-            {:else}
-                <ChevronDown />
-            {/if}
-        </div>
-    {/if}
-</div>
+<Label>
+    <div class="relative text-gray-500 hover:text-gray-700">
+        {#if prefix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix} {affixClasses}">
+                <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
+        {/if}
+        <select
+            class="w-full p-0 {sizeClasses} input-wrapper input-wrapper-active text-foreground cursor-pointer"
+            on:input|self="{handleInput}"
+            value="{value}"
+            title="{title}"
+        >
+            <slot />
+        </select>
+        {#if !hideArrow}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingSuffix} {affixClasses} right-0">
+                <ChevronDown size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
+        {/if}
+    </div>
+</Label>
