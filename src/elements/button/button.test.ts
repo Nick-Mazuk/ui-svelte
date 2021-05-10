@@ -20,7 +20,7 @@ it('is accessible', () => {
     cy.loadStory('Elements/Button', 'Width')
     cy.checkAccessibility()
 
-    cy.loadStory('Elements/Button', 'Prefix/Suffix')
+    cy.loadStory('Elements/Button', 'Prefix and suffix')
     cy.checkAccessibility()
 
     cy.loadStory('Elements/Button', 'Disabled')

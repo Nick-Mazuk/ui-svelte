@@ -178,7 +178,7 @@
         <div><Button {...args} width="full">Width full</Button></div>
     </div>
 </Story>
-<Story name="Prefix/Suffix" let:args>
+<Story name="Prefix and suffix" let:args>
     <div class="flex space-x-8">
         <div>
             <Button {...args} prefix="{ArrowUp}">Prefix</Button>
