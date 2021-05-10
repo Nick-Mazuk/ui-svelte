@@ -2,6 +2,8 @@
     import LoadingSpinner from '../loading-spinner/loading-spinner.svelte'
     import type { Writable } from 'svelte/store'
     import { getContext } from 'svelte'
+    import type { FormItemSize } from '../../form/form-sizes'
+    import { FORM_SIZE_MAP } from '../../form/form-sizes'
 
     type Variant =
         | 'primary'
@@ -13,11 +15,10 @@
         | 'secondary'
         | 'link'
         | 'static'
-    type Size = 'small' | 'default' | 'large'
     type Shape = 'square' | 'circle' | 'none'
 
     export let variant: Variant = 'primary'
-    export let size: Size = 'default'
+    export let size: FormItemSize = 'default'
     export let shadow = false
     export let disabled = false
     export let loading = false
@@ -27,6 +28,8 @@
     export let ariaLabel = ''
     export let href = ''
     export let testId = 'button'
+    export let prefix: Function | undefined = undefined
+    export let suffix: Function | undefined = undefined
 
     const disabledContext = getContext<Writable<boolean> | undefined>('disabled')
 
@@ -81,35 +84,13 @@
         },
     }
 
-    type SizeData = {
-        global: string
-        prefix: string
-        suffix: string
-        loadingSpinner: string
+    const loadingSpinnerClasses: Record<FormItemSize, string> = {
+        small: 'transform scale-50 top-1/2 mt-0.5 -translate-y-1/2 absolute',
+        default: 'transform scale-75 top-1/2 mt-0.5 -translate-y-1/2 absolute',
+        large: 'transform scale-90 top-1/2 mt-0.5 -translate-y-1/2 absolute',
     }
 
-    const SIZE_MAP: Record<Size, SizeData> = {
-        small: {
-            global: 'px-3 h-8',
-            loadingSpinner: 'transform scale-50 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-            prefix: 'flex w-4 mr-2 -ml-1 relative',
-            suffix: 'flex w-4 ml-1 -mr-1',
-        },
-        default: {
-            global: 'px-4 h-10',
-            loadingSpinner: 'transform scale-75 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-            prefix: 'flex w-5 mr-2 -ml-1 relative',
-            suffix: 'flex w-5 ml-2 -mr-1',
-        },
-        large: {
-            global: 'px-4 h-12 text-lg',
-            loadingSpinner: 'transform scale-90 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-            prefix: 'flex w-6 mr-2 -ml-1 relative',
-            suffix: 'flex w-6 ml-2 -mr-1',
-        },
-    }
-
-    const SHAPE_MAP: Record<Shape, Record<Size, string>> = {
+    const SHAPE_MAP: Record<Shape, Record<FormItemSize, string>> = {
         square: {
             small: 'w-8 !px-1.5',
             default: 'w-10 !px-2',
@@ -138,6 +119,12 @@
         ? 'shadow-md hover:shadow-lg active:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
         : ''
     $: isDisabled = typeof disabledContext === 'undefined' ? disabled : $disabledContext || disabled
+    $: sizeClasses = [
+        FORM_SIZE_MAP[size].height,
+        FORM_SIZE_MAP[size].textSize,
+        prefix ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
+        suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
+    ].join(' ')
 </script>
 
 {#if href}
@@ -147,7 +134,7 @@
             inline-flex justify-center items-center
             focus-ring
             ${shadowClasses}
-            ${SIZE_MAP[size].global}
+            ${sizeClasses}
             ${SHAPE_MAP[shape][size]}
             ${
                 isDisabled || loading
@@ -166,21 +153,25 @@
         data-test="{testId}"
     >
         {#if loading}
-            <span class="{SIZE_MAP[size].prefix}">
-                <span class="{SIZE_MAP[size].loadingSpinner}">
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <span class="{loadingSpinnerClasses[size]}">
                     <LoadingSpinner />
                 </span>
             </span>
-        {:else if $$slots.prefix}
-            <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
+        {:else if prefix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
         {/if}
         {#if shape === 'none'}
             <span><slot /></span>
         {:else}
             <slot />
         {/if}
-        {#if $$slots.suffix}
-            <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
+        {#if suffix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingSuffix}">
+                <svelte:component this="{suffix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
         {/if}
     </a>
 {:else}
@@ -190,7 +181,7 @@
             flex justify-center items-center
             focus-ring
             ${shadowClasses}
-            ${SIZE_MAP[size].global}
+            ${sizeClasses}
             ${SHAPE_MAP[shape][size]}
             ${
                 isDisabled || loading
@@ -209,21 +200,25 @@
         data-test="{testId}"
     >
         {#if loading}
-            <span class="{SIZE_MAP[size].prefix}">
-                <span class="{SIZE_MAP[size].loadingSpinner}">
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <span class="{loadingSpinnerClasses[size]}">
                     <LoadingSpinner />
                 </span>
             </span>
-        {:else if $$slots.prefix}
-            <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
+        {:else if prefix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
         {/if}
         {#if shape === 'none'}
             <span><slot /></span>
         {:else}
             <slot />
         {/if}
-        {#if $$slots.suffix}
-            <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
+        {#if suffix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingSuffix}">
+                <svelte:component this="{suffix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
         {/if}
     </button>
 {/if}

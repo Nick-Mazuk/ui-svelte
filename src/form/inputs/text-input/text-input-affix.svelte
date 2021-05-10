@@ -1,10 +1,14 @@
 <script lang="ts">
+    import { FORM_SIZE_MAP } from '../../form-sizes'
+    import type { FormItemSize } from '../../form-sizes'
+
     import Tooltip from '../../../components/tooltip/tooltip.svelte'
 
     export let content: string | Function
     export let buttonProps: { label: string; onClick: () => void } | undefined
     export let disabled: boolean
     export let placement: 'prefix' | 'suffix'
+    export let size: FormItemSize
 
     const getAffixClasses = (isButton: boolean) => {
         const classes = [
@@ -18,7 +22,10 @@
         else classes.push('cursor-text')
         return classes.join(' ')
     }
-    $: padding = placement === 'prefix' ? 'pl-3 pr-2' : 'pl-2 pr-3'
+    $: padding =
+        placement === 'prefix'
+            ? FORM_SIZE_MAP[size].affix.paddingPrefix
+            : FORM_SIZE_MAP[size].affix.paddingSuffix
 </script>
 
 {#if buttonProps}
@@ -31,9 +38,9 @@
             aria-label="{buttonProps.label}"
         >
             {#if typeof content === 'string'}
-                <span>{content}</span>
+                <span class="{FORM_SIZE_MAP[size].textSize}">{content}</span>
             {:else}
-                <svelte:component this="{content}" size="{5}" />
+                <svelte:component this="{content}" size="{FORM_SIZE_MAP[size].affix.icon}" />
             {/if}
         </button>
         <span>{buttonProps.label}</span>
@@ -41,9 +48,9 @@
 {:else}
     <div class="{padding} {getAffixClasses(false)}">
         {#if typeof content === 'string'}
-            <span>{content}</span>
+            <span class="{FORM_SIZE_MAP[size].textSize}">{content}</span>
         {:else}
-            <svelte:component this="{content}" size="{5}" />
+            <svelte:component this="{content}" size="{FORM_SIZE_MAP[size].affix.icon}" />
         {/if}
     </div>
 {/if}

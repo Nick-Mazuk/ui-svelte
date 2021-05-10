@@ -16,10 +16,13 @@
     } from '.'
     import { createEventDispatcher, getContext, tick } from 'svelte'
     import type { FormSync } from '../..'
+    import { FORM_SIZE_MAP } from '../../form-sizes'
+    import type { FormItemSize } from '../../form-sizes'
 
     export let label = ''
     let nameProp = ''
     export { nameProp as name }
+    export let size: FormItemSize = 'default'
     export let disabled = false
     export let readonly = false
     export let optional = false
@@ -122,6 +125,11 @@
         parsedValue = parser ? parser(formattedValue) : formattedValue
         dispatch('change', { parsedValue, value })
     }
+    $: sizeClasses = [
+        FORM_SIZE_MAP[size].textSize,
+        prefix ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
+        suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
+    ].join(' ')
 </script>
 
 <Label
@@ -131,7 +139,7 @@
     hideOptionalLabel="{hideOptionalLabel}"
 >
     <div
-        class="input-wrapper {disabledClasses} h-10 flex items-center"
+        class="input-wrapper {disabledClasses} {FORM_SIZE_MAP[size].height} flex items-center"
         class:input-wrapper-readonly="{readonly}"
         class:input-wrapper-disabled="{disabled}"
         class:input-wrapper-active="{!disabled && !readonly}"
@@ -142,14 +150,13 @@
                 placement="prefix"
                 buttonProps="{prefixButton}"
                 disabled="{disabled}"
+                size="{size}"
             />
         {/if}
         <input
             type="text"
-            class="p-0 bg-transparent placeholder-gray border-none text-base focus:ring-0 w-full self-stretch text-foreground"
+            class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} focus:ring-0 w-full self-stretch text-foreground"
             class:cursor-not-allowed="{disabled}"
-            class:pl-3="{!prefix}"
-            class:pr-3="{!suffix}"
             class:text-right="{textRight}"
             class:tabular-nums="{tabularNumbers}"
             value="{value}"
@@ -168,6 +175,7 @@
                 placement="suffix"
                 buttonProps="{suffixButton}"
                 disabled="{disabled}"
+                size="{size}"
             />
         {/if}
     </div>

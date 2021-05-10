@@ -14,6 +14,7 @@
     import Eye from '../../../elements/icon/eye.svelte'
     import Lock from '../../../elements/icon/lock.svelte'
     import TextInput from './text-input.svelte'
+    import Button from '../../../elements/button/button.svelte'
 
     const meta = {
         title: 'Form/Inputs/TextInput',
@@ -91,6 +92,46 @@
             label="Error"
             helpText="For when the value of the input is not correct."
         />
+    </div>
+</Story>
+<Story name="Sizes" let:args>
+    <div class="grid grid-cols-1 gap-4">
+        <TextInput {...args} label="Small" defaultValue="Some text" size="small" />
+        <div><Button {...args} size="small">Prefix</Button></div>
+        <TextInput {...args} label="Default" defaultValue="Some text" size="default" />
+        <div><Button {...args}>Prefix</Button></div>
+        <TextInput {...args} label="Large" defaultValue="Some text" size="large" />
+        <div><Button {...args} size="large">Prefix</Button></div>
+        <TextInput
+            {...args}
+            label="Small with icon"
+            defaultValue="Some text"
+            prefix="{Mail}"
+            size="small"
+        />
+        <div>
+            <Button {...args} size="small" prefix="{Mail}">Prefix</Button>
+        </div>
+        <TextInput
+            {...args}
+            label="Default with icon"
+            defaultValue="Some text"
+            prefix="{Mail}"
+            size="default"
+        />
+        <div>
+            <Button {...args} prefix="{Mail}">Prefix</Button>
+        </div>
+        <TextInput
+            {...args}
+            label="Large with icon"
+            defaultValue="Some text"
+            prefix="{Mail}"
+            size="large"
+        />
+        <div>
+            <Button {...args} size="large" prefix="{Mail}">Prefix</Button>
+        </div>
     </div>
 </Story>
 <Story name="Validation" let:args>

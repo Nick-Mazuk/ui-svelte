@@ -6,6 +6,15 @@ export type Parser = ((value: string) => FormDataValue) | undefined
 export type Updater = ((value: string, oldValue: string) => string) | undefined
 export type Formatter = ((value: string) => string) | undefined
 
+export type ChangeDetail = {
+    value: string
+    parsedValue: string
+}
+export type TextInputChangeEvent = CustomEvent<ChangeDetail>
+export type TextInputDispatcher = {
+    change: ChangeDetail
+}
+
 // native HTML typings
 export type TextInputType = 'text' | 'email' | 'number' | 'password' | 'search' | 'textarea' | 'url'
 export type TextInputKeyboard =
@@ -73,12 +82,3 @@ export type TextInputAutocomplete =
     | 'url'
     | 'photo'
     | undefined
-
-export type ChangeDetail = {
-    value: string
-    parsedValue: string
-}
-export type TextInputChangeEvent = CustomEvent<ChangeDetail>
-export type TextInputDispatcher = {
-    change: ChangeDetail
-}
