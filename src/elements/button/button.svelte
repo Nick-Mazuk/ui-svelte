@@ -85,9 +85,15 @@
     }
 
     const loadingSpinnerClasses: Record<FormItemSize, string> = {
-        small: 'transform scale-50 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-        default: 'transform scale-75 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-        large: 'transform scale-90 top-1/2 mt-0.5 -translate-y-1/2 absolute',
+        small:
+            'transform flex items-center left-0 -translate-y-1/2 absolute ' +
+            FORM_SIZE_MAP.small.affix.paddingPrefix,
+        default:
+            'transform flex items-center left-0 -translate-y-1/2 absolute ' +
+            FORM_SIZE_MAP.default.affix.paddingPrefix,
+        large:
+            'transform flex items-center left-0 -translate-y-1/2 absolute ' +
+            FORM_SIZE_MAP.large.affix.paddingPrefix,
     }
 
     const SHAPE_MAP: Record<Shape, Record<FormItemSize, string>> = {
@@ -122,7 +128,7 @@
     $: sizeClasses = [
         FORM_SIZE_MAP[size].height,
         FORM_SIZE_MAP[size].textSize,
-        prefix ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
+        prefix || loading ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
 </script>
@@ -154,8 +160,9 @@
     >
         {#if loading}
             <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <div style="{`width: ${FORM_SIZE_MAP[size].affix.icon * 4}px`}"></div>
                 <span class="{loadingSpinnerClasses[size]}">
-                    <LoadingSpinner />
+                    <LoadingSpinner size="{FORM_SIZE_MAP[size].affix.icon}" />
                 </span>
             </span>
         {:else if prefix}
@@ -200,11 +207,12 @@
         data-test="{testId}"
     >
         {#if loading}
-            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+            <div class="{FORM_SIZE_MAP[size].affix.paddingPrefix} relative">
+                <div style="{`width: ${FORM_SIZE_MAP[size].affix.icon * 4}px`}"></div>
                 <span class="{loadingSpinnerClasses[size]}">
-                    <LoadingSpinner />
+                    <LoadingSpinner size="{FORM_SIZE_MAP[size].affix.icon}" />
                 </span>
-            </span>
+            </div>
         {:else if prefix}
             <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
                 <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
