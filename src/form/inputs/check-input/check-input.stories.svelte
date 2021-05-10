@@ -3,9 +3,6 @@
 
     import CheckInput from './check-input.svelte'
     import Spacer from '../../../utilities/spacer/spacer.svelte'
-    import Mail from '../../../elements/icon/mail.svelte'
-    import Error from '../../../elements/error/error.svelte'
-    import Button from '../../../elements/button/button.svelte'
 
     const meta = {
         title: 'Form/Inputs/CheckInput',
@@ -18,6 +15,13 @@
             },
         },
         argTypes: {
+            defaultValue: {
+                control: {
+                    type: 'radio',
+                    options: ['unchecked', 'checked', 'indeterminate'],
+                },
+                defaultValue: 'unchecked',
+            },
             value: {
                 control: {
                     type: 'radio',
@@ -41,6 +45,30 @@
                 },
             },
             disabled: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            optional: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            hideOptionalLabel: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            hideError: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            requiredMessage: {
                 control: {
                     type: 'boolean',
                 },

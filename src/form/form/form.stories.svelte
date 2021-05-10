@@ -16,19 +16,36 @@
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            method: {
+                control: {
+                    type: 'select',
+                    options: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+                },
+            },
+            action: {
+                control: {
+                    type: 'string',
+                },
+            },
+            handleSubmit: {
+                description:
+                    'A function to handle the submit instead of letting the component submit. If `action`, `method`, and `handleSubmit` are all provided, `handleSubmit` will take precedence.',
+            },
+            resetOnSubmit: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+        },
     }
 </script>
 
 <Meta {...meta} />
 
 <Story name="Default" let:args>
-    <Form
-        {...args}
-        on:success="{() => alert('success')}"
-        handleSubmit="{() => Promise.resolve(true)}"
-        resetOnSubmit
-    >
+    <Form {...args}>
         <CheckInput name="check">This is a checkbox</CheckInput>
         <TextInput label="Text input" />
         <Button submit>Submit</Button>

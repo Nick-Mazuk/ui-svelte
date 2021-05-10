@@ -4,9 +4,7 @@
     import {
         isNumber,
         formatNumber,
-        truncateDecimals,
         addThousandsSeparators,
-        fixedDecimals,
         stringToNumber,
     } from '@nick-mazuk/lib/js/number-styling'
 
@@ -14,7 +12,6 @@
     import Eye from '../../../elements/icon/eye.svelte'
     import Lock from '../../../elements/icon/lock.svelte'
     import TextInput from './text-input.svelte'
-    import Button from '../../../elements/button/button.svelte'
 
     const meta = {
         title: 'Form/Inputs/TextInput',
@@ -22,11 +19,168 @@
         parameters: {
             docs: {
                 description: {
-                    component: '',
+                    component: 'A flexible text input component.',
                 },
             },
         },
-        argTypes: {},
+        argTypes: {
+            label: {
+                control: {
+                    type: 'text',
+                },
+                defaultValue: 'Label',
+            },
+            name: {
+                control: {
+                    type: 'text',
+                },
+            },
+            type: {
+                control: {
+                    type: 'select',
+                    options: ['text', 'email', 'number', 'password', 'search', 'textarea', 'url'],
+                },
+                defaultValue: 'text',
+            },
+            size: {
+                controle: {
+                    type: 'inline-radio',
+                    options: ['small', 'default', 'large'],
+                },
+                defaultValue: 'default',
+            },
+            disabled: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            readonly: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            optional: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            hideOptionalLabel: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            placeholder: {
+                control: {
+                    type: 'text',
+                },
+            },
+            defaultValue: {
+                control: {
+                    type: 'text',
+                },
+            },
+            prefix: {
+                control: {
+                    type: 'string',
+                },
+                description: 'A string or icon to appear at the start of the input.',
+            },
+            prefixButton: {
+                description:
+                    'Make the prefix respond to click events. This is an object that includes a `label` of type string and an `onClick` method that will be called when the prefix is clicked.',
+            },
+            suffix: {
+                control: {
+                    type: 'string',
+                },
+                description: 'A string or icon to appear at the end of the input.',
+            },
+            suffixButton: {
+                description:
+                    'Make the suffix respond to click events. This is an object that includes a `label` of type string and an `onClick` method that will be called when the suffix is clicked.',
+            },
+            textRight: {
+                control: {
+                    type: 'boolean',
+                },
+                description:
+                    'Aligns the text to the right. Equivalent to using the `text-right` Tailwind class.',
+            },
+            helpText: {
+                control: {
+                    type: 'string',
+                },
+                description: "Give the user more details they'll need to fill out the input",
+            },
+            feedback: {
+                control: {
+                    type: 'string',
+                },
+                description:
+                    'For providing feedback as the user types. For instance, this can be used for showing the current character count.',
+            },
+            requiredMessage: {
+                control: {
+                    type: 'string',
+                },
+                description:
+                    'If the input is not optional, this error message will show when the input is blank.',
+            },
+            validationRules: {
+                description:
+                    'Rules that will run to validate user input client-side. This is an array of objects, where each object contains `assert: (value: string) => boolean` (a function that validates the input) and `error: string` (error message to show when the rule fails).',
+            },
+            updater: {
+                description:
+                    'A function that will run on every input keystroke. Use this for formatting the text in real-time or for limiting input to certain characters. `(value: string, oldValue: string) => string`',
+            },
+            formatter: {
+                description:
+                    'A function that formats the value when the input is blurred. `(value: string) => string`',
+            },
+            parser: {
+                description:
+                    'A function that will parse the visible user input into the final value that will be submitted in the form. Useful for parsing things like numbers with thousands separators. `(value: string) => FormDataValue`',
+            },
+            tabularNums: {
+                control: {
+                    type: 'boolean',
+                },
+                description: 'For making all number characters equal width.',
+            },
+            keyboard: {
+                control: {
+                    type: 'select',
+                    options: ['decimal', 'none', 'email', 'numeric', 'search', 'tel', 'url'],
+                },
+                description: 'Specify which virtual keyboard should be shown on mobile devices.',
+            },
+            autocomplete: {
+                control: {
+                    type: 'text',
+                },
+                description:
+                    "The HTML autocomplete value for the input. For instance, it's usefull letting the browser auto-fill usernames and passwords.",
+            },
+            minCharacters: {
+                control: {
+                    type: 'number',
+                },
+                description:
+                    'Specify the minimum number of characters that must be included for the input to be valid. This will automatically give the user feedback as they type.',
+            },
+            maxCharacters: {
+                control: {
+                    type: 'number',
+                },
+                description:
+                    'Specify the maximum number of characters that must be included for the input to be valid. This will automatically give the user feedback as they type.',
+            },
+        },
     }
 
     let formatterValue = '150.00'
