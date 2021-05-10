@@ -21,6 +21,10 @@
             store: {
                 type: { name: 'store', required: true },
             },
+            size: {
+                control: { type: 'inline-radio', options: ['small', 'default', 'large'] },
+                defaultValue: 'default',
+            },
         },
     }
 </script>
