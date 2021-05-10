@@ -63,7 +63,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.14.0
   '@babel/preset-typescript': 7.13.0_@babel+core@7.14.0
-  '@nick-mazuk/eslint-config': 0.8.6_157d6ab7d17f29a59760b96f899561f0
+  '@nick-mazuk/eslint-config': 0.8.7_157d6ab7d17f29a59760b96f899561f0
   '@nick-mazuk/lib': 0.8.43
   '@nick-mazuk/semantic-release-config': 1.1.3_96e29e7a57c65d488f627694047bf5b5
   '@nick-mazuk/ui-config': 0.10.41_tailwindcss@2.1.2
@@ -1757,8 +1757,8 @@ packages:
       glob-to-regexp: 0.3.0
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.6_157d6ab7d17f29a59760b96f899561f0:
-    resolution: {integrity: sha512-6xClvL3CKyDhRyfZNL8pR1s8TSDCZndoU23mziS6G4cnoyKdEzFc6pG0NdgrXSnJCGg2oPzJyX9hrbGKzLVP9w==}
+  /@nick-mazuk/eslint-config/0.8.7_157d6ab7d17f29a59760b96f899561f0:
+    resolution: {integrity: sha512-egcum9oPMK0jdTUVL+Ft5XXN+3IWt9GbyukpAfHPrdZBi6lK9QWixmeuwnG/ukRsBkYL7Db0GbeL15KjGyHlng==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -1767,7 +1767,7 @@ packages:
       '@typescript-eslint/parser': 4.22.1_eslint@7.26.0+typescript@4.2.4
       eslint: 7.26.0
       eslint-config-prettier: 8.3.0_eslint@7.26.0
-      eslint-plugin-chai-friendly: 0.6.0_eslint@7.26.0
+      eslint-plugin-chai-friendly: 0.7.1_eslint@7.26.0
       eslint-plugin-cypress: 2.11.3_eslint@7.26.0
       eslint-plugin-deprecation: 1.2.1_eslint@7.26.0+typescript@4.2.4
       eslint-plugin-eslint-comments: 3.2.0_eslint@7.26.0
@@ -6790,8 +6790,8 @@ packages:
       pkg-dir: 2.0.0
     dev: true
 
-  /eslint-plugin-chai-friendly/0.6.0_eslint@7.26.0:
-    resolution: {integrity: sha512-Uvvv1gkbRGp/qfN15B0kQyQWg+oFA8buDSqrwmW3egNSk/FpqH2MjQqKOuKwmEL6w4QIQrIjDp+gg6kGGmD3oQ==}
+  /eslint-plugin-chai-friendly/0.7.1_eslint@7.26.0:
+    resolution: {integrity: sha512-0xhGiSQ+9oWtNc6IZPUR+6ChKbEvLXwT9oZZ5NcGlPzHVKGn1YKwQFj7a9yL3rnRKbWF7b3RkRYEP8kN6dPOwQ==}
     engines: {node: '>=0.10.0'}
     peerDependencies:
       eslint: '>=3.0.0'
