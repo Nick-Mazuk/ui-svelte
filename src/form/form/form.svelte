@@ -16,7 +16,7 @@
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
-    let handleSubmitInput: HandleSubmit = undefined
+    let handleSubmitInput: HandleSubmit
     export { handleSubmitInput as handleSubmit }
     export let resetOnSubmit = false
 
@@ -99,5 +99,3 @@
 <form bind:this="{formElement}" on:submit|preventDefault="{handleSubmit}" novalidate>
     <slot />
 </form>
-
-{JSON.stringify(formData)}

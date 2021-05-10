@@ -50,6 +50,7 @@
     export let autocomplete: TextInputAutocomplete = undefined
     export let minCharacters: number | undefined = undefined
     export let maxCharacters: number | undefined = undefined
+    export let autofocus = false
 
     const disabledClasses = disabled
         ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
@@ -183,6 +184,7 @@
             />
         {/if}
         {#if type === 'textarea'}
+            <!-- svelte-ignore a11y-autofocus -->
             <textarea
                 type="text"
                 class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} focus:ring-0 w-full self-stretch text-foreground"
@@ -190,29 +192,36 @@
                 class:text-right="{textRight}"
                 class:tabular-nums="{tabularNumbers}"
                 value="{value}"
+                required="{!optional}"
                 disabled="{disabled}"
                 readonly="{readonly}"
+                aria-invalid="{isInvalidState}"
                 placeholder="{placeholder}"
                 inputmode="{keyboard}"
                 autocomplete="{autocomplete}"
                 name="{name}"
+                autofocus="{autofocus}"
                 on:blur="{handleBlur}"
                 on:input="{handleInput}"
                 rows="{4}"></textarea>
         {:else}
+            <!-- svelte-ignore a11y-autofocus -->
             <input
                 class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} focus:ring-0 w-full self-stretch text-foreground"
                 class:cursor-not-allowed="{disabled}"
                 class:text-right="{textRight}"
                 class:tabular-nums="{tabularNumbers}"
                 value="{value}"
+                required="{!optional}"
                 disabled="{disabled}"
                 readonly="{readonly}"
+                aria-invalid="{isInvalidState}"
                 placeholder="{placeholder}"
                 inputmode="{keyboard}"
                 autocomplete="{autocomplete}"
                 type="{type}"
                 name="{name}"
+                autofocus="{autofocus}"
                 on:blur="{handleBlur}"
                 on:input="{handleInput}"
             />

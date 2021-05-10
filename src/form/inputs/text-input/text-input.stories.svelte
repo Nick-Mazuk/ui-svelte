@@ -12,6 +12,8 @@
     import Eye from '../../../elements/icon/eye.svelte'
     import Lock from '../../../elements/icon/lock.svelte'
     import TextInput from './text-input.svelte'
+    import Form from '../../form/form.svelte'
+    import Button from '../../../elements/button/button.svelte'
 
     const meta = {
         title: 'Form/Inputs/TextInput',
@@ -43,7 +45,7 @@
                 defaultValue: 'text',
             },
             size: {
-                controle: {
+                control: {
                     type: 'inline-radio',
                     options: ['small', 'default', 'large'],
                 },
@@ -180,6 +182,12 @@
                 description:
                     'Specify the maximum number of characters that must be included for the input to be valid. This will automatically give the user feedback as they type.',
             },
+            autofocus: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
         },
     }
 
@@ -206,7 +214,7 @@
         />
     </div>
 </Story>
-<Story name="Prefix/Suffix" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
+<Story name="Prefix and suffix" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
     <div class="grid grid-cols-1 gap-4">
         <TextInput {...args} label="Prefix" prefix="https://" />
         <TextInput {...args} label="Icon prefix" prefix="{Mail}" />
@@ -327,4 +335,14 @@
         <TextInput {...args} label="Upper character limit" maxCharacters="{30}" />
         <TextInput {...args} label="Lower character limit" minCharacters="{8}" />
     </div>
+</Story>
+<Story name="With form" let:args>
+    <Form handleSubmit="{() => Promise.resolve(true)}" resetOnSubmit>
+        <div class="grid grid-cols-1 gap-4">
+            <TextInput {...args} label="Text input" />
+            <div>
+                <Button submit>Submit</Button>
+            </div>
+        </div>
+    </Form>
 </Story>
