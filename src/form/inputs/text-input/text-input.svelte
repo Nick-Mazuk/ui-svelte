@@ -11,6 +11,7 @@
         TextInputAutocomplete,
         TextInputDispatcher,
         TextInputKeyboard,
+        TextInputType,
         Updater,
         ValidationRules,
     } from '.'
@@ -22,6 +23,7 @@
     export let label = ''
     let nameProp = ''
     export { nameProp as name }
+    export let type: TextInputType = 'text'
     export let size: FormItemSize = 'default'
     export let disabled = false
     export let readonly = false
@@ -130,6 +132,7 @@
         prefix ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
+    $: isInvalidState = !isValid && showError
 </script>
 
 <Label
@@ -142,7 +145,8 @@
         class="input-wrapper {disabledClasses} {FORM_SIZE_MAP[size].height} flex items-center"
         class:input-wrapper-readonly="{readonly}"
         class:input-wrapper-disabled="{disabled}"
-        class:input-wrapper-active="{!disabled && !readonly}"
+        class:input-wrapper-active="{!disabled && !readonly && !isInvalidState}"
+        class:input-wrapper-error="{isInvalidState}"
     >
         {#if prefix}
             <TextInputAffix
@@ -151,24 +155,44 @@
                 buttonProps="{prefixButton}"
                 disabled="{disabled}"
                 size="{size}"
+                isInvalid="{isInvalidState}"
             />
         {/if}
-        <input
-            type="text"
-            class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} focus:ring-0 w-full self-stretch text-foreground"
-            class:cursor-not-allowed="{disabled}"
-            class:text-right="{textRight}"
-            class:tabular-nums="{tabularNumbers}"
-            value="{value}"
-            disabled="{disabled}"
-            readonly="{readonly}"
-            placeholder="{placeholder}"
-            inputmode="{keyboard}"
-            autocomplete="{autocomplete}"
-            name="{name}"
-            on:blur="{handleBlur}"
-            on:input="{handleInput}"
-        />
+        {#if type === 'textarea'}
+            <textarea
+                type="text"
+                class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} focus:ring-0 w-full self-stretch text-foreground"
+                class:cursor-not-allowed="{disabled}"
+                class:text-right="{textRight}"
+                class:tabular-nums="{tabularNumbers}"
+                value="{value}"
+                disabled="{disabled}"
+                readonly="{readonly}"
+                placeholder="{placeholder}"
+                inputmode="{keyboard}"
+                autocomplete="{autocomplete}"
+                name="{name}"
+                on:blur="{handleBlur}"
+                on:input="{handleInput}"
+                rows="{4}"></textarea>
+        {:else}
+            <input
+                class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} focus:ring-0 w-full self-stretch text-foreground"
+                class:cursor-not-allowed="{disabled}"
+                class:text-right="{textRight}"
+                class:tabular-nums="{tabularNumbers}"
+                value="{value}"
+                disabled="{disabled}"
+                readonly="{readonly}"
+                placeholder="{placeholder}"
+                inputmode="{keyboard}"
+                autocomplete="{autocomplete}"
+                type="{type}"
+                name="{name}"
+                on:blur="{handleBlur}"
+                on:input="{handleInput}"
+            />
+        {/if}
         {#if suffix}
             <TextInputAffix
                 content="{suffix}"
@@ -176,6 +200,7 @@
                 buttonProps="{suffixButton}"
                 disabled="{disabled}"
                 size="{size}"
+                isInvalid="{isInvalidState}"
             />
         {/if}
     </div>

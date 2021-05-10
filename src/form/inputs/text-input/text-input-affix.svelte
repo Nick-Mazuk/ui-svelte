@@ -9,17 +9,19 @@
     export let disabled: boolean
     export let placement: 'prefix' | 'suffix'
     export let size: FormItemSize
+    export let isInvalid: boolean
 
-    const getAffixClasses = (isButton: boolean) => {
-        const classes = [
-            'self-stretch flex items-center whitespace-nowrap flex-none bg-gray bg-opacity-0',
-        ]
+    const getAffixClasses = (isButton: boolean, invalid: boolean) => {
+        const classes = ['self-stretch flex items-center whitespace-nowrap flex-none bg-opacity-0']
         if (disabled) classes.push('cursor-pointer')
         else if (isButton)
             classes.push(
-                'cursor-pointer focus:outline-none focus:bg-primary hover:bg-opacity-10 focus:bg-opacity-20 focus:text-primary-700'
+                'cursor-pointer focus:outline-none hover:bg-opacity-10 focus:bg-opacity-20'
             )
         else classes.push('cursor-text')
+
+        if (invalid) classes.push('bg-error focus:text-error-700')
+        else classes.push('bg-gray focus:bg-primary focus:text-primary-700')
         return classes.join(' ')
     }
     $: padding =
@@ -31,7 +33,7 @@
 {#if buttonProps}
     <Tooltip placement="{placement === 'prefix' ? 'right' : 'left'}" value="{buttonProps.label}">
         <button
-            class="{padding} {getAffixClasses(true)}"
+            class="{padding} {getAffixClasses(true, isInvalid)}"
             on:click="{buttonProps.onClick}"
             disabled="{disabled}"
             slot="trigger"
@@ -46,7 +48,7 @@
         <span>{buttonProps.label}</span>
     </Tooltip>
 {:else}
-    <div class="{padding} {getAffixClasses(false)}">
+    <div class="{padding} {getAffixClasses(false, isInvalid)}">
         {#if typeof content === 'string'}
             <span class="{FORM_SIZE_MAP[size].textSize}">{content}</span>
         {:else}
