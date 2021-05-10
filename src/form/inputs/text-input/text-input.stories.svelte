@@ -52,7 +52,7 @@
         />
     </div>
 </Story>
-<Story name="Prefix/Suffix" let:args>
+<Story name="Prefix/Suffix" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
     <div class="grid grid-cols-1 gap-4">
         <TextInput {...args} label="Prefix" prefix="https://" />
         <TextInput {...args} label="Icon prefix" prefix="{Mail}" />
@@ -87,14 +87,9 @@
             readonly
         />
         <TextInput {...args} label="Disabled" helpText="Is not accepting user input." disabled />
-        <TextInput
-            {...args}
-            label="Error"
-            helpText="For when the value of the input is not correct."
-        />
     </div>
 </Story>
-<Story name="Sizes" let:args>
+<Story name="Sizes" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
     <div class="grid grid-cols-1 gap-4">
         <TextInput {...args} label="Small" defaultValue="Some text" size="small" />
         <TextInput {...args} label="Default" defaultValue="Some text" size="default" />
@@ -148,7 +143,7 @@
         />
     </div>
 </Story>
-<Story name="Formatters" let:args>
+<Story name="Formatters" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
     <div class="grid grid-cols-1 gap-4">
         <TextInput
             {...args}

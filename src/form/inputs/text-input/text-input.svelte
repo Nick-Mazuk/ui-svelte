@@ -146,7 +146,7 @@
         prefix ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
-    $: isInvalidState = !isValid && showError
+    $: isInvalidState = !isValid && showError && !readonly
     $: {
         if (feedbackProp) feedback = feedbackProp
         else if (maxCharacters)
@@ -239,7 +239,7 @@
         {#if feedback}
             <p class="col-start-2 text-sm text-gray-700 text-right">{feedback}</p>
         {/if}
-        {#if !isValid && showError}
+        {#if isInvalidState}
             <div class="col-start-1" class:row-start-1="{!helpText}">
                 <Error label="">{errorMessage}</Error>
             </div>
