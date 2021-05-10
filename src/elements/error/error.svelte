@@ -14,6 +14,7 @@
     aria-atomic="true"
     class="flex space-x-2 text-error items-center"
     class:text-lg="{size === 'large'}"
+    data-test="error"
 >
     <div class="flex items-center self-start flex-none">
         <span>&ZeroWidthSpace;</span>

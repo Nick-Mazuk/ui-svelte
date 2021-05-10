@@ -22,13 +22,6 @@
                 },
                 defaultValue: 'unchecked',
             },
-            value: {
-                control: {
-                    type: 'radio',
-                    options: ['unchecked', 'checked', 'indeterminate'],
-                },
-                defaultValue: 'unchecked',
-            },
             label: {
                 control: {
                     type: 'text',
@@ -70,9 +63,9 @@
             },
             requiredMessage: {
                 control: {
-                    type: 'boolean',
+                    type: 'text',
                 },
-                defaultValue: false,
+                defaultValue: 'This is required',
             },
         },
     }
@@ -105,9 +98,11 @@
 <Story name="Disabled" args="{{ disabled: true }}" let:args>
     <CheckInput {...args}>I agree to the terms and privacy policy.</CheckInput>
     <Spacer />
-    <CheckInput {...args} value="checked">I agree to the terms and privacy policy.</CheckInput>
+    <CheckInput {...args} defaultValue="checked"
+        >I agree to the terms and privacy policy.</CheckInput
+    >
     <Spacer />
-    <CheckInput {...args} value="indeterminate">
+    <CheckInput {...args} defaultValue="indeterminate">
         I agree to the terms and privacy policy.
     </CheckInput>
 </Story>

@@ -8,7 +8,6 @@
     import Error from '../../../elements/error/error.svelte'
 
     export let defaultValue: CheckboxValue = 'unchecked'
-    export let value: CheckboxValue = defaultValue
     export let ariaLabel: string | undefined = undefined
     export let label: string | undefined = undefined
     let inputedName: string = ''
@@ -26,6 +25,7 @@
     let isValid = false
     let isHovered = false
     let isFocused = false
+    let value: CheckboxValue = defaultValue
 
     let justClicked = false
     const handleChange: svelte.JSX.FormEventHandler<HTMLInputElement> = (event) => {
@@ -112,7 +112,7 @@
             </div>
         </span>
         {#if $$slots.default}
-            <span class:text-gray="{disabled}">
+            <span class:text-gray="{disabled}" data-test="check-input-description">
                 <slot />
                 {#if optional && !hideOptionalLabel}
                     (optional)
