@@ -173,3 +173,9 @@
         <p>Parsed value: "{formatterParsedValue}"</p>
     </div>
 </Story>
+<Story name="Character limits" let:args>
+    <div class="grid grid-cols-1 gap-4">
+        <TextInput {...args} label="Upper character limit" maxCharacters="{30}" />
+        <TextInput {...args} label="Lower character limit" minCharacters="{8}" />
+    </div>
+</Story>

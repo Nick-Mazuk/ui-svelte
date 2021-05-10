@@ -1,6 +1,8 @@
 <script lang="ts">
     import { slugify } from '@nick-mazuk/lib/js/text-styling'
+    import { formatNumber } from '@nick-mazuk/lib/js/number-styling'
     import { diffChars } from 'diff'
+    import { createEventDispatcher, getContext, tick } from 'svelte'
 
     import Label from '../../label/label.svelte'
     import Error from '../../../elements/error/error.svelte'
@@ -15,7 +17,6 @@
         Updater,
         ValidationRules,
     } from '.'
-    import { createEventDispatcher, getContext, tick } from 'svelte'
     import type { FormSync } from '../..'
     import { FORM_SIZE_MAP } from '../../form-sizes'
     import type { FormItemSize } from '../../form-sizes'
@@ -37,7 +38,8 @@
     export let suffixButton: { label: string; onClick: () => void } | undefined = undefined
     export let textRight = false
     export let helpText = ''
-    export let feedback = ''
+    let feedbackProp = ''
+    export { feedbackProp as feedback }
     export let requiredMessage = 'This field is required.'
     export let validationRules: ValidationRules = []
     export let parser: Parser = undefined
@@ -46,6 +48,8 @@
     export let tabularNumbers = false
     export let keyboard: TextInputKeyboard = undefined
     export let autocomplete: TextInputAutocomplete = undefined
+    export let minCharacters: number | undefined = undefined
+    export let maxCharacters: number | undefined = undefined
 
     const disabledClasses = disabled
         ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
@@ -59,6 +63,7 @@
     let value = defaultValue
     let parsedValue: string
     let formattedValue: string
+    let feedback: string
     const handleBlur = () => {
         showError = true
         if (formatter) value = formatter(value)
@@ -67,6 +72,12 @@
         event
     ) => {
         const inputtedValue = event.currentTarget.value
+
+        if (maxCharacters && inputtedValue.length > maxCharacters) {
+            event.currentTarget.value = value
+            return
+        }
+
         const selection = event.currentTarget.selectionStart
         value = updater ? updater(event.currentTarget.value, value) : event.currentTarget.value
         event.currentTarget.value = value
@@ -109,6 +120,9 @@
         if (value.length === 0 && !optional) {
             tempIsValid = false
             tempErrorMessage = requiredMessage
+        } else if (minCharacters && value.length < minCharacters) {
+            tempIsValid = false
+            tempErrorMessage = `Use at least ${formatNumber(minCharacters)} characters`
         } else {
             for (const rule of validationRules) {
                 if (!rule.assert(value)) {
@@ -133,6 +147,16 @@
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
     $: isInvalidState = !isValid && showError
+    $: {
+        if (feedbackProp) feedback = feedbackProp
+        else if (maxCharacters)
+            feedback = `${formatNumber(value.length)} / ${formatNumber(maxCharacters)}`
+        else if (minCharacters)
+            feedback = `${formatNumber(value.length)} character${
+                value.length === 1 ? '' : 's'
+            } (minimum ${formatNumber(minCharacters)})`
+        else feedback = ''
+    }
 </script>
 
 <Label
