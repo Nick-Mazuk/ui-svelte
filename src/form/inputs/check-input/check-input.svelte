@@ -97,7 +97,7 @@
                 ></div>
                 <input
                     type="checkbox"
-                    class="rounded-sm w-4 h-4 z-10 bg-transparent cursor-pointer focus:ring-0 focus:ring-offset-0 disabled:cursor-not-allowed checked:text-primary transition focus:outline-none disabled:text-gray-300 disabled:border-gray-300 active:bg-gray-200 disabled:active:bg-background {borderClasses}"
+                    class="relative rounded-sm w-4 h-4 bg-transparent cursor-pointer focus:ring-0 focus:ring-offset-0 disabled:cursor-not-allowed checked:text-primary transition focus:outline-none disabled:text-gray-300 disabled:border-gray-300 active:bg-gray-200 disabled:active:bg-background {borderClasses}"
                     indeterminate="{value === 'indeterminate'}"
                     checked="{value === 'checked'}"
                     aria-label="{ariaLabel}"
