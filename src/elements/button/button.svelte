@@ -38,7 +38,7 @@
         disabled?: string
     }
 
-    const disabledClasses = 'bg-gray-200 text-gray cursor-not-allowed'
+    const disabledClasses = 'bg-gray-200 text-gray cursor-not-allowed !transition-none'
     const STYLES_MAP: Record<Variant, ButtonStyling> = {
         primary: {
             classes:
@@ -70,17 +70,17 @@
                     ? 'border-transparent'
                     : 'border-gray-300 hover:border-foreground hover:text-foreground active:bg-gray-200'
             } focus:ring-gray-900`,
-            disabled: 'text-gray-300 border cursor-not-allowed',
+            disabled: 'text-gray-300 border cursor-not-allowed !transition-none',
         },
         link: {
             classes: `border-transparent bg-transparent link ${
                 shadow ? 'hover:no-underline' : ''
             } focus:ring-link`,
-            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
+            disabled: 'text-gray-300 border-transparent cursor-not-allowed !transition-none',
         },
         static: {
             classes: 'border-transparent focus:ring-gray-900',
-            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
+            disabled: 'text-gray-300 border-transparent cursor-not-allowed !transition-none',
         },
     }
 

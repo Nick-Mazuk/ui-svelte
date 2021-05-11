@@ -12,6 +12,7 @@
         FormData,
         FormDispatcher,
         FormOnErrorDetail,
+        FormSyncError,
     } from '..'
 
     export let method: FormMethod = undefined
@@ -32,6 +33,7 @@
     let formInputs: FormInputs = {}
     let formData: FormData = {}
     const formState = writable<FormState>('ready')
+    const formError = writable<FormSyncError | undefined>(undefined)
     const updateForm: UpdateFormCallback = (name, data, validate, reset) => {
         if (name === '') return
         formInputs = { ...formInputs, [name]: { data, validate, reset } }
@@ -39,6 +41,7 @@
     setContext<FormSync>('formSync', {
         formState,
         updateForm,
+        error: formError,
     })
     const dispatch = createEventDispatcher<FormDispatcher>()
 
@@ -48,6 +51,7 @@
         if (!window.navigator.onLine) {
             formState.set('error')
             dispatch('error', { data: formData, message: 'No internet access.' })
+            formError.set({ status: 'offline' })
             return
         }
         formState.set('submitting')
@@ -74,6 +78,7 @@
             dispatch('success', formData)
         } else {
             formState.set('error')
+            formError.set({ status: errorDetails.status || 'unknown' })
             dispatch('error', errorDetails)
         }
     }
