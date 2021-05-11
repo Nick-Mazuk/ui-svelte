@@ -78,7 +78,7 @@
         <span class="flex-none self-start flex items-center">
             <span>&ZeroWidthSpace;</span>
             <div
-                class="h-10 w-10 relative -m-3 rounded-full flex items-center justify-center {disabled
+                class="h-10 w-10 relative -m-3 flex items-center justify-center {disabled
                     ? 'cursor-not-allowed'
                     : 'cursor-pointer'}"
                 on:mouseenter="{handleMouseEnter}"
