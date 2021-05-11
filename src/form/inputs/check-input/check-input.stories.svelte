@@ -92,7 +92,7 @@
 <Story name="Label" args="{{ label: 'Label' }}" let:args>
     <CheckInput {...args}>I agree to the terms and privacy policy.</CheckInput>
 </Story>
-<Story name="Indeterminate" args="{{ value: 'indeterminate' }}" let:args>
+<Story name="Indeterminate" args="{{ defaultValue: 'indeterminate' }}" let:args>
     <CheckInput {...args}>I agree to the terms and privacy policy.</CheckInput>
 </Story>
 <Story name="Disabled" args="{{ disabled: true }}" let:args>
