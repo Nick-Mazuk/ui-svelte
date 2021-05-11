@@ -20,6 +20,7 @@
     let handleSubmitInput: HandleSubmit
     export { handleSubmitInput as handleSubmit }
     export let resetOnSubmit = false
+    export let allowOffline = false
 
     type FormInputs = {
         [name: string]: {
@@ -48,7 +49,7 @@
     const resetForm = () => Object.keys(formInputs).forEach((input) => formInputs[input].reset())
 
     const submit = async () => {
-        if (!window.navigator.onLine) {
+        if (!window.navigator.onLine && !allowOffline) {
             formState.set('error')
             dispatch('error', { data: formData, message: 'No internet access.' })
             formError.set({ status: 'offline' })

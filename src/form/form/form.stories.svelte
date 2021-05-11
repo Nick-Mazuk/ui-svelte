@@ -37,6 +37,16 @@
                     type: 'boolean',
                 },
                 defaultValue: false,
+                description:
+                    'Resets all form inputs to their default values after the form is submitted successfully.',
+            },
+            allowOffline: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+                description:
+                    'By default, the form will detect if a user is offline and will throw an error. Use this prop to remove this behavior and allow the user to submit the form without internet access.',
             },
         },
     }
