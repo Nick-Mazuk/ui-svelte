@@ -7,7 +7,7 @@ type Input = {
     name: string
     label: string
     validValue: string
-    invalidValue: string
+    invalidValue?: string
     parsedValue: string
     hasIcon: boolean
     requiredMessage?: string
@@ -42,6 +42,17 @@ const inputs: Input[] = [
         requiredMessage: 'Enter your password',
         autocomplete: 'new-password',
     },
+    {
+        componentName: 'PasswordInput',
+        type: 'password',
+        name: 'password',
+        label: 'Password',
+        validValue: 'password',
+        parsedValue: 'password',
+        hasIcon: true,
+        requiredMessage: 'Enter your password',
+        autocomplete: 'new-password',
+    },
 ]
 
 // eslint-disable-next-line max-lines-per-function -- has multiple shorter tests
@@ -67,8 +78,10 @@ inputs.forEach((input) => {
             cy.get('input').type(input.validValue).should('have.value', input.validValue)
             cy.get('[data-test="error"]').should('not.exist')
             cy.contains(`Parsed value: "${input.parsedValue}"`)
-            cy.get('input').clear().type(input.invalidValue).blur()
-            cy.get('[data-test="error"]')
+            if (input.invalidValue) {
+                cy.get('input').clear().type(input.invalidValue).blur()
+                cy.get('[data-test="error"]')
+            }
         })
 
         it(`${input.componentName} displays props correctly`, () => {
