@@ -9,7 +9,7 @@ type Input = {
     validValue: string
     invalidValue?: string
     parsedValue: string
-    hasIcon: boolean
+    hasIcon?: boolean
     requiredMessage?: string
     autocomplete?: TextInputAutocomplete
     minCharacters?: boolean
@@ -41,6 +41,15 @@ const inputs: Input[] = [
         hasIcon: true,
         requiredMessage: 'Enter your password',
         autocomplete: 'new-password',
+    },
+    {
+        componentName: 'NumberInput',
+        type: 'text',
+        name: 'number',
+        label: 'Number',
+        validValue: '123',
+        parsedValue: '123',
+        requiredMessage: 'Enter a number',
     },
     {
         componentName: 'PasswordInput',

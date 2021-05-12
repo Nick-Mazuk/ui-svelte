@@ -39,6 +39,7 @@
             slot="trigger"
             aria-label="{buttonProps.label}"
             data-test="{`text-input-${placement}`}"
+            type="button"
         >
             {#if typeof content === 'string'}
                 <span class="{FORM_SIZE_MAP[size].textSize}">{content}</span>
