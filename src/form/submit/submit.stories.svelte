@@ -1,8 +1,7 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
     import Form from '../form/form.svelte'
-    import TextInput from '../inputs/text-input/text-input.svelte'
-
+    import Send from '../../elements/icon/send.svelte'
     import Submit from './submit.svelte'
 
     const meta = {
@@ -53,6 +52,12 @@
                 },
                 description: 'For longer tasks like file uploads, show a progress bar.',
             },
+            prefix: {
+                description: 'Icon prefix',
+            },
+            suffix: {
+                description: 'Icon prefix',
+            },
         },
     }
 </script>
@@ -63,6 +68,16 @@
     <Form handleSubmit="{() => new Promise((resolve) => setTimeout(() => resolve(true), 500))}">
         <Submit {...args} />
     </Form>
+</Story>
+<Story name="Prefix and suffix" let:args>
+    <div class="grid gap-4">
+        <Form handleSubmit="{() => Promise.resolve(true)}">
+            <Submit {...args} prefix="{Send}" value="Prefix" />
+        </Form>
+        <Form handleSubmit="{() => Promise.resolve(true)}">
+            <Submit {...args} suffix="{Send}" value="Suffix" />
+        </Form>
+    </div>
 </Story>
 <Story name="Progress bar" args="{{ progress: 0.5 }}" let:args>
     <Form handleSubmit="{() => new Promise((resolve) => setTimeout(() => resolve(true), 500))}">

@@ -19,6 +19,8 @@
     export let success = 'Submitted succesfully'
     export let error: Partial<ErrorMessages> | string = ''
     export let value = 'Submit'
+    export let prefix: Function | undefined = undefined
+    export let suffix: Function | undefined = undefined
 
     const formSync = getContext<FormSync>('formSync')
     const defaultErrorMessages: ErrorMessages = {
@@ -65,6 +67,11 @@
         {/if}
     {/if}
     <div class="flex-none">
-        <Button submit loading="{state && $state === 'submitting'}">{value}</Button>
+        <Button
+            submit
+            loading="{state && $state === 'submitting'}"
+            prefix="{prefix}"
+            suffix="{suffix}">{value}</Button
+        >
     </div>
 </div>
