@@ -340,8 +340,6 @@
     name="Textarea"
     args="{{
         type: 'textarea',
-        defaultValue:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, a et! Illo accusantium ullam cumque sit ut labore sint, quod maiores est qui optio animi beatae consequatur in obcaecati quisquam! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, a et! Illo accusantium ullam cumque sit ut labore sint, quod maiores est qui optio animi beatae consequatur in obcaecati quisquam!',
     }}"
     let:args
 >
