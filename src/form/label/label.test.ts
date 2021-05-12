@@ -1,6 +1,8 @@
-it('renders', () => {
-    cy.loadStory('Form/Label', 'Default')
-    cy.checkAccessibility()
+context('Label', () => {
+    it('renders', () => {
+        cy.loadStory('Form/Label', 'Default')
+        cy.checkAccessibility()
+    })
 })
 
 export {}
