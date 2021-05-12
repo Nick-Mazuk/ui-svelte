@@ -20,7 +20,6 @@
     import type { FormSync } from '../..'
     import { FORM_SIZE_MAP } from '../../form-sizes'
     import type { FormItemSize } from '../../form-sizes'
-    import { text } from 'svelte/internal'
 
     export let label = ''
     let nameProp = ''
@@ -122,6 +121,8 @@
         if (value.length === 0 && !optional) {
             tempIsValid = false
             tempErrorMessage = requiredMessage
+        } else if (value.length === 0 && optional) {
+            tempIsValid = true
         } else if (minCharacters && value.length < minCharacters) {
             tempIsValid = false
             tempErrorMessage = `Use at least ${formatNumber(minCharacters)} characters`
@@ -130,6 +131,7 @@
                 if (!rule.assert(value)) {
                     tempIsValid = false
                     tempErrorMessage = rule.error ?? ''
+                    break
                 }
             }
         }

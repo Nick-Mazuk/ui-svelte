@@ -33,6 +33,7 @@ it('has working display props', () => {
         requiredMessage: 'Enter your email',
         keyboard: 'email',
         autocomplete: 'email',
+        autofocus: 'true',
     })
     cy.checkAccessibility()
     cy.get('input')
@@ -42,7 +43,7 @@ it('has working display props', () => {
         .should('have.attr', 'inputmode', 'email')
         .should('have.attr', 'autocomplete', 'email')
         .should('have.value', 'example')
-
+    cy.get('input').should('have.attr', 'autofocus')
     cy.contains('My label').should('exist')
     cy.contains('suffix').should('exist')
     cy.contains('prefix').should('exist')
@@ -84,28 +85,24 @@ it('affixes work', () => {
     cy.get('input').first().should('be.focused')
 })
 
-it('enforces character limits', () => {
-    cy.loadStory('Form/Inputs/TextInput', 'Character limits')
-    cy.checkAccessibility()
-
-    const string = 'aaaaaaaaaaaaaaa'
-    cy.contains('0 / 30')
-    cy.get('input').first().type(string)
-    cy.contains('15 / 30')
-    cy.get('input').first().type(string)
-    cy.contains('30 / 30')
-    cy.get('input')
-        .first()
-        .type('a')
-        .should('have.value', string + string)
-    cy.contains('30 / 30')
-
-    cy.contains('0 characters (minimum 8)')
-    cy.get('input').eq(1).focus().blur().should('have.attr', 'aria-invalid', 'true')
-    cy.get('[data-test="error"]').should('exist')
-    cy.get('input').eq(1).type('aaaaaaaa').should('not.have.attr', 'aria-invalid', 'true')
+it('performs custom validation', () => {
+    cy.loadStory('Form/Inputs/TextInput', 'Validation')
+    cy.get('input').type('abc').blur()
+    cy.get('[data-test="error"]').contains('at least 8 characters')
+    cy.get('input').type('defghi').blur()
+    cy.get('[data-test="error"]').contains('least 2 uppercase characters')
+    cy.get('input').type('AB')
+    cy.get('[data-test="error"]').contains('least 2 numbers')
+    cy.get('input').type('12')
     cy.get('[data-test="error"]').should('not.exist')
-    cy.contains('8 characters (minimum 8)')
+
+    cy.loadStory('Form/Inputs/TextInput', 'Validation', {
+        optional: 'true',
+    })
+    cy.get('input').type('hello').blur()
+    cy.get('[data-test="error"]').contains('at least 8 characters')
+    cy.get('input').clear().blur()
+    cy.get('[data-test="error"]').should('not.exist')
 })
 
 it('formats and parses input correctly', () => {
@@ -134,6 +131,30 @@ it('formats and parses input correctly', () => {
     cy.get('input').should('have.value', '123,150')
     cy.contains('Value: "123,150"')
     cy.contains('Parsed value: "123150"')
+})
+
+it('enforces character limits', () => {
+    cy.loadStory('Form/Inputs/TextInput', 'Character limits')
+    cy.checkAccessibility()
+
+    const string = 'aaaaaaaaaaaaaaa'
+    cy.contains('0 / 30')
+    cy.get('input').first().type(string)
+    cy.contains('15 / 30')
+    cy.get('input').first().type(string)
+    cy.contains('30 / 30')
+    cy.get('input')
+        .first()
+        .type('a')
+        .should('have.value', string + string)
+    cy.contains('30 / 30')
+
+    cy.contains('0 characters (minimum 8)')
+    cy.get('input').eq(1).focus().blur().should('have.attr', 'aria-invalid', 'true')
+    cy.get('[data-test="error"]').should('exist')
+    cy.get('input').eq(1).type('aaaaaaaa').should('not.have.attr', 'aria-invalid', 'true')
+    cy.get('[data-test="error"]').should('not.exist')
+    cy.contains('8 characters (minimum 8)')
 })
 
 it('works with form', () => {

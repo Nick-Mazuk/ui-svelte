@@ -23,7 +23,7 @@ Cypress.Commands.add(
         Object.keys(queryParameters).forEach((parameter) => {
             queryStrings.push(`${parameter}=${queryParameters[parameter]}`)
         })
-        cy.visit(`iframe.html?${queryStrings.join('&')}`)
+        cy.visit(`/iframe.html?${queryStrings.join('&')}`)
         cy.injectAxe()
         cy.configureAxe({
             rules: [

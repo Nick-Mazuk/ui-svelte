@@ -23,6 +23,7 @@ specifiers:
   '@types/marked': ^2.0.0
   '@types/node': ^15.0.2
   '@types/svg-parser': ^2.0.1
+  '@types/validator': ^13.1.3
   ac-colors: ^1.4.2
   autoprefixer: ^10.2.5
   chromatic: ^5.8.0
@@ -57,12 +58,15 @@ specifiers:
   tailwindcss: ^2.1.1
   ts-loader: ^9.1.2
   typescript: ^4.2.4
+  validator: ^13.6.0
 
 dependencies:
+  '@types/validator': 13.1.3
   diff: 5.0.0
   marked: 2.0.1
   svelte-intersection-observer: 0.7.0
   svelte-portal: 2.1.2
+  validator: 13.6.0
 
 devDependencies:
   '@babel/core': 7.13.13
@@ -5108,6 +5112,10 @@ packages:
   /@types/unist/2.0.3:
     resolution: {integrity: sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==}
     dev: true
+
+  /@types/validator/13.1.3:
+    resolution: {integrity: sha512-DaOWN1zf7j+8nHhqXhIgNmS+ltAC53NXqGxYuBhWqWgqolRhddKzfZU814lkHQSTG0IUfQxU7Cg0gb8fFWo2mA==}
+    dev: false
 
   /@types/webpack-env/1.16.0:
     resolution: {integrity: sha512-Fx+NpfOO0CpeYX2g9bkvX8O5qh9wrU1sOF4g8sft4Mu7z+qfe387YlyY8w8daDyDsKY5vUxM0yxkAYnbkRbZEw==}
@@ -15553,7 +15561,6 @@ packages:
   /validator/13.6.0:
     resolution: {integrity: sha512-gVgKbdbHgtxpRyR8K0O6oFZPhhB5tT1jeEHZR0Znr9Svg03U0+r9DXWMrnRAB+HtCStDQKlaIZm42tVsVjqtjg==}
     engines: {node: '>= 0.10'}
-    dev: true
 
   /vary/1.1.2:
     resolution: {integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=}
