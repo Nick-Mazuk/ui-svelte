@@ -64,3 +64,43 @@ Cypress.Commands.add('screenSize', (size: ScreenSize) => {
     }
     cy.viewport(SIZE_MAP[size][0], SIZE_MAP[size][1])
 })
+
+Cypress.Commands.add('goOffline', () => {
+    cy.log('**go offline**')
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.enable',
+            })
+        })
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.emulateNetworkConditions',
+                params: {
+                    offline: true,
+                    latency: -1,
+                    downloadThroughput: -1,
+                    uploadThroughput: -1,
+                },
+            })
+        })
+})
+
+Cypress.Commands.add('goOnline', () => {
+    cy.log('**go online**')
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.emulateNetworkConditions',
+                params: {
+                    offline: false,
+                    latency: -1,
+                    downloadThroughput: -1,
+                    uploadThroughput: -1,
+                },
+            })
+        })
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.disable',
+            })
+        })
+})

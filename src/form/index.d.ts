@@ -1,6 +1,6 @@
 import type { Writable } from 'svelte/store'
 
-export type FormMethod = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE' | undefined
+export type FormMethod = 'POST' | 'PATCH' | 'PUT' | 'DELETE' | undefined
 export type FormState = 'ready' | 'success' | 'submitting' | 'error'
 export type FormDataValue = string | Record<string, string> | boolean | number | string[] | FileList
 export type FormData = {

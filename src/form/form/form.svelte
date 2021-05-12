@@ -63,7 +63,7 @@
             success = response === true
             if (!success) {
                 if (typeof response === 'boolean') errorDetails = { data: formData }
-                else errorDetails = { ...response, ...errorDetails }
+                else errorDetails = { ...errorDetails, ...response }
             }
         } else if (method && action) {
             const response = await fetch(action, {
@@ -71,6 +71,7 @@
                 body: JSON.stringify(formData),
             })
             success = response.status === 200
+            if (!success) errorDetails = { ...errorDetails, status: response.status }
         }
 
         if (success) {

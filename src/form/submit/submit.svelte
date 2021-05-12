@@ -16,7 +16,7 @@
     }
 
     export let progress: number | undefined = undefined
-    export let success = 'Submitted succesfully'
+    export let success = 'Submitted successfully'
     export let error: Partial<ErrorMessages> | string = ''
     export let value = 'Submit'
     export let prefix: Function | undefined = undefined
@@ -55,7 +55,7 @@
 <div class="flex items-baseline justify-end space-x-6" data-test="submit">
     {#if state}
         {#if $state === 'success'}
-            <p>{success}</p>
+            <p data-test="submit-success">{success}</p>
         {:else if $state === 'submitting' && typeof progress !== 'undefined'}
             <div class="w-full self-stretch flex items-center">
                 <div class="w-full">

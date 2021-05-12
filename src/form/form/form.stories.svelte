@@ -1,8 +1,10 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
     import Button from '../../elements/button/button.svelte'
+    import Spacer from '../../utilities/spacer/spacer.svelte'
     import CheckInput from '../inputs/check-input/check-input.svelte'
     import TextInput from '../inputs/text-input/text-input.svelte'
+    import Submit from '../submit/submit.svelte'
 
     import Form from './form.svelte'
 
@@ -56,8 +58,9 @@
 
 <Story name="Default" let:args>
     <Form {...args}>
-        <CheckInput name="check">This is a checkbox</CheckInput>
-        <TextInput label="Text input" />
-        <Button submit>Submit</Button>
+        <div class="grid gap-4">
+            <TextInput label="Text input" defaultValue="Some text value" />
+            <Submit />
+        </div>
     </Form>
 </Story>

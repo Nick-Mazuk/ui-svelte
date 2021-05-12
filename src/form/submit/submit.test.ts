@@ -1,3 +1,5 @@
+// these tests also cover the Form component's handleSubmit tests
+
 it('renders', () => {
     cy.loadStory('Form/Submit', 'Default')
     cy.checkAccessibility()
