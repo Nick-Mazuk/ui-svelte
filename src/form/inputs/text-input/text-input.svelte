@@ -20,6 +20,7 @@
     import type { FormSync } from '../..'
     import { FORM_SIZE_MAP } from '../../form-sizes'
     import type { FormItemSize } from '../../form-sizes'
+    import { text } from 'svelte/internal'
 
     export let label = ''
     let nameProp = ''
@@ -147,6 +148,13 @@
         prefix ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
+    $: heightClasses = type === 'textarea' ? '' : FORM_SIZE_MAP[size].height
+    let textareaRows: number
+    $: {
+        if (size === 'small') textareaRows = 2
+        else if (size === 'default') textareaRows = 3
+        else textareaRows = 4
+    }
     $: isInvalidState = !isValid && showError && !readonly
     $: {
         if (feedbackProp) feedback = feedbackProp
@@ -167,7 +175,7 @@
     hideOptionalLabel="{hideOptionalLabel}"
 >
     <div
-        class="input-wrapper {disabledClasses} {FORM_SIZE_MAP[size].height} flex items-center"
+        class="input-wrapper {disabledClasses} {heightClasses} flex items-center"
         class:input-wrapper-readonly="{readonly}"
         class:input-wrapper-disabled="{disabled}"
         class:input-wrapper-active="{!disabled && !readonly && !isInvalidState}"
@@ -187,7 +195,9 @@
             <!-- svelte-ignore a11y-autofocus -->
             <textarea
                 type="text"
-                class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} focus:ring-0 w-full self-stretch text-foreground"
+                class="p-0 bg-transparent placeholder-gray border-none {sizeClasses} {FORM_SIZE_MAP[
+                    size
+                ].content.paddingY} focus:ring-0 w-full self-stretch text-foreground"
                 class:cursor-not-allowed="{disabled}"
                 class:text-right="{textRight}"
                 class:tabular-nums="{tabularNumbers}"
@@ -203,7 +213,7 @@
                 autofocus="{autofocus}"
                 on:blur="{handleBlur}"
                 on:input="{handleInput}"
-                rows="{4}"></textarea>
+                rows="{textareaRows}"></textarea>
         {:else}
             <!-- svelte-ignore a11y-autofocus -->
             <input

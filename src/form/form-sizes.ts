@@ -11,6 +11,7 @@ type SizeDetail = {
         paddingLeftWithPrefix: string
         paddingRight: string
         paddingRightWithPrefix: string
+        paddingY: string
     }
 }
 
@@ -29,6 +30,7 @@ export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
             paddingLeftWithPrefix: 'pl-8',
             paddingRight: 'pr-3',
             paddingRightWithPrefix: 'pr-8',
+            paddingY: 'py-1',
         },
     },
     default: {
@@ -44,6 +46,7 @@ export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
             paddingLeftWithPrefix: 'pl-10',
             paddingRight: 'pr-4',
             paddingRightWithPrefix: 'pr-10',
+            paddingY: 'py-2',
         },
     },
     large: {
@@ -59,6 +62,7 @@ export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
             paddingLeftWithPrefix: 'pl-12',
             paddingRight: 'pr-4',
             paddingRightWithPrefix: 'pr-12',
+            paddingY: 'py-3',
         },
     },
 }

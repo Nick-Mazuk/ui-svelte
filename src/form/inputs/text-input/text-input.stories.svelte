@@ -336,6 +336,21 @@
         <TextInput {...args} label="Lower character limit" minCharacters="{8}" />
     </div>
 </Story>
+<Story
+    name="Textarea"
+    args="{{
+        type: 'textarea',
+        defaultValue:
+            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, a et! Illo accusantium ullam cumque sit ut labore sint, quod maiores est qui optio animi beatae consequatur in obcaecati quisquam! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, a et! Illo accusantium ullam cumque sit ut labore sint, quod maiores est qui optio animi beatae consequatur in obcaecati quisquam!',
+    }}"
+    let:args
+>
+    <div class="grid grid-cols-1 gap-4">
+        <TextInput {...args} label="Small" size="small" />
+        <TextInput {...args} label="Default" />
+        <TextInput {...args} label="Large" size="large" />
+    </div>
+</Story>
 <Story name="With form" let:args>
     <Form handleSubmit="{() => Promise.resolve(true)}" resetOnSubmit>
         <div class="grid grid-cols-1 gap-4">
