@@ -1,6 +1,6 @@
 export type ValidationRules = {
     assert: (value: string) => boolean
-    error?: string
+    error: string
 }[]
 export type Parser = ((value: string) => FormDataValue) | undefined
 export type Updater = ((value: string, oldValue: string) => string) | undefined

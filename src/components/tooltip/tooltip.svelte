@@ -79,5 +79,5 @@
         </Portal>
     {/if}
 {:else}
-    <slot name="trigger" />
+    <span class="contents focus:outline-none"><slot name="trigger" /></span>
 {/if}

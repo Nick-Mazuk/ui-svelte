@@ -97,8 +97,10 @@
             currentCharacter += change.count
         })
         await tick()
-        event.currentTarget.selectionStart = newSelection
-        event.currentTarget.selectionEnd = newSelection
+        if (event.currentTarget) {
+            event.currentTarget.selectionStart = newSelection
+            event.currentTarget.selectionEnd = newSelection
+        }
     }
     const reset = () => {
         value = defaultValue
@@ -249,6 +251,9 @@
             />
         {/if}
     </div>
+    {#if $$slots['before-feedback']}
+        <slot name="before-feedback" />
+    {/if}
     <div
         class="grid grid-cols-2 gap-y-1"
         class:gap-x-6="{feedback}"

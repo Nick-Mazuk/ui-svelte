@@ -38,6 +38,7 @@
             disabled="{disabled}"
             slot="trigger"
             aria-label="{buttonProps.label}"
+            data-test="{`text-input-${placement}`}"
         >
             {#if typeof content === 'string'}
                 <span class="{FORM_SIZE_MAP[size].textSize}">{content}</span>
@@ -48,7 +49,10 @@
         <span>{buttonProps.label}</span>
     </Tooltip>
 {:else}
-    <div class="{padding} {getAffixClasses(false, isInvalid)}">
+    <div
+        class="{padding} {getAffixClasses(false, isInvalid)}"
+        data-test="{`text-input-${placement}`}"
+    >
         {#if typeof content === 'string'}
             <span class="{FORM_SIZE_MAP[size].textSize}">{content}</span>
         {:else}

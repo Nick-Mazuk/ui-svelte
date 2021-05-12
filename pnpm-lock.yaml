@@ -24,6 +24,7 @@ specifiers:
   '@types/node': ^15.0.2
   '@types/svg-parser': ^2.0.1
   '@types/validator': ^13.1.3
+  '@types/zxcvbn': ^4.4.1
   ac-colors: ^1.4.2
   autoprefixer: ^10.2.5
   chromatic: ^5.8.0
@@ -59,14 +60,17 @@ specifiers:
   ts-loader: ^9.1.2
   typescript: ^4.2.4
   validator: ^13.6.0
+  zxcvbn: ^4.4.2
 
 dependencies:
   '@types/validator': 13.1.3
+  '@types/zxcvbn': 4.4.1
   diff: 5.0.0
   marked: 2.0.1
   svelte-intersection-observer: 0.7.0
   svelte-portal: 2.1.2
   validator: 13.6.0
+  zxcvbn: 4.4.2
 
 devDependencies:
   '@babel/core': 7.13.13
@@ -5149,6 +5153,10 @@ packages:
     dependencies:
       '@types/yargs-parser': 20.2.0
     dev: true
+
+  /@types/zxcvbn/4.4.1:
+    resolution: {integrity: sha512-3NoqvZC2W5gAC5DZbTpCeJ251vGQmgcWIHQJGq2J240HY6ErQ9aWKkwfoKJlHLx+A83WPNTZ9+3cd2ILxbvr1w==}
+    dev: false
 
   /@typescript-eslint/eslint-plugin/4.22.0_a9e037f37571367fb31b3a00392fb3dc:
     resolution: {integrity: sha512-U8SP9VOs275iDXaL08Ln1Fa/wLXfj5aTr/1c0t0j6CdbOnxh+TruXu1p4I0NAvdPBQgoPjHsgKn28mOi0FzfoA==}
@@ -15902,3 +15910,7 @@ packages:
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: true
+
+  /zxcvbn/4.4.2:
+    resolution: {integrity: sha1-KOwXzwl0PtyrBW3dixsGJizHPDA=}
+    dev: false
