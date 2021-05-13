@@ -1,3 +1,10 @@
+## [0.5.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.1...v0.5.2) (2021-05-13)
+
+
+### Bug Fixes
+
+* increase lib peer dependency version ([f1cd4bb](https://github.com/Nick-Mazuk/ui-svelte/commit/f1cd4bbc02bc50bc48cea2cbbf41a4c1d1348739))
+
 ## [0.5.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.0...v0.5.1) (2021-05-13)
 
 # [0.5.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.4.4...v0.5.0) (2021-05-13)
