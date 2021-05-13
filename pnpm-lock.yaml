@@ -4,7 +4,7 @@ specifiers:
   '@babel/core': ^7.13.13
   '@babel/preset-typescript': ^7.13.0
   '@nick-mazuk/eslint-config': ^0.8.11
-  '@nick-mazuk/lib': ^0.8.43
+  '@nick-mazuk/lib': ^0.8.45
   '@nick-mazuk/semantic-release-config': ^1.1.3
   '@nick-mazuk/ui-config': ^0.10.41
   '@semantic-release/changelog': ^5.0.1
@@ -76,7 +76,7 @@ devDependencies:
   '@babel/core': 7.13.13
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
   '@nick-mazuk/eslint-config': 0.8.11_4149a662fa3025ebd2690398e68fc970
-  '@nick-mazuk/lib': 0.8.43
+  '@nick-mazuk/lib': 0.8.45
   '@nick-mazuk/semantic-release-config': 1.1.3_96e29e7a57c65d488f627694047bf5b5
   '@nick-mazuk/ui-config': 0.10.41_tailwindcss@2.1.1
   '@semantic-release/changelog': 5.0.1_semantic-release@17.4.2
@@ -2954,8 +2954,8 @@ packages:
       - svelte
     dev: true
 
-  /@nick-mazuk/lib/0.8.43:
-    resolution: {integrity: sha512-U+qoqm7u2LLmgzy3ZBY6QD+PzlG3nFZOBLKm0tw3t8PJMQ5NY2H9egqij9gXbgdVJ2mZDq4R1zhnDt9u9llP6A==}
+  /@nick-mazuk/lib/0.8.45:
+    resolution: {integrity: sha512-rpvv/fB27795Itw9wsirZeAlP1EZWXLyTZ3DkRje3vDEw8Ds6ExO4p8hnk2dFqX/EbKb5pJ7BLaIbLWpRQf/5w==}
     dependencies:
       validator: 13.6.0
     dev: true

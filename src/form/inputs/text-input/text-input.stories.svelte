@@ -6,7 +6,7 @@
         formatNumber,
         addThousandsSeparators,
         stringToNumber,
-    } from '@nick-mazuk/lib/js/number-styling'
+    } from '@nick-mazuk/lib/esm/number-styling'
 
     import Mail from '../../../elements/icon/mail.svelte'
     import Eye from '../../../elements/icon/eye.svelte'
@@ -193,6 +193,7 @@
 
     let formatterValue = '150.00'
     let formatterParsedValue = '150'
+
 </script>
 
 <Meta {...meta} />

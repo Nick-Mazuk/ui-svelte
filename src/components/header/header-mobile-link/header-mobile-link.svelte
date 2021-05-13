@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getContext } from 'svelte'
     import type { Writable } from 'svelte/store'
-    import { isParentPath } from '@nick-mazuk/lib/js/url'
+    import { isParentPath } from '@nick-mazuk/lib/esm/url'
     import HeaderMobileItemWrapper from '../header-mobile-item-wrapper/header-mobile-item-wrapper.svelte'
 
     export let href: string
@@ -17,6 +17,7 @@
         else isCurrentPath = isParentPath($page, href)
     }
     $: if (subgroupContext) subgroupContext.set(isCurrentPath)
+
 </script>
 
 <HeaderMobileItemWrapper>

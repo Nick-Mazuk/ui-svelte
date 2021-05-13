@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getContext } from 'svelte'
     import type { Writable } from 'svelte/store'
-    import { isParentPath } from '@nick-mazuk/lib/js/url'
+    import { isParentPath } from '@nick-mazuk/lib/esm/url'
 
     import HeaderItemWrapper from '../header-item-wrapper/header-item-wrapper.svelte'
 
@@ -18,6 +18,7 @@
         else if (matchExact) isCurrentPath = $page === href
         else isCurrentPath = isParentPath($page, href)
     }
+
 </script>
 
 <HeaderItemWrapper breakpoint="{breakpoint}">
