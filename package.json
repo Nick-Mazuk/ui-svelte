@@ -81,7 +81,7 @@
         "types.d.ts"
     ],
     "peerDependencies": {
-        "@nick-mazuk/lib": "^0.8.43",
+        "@nick-mazuk/lib": "^0.8.45",
         "@nick-mazuk/ui-config": "^0.10.41",
         "tailwindcss": "^2.1.1"
     },
