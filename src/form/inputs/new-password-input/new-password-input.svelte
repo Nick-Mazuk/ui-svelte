@@ -5,7 +5,7 @@
     import type { FormItemSize } from '../../form-sizes'
     import type { TextInputAutocomplete, TextInputChangeEvent, Updater } from '../text-input'
     import TextInput from '../text-input/text-input.svelte'
-    import zxcvbn from 'zxcvbn'
+    import zxcvbn from 'zxcvbn/dist/zxcvbn'
 
     export let label = 'Password'
     export let name = 'password'
@@ -57,7 +57,7 @@
         ? [strength.feedback.warning, ...strength.feedback.suggestions]
         : strength.feedback.suggestions
     )
-        .filter((item) => item !== 'No need for symbols, digits, or uppercase letters')
+        .filter((item: string) => item !== 'No need for symbols, digits, or uppercase letters')
         .slice(0, 2)
         .join('. ')
         .replace(/\.\./gu, '.')

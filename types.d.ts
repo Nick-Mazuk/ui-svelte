@@ -1,5 +1,6 @@
 declare module '@storybook/addon-svelte-csf'
 declare module 'marked/lib/marked.esm'
+declare module 'zxcvbn/dist/zxcvbn'
 
 declare namespace Cypress {
     interface Chainable {
