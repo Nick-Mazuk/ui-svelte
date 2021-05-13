@@ -1,6 +1,8 @@
-it('renders', () => {
-    cy.loadStory('Components/Header/HeaderMobileItemWrapper', 'Default')
-    cy.checkAccessibility()
+context('HeaderMobileItemWrapper', () => {
+    it('renders', () => {
+        cy.loadStory('Components/Header/HeaderMobileItemWrapper', 'Default')
+        cy.checkAccessibility()
+    })
 })
 
 export {}

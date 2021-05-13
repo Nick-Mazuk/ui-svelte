@@ -2,6 +2,8 @@
     import LoadingSpinner from '../loading-spinner/loading-spinner.svelte'
     import type { Writable } from 'svelte/store'
     import { getContext } from 'svelte'
+    import type { FormItemSize } from '../../form/form-sizes'
+    import { FORM_SIZE_MAP } from '../../form/form-sizes'
 
     type Variant =
         | 'primary'
@@ -13,11 +15,10 @@
         | 'secondary'
         | 'link'
         | 'static'
-    type Size = 'small' | 'default' | 'large'
     type Shape = 'square' | 'circle' | 'none'
 
     export let variant: Variant = 'primary'
-    export let size: Size = 'default'
+    export let size: FormItemSize = 'default'
     export let shadow = false
     export let disabled = false
     export let loading = false
@@ -27,18 +28,17 @@
     export let ariaLabel = ''
     export let href = ''
     export let testId = 'button'
+    export let prefix: unknown | undefined = undefined
+    export let suffix: unknown | undefined = undefined
 
     const disabledContext = getContext<Writable<boolean> | undefined>('disabled')
-
-    let isActive = false
-    let isHovered = false
 
     type ButtonStyling = {
         classes: string
         disabled?: string
     }
 
-    const disabledClasses = 'bg-gray-200 text-gray cursor-not-allowed'
+    const disabledClasses = 'bg-gray-200 text-gray cursor-not-allowed !transition-none'
     const STYLES_MAP: Record<Variant, ButtonStyling> = {
         primary: {
             classes:
@@ -65,54 +65,32 @@
                 'bg-gray border-gray text-background hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700 focus:ring-gray dark:text-foreground',
         },
         secondary: {
-            classes: `bg-background text-gray-600 ${
+            classes: `bg-background text-gray-700 ${
                 shadow
                     ? 'border-transparent'
-                    : 'hover:border-gray-900 hover:text-gray-900 active:bg-gray-200'
+                    : 'border-gray-300 hover:border-foreground hover:text-foreground active:bg-gray-200'
             } focus:ring-gray-900`,
-            disabled: 'text-gray-300 border cursor-not-allowed',
+            disabled: 'text-gray-300 border cursor-not-allowed !transition-none',
         },
         link: {
             classes: `border-transparent bg-transparent link ${
                 shadow ? 'hover:no-underline' : ''
             } focus:ring-link`,
-            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
+            disabled: 'text-gray-300 border-transparent cursor-not-allowed !transition-none',
         },
         static: {
             classes: 'border-transparent focus:ring-gray-900',
-            disabled: 'text-gray-300 border-transparent cursor-not-allowed',
+            disabled: 'text-gray-300 border-transparent cursor-not-allowed !transition-none',
         },
     }
 
-    type SizeData = {
-        global: string
-        prefix: string
-        suffix: string
-        loadingSpinner: string
+    const loadingSpinnerClasses: Record<FormItemSize, string> = {
+        small: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.small.affix.paddingPrefix}`,
+        default: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.default.affix.paddingPrefix}`,
+        large: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.large.affix.paddingPrefix}`,
     }
 
-    const SIZE_MAP: Record<Size, SizeData> = {
-        small: {
-            global: 'px-3 h-8',
-            loadingSpinner: 'transform scale-50 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-            prefix: 'flex w-4 mr-2 -ml-1 relative',
-            suffix: 'flex w-4 ml-1 -mr-1',
-        },
-        default: {
-            global: 'px-4 h-10',
-            loadingSpinner: 'transform scale-75 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-            prefix: 'flex w-5 mr-2 -ml-1 relative',
-            suffix: 'flex w-5 ml-2 -mr-1',
-        },
-        large: {
-            global: 'px-4 h-12 text-lg',
-            loadingSpinner: 'transform scale-90 top-1/2 mt-0.5 -translate-y-1/2 absolute',
-            prefix: 'flex w-6 mr-2 -ml-1 relative',
-            suffix: 'flex w-6 ml-2 -mr-1',
-        },
-    }
-
-    const SHAPE_MAP: Record<Shape, Record<Size, string>> = {
+    const SHAPE_MAP: Record<Shape, Record<FormItemSize, string>> = {
         square: {
             small: 'w-8 !px-1.5',
             default: 'w-10 !px-2',
@@ -130,44 +108,23 @@
         },
     }
 
-    const handleMouseEnter: svelte.JSX.MouseEventHandler<
-        HTMLButtonElement | HTMLAnchorElement
-    > = () => {
-        isHovered = true
-    }
-
-    const handleMouseLeave: svelte.JSX.MouseEventHandler<
-        HTMLButtonElement | HTMLAnchorElement
-    > = () => {
-        isHovered = false
-    }
-
     const handleMouseUp: svelte.JSX.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
         event
     ) => {
         event.currentTarget.blur()
     }
 
-    const handleKeydown: svelte.JSX.KeyboardEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
-        event
-    ) => {
-        if (event.key === 'Enter') isActive = true
-    }
-    const handleKeyup: svelte.JSX.KeyboardEventHandler<HTMLButtonElement | HTMLAnchorElement> = (
-        event
-    ) => {
-        if (event.key === 'Enter') isActive = false
-    }
-
     $: widthStyle = width && width !== 'full' ? `width: ${width * 4}px` : ''
     $: shadowClasses = shadow
         ? 'shadow-md hover:shadow-lg active:shadow-md transform hover:-translate-y-0.5 active:translate-y-0'
         : ''
-    $: ringClasses =
-        isActive || isHovered
-            ? 'ring-offset-2 ring-offset-background'
-            : 'ring-offset-2 focus:ring-2 ring-offset-background'
     $: isDisabled = typeof disabledContext === 'undefined' ? disabled : $disabledContext || disabled
+    $: sizeClasses = [
+        FORM_SIZE_MAP[size].height,
+        FORM_SIZE_MAP[size].textSize,
+        prefix || loading ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
+        suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
+    ].join(' ')
 </script>
 
 {#if href}
@@ -175,9 +132,9 @@
         class="{`
             border transition focus:outline-none font-semibold truncate
             inline-flex justify-center items-center
+            focus-ring
             ${shadowClasses}
-            ${ringClasses}
-            ${SIZE_MAP[size].global}
+            ${sizeClasses}
             ${SHAPE_MAP[shape][size]}
             ${
                 isDisabled || loading
@@ -189,32 +146,33 @@
         class:rounded="{shape !== 'circle'}"
         style="{widthStyle}"
         disabled="{isDisabled || loading}"
-        on:mouseenter="{handleMouseEnter}"
-        on:mouseleave="{handleMouseLeave}"
         on:mouseup="{handleMouseUp}"
-        on:keydown="{handleKeydown}"
-        on:keyup="{handleKeyup}"
         on:click
         aria-label="{ariaLabel}"
         href="{href}"
         data-test="{testId}"
     >
         {#if loading}
-            <span class="{SIZE_MAP[size].prefix}">
-                <span class="{SIZE_MAP[size].loadingSpinner}">
-                    <LoadingSpinner />
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <div style="{`width: ${FORM_SIZE_MAP[size].affix.icon * 4}px`}"></div>
+                <span class="{loadingSpinnerClasses[size]}">
+                    <LoadingSpinner size="{FORM_SIZE_MAP[size].affix.icon}" />
                 </span>
             </span>
-        {:else if $$slots.prefix}
-            <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
+        {:else if prefix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
         {/if}
         {#if shape === 'none'}
             <span><slot /></span>
         {:else}
             <slot />
         {/if}
-        {#if $$slots.suffix}
-            <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
+        {#if suffix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingSuffix}">
+                <svelte:component this="{suffix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
         {/if}
     </a>
 {:else}
@@ -222,9 +180,9 @@
         class="{`
             border transition focus:outline-none font-semibold truncate
             flex justify-center items-center
+            focus-ring
             ${shadowClasses}
-            ${ringClasses}
-            ${SIZE_MAP[size].global}
+            ${sizeClasses}
             ${SHAPE_MAP[shape][size]}
             ${
                 isDisabled || loading
@@ -237,31 +195,32 @@
         style="{widthStyle}"
         disabled="{isDisabled || loading}"
         type="{submit ? 'submit' : 'button'}"
-        on:mouseenter="{handleMouseEnter}"
-        on:mouseleave="{handleMouseLeave}"
         on:mouseup="{handleMouseUp}"
-        on:keydown="{handleKeydown}"
-        on:keyup="{handleKeyup}"
         on:click
         aria-label="{ariaLabel}"
         data-test="{testId}"
     >
         {#if loading}
-            <span class="{SIZE_MAP[size].prefix}">
-                <span class="{SIZE_MAP[size].loadingSpinner}">
-                    <LoadingSpinner />
+            <div class="{FORM_SIZE_MAP[size].affix.paddingPrefix} relative">
+                <div style="{`width: ${FORM_SIZE_MAP[size].affix.icon * 4}px`}"></div>
+                <span class="{loadingSpinnerClasses[size]}">
+                    <LoadingSpinner size="{FORM_SIZE_MAP[size].affix.icon}" />
                 </span>
+            </div>
+        {:else if prefix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
+                <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
             </span>
-        {:else if $$slots.prefix}
-            <span class="{SIZE_MAP[size].prefix}"><slot name="prefix" /></span>
         {/if}
         {#if shape === 'none'}
             <span><slot /></span>
         {:else}
             <slot />
         {/if}
-        {#if $$slots.suffix}
-            <span class="{SIZE_MAP[size].suffix}"><slot name="suffix" /></span>
+        {#if suffix}
+            <span class="{FORM_SIZE_MAP[size].affix.paddingSuffix}">
+                <svelte:component this="{suffix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
+            </span>
         {/if}
     </button>
 {/if}

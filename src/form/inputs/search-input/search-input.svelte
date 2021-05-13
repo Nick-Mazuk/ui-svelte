@@ -1,8 +1,8 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
 
-    import LoadingDots from '../../elements/loading-dots/loading-dots.svelte'
-    import Search from '../../elements/icon/search.svelte'
+    import LoadingDots from '../../../elements/loading-dots/loading-dots.svelte'
+    import Search from '../../../elements/icon/search.svelte'
 
     export let options: string[] = []
     export let isLoading = false

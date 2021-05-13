@@ -57,7 +57,7 @@
     <Popover {...args} />
 </Template>
 
-<Story name="Default" let:args>
+<Story name="Default" parameters="{{ layout: 'fullscreen' }}" let:args>
     <div class="min-w-screen min-h-screen flex items-center justify-center">
         <Popover {...args}>
             <Button variant="secondary" slot="trigger">Open popover</Button>
@@ -66,7 +66,7 @@
     </div>
 </Story>
 
-<Story name="Events" let:args>
+<Story name="Events" parameters="{{ layout: 'fullscreen' }}" let:args>
     <div class="min-w-screen min-h-screen flex items-center justify-center">
         <Popover {...args} on:close="{() => alert('closed')}" on:open="{() => alert('opened')}">
             <Button variant="secondary" slot="trigger">Open popover</Button>

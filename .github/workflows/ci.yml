@@ -16,6 +16,13 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node }}
+      - name: Cache ~/.pnpm-store
+        uses: actions/cache@main
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node }}
       - run: npx pnpm i --frozen-lockfile=false
       - run: npm run lint
   cypress:
@@ -30,6 +37,13 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: 14
+      - name: Cache ~/.pnpm-store
+        uses: actions/cache@main
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-14-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node }}
       - run: npx pnpm i --frozen-lockfile=false
       - name: Cypress run
         uses: cypress-io/github-action@v2

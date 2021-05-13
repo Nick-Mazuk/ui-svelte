@@ -4,7 +4,7 @@
     import SearchInput from './search-input.svelte'
 
     const meta = {
-        title: 'Form/SearchInput',
+        title: 'Form/Inputs/SearchInput',
         component: SearchInput,
         parameters: {
             docs: {

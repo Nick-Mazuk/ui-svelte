@@ -90,10 +90,11 @@
                 },
                 description: "Make icon buttons accessible by labeling it's function",
             },
-
-            'on:click': {
-                action: 'clicked',
-                description: 'The forwarded on:click DOM event',
+            prefix: {
+                description: 'Icon prefix',
+            },
+            suffix: {
+                description: 'Icon prefix',
             },
         },
     }
@@ -177,26 +178,19 @@
         <div><Button {...args} width="full">Width full</Button></div>
     </div>
 </Story>
-<Story name="Prefix/Suffix" let:args>
+<Story name="Prefix and suffix" let:args>
     <div class="flex space-x-8">
         <div>
-            <Button {...args}>
-                <ArrowUp slot="prefix" />
-                Prefix
-            </Button>
+            <Button {...args} prefix="{ArrowUp}">Prefix</Button>
         </div>
         <div>
-            <Button {...args}>
+            <Button {...args} suffix="{ArrowUp}">
                 Suffix
                 <ArrowUp slot="suffix" />
             </Button>
         </div>
         <div>
-            <Button {...args}>
-                <ArrowUp slot="prefix" />
-                Prefix and suffix
-                <ArrowUp slot="suffix" />
-            </Button>
+            <Button {...args} prefix="{ArrowUp}" suffix="{ArrowUp}">Prefix and suffix</Button>
         </div>
     </div>
 </Story>

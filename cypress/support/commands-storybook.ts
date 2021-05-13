@@ -23,7 +23,7 @@ Cypress.Commands.add(
         Object.keys(queryParameters).forEach((parameter) => {
             queryStrings.push(`${parameter}=${queryParameters[parameter]}`)
         })
-        cy.visit(`iframe.html?${queryStrings.join('&')}`)
+        cy.visit(`/iframe.html?${queryStrings.join('&')}`)
         cy.injectAxe()
         cy.configureAxe({
             rules: [
@@ -45,14 +45,13 @@ Cypress.Commands.add('toggleDarkMode', () => {
 
 Cypress.Commands.add('checkAccessibility', () => {
     cy.checkA11y()
-
-    // race condition with dark mode https://stackoverflow.com/questions/67377305/cypress-updating-dom-class-produces-race-condition
 })
 
 /* cy.toggleDarkMode()
-       cy.wait(300)
-       cy.checkA11y()
-       cy.toggleDarkMode() */
+   // race condition with dark mode https://stackoverflow.com/questions/67377305/cypress-updating-dom-class-produces-race-condition
+   cy.wait(100)
+   cy.checkA11y(undefined, { runOnly: { type: 'rule', values: ['color-contrast'] } })
+   cy.toggleDarkMode() */
 
 type ScreenSize = 'tiny' | 'sm' | 'md' | 'lg'
 
@@ -64,4 +63,44 @@ Cypress.Commands.add('screenSize', (size: ScreenSize) => {
         lg: [1023, 640],
     }
     cy.viewport(SIZE_MAP[size][0], SIZE_MAP[size][1])
+})
+
+Cypress.Commands.add('goOffline', () => {
+    cy.log('**go offline**')
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.enable',
+            })
+        })
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.emulateNetworkConditions',
+                params: {
+                    offline: true,
+                    latency: -1,
+                    downloadThroughput: -1,
+                    uploadThroughput: -1,
+                },
+            })
+        })
+})
+
+Cypress.Commands.add('goOnline', () => {
+    cy.log('**go online**')
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.emulateNetworkConditions',
+                params: {
+                    offline: false,
+                    latency: -1,
+                    downloadThroughput: -1,
+                    uploadThroughput: -1,
+                },
+            })
+        })
+        .then(() => {
+            return Cypress.automation('remote:debugger:protocol', {
+                command: 'Network.disable',
+            })
+        })
 })

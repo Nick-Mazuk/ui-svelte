@@ -1,6 +1,6 @@
 import feather from 'feather-icons'
 import fs from 'fs-extra'
-import hastToHtml from 'hast-util-to-html'
+import { toHtml } from 'hast-util-to-html'
 import parseSvg from 'svg-parser'
 
 const SVG_PATH = 'src/svg'
@@ -46,7 +46,7 @@ const getCustomIconData = (name: string): { contents: string; fill: boolean; str
     ]
     const children = svgData.children.filter((child) => child.tagName !== 'title') as any
     return {
-        contents: hastToHtml(children),
+        contents: toHtml(children),
         fill: svgData.properties.fill !== 'none',
         stroke:
             svgData.properties.stroke !== 'none' &&
