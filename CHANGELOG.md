@@ -1,3 +1,12 @@
+## [0.5.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.3...v0.5.4) (2021-05-13)
+
+
+### Bug Fixes
+
+* fix new-password-input to work with sveltekit ([1b3c4d1](https://github.com/Nick-Mazuk/ui-svelte/commit/1b3c4d16669e704aa7dea488cd0faa6a75aad440))
+* focus ring displays correctly in dark mode ([1bc3f77](https://github.com/Nick-Mazuk/ui-svelte/commit/1bc3f77893ad7b3b0947354b745c3766a835dd1f))
+* move validator to esm ([a14027a](https://github.com/Nick-Mazuk/ui-svelte/commit/a14027adbc71be95660bb0c7520c929504f25906))
+
 ## [0.5.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.2...v0.5.3) (2021-05-13)
 
 
