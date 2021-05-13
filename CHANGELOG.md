@@ -1,3 +1,10 @@
+## [0.5.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.2...v0.5.3) (2021-05-13)
+
+
+### Bug Fixes
+
+* remove storybook-dark-mode ([4e8af94](https://github.com/Nick-Mazuk/ui-svelte/commit/4e8af9482571a37419eb834166bdb3b3cf8d0cea))
+
 ## [0.5.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.1...v0.5.2) (2021-05-13)
 
 
