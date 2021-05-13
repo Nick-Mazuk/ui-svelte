@@ -6,4 +6,3 @@ node_modules
 cli/dist
 src/style-guide/colors.stories.mdx
 src/style-guide/icons.stories.mdx
-src/elements/icon/*.svelte
