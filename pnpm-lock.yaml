@@ -48,7 +48,6 @@ specifiers:
   storybook-addon-pseudo-states: ^1.0.0
   storybook-addon-themes: ^6.0.1
   storybook-addon-turbo-build: ^1.0.0-beta
-  storybook-dark-mode: ^1.0.8-canary.138.3320.0
   svelte: ^3.35.0
   svelte-check: ^1.3.0
   svelte-intersection-observer: ^0.7.0
@@ -116,7 +115,6 @@ devDependencies:
   storybook-addon-pseudo-states: 1.0.0_0e65e93705c924f36fd70c76758c73bb
   storybook-addon-themes: 6.0.1_svelte@3.35.0
   storybook-addon-turbo-build: 1.0.0-beta.0
-  storybook-dark-mode: 1.0.8-canary.138.3320.0_0e65e93705c924f36fd70c76758c73bb
   svelte: 3.35.0
   svelte-check: 1.3.0_a832aedd056cb18067e2c33e33a4fcdd
   svelte-loader: 3.0.0_svelte@3.35.0
@@ -14352,21 +14350,6 @@ packages:
       esbuild-loader: 2.11.0
     transitivePeerDependencies:
       - webpack
-    dev: true
-
-  /storybook-dark-mode/1.0.8-canary.138.3320.0_0e65e93705c924f36fd70c76758c73bb:
-    resolution: {integrity: sha512-9kP00zPX5sSrK8k4Icuv24RIKBy/0VgRhzo7pW5TNSt5vs+1wjQujwv1CuPMhLPWFDXFwPvuX+Pzd+ot2s54iA==}
-    peerDependencies:
-      '@storybook/addons': '>= 6.x'
-      '@storybook/api': '>= 6.x'
-      '@storybook/components': '>= 6.x'
-      '@storybook/core-events': '>= 6.x'
-      '@storybook/theming': '>= 6.x'
-    dependencies:
-      '@storybook/addons': 6.2.9
-      '@storybook/theming': 6.2.9
-      fast-deep-equal: 3.1.3
-      memoizerific: 1.11.3
     dev: true
 
   /stream-browserify/2.0.2:
