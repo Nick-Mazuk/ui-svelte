@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { slugify } from '@nick-mazuk/lib/js/text-styling'
-    import { formatNumber } from '@nick-mazuk/lib/js/number-styling'
+    import { slugify } from '@nick-mazuk/lib/esm/text-styling'
+    import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
     import { diffChars } from 'diff'
     import { createEventDispatcher, getContext, tick } from 'svelte'
 
@@ -182,6 +182,7 @@
             feedback = ''
         }
     }
+
 </script>
 
 <Label

@@ -6,7 +6,7 @@
         stringToNumber,
         truncateDecimals,
         isNumber,
-    } from '@nick-mazuk/lib/js/number-styling'
+    } from '@nick-mazuk/lib/esm/number-styling'
 
     import type { FormItemSize } from '../../form-sizes'
     import type { Formatter, TextInputAutocomplete, Updater, ValidationRules } from '../text-input'
@@ -77,6 +77,7 @@
         }
         validationRules = rules
     }
+
 </script>
 
 <TextInput
