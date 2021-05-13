@@ -47,6 +47,7 @@
     }
     $: x = boundingRect && isOpen ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && isOpen ? PLACEMENT_MAP[placement].y() : 0
+
 </script>
 
 {#if value}
@@ -70,7 +71,7 @@
                 data-test="tooltip"
             >
                 <div
-                    class="bg-gray-700 text-background orign-top inline-flex items-center jusitfy-center rounded py-1 px-2 max-w-xs pointer-events-none select-none"
+                    class="bg-gray-700 dark:bg-gray-300 text-background dark:text-foreground orign-top inline-flex items-center jusitfy-center rounded py-1 px-2 max-w-xs pointer-events-none select-none"
                     out:fade="{{ duration: 100 }}"
                     in:scale="{{ duration: 150, start: 0.8 }}"
                 >
