@@ -13,9 +13,18 @@ type SizeDetail = {
         paddingRightWithPrefix: string
         paddingY: string
     }
+    glue: {
+        top: string
+        bottom: string
+        left: string
+        leftPrefix: string
+        right: string
+        rightPrefix: string
+    }
 }
 
 export type FormItemSize = 'small' | 'default' | 'large'
+export type FormItemGlueSide = 'top' | 'bottom' | 'left' | 'right'
 export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
     small: {
         height: 'h-8',
@@ -31,6 +40,14 @@ export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
             paddingRight: 'pr-3',
             paddingRightWithPrefix: 'pr-8',
             paddingY: 'py-1',
+        },
+        glue: {
+            top: '-mt-2',
+            bottom: '-mb-2',
+            left: '-ml-3',
+            leftPrefix: '-ml-2',
+            right: '-mr-3',
+            rightPrefix: '-mr-2',
         },
     },
     default: {
@@ -48,6 +65,14 @@ export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
             paddingRightWithPrefix: 'pr-10',
             paddingY: 'py-2',
         },
+        glue: {
+            top: '-mt-3',
+            bottom: '-mb-3',
+            left: '-ml-4',
+            leftPrefix: '-ml-3',
+            right: '-mr-4',
+            rightPrefix: '-mr-3',
+        },
     },
     large: {
         height: 'h-12',
@@ -63,6 +88,14 @@ export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
             paddingRight: 'pr-4',
             paddingRightWithPrefix: 'pr-12',
             paddingY: 'py-3',
+        },
+        glue: {
+            top: '-mt-4',
+            bottom: '-mb-4',
+            left: '-ml-4',
+            leftPrefix: '-ml-3',
+            right: '-mr-4',
+            rightPrefix: '-mr-3',
         },
     },
 }

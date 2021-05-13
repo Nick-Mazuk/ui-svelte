@@ -2,7 +2,7 @@
     import LoadingSpinner from '../loading-spinner/loading-spinner.svelte'
     import type { Writable } from 'svelte/store'
     import { getContext } from 'svelte'
-    import type { FormItemSize } from '../../form/form-sizes'
+    import type { FormItemGlueSide, FormItemSize } from '../../form/form-sizes'
     import { FORM_SIZE_MAP } from '../../form/form-sizes'
 
     type Variant =
@@ -30,6 +30,7 @@
     export let testId = 'button'
     export let prefix: unknown | undefined = undefined
     export let suffix: unknown | undefined = undefined
+    export let glue: FormItemGlueSide[] = []
 
     const disabledContext = getContext<Writable<boolean> | undefined>('disabled')
 
@@ -125,6 +126,14 @@
         prefix || loading ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
+    $: glueClasses = [
+        glue.includes('top') ? FORM_SIZE_MAP[size].glue.top : '',
+        glue.includes('bottom') ? FORM_SIZE_MAP[size].glue.bottom : '',
+        glue.includes('left') && !prefix ? FORM_SIZE_MAP[size].glue.left : '',
+        glue.includes('left') && prefix ? FORM_SIZE_MAP[size].glue.leftPrefix : '',
+        glue.includes('right') && !prefix ? FORM_SIZE_MAP[size].glue.right : '',
+        glue.includes('right') && prefix ? FORM_SIZE_MAP[size].glue.rightPrefix : '',
+    ].join(' ')
 
 </script>
 
@@ -137,6 +146,7 @@
             ${shadowClasses}
             ${sizeClasses}
             ${SHAPE_MAP[shape][size]}
+            ${glueClasses}
             ${
                 isDisabled || loading
                     ? STYLES_MAP[variant].disabled || disabledClasses
@@ -185,6 +195,7 @@
             ${shadowClasses}
             ${sizeClasses}
             ${SHAPE_MAP[shape][size]}
+            ${glueClasses}
             ${
                 isDisabled || loading
                     ? STYLES_MAP[variant].disabled || disabledClasses
