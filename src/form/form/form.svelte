@@ -97,9 +97,11 @@
     }
     $: dispatch('stateChange', $formState)
     $: {
-        const tempFormData: FormData = {}
-        Object.keys(formInputs).forEach((input) => (tempFormData[input] = formInputs[input].data))
-        formData = tempFormData
+        const temporaryFormData: FormData = {}
+        Object.keys(formInputs).forEach(
+            (input) => (temporaryFormData[input] = formInputs[input].data)
+        )
+        formData = temporaryFormData
     }
 </script>
 

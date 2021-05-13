@@ -13,12 +13,15 @@
 
     const getAffixClasses = (isButton: boolean, invalid: boolean) => {
         const classes = ['self-stretch flex items-center whitespace-nowrap flex-none bg-opacity-0']
-        if (disabled) classes.push('cursor-pointer')
-        else if (isButton)
+        if (disabled) {
+            classes.push('cursor-pointer')
+        } else if (isButton) {
             classes.push(
                 'cursor-pointer focus:outline-none hover:bg-opacity-10 focus:bg-opacity-20'
             )
-        else classes.push('cursor-text')
+        } else {
+            classes.push('cursor-text')
+        }
 
         if (invalid) classes.push('bg-error focus:text-error-700')
         else classes.push('bg-gray focus:bg-primary focus:text-primary-700')

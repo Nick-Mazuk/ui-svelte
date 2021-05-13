@@ -1,6 +1,7 @@
 <script lang="ts">
     import { fade, scale } from 'svelte/transition'
     import Portal from '../../utilities/portal/portal.svelte'
+
     type Placement = 'top' | 'bottom' | 'left' | 'right'
 
     export let placement: Placement = 'bottom'

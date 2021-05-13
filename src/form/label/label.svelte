@@ -2,7 +2,7 @@
     import { setContext } from 'svelte'
     import { writable } from 'svelte/store'
 
-    export let value: string = ''
+    export let value = ''
     export let readonly = false
     export let optional = false
     export let hideOptionalLabel = false

@@ -10,13 +10,13 @@
     export let defaultValue: CheckboxValue = 'unchecked'
     export let ariaLabel: string | undefined = undefined
     export let label: string | undefined = undefined
-    let inputedName: string = ''
+    let inputedName = ''
     export { inputedName as name }
     export let disabled = false
     export let optional = false
     export let hideOptionalLabel = false
     export let hideError = false
-    export let requiredMessage: string = 'This is required'
+    export let requiredMessage = 'This is required'
 
     const labelValue = getContext<Writable<string> | undefined>('label')
     const formSync = getContext<FormSync>('formSync')
@@ -53,7 +53,7 @@
         else if (labelValue) name = $labelValue
         else name = ''
     }
-    $: if (formSync)
+    $: if (formSync) {
         formSync.updateForm(
             name,
             value,
@@ -63,6 +63,7 @@
             },
             reset
         )
+    }
     $: {
         if (optional) {
             isValid = true

@@ -85,15 +85,9 @@
     }
 
     const loadingSpinnerClasses: Record<FormItemSize, string> = {
-        small:
-            'transform flex items-center left-0 -translate-y-1/2 absolute ' +
-            FORM_SIZE_MAP.small.affix.paddingPrefix,
-        default:
-            'transform flex items-center left-0 -translate-y-1/2 absolute ' +
-            FORM_SIZE_MAP.default.affix.paddingPrefix,
-        large:
-            'transform flex items-center left-0 -translate-y-1/2 absolute ' +
-            FORM_SIZE_MAP.large.affix.paddingPrefix,
+        small: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.small.affix.paddingPrefix}`,
+        default: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.default.affix.paddingPrefix}`,
+        large: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.large.affix.paddingPrefix}`,
     }
 
     const SHAPE_MAP: Record<Shape, Record<FormItemSize, string>> = {

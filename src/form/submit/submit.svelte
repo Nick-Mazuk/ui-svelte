@@ -43,12 +43,16 @@
     }
     let shownErrorMessage: string
     $: {
-        if (!errorStatus) shownErrorMessage = ''
-        else if (typeof error === 'string' && error !== '') shownErrorMessage = error
-        else if (Object.keys(defaultErrorMessages).includes(String($errorStatus?.status))) {
+        if (!errorStatus) {
+            shownErrorMessage = ''
+        } else if (typeof error === 'string' && error !== '') {
+            shownErrorMessage = error
+        } else if (Object.keys(defaultErrorMessages).includes(String($errorStatus?.status))) {
             const selectedError = errorMessages[$errorStatus?.status as keyof ErrorMessages]
             shownErrorMessage = selectedError ? selectedError : errorMessages.default
-        } else shownErrorMessage = errorMessages.default
+        } else {
+            shownErrorMessage = errorMessages.default
+        }
     }
 </script>
 
