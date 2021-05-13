@@ -60,27 +60,36 @@
             },
         },
     }
+
+    const handleSubmit = () => Promise.resolve(true)
+    const handleSubmitTimeout = () => {
+        return new Promise<boolean>((resolve) => {
+            setTimeout(() => {
+                resolve(true)
+            }, 500)
+        })
+    }
 </script>
 
 <Meta {...meta} />
 
 <Story name="Default" let:args>
-    <Form handleSubmit="{() => new Promise((resolve) => setTimeout(() => resolve(true), 500))}">
+    <Form handleSubmit="{handleSubmitTimeout}">
         <Submit {...args} />
     </Form>
 </Story>
 <Story name="Prefix and suffix" let:args>
     <div class="grid gap-4">
-        <Form handleSubmit="{() => Promise.resolve(true)}">
+        <Form handleSubmit="{handleSubmit}">
             <Submit {...args} prefix="{Send}" value="Prefix" />
         </Form>
-        <Form handleSubmit="{() => Promise.resolve(true)}">
+        <Form handleSubmit="{handleSubmit}">
             <Submit {...args} suffix="{Send}" value="Suffix" />
         </Form>
     </div>
 </Story>
 <Story name="Progress bar" args="{{ progress: 0.5 }}" let:args>
-    <Form handleSubmit="{() => new Promise((resolve) => setTimeout(() => resolve(true), 500))}">
+    <Form handleSubmit="{handleSubmitTimeout}">
         <Submit {...args} />
     </Form>
 </Story>

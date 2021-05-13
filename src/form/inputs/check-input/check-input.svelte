@@ -65,12 +65,9 @@
         )
     }
     $: {
-        if (optional) {
-            isValid = true
-        } else {
-            if (value !== 'checked') isValid = false
-            else isValid = true
-        }
+        if (optional) isValid = true
+        else if (value === 'checked') isValid = true
+        else isValid = false
     }
 </script>
 

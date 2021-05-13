@@ -32,8 +32,8 @@
     export let hideOptionalLabel = false
     export let placeholder = ''
     export let defaultValue = ''
-    export let prefix: string | Function = ''
-    export let suffix: string | Function = ''
+    export let prefix: string | unknown = ''
+    export let suffix: string | unknown = ''
     export let prefixButton: { label: string; onClick: () => void } | undefined = undefined
     export let suffixButton: { label: string; onClick: () => void } | undefined = undefined
     export let textRight = false
@@ -69,6 +69,24 @@
         showError = true
         if (formatter) value = formatter(value)
     }
+    const getNewSelectionPosition = (
+        inputtedValue: string,
+        newValue: string,
+        selection: number
+    ) => {
+        const diff = diffChars(inputtedValue, newValue)
+        let newSelection = selection
+        let currentCharacter = 0
+        diff.forEach((change) => {
+            if (typeof change.count !== 'number') return
+            if (currentCharacter < selection) {
+                if (change.removed) newSelection -= change.count
+                if (change.added) newSelection += change.count
+            }
+            currentCharacter += change.count
+        })
+        return newSelection
+    }
     const handleInput: svelte.JSX.FormEventHandler<HTMLInputElement | HTMLTextAreaElement> = async (
         event
     ) => {
@@ -85,17 +103,7 @@
 
         if (typeof selection !== 'number' || typeof updater === 'undefined') return
 
-        const diff = diffChars(inputtedValue, value)
-        let newSelection = selection
-        let currentCharacter = 0
-        diff.forEach((change) => {
-            if (typeof change.count !== 'number') return
-            if (currentCharacter < selection) {
-                if (change.removed) newSelection -= change.count
-                if (change.added) newSelection += change.count
-            }
-            currentCharacter += change.count
-        })
+        const newSelection = getNewSelectionPosition(inputtedValue, value, selection)
         await tick()
         if (event.currentTarget) {
             event.currentTarget.selectionStart = newSelection
@@ -107,7 +115,7 @@
         showError = false
     }
     $: name = nameProp ? nameProp : slugify(label)
-    $: if (formSync)
+    $: if (formSync) {
         formSync.updateForm(
             name,
             parsedValue,
@@ -117,6 +125,7 @@
             },
             reset
         )
+    }
     $: {
         let tempIsValid = true
         let tempErrorMessage = ''
@@ -161,14 +170,17 @@
     }
     $: isInvalidState = !isValid && showError && !readonly
     $: {
-        if (feedbackProp) feedback = feedbackProp
-        else if (maxCharacters)
+        if (feedbackProp) {
+            feedback = feedbackProp
+        } else if (maxCharacters) {
             feedback = `${formatNumber(value.length)} / ${formatNumber(maxCharacters)}`
-        else if (minCharacters)
+        } else if (minCharacters) {
             feedback = `${formatNumber(value.length)} character${
                 value.length === 1 ? '' : 's'
             } (minimum ${formatNumber(minCharacters)})`
-        else feedback = ''
+        } else {
+            feedback = ''
+        }
     }
 </script>
 

@@ -28,8 +28,8 @@
     export let ariaLabel = ''
     export let href = ''
     export let testId = 'button'
-    export let prefix: Function | undefined = undefined
-    export let suffix: Function | undefined = undefined
+    export let prefix: unknown | undefined = undefined
+    export let suffix: unknown | undefined = undefined
 
     const disabledContext = getContext<Writable<boolean> | undefined>('disabled')
 

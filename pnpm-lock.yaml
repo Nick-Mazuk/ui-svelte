@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@babel/core': ^7.13.13
   '@babel/preset-typescript': ^7.13.0
-  '@nick-mazuk/eslint-config': ^0.8.10
+  '@nick-mazuk/eslint-config': ^0.8.11
   '@nick-mazuk/lib': ^0.8.43
   '@nick-mazuk/semantic-release-config': ^1.1.3
   '@nick-mazuk/ui-config': ^0.10.41
@@ -75,7 +75,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.13.13
   '@babel/preset-typescript': 7.13.0_@babel+core@7.13.13
-  '@nick-mazuk/eslint-config': 0.8.10_4149a662fa3025ebd2690398e68fc970
+  '@nick-mazuk/eslint-config': 0.8.11_4149a662fa3025ebd2690398e68fc970
   '@nick-mazuk/lib': 0.8.43
   '@nick-mazuk/semantic-release-config': 1.1.3_96e29e7a57c65d488f627694047bf5b5
   '@nick-mazuk/ui-config': 0.10.41_tailwindcss@2.1.1
@@ -2920,8 +2920,8 @@ packages:
       glob-to-regexp: 0.3.0
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.10_4149a662fa3025ebd2690398e68fc970:
-    resolution: {integrity: sha512-UvuiIkm7sTGMeky/Besjs6U5mCx3SGiWvDR8but2pSNI6fMOJ8+XvyI1guD/sR8wrcCbLaHtbdY7unsXDzsutA==}
+  /@nick-mazuk/eslint-config/0.8.11_4149a662fa3025ebd2690398e68fc970:
+    resolution: {integrity: sha512-NC2O4ulz2Rci+c2zD+vl5uqk5z2Ko+Rms1N8YD53REPJy00Sab59bftgiORaZM7JYE+onQpJalwlN1HCkoBmVw==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'

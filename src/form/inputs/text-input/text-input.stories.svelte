@@ -313,9 +313,8 @@
             defaultValue="150.00"
             updater="{(number, oldNumber) => {
                 if (number === '' || number === '-') return number
-                if (isNumber(number)) 
-                    return addThousandsSeparators(number)
-                
+                if (isNumber(number)) return addThousandsSeparators(number)
+
                 return oldNumber
             }}"
             formatter="{formatNumber}"

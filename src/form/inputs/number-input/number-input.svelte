@@ -32,8 +32,8 @@
     export let min: number | undefined = undefined
     export let max: number | undefined = undefined
 
-    export let prefix: string | Function = ''
-    export let suffix: string | Function = ''
+    export let prefix: string | unknown = ''
+    export let suffix: string | unknown = ''
     export let prefixButton: { label: string; onClick: () => void } | undefined = undefined
     export let suffixButton: { label: string; onClick: () => void } | undefined = undefined
     export let textRight = false

@@ -4,7 +4,7 @@
 
     import Tooltip from '../../../components/tooltip/tooltip.svelte'
 
-    export let content: string | Function
+    export let content: string | unknown
     export let buttonProps: { label: string; onClick: () => void } | undefined
     export let disabled: boolean
     export let placement: 'prefix' | 'suffix'

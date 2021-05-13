@@ -11,7 +11,7 @@
     export let store: Omit<SvelteStore.Writable<Theme>, 'update'>
     export let size: FormItemSize = 'default'
 
-    let prefix: Function
+    let prefix: unknown
     $: {
         if ($store === 'light') prefix = Sun
         else if ($store === 'dark') prefix = Moon

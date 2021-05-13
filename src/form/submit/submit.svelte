@@ -19,8 +19,8 @@
     export let success = 'Submitted successfully'
     export let error: Partial<ErrorMessages> | string = ''
     export let value = 'Submit'
-    export let prefix: Function | undefined = undefined
-    export let suffix: Function | undefined = undefined
+    export let prefix: unknown | undefined = undefined
+    export let suffix: unknown | undefined = undefined
 
     const formSync = getContext<FormSync>('formSync')
     const defaultErrorMessages: ErrorMessages = {
@@ -35,11 +35,9 @@
     $: errorStatus = formSync?.error
     let errorMessages: ErrorMessages
     $: {
-        if (typeof error === 'string' && error !== '') {
+        if (typeof error === 'string' && error !== '')
             errorMessages = { ...defaultErrorMessages, default: error }
-        } else {
-            errorMessages = { ...defaultErrorMessages, ...error }
-        }
+        else errorMessages = { ...defaultErrorMessages, ...error }
     }
     let shownErrorMessage: string
     $: {
@@ -60,14 +58,14 @@
     {#if state}
         {#if $state === 'success'}
             <p data-test="submit-success">{success}</p>
+        {:else if $state === 'error' && shownErrorMessage}
+            <Error>{shownErrorMessage}</Error>
         {:else if $state === 'submitting' && typeof progress !== 'undefined'}
             <div class="w-full self-stretch flex items-center">
                 <div class="w-full">
                     <ProgressBar value="{progress}" max="{1}" ariaLabel="Upload progress" />
                 </div>
             </div>
-        {:else if $state === 'error' && shownErrorMessage}
-            <Error>{shownErrorMessage}</Error>
         {/if}
     {/if}
     <div class="flex-none">

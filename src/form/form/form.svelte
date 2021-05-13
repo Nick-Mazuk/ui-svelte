@@ -48,16 +48,19 @@
 
     const resetForm = () => Object.keys(formInputs).forEach((input) => formInputs[input].reset())
 
-    const submit = async () => {
+    const handleOffline = () => {
         if (!window.navigator.onLine && !allowOffline) {
             formState.set('error')
             dispatch('error', { data: formData, message: 'No internet access.' })
             formError.set({ status: 'offline' })
-            return
+            return true
         }
-        formState.set('submitting')
+        return false
+    }
+    const performSubmitRequest = async () => {
         let success = false
         let errorDetails: FormOnErrorDetail = { data: formData }
+
         if (handleSubmitInput) {
             const response = await handleSubmitInput(formData)
             success = response === true
@@ -65,14 +68,25 @@
                 if (typeof response === 'boolean') errorDetails = { data: formData }
                 else errorDetails = { ...errorDetails, ...response }
             }
-        } else if (method && action) {
-            const response = await fetch(action, {
-                method,
-                body: JSON.stringify(formData),
-            })
-            success = response.status === 200
-            if (!success) errorDetails = { ...errorDetails, status: response.status }
+            return { success, errorDetails }
         }
+
+        if (!method || !action) return { success, errorDetails }
+
+        const response = await fetch(action, {
+            method,
+            body: JSON.stringify(formData),
+        })
+        success = response.status === 200
+        if (!success) errorDetails = { ...errorDetails, status: response.status }
+
+        return { success, errorDetails }
+    }
+    const submit = async () => {
+        if (handleOffline()) return
+        formState.set('submitting')
+
+        const { success, errorDetails } = await performSubmitRequest()
 
         if (success) {
             formState.set('success')

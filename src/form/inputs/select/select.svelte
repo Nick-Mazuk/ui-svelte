@@ -9,7 +9,7 @@
     export let hideArrow = false
     export let title = ''
     export let size: FormItemSize = 'default'
-    export let prefix: Function | undefined = undefined
+    export let prefix: unknown | undefined = undefined
 
     const dispatch = createEventDispatcher()
 
