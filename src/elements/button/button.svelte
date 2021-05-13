@@ -125,6 +125,7 @@
         prefix || loading ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
+
 </script>
 
 {#if href}
