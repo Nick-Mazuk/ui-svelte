@@ -1,8 +1,5 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
-    import Button from '../../elements/button/button.svelte'
-    import Spacer from '../../utilities/spacer/spacer.svelte'
-    import CheckInput from '../inputs/check-input/check-input.svelte'
     import TextInput from '../inputs/text-input/text-input.svelte'
     import Submit from '../submit/submit.svelte'
 

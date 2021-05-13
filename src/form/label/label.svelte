@@ -10,6 +10,7 @@
     setContext('label', writable(value))
 </script>
 
+<!-- svelte-ignore a11y-label-has-associated-control -- input will be inside the slot -->
 <label class="flex flex-col space-y-1" on:mouseup>
     {#if value}
         <div class="flex items-baseline justify-between space-x-2">
