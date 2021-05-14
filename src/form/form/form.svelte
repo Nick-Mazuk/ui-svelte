@@ -51,7 +51,10 @@
     const handleOffline = () => {
         if (!window.navigator.onLine && !allowOffline) {
             formState.set('error')
-            dispatch('error', { data: formData, message: 'No internet access.' })
+            dispatch('error', {
+                data: formData,
+                message: 'You are offline. Connect to the internet and try again.',
+            })
             formError.set({ status: 'offline' })
             return true
         }
@@ -117,6 +120,7 @@
         )
         formData = temporaryFormData
     }
+
 </script>
 
 <form bind:this="{formElement}" on:submit|preventDefault="{handleSubmit}" novalidate>

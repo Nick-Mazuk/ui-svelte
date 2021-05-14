@@ -34,8 +34,13 @@
                 },
                 defaultValue: 'default',
             },
+            dark: {
+                control: 'boolean',
+                description: 'For use on darker backgrounds to meet color contrast ratios',
+            },
         },
     }
+
 </script>
 
 <Meta {...meta} />

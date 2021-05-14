@@ -19,7 +19,7 @@
 
     export let hideIcon = false
     export let requiredMessage = 'Enter your password'
-    export let autocomplete: TextInputAutocomplete = 'new-password'
+    export let autocomplete: TextInputAutocomplete = 'current-password'
     export let autofocus = false
 
     let showPassword = false
@@ -32,6 +32,7 @@
     $: shownIcon = hideIcon ? undefined : Lock
     $: suffix = showPassword ? EyeOff : Eye
     $: suffixLabel = showPassword ? 'Hide password' : 'Show password'
+
 </script>
 
 <TextInput

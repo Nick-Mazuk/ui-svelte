@@ -13,6 +13,9 @@ context('Auth', () => {
         cy.checkAccessibility()
         cy.get('a').should('have.attr', 'href', '/')
         cy.get('a').eq(1).should('have.attr', 'href', '#')
+
+        cy.loadStory('Layouts/Auth', 'Example')
+        cy.checkAccessibility({ page: true })
     })
 })
 

@@ -7,12 +7,16 @@
     export let action: Action = undefined
     export let label = 'Error'
     export let size: Size = 'default'
+    export let dark = false
+
 </script>
 
 <div
     role="alert"
     aria-atomic="true"
-    class="flex space-x-2 text-error items-center"
+    class="flex space-x-2 items-center"
+    class:text-error="{!dark}"
+    class:text-error-700="{dark}"
     class:text-lg="{size === 'large'}"
     data-test="error"
 >
