@@ -1,3 +1,5 @@
+import { FORM_FEEDBACK } from '../form-feedback'
+
 // these tests also cover the Form component's handleSubmit tests
 
 // eslint-disable-next-line max-lines-per-function -- individual tests are short enough
@@ -9,7 +11,7 @@ context('Submit', () => {
         cy.get('button').should('not.be.disabled').click()
         cy.get('button').should('be.disabled')
         cy.get('button').should('not.be.disabled')
-        cy.contains('Submitted successfully')
+        cy.contains(FORM_FEEDBACK.success.default)
     })
 
     it('has a progress bar', () => {
@@ -24,17 +26,17 @@ context('Submit', () => {
         cy.loadStory('Form/Submit', 'Errors')
 
         cy.get('button').eq(0).click()
-        cy.get('[data-test="error"]').eq(0).contains('Please try again.')
+        cy.get('[data-test="error"]').eq(0).contains(FORM_FEEDBACK.errors.default)
         cy.get('button').eq(1).click()
-        cy.get('[data-test="error"]').eq(1).contains('offline')
+        cy.get('[data-test="error"]').eq(1).contains(FORM_FEEDBACK.errors.offline)
         cy.get('button').eq(2).click()
-        cy.get('[data-test="error"]').eq(2).contains('Please try again.')
+        cy.get('[data-test="error"]').eq(2).contains(FORM_FEEDBACK.errors[400])
         cy.get('button').eq(3).click()
-        cy.get('[data-test="error"]').eq(3).contains('not authorized')
+        cy.get('[data-test="error"]').eq(3).contains(FORM_FEEDBACK.errors[403])
         cy.get('button').eq(4).click()
-        cy.get('[data-test="error"]').eq(4).contains('too many requests')
+        cy.get('[data-test="error"]').eq(4).contains(FORM_FEEDBACK.errors[429])
         cy.get('button').eq(5).click()
-        cy.get('[data-test="error"]').eq(5).contains('internal error')
+        cy.get('[data-test="error"]').eq(5).contains(FORM_FEEDBACK.errors[500])
 
         cy.loadStory('Form/Submit', 'Errors', {
             error: 'hello',

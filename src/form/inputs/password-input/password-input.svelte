@@ -19,7 +19,7 @@
 
     export let hideIcon = false
     export let requiredMessage = 'Enter your password'
-    export let autocomplete: TextInputAutocomplete = 'new-password'
+    export let autocomplete: TextInputAutocomplete = 'current-password'
     export let autofocus = false
 
     let showPassword = false

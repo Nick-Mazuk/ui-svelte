@@ -14,6 +14,7 @@
         FormOnErrorDetail,
         FormSyncError,
     } from '..'
+    import { FORM_FEEDBACK } from '../form-feedback'
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
@@ -51,7 +52,10 @@
     const handleOffline = () => {
         if (!window.navigator.onLine && !allowOffline) {
             formState.set('error')
-            dispatch('error', { data: formData, message: 'No internet access.' })
+            dispatch('error', {
+                data: formData,
+                message: FORM_FEEDBACK.errors.offline,
+            })
             formError.set({ status: 'offline' })
             return true
         }

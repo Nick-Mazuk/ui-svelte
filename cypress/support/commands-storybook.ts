@@ -43,7 +43,18 @@ Cypress.Commands.add('toggleDarkMode', () => {
     })
 })
 
-Cypress.Commands.add('checkAccessibility', () => {
+Cypress.Commands.add('checkAccessibility', ({ page } = { page: false }) => {
+    if (page) {
+        cy.configureAxe({
+            rules: [
+                { id: 'landmark-one-main', enabled: true },
+                { id: 'page-has-heading-one', enabled: true },
+                { id: 'region', enabled: true },
+                { id: 'bypass', enabled: true },
+                { id: 'skip-link', enabled: true },
+            ],
+        })
+    }
     cy.checkA11y()
 })
 

@@ -47,7 +47,6 @@
     }
     $: x = boundingRect && isOpen ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && isOpen ? PLACEMENT_MAP[placement].y() : 0
-
 </script>
 
 {#if value}

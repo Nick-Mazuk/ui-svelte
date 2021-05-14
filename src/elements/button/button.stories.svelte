@@ -96,6 +96,11 @@
             suffix: {
                 description: 'Icon prefix',
             },
+            glue: {
+                control: 'object',
+                description:
+                    'Glue the contents of the object to a specific side. Useful for variants without backgrounds or borders. An array of `left`, `right`, `top`, and `bottom` to represent the sides to glue the button to.',
+            },
         },
     }
 </script>
@@ -191,6 +196,18 @@
         </div>
         <div>
             <Button {...args} prefix="{ArrowUp}" suffix="{ArrowUp}">Prefix and suffix</Button>
+        </div>
+    </div>
+</Story>
+<Story name="Glue" let:args>
+    <div class="wrapper !max-w-lg my-8">
+        <div class="border border-gray h-24 flex justify-between items-center">
+            <Button {...args} glue="{['left']}">Glued left</Button>
+            <Button {...args} glue="{['right']}">Glued right</Button>
+        </div>
+        <div class="border border-gray flex flex-col justify-between h-24 items-center my-8">
+            <div><Button {...args} glue="{['top']}">Glued top</Button></div>
+            <div><Button {...args} glue="{['bottom']}">Glued bottom</Button></div>
         </div>
     </div>
 </Story>

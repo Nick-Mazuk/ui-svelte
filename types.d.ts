@@ -11,7 +11,7 @@ declare namespace Cypress {
         ): Chainable<Element>
         tab(): Chainable<Element>
         toggleDarkMode(): Chainable<Element>
-        checkAccessibility(): Chainable<Element>
+        checkAccessibility(options?: { page?: boolean }): Chainable<Element>
         goOffline(): Chainable<Element>
         goOnline(): Chainable<Element>
         screenSize(size: 'tiny' | 'sm' | 'md' | 'lg'): Chainable<Element>

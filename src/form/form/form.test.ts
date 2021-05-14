@@ -1,13 +1,14 @@
-// handleSubmit tests are covered in Submit component tests
-
 import type { FormMethod } from '..'
+import { FORM_FEEDBACK } from '../form-feedback'
+
+// handleSubmit tests are covered in Submit component tests
 
 const mockApiUrl = 'api'
 const errorCodes: [number, string][] = [
-    [400, 'Please try again'],
-    [403, 'not authorized'],
-    [429, 'too many requests'],
-    [500, 'internal error'],
+    [400, FORM_FEEDBACK.errors[400]],
+    [403, FORM_FEEDBACK.errors[403]],
+    [429, FORM_FEEDBACK.errors[429]],
+    [500, FORM_FEEDBACK.errors[500]],
 ]
 context('Form', () => {
     it('can submit requests', () => {

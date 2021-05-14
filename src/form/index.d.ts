@@ -32,6 +32,7 @@ export type FormDispatcher = {
     stateChange: FormState
 }
 export type FormOnError = CustomEvent<FormOnErrorDetail>
+export type FormOnStateChange = CustomEvent<FormState>
 export type HandleSubmit =
     | ((formData: FormData) => Promise<boolean | Omit<FormOnErrorDetail, 'data'>>)
     | undefined

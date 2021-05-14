@@ -5,6 +5,7 @@
     import Button from '../../elements/button/button.svelte'
     import Error from '../../elements/error/error.svelte'
     import ProgressBar from '../../elements/progress-bar/progress-bar.svelte'
+    import { FORM_FEEDBACK } from '../form-feedback'
 
     type ErrorMessages = {
         default: string
@@ -16,7 +17,7 @@
     }
 
     export let progress: number | undefined = undefined
-    export let success = 'Submitted successfully'
+    export let success = FORM_FEEDBACK.success.default
     export let error: Partial<ErrorMessages> | string = ''
     export let value = 'Submit'
     export let prefix: unknown | undefined = undefined
@@ -24,12 +25,12 @@
 
     const formSync = getContext<FormSync>('formSync')
     const defaultErrorMessages: ErrorMessages = {
-        default: 'There was an internal error. Please try again.',
-        offline: 'You are offline. Connect to the internet and try again.',
-        403: 'You are not authorized to make this request.',
-        429: 'You are making too many requests. Wait a few minutes and try again.',
-        400: 'There was an internal error. Please try again.',
-        500: 'There was an internal error. Please try again.',
+        default: FORM_FEEDBACK.errors.default,
+        offline: FORM_FEEDBACK.errors.offline,
+        403: FORM_FEEDBACK.errors[403],
+        429: FORM_FEEDBACK.errors[429],
+        400: FORM_FEEDBACK.errors[400],
+        500: FORM_FEEDBACK.errors[500],
     }
     $: state = formSync?.formState
     $: errorStatus = formSync?.error
