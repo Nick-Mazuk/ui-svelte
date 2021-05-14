@@ -3,6 +3,7 @@
     import Form from '../form/form.svelte'
     import Send from '../../elements/icon/send.svelte'
     import Submit from './submit.svelte'
+    import { FORM_FEEDBACK } from '../form-feedback'
 
     const meta = {
         title: 'Form/Submit',
@@ -26,7 +27,7 @@
                 control: {
                     type: 'text',
                 },
-                defaultValue: 'Submitted successfully',
+                defaultValue: FORM_FEEDBACK.success.default,
             },
             error: {
                 control: {
@@ -35,12 +36,12 @@
                 description:
                     'Error messages to display if the submit fails. Accepts either an object or a string. If `error` is a string, that string will be shown reguardless of the error. If `error` is an object, it replaces any of the default messages. The object can be partial. If any value is set to false, the default error message will be shown instead for that error.',
                 defaultValue: {
-                    default: 'There was an internal error. Please try again.',
-                    offline: 'You are offline. Connect to the internet and try again.',
-                    403: 'You are not authorized to make this request.',
-                    429: 'You are making too many requests. Wait a few minutes and try again.',
-                    400: 'There was an internal error. Please try again.',
-                    500: 'There was an internal error. Please try again.',
+                    default: FORM_FEEDBACK.errors.default,
+                    offline: FORM_FEEDBACK.errors.offline,
+                    403: FORM_FEEDBACK.errors[403],
+                    429: FORM_FEEDBACK.errors[429],
+                    400: FORM_FEEDBACK.errors[400],
+                    500: FORM_FEEDBACK.errors[500],
                 },
             },
             progress: {
@@ -69,6 +70,7 @@
             }, 500)
         })
     }
+
 </script>
 
 <Meta {...meta} />

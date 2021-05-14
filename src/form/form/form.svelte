@@ -14,6 +14,7 @@
         FormOnErrorDetail,
         FormSyncError,
     } from '..'
+    import { FORM_FEEDBACK } from '../form-feedback'
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
@@ -53,7 +54,7 @@
             formState.set('error')
             dispatch('error', {
                 data: formData,
-                message: 'You are offline. Connect to the internet and try again.',
+                message: FORM_FEEDBACK.errors.offline,
             })
             formError.set({ status: 'offline' })
             return true

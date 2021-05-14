@@ -1,9 +1,11 @@
+import { FORM_FEEDBACK } from '../../../form/form-feedback'
+
 const mockApiUrl = 'api'
 const errorCodes: [number, string][] = [
-    [400, 'Invalid email or password. Try again.'],
-    [403, 'Invalid email or password. Try again.'],
-    [429, 'too many requests'],
-    [500, 'internal error'],
+    [400, FORM_FEEDBACK.auth.errors.invalidEmailLogin],
+    [403, FORM_FEEDBACK.auth.errors.invalidEmailLogin],
+    [429, FORM_FEEDBACK.errors[429]],
+    [500, FORM_FEEDBACK.errors[500]],
 ]
 const validEmail = 'email@example.com'
 const validPassword = 'password'
@@ -84,11 +86,11 @@ context('SignIn', () => {
             action: mockApiUrl,
             method: 'POST',
         })
-        cy.contains('Your password is reset')
+        cy.contains(FORM_FEEDBACK.auth.success.passwordIsReset)
         cy.get('input[type="email"]').type(validEmail)
         cy.get('input[type="password"]').type(validPassword)
         cy.get('button[type="submit"]').click()
-        cy.contains('Your password is reset').should('not.exist')
+        cy.contains(FORM_FEEDBACK.auth.success.passwordIsReset).should('not.exist')
         cy.loadStory('Layouts/Auth/SignIn', 'With note', {
             action: mockApiUrl,
             method: 'POST',
@@ -102,7 +104,7 @@ context('SignIn', () => {
             passwordIsReset: 'true',
         })
         cy.contains('Sign in or create an account to continue')
-        cy.contains('Your password is reset').should('not.exist')
+        cy.contains(FORM_FEEDBACK.auth.success.passwordIsReset).should('not.exist')
     })
 })
 

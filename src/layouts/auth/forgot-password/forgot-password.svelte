@@ -8,6 +8,7 @@
         FormState,
         HandleSubmit,
     } from '../../../form'
+    import { FORM_FEEDBACK } from '../../../form/form-feedback'
     import Form from '../../../form/form/form.svelte'
     import EmailInput from '../../../form/inputs/email-input/email-input.svelte'
     import Spacer from '../../../utilities/spacer/spacer.svelte'
@@ -23,13 +24,11 @@
     const handleError = (event: FormOnError) => {
         const { status, message } = event.detail
         if (message) error = message
-        else if (status === 'offline')
-            error = 'You are offline. Connect to the internet and try again.'
+        else if (status === 'offline') error = FORM_FEEDBACK.errors.offline
         else if (typeof status === 'undefined' || [400, 403].includes(status))
-            error = 'There is not an account with that email.'
-        else if (status === 429)
-            error = 'You are making too many requests. Wait a few minutes and try again.'
-        else error = 'There was an internal error. Please try again.'
+            error = FORM_FEEDBACK.auth.errors.noEmailFound
+        else if (status === 429) error = FORM_FEEDBACK.errors[429]
+        else error = FORM_FEEDBACK.errors[500]
     }
     const handleStateChange = (event: FormOnStateChange) => (formState = event.detail)
 
@@ -54,7 +53,7 @@
             <Note variant="error">{error}</Note>
         {:else if formState === 'success'}
             <Note variant="success" label="Success">
-                Check your email for the password reset link.
+                {FORM_FEEDBACK.auth.success.passwordResetLinkSent}
             </Note>
         {/if}
         <EmailInput />

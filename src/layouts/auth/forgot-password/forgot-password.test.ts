@@ -1,9 +1,11 @@
+import { FORM_FEEDBACK } from '../../../form/form-feedback'
+
 const mockApiUrl = 'api'
 const errorCodes: [number, string][] = [
-    [400, 'There is not an account with that email.'],
-    [403, 'There is not an account with that email.'],
-    [429, 'too many requests'],
-    [500, 'internal error'],
+    [400, FORM_FEEDBACK.auth.errors.noEmailFound],
+    [403, FORM_FEEDBACK.auth.errors.noEmailFound],
+    [429, FORM_FEEDBACK.errors[429]],
+    [500, FORM_FEEDBACK.errors[500]],
 ]
 const validEmail = 'email@example.com'
 
@@ -29,12 +31,12 @@ context('ForgotPassword', () => {
         cy.get('input[type="email"]').type(validEmail)
         cy.get('button[type="submit"]').click()
         cy.get('[data-test="error"]').should('not.exist')
-        cy.contains('Check your email for the password reset link.')
+        cy.contains(FORM_FEEDBACK.auth.success.passwordResetLinkSent)
 
         cy.goOffline()
         cy.get('button[type="submit"]').click()
         cy.get('[data-test="error"]').contains('offline')
-        cy.contains('Check your email for the password reset link.').should('not.exist')
+        cy.contains(FORM_FEEDBACK.auth.success.passwordResetLinkSent).should('not.exist')
         cy.goOnline()
 
         errorCodes.forEach(([status, message]) => {
