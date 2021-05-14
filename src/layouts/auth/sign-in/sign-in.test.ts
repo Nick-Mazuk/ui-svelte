@@ -17,6 +17,7 @@ context('SignIn', () => {
         })
         cy.checkAccessibility()
         cy.get('h1').contains('Sign in')
+        cy.title().should('eq', 'Sign in')
         cy.get('input')
             .eq(0)
             .should('have.attr', 'type', 'email')
@@ -46,7 +47,6 @@ context('SignIn', () => {
             cy.get('button[type="submit"]').click()
             cy.get('[data-test="error"]').contains(message)
         })
-
         cy.intercept(mockApiUrl, (req) => {
             return new Promise(() => {
                 setTimeout(() => {
@@ -65,14 +65,13 @@ context('SignIn', () => {
         cy.intercept(mockApiUrl, { statusCode: 200 })
         cy.loadStory('Layouts/Auth/SignIn', 'Default', {
             forgotPassword: 'url',
-        })
-        cy.title().should('eq', 'Sign in')
-        cy.contains('Forgot password').should('have.attr', 'href', 'url')
-        cy.loadStory('Layouts/Auth/SignIn', 'Default', {
-            createAccount: 'url',
             seoTitle: 'Title',
         })
         cy.title().should('eq', 'Title')
+        cy.contains('Forgot password').should('have.attr', 'href', 'url')
+        cy.loadStory('Layouts/Auth/SignIn', 'Default', {
+            createAccount: 'url',
+        })
         cy.contains('Create account').should('have.attr', 'href', 'url')
         cy.loadStory('Layouts/Auth/SignIn', 'Default', {
             createAccount: 'url',
