@@ -5,7 +5,7 @@
     import type { FormItemSize } from '../../form-sizes'
     import type { TextInputAutocomplete, TextInputChangeEvent, Updater } from '../text-input'
     import TextInput from '../text-input/text-input.svelte'
-    import zxcvbn from 'zxcvbn/dist/zxcvbn'
+    import zxcvbn from 'zxcvbn-esm'
 
     export let label = 'Password'
     export let name = 'password'
