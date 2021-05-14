@@ -66,10 +66,13 @@ context('SignIn', () => {
         cy.loadStory('Layouts/Auth/SignIn', 'Default', {
             forgotPassword: 'url',
         })
+        cy.title().should('eq', 'Sign in')
         cy.contains('Forgot password').should('have.attr', 'href', 'url')
         cy.loadStory('Layouts/Auth/SignIn', 'Default', {
             createAccount: 'url',
+            seoTitle: 'Title',
         })
+        cy.title().should('eq', 'Title')
         cy.contains('Create account').should('have.attr', 'href', 'url')
         cy.loadStory('Layouts/Auth/SignIn', 'Default', {
             createAccount: 'url',
