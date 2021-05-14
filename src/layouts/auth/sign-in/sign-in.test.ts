@@ -61,7 +61,7 @@ context('SignIn', () => {
         cy.get('[data-test="error"]').should('not.exist')
     })
 
-    it.only('renders properly', () => {
+    it('renders properly', () => {
         cy.intercept(mockApiUrl, { statusCode: 200 })
         cy.loadStory('Layouts/Auth/SignIn', 'Default', {
             forgotPassword: 'url',
