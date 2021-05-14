@@ -1,3 +1,18 @@
+# [0.6.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.4...v0.6.0) (2021-05-14)
+
+
+### Bug Fixes
+
+* new-password-input should work with svelte-kit ([f48a66e](https://github.com/Nick-Mazuk/ui-svelte/commit/f48a66e48b5e72db5ee2a459ade3b7835fe2ce7c))
+
+
+### Features
+
+* add basic auth layout ([9e826bd](https://github.com/Nick-Mazuk/ui-svelte/commit/9e826bd76e049d70494f138981de3137cee416e7))
+* add glue classes to button ([8010e61](https://github.com/Nick-Mazuk/ui-svelte/commit/8010e615287f35de19b943f8c647933207d6e58b))
+* add reset password component ([f420dab](https://github.com/Nick-Mazuk/ui-svelte/commit/f420dabe7437559e2b785b12d8fb3a8bd793f03a))
+* add sign-in component ([8d4ba10](https://github.com/Nick-Mazuk/ui-svelte/commit/8d4ba105d93f83ae38abc9dc7967b8786516dd05))
+
 ## [0.5.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.3...v0.5.4) (2021-05-13)
 
 
