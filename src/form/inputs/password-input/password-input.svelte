@@ -32,7 +32,6 @@
     $: shownIcon = hideIcon ? undefined : Lock
     $: suffix = showPassword ? EyeOff : Eye
     $: suffixLabel = showPassword ? 'Hide password' : 'Show password'
-
 </script>
 
 <TextInput

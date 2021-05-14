@@ -53,7 +53,6 @@
             shownErrorMessage = errorMessages.default
         }
     }
-
 </script>
 
 <div class="flex items-baseline justify-end space-x-6" data-test="submit">

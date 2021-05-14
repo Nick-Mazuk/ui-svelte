@@ -8,9 +8,8 @@
     }[]
 
     export let siteTitle: string
-    export let logo: string = ''
+    export let logo = ''
     export let links: Links = []
-
 </script>
 
 <div class="flex items-center !max-w-xl min-h-screen py-8 wrapper">

@@ -61,7 +61,6 @@
         .slice(0, 2)
         .join('. ')
         .replace(/\.\./gu, '.')
-
 </script>
 
 <TextInput

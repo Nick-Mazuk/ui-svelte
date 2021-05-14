@@ -26,7 +26,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />

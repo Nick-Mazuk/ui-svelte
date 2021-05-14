@@ -41,7 +41,6 @@
     }
 
     $: shownIcon = hideIcon ? undefined : Mail
-
 </script>
 
 <TextInput

@@ -31,7 +31,6 @@
         else error = FORM_FEEDBACK.errors[500]
     }
     const handleStateChange = (event: FormOnStateChange) => (formState = event.detail)
-
 </script>
 
 <svelte:head>

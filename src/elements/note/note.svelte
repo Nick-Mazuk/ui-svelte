@@ -16,7 +16,6 @@
         gray: 'bg-gray-200 text-gray-700 dark:text-gray-800',
         highlight: 'bg-highlight-200 text-highlight-700 dark:text-highlight-800',
     }
-
 </script>
 
 <div

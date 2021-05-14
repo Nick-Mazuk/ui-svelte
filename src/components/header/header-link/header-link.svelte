@@ -18,7 +18,6 @@
         else if (matchExact) isCurrentPath = $page === href
         else isCurrentPath = isParentPath($page, href)
     }
-
 </script>
 
 <HeaderItemWrapper breakpoint="{breakpoint}">

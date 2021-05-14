@@ -49,7 +49,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />

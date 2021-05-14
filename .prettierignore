@@ -4,3 +4,4 @@ src/elements/icon/*.svelte
 src/style-guide/colors.stories.mdx
 src/style-guide/icons.stories.mdx
 cli/dist
+CHANGELOG.md

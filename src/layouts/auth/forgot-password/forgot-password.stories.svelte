@@ -37,7 +37,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />

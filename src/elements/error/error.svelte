@@ -8,7 +8,6 @@
     export let label = 'Error'
     export let size: Size = 'default'
     export let dark = false
-
 </script>
 
 <div

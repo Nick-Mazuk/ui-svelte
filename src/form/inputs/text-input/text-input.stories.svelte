@@ -193,7 +193,6 @@
 
     let formatterValue = '150.00'
     let formatterParsedValue = '150'
-
 </script>
 
 <Meta {...meta} />
