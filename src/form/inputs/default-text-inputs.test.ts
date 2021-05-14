@@ -60,7 +60,7 @@ const inputs: Input[] = [
         parsedValue: 'password',
         hasIcon: true,
         requiredMessage: 'Enter your password',
-        autocomplete: 'new-password',
+        autocomplete: 'current-password',
     },
 ]
 
