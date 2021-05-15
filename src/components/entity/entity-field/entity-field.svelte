@@ -1,6 +1,7 @@
 <script lang="ts">
     export let title = ''
     export let right = false
+
 </script>
 
 <div
@@ -18,6 +19,6 @@
         class:justify-between="{right}"
     >
         <p class="text-gray"><slot /></p>
-        <slot name="avatar" />
+        <div class="flex w-6"><slot name="avatar" /></div>
     </div>
 </div>
