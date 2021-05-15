@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.6.0...v0.7.0) (2021-05-15)
+
+
+### Features
+
+* add seo component ([a49cf3c](https://github.com/Nick-Mazuk/ui-svelte/commit/a49cf3c5790c3420c69415ae81db6cf5c6743f29))
+
 # [0.6.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.5.4...v0.6.0) (2021-05-14)
 
 
