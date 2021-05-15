@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.7.0...v0.7.1) (2021-05-15)
+
+
+### Bug Fixes
+
+* entity-field avatar size ([953b663](https://github.com/Nick-Mazuk/ui-svelte/commit/953b663a4995b592051d9d0f93581e7df54ef1dc))
+
 # [0.7.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.6.0...v0.7.0) (2021-05-15)
 
 
