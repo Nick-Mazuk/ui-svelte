@@ -3,7 +3,8 @@
     import { fade } from 'svelte/transition'
 
     import Portal from 'svelte-portal/src/Portal.svelte'
-    import { TransitionSpeed, TRANSITION_SPEED_MAP } from '../../configs/transitions'
+    import type { TransitionSpeed } from '../../configs/transitions'
+    import { TRANSITION_SPEED_MAP } from '../../configs/transitions'
 
     export let x = 0
     export let y = 0

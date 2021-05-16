@@ -54,7 +54,6 @@
     }
 
     let isOpen = false
-
 </script>
 
 <Meta {...meta} />

@@ -78,7 +78,7 @@
         }
     }
     $: if (isOpen) previousElement = document.activeElement
-    $: if (isOpen === false && previousElement instanceof HTMLElement) previousElement.focus()
+    $: if (!isOpen && previousElement instanceof HTMLElement) previousElement.focus()
     $: isOpen
         ? document.body.classList.add('overflow-hidden')
         : document.body.classList.remove('overflow-hidden')
