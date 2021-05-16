@@ -1,3 +1,5 @@
+## [0.8.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.3...v0.8.4) (2021-05-16)
+
 ## [0.8.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.2...v0.8.3) (2021-05-16)
 
 
