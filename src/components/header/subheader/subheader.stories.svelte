@@ -1,9 +1,11 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
-    import Note from '../../elements/note/note.svelte'
+
+    import Subheader from './subheader.svelte'
 
     const meta = {
-        title: 'Utilities/Seo',
+        title: 'Components/Header/Subheader',
+        component: Subheader,
         parameters: {
             docs: {
                 description: {
@@ -18,5 +20,5 @@
 <Meta {...meta} />
 
 <Story name="Default" let:args>
-    <Note label="Note">This component does not display anything.</Note>
+    <Subheader {...args} />
 </Story>

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getContext, setContext } from 'svelte'
-    import type { Writable } from 'svelte/store'
     import { writable } from 'svelte/store'
+    import type { HeaderContext } from '..'
 
     import TableOfContents from '../../../navigation/table-of-contents/table-of-contents.svelte'
     import HeaderMobileItemWrapper from '../header-mobile-item-wrapper/header-mobile-item-wrapper.svelte'
@@ -15,7 +15,8 @@
 
     const isMainItemActive = writable(false)
     setContext('headerMobileSubgroup', isMainItemActive)
-    const page = getContext<Writable<string> | undefined>('headerPage')
+    const headerContext = getContext<HeaderContext>('headerContext')
+    const page = headerContext?.currentPage
     $: currentPage = typeof page === 'undefined' ? '' : $page
     $: isActive = basePath ? currentPage.startsWith(basePath) : $isMainItemActive
 </script>

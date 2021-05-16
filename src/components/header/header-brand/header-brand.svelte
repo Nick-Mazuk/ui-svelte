@@ -16,7 +16,7 @@
     aria-label="{ariaLabel}"
 >
     {#if image}
-        <img src="{image}" class="flex-none h-10" role="presentation" alt="" />
+        <img src="{image}" class="flex-none h-8" role="presentation" alt="" />
     {/if}
     <HeaderItemWrapper breakpoint="{breakpoint}">
         <p class="h6 font-display whitespace-nowrap">{text}</p>

@@ -10,6 +10,6 @@
     }
 </script>
 
-<div class="{BREAKPOINT_MAP[breakpoint]} flex" class:items-center="{center}">
+<div class="{BREAKPOINT_MAP[breakpoint]} flex flex-none" class:items-center="{center}">
     <slot />
 </div>
