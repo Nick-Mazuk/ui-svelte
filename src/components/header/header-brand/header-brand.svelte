@@ -7,6 +7,7 @@
     export let href = '/'
     export let image = ''
     export let ariaLabel = 'Go to homepage'
+
 </script>
 
 <a
