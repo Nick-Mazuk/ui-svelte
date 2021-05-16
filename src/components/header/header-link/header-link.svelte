@@ -29,8 +29,9 @@
         sveltekit:prefetch
         href="{href}"
         class="flex relative items-center self-stretch hover:text-current transition-color whitespace-nowrap {isCurrentPath
-            ? 'text-current font-semibold'
+            ? 'text-current'
             : 'text-gray-600'}"
+        class:font-semibold="{isCurrentPath && !subheaderContext}"
         aria-current="{isCurrentPath ? 'page' : undefined}"
     >
         <slot />
