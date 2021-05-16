@@ -17,6 +17,13 @@
     $: borderClasses =
         !sticky || scrolledToTop ? 'border-b' : 'border-b border-background dark:border-gray-200'
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
+
 </script>
 
 <div
@@ -27,10 +34,11 @@
         <div style="min-width: fit-content">
             <div class="h-12 flex space-x-4 wrapper">
                 {#if image}
-                    <div
-                        class="relative self-stretch overflow-visible transition-all duration-[0.25s] ease-out -mr-4 flex-none"
+                    <button
+                        class="relative block self-stretch overflow-visible transition-all duration-[0.25s] ease-out -mr-4 flex-none outline-none focus:outline-none"
                         class:w-10="{!scrolledToTop && sticky}"
                         class:w-0="{scrolledToTop || !sticky}"
+                        on:click="{scrollToTop}"
                     >
                         {#if !scrolledToTop && sticky}
                             <img
@@ -40,7 +48,7 @@
                                 transition:fly="{{ y: -32, duration: 250 }}"
                             />
                         {/if}
-                    </div>
+                    </button>
                 {/if}
                 <slot />
             </div>
