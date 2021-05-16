@@ -1,3 +1,10 @@
+## [0.8.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.0...v0.8.1) (2021-05-16)
+
+
+### Bug Fixes
+
+* don't animate subheader if not sticky ([3b05875](https://github.com/Nick-Mazuk/ui-svelte/commit/3b05875b0e8ad7c4d403e9490010f441d10dedb4))
+
 # [0.8.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.7.1...v0.8.0) (2021-05-16)
 
 
