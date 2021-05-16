@@ -62,13 +62,14 @@
             <div class="flex space-x-4 ml-auto justify-end flex-grow">
                 <slot name="right" />
                 {#if $$slots.mobile}
-                    <div class="flex items-center sm:hidden">
+                    <div class="flex items-center pr-1 sm:hidden">
                         <Button
                             ariaLabel="{mobileOpen ? 'Close menu' : 'Open menu'}"
                             variant="static"
                             shape="square"
                             testId="header-hamburger"
                             on:click="{() => (mobileOpen = !mobileOpen)}"
+                            glue="{['right']}"
                         >
                             <div>
                                 <div
