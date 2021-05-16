@@ -105,10 +105,14 @@
 
 {#if mobileOpen && $$slots.mobile}
     <nav
-        class="fixed z-50 w-screen h-screen bg-background border-t overflow-scroll text-lg top-16 pb-16 sm:hidden"
+        class="fixed z-50 w-screen h-screen bg-background border-t overflow-scroll text-lg sm:hidden"
         style="transform:translateZ(9999px)"
         data-test="mobile-nav"
         aria-label="mobile navigation"
+        class:top-16="{!$$slots.subheader}"
+        class:top-24="{$$slots.subheader}"
+        class:pb-16="{!$$slots.subheader}"
+        class:pb-24="{$$slots.subheader}"
     >
         <slot name="mobile" />
     </nav>

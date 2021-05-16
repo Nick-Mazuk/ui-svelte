@@ -1,7 +1,11 @@
 <script lang="ts">
     import { getContext, setContext } from 'svelte'
+    import { fly } from 'svelte/transition'
+
     import type { SubheaderContext } from '.'
     import type { HeaderContext } from '..'
+
+    export let image = ''
 
     setContext<SubheaderContext>('subheaderContext', true)
     const headerContext = getContext<HeaderContext>('headerContext')
@@ -22,6 +26,22 @@
     <nav class="overflow-x-scroll">
         <div style="min-width: fit-content">
             <div class="h-12 flex space-x-4 wrapper">
+                {#if image}
+                    <div
+                        class="relative self-stretch overflow-visible transition-all duration-[0.25s] ease-out -mr-4 flex-none"
+                        class:w-10="{!scrolledToTop}"
+                        class:w-0="{scrolledToTop}"
+                    >
+                        {#if !scrolledToTop}
+                            <img
+                                src="{image}"
+                                alt=""
+                                class="h-6 block absolute left-0 top-3 w-6 min-w-6"
+                                transition:fly="{{ y: -32, duration: 250 }}"
+                            />
+                        {/if}
+                    </div>
+                {/if}
                 <slot />
             </div>
         </div>
