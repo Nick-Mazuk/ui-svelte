@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
-
+    import Button from '../../elements/button/button.svelte'
     import Modal from './modal.svelte'
 
     const meta = {
@@ -25,6 +25,9 @@
                 control: 'boolean',
                 defaultValue: true,
             },
+            isOpen: {
+                control: 'boolean',
+            },
             confirmText: {
                 control: 'text',
                 defaultValue: 'Confirm',
@@ -45,17 +48,22 @@
                     type: 'inline-radio',
                     options: ['default', 'success'],
                 },
-                defaultValue: 'horizontal',
+                defaultValue: 'default',
             },
         },
     }
+
+    let isOpen = false
 
 </script>
 
 <Meta {...meta} />
 
 <Story name="Default" args="{{ description: 'Would you like to continue?' }}" let:args>
-    <Modal {...args}>This is the contents of the modal.</Modal>
+    <Button variant="secondary" on:click="{() => (isOpen = true)}">Open modal</Button>
+    <Modal {...args} bind:isOpen on:confirm="{() => (isOpen = false)}"
+        >This is the contents of the modal.</Modal
+    >
 </Story>
 
 <Story
@@ -71,5 +79,6 @@
     }}"
     let:args
 >
-    <Modal {...args} />
+    <Button variant="secondary" on:click="{() => (isOpen = true)}">Open modal</Button>
+    <Modal {...args} bind:isOpen />
 </Story>

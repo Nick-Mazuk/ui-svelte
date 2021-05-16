@@ -1,9 +1,14 @@
 <script lang="ts">
+    import { createEventDispatcher } from 'svelte'
+    import { scale, fade } from 'svelte/transition'
+
+    import type { ModalDispatcher } from '.'
     import Portal from '../../utilities/portal/portal.svelte'
     import Container from '../../utilities/container/container.svelte'
     import Button from '../../elements/button/button.svelte'
     import X from '../../elements/icon/x.svelte'
     import Check from '../../elements/icon/check.svelte'
+    import { TRANSITION_SPEED_MAP } from '../../configs/transitions'
 
     type Variant = 'default' | 'success'
     type Size = 'small' | 'default' | 'large'
@@ -15,11 +20,14 @@
     export let cancelText = ''
     export let variant: Variant = 'default'
     export let size: Size | undefined = undefined
+    export let isOpen = false
+
+    const dispatch = createEventDispatcher<ModalDispatcher>()
 
     const SIZE_MAP: Record<Size, string> = {
-        small: '!max-w-md',
-        default: '!max-w-lg',
-        large: '!max-w-2xl',
+        small: 'w-[28rem]',
+        default: 'w-[32rem]',
+        large: 'w-[42rem]',
     }
 
     let buttonWidth: 'full' | undefined
@@ -34,87 +42,113 @@
         else displaySize = 'default'
     }
 
+    const handleConfirm = () => dispatch('confirm')
+    const handleCancel = () => {
+        dispatch('cancel')
+        isOpen = false
+    }
+
 </script>
 
-<Portal overlay="color" center>
-    <div
-        class="py-8 w-full {SIZE_MAP[displaySize]} wrapper flex items-center h-screen"
-        role="alertdialog"
-        aria-labelledby="modal-title"
-        aria-describedby="{description ? 'modal-description' : undefined}"
-    >
-        <Container
-            variant="shadow"
-            class="bg-background max-h-full w-full relative flex flex-col space-y-4"
+<svelte:window
+    on:keydown="{(event) => {
+        if (event.key === 'Escape' && isOpen) isOpen = false
+    }}"
+/>
+{#if isOpen}
+    <Portal overlay="color" center transitionSpeed="medium" on:close="{() => (isOpen = false)}">
+        <div
+            role="alertdialog"
+            aria-labelledby="modal-title"
+            aria-describedby="{description ? 'modal-description' : undefined}"
+            in:scale="{{ duration: TRANSITION_SPEED_MAP.medium.in, start: 0.9 }}"
+            out:fade="{{ duration: TRANSITION_SPEED_MAP.medium.out }}"
         >
-            {#if variant === 'success'}
-                <div class="flex justify-center">
-                    <div
-                        class="h-12 w-12 rounded-full bg-success-200 text-success-700 flex items-center justify-center"
-                    >
-                        <Check size="{6}" />
-                    </div>
-                </div>
-            {/if}
-            <div
-                class="flex flex-none"
-                class:justify-between="{variant !== 'success'}"
-                class:justify-center="{variant === 'success'}"
+            <Container
+                variant="shadow"
+                class="bg-background w-full relative flex flex-col space-y-4 overflow-y-scroll {SIZE_MAP[
+                    displaySize
+                ]}"
+                style="max-height: calc(100vh - 2rem); max-width: calc(100vw - 1.5rem);"
             >
-                <div>
-                    <h3
-                        class:h4="{variant !== 'success'}"
-                        class:h5="{variant === 'success'}"
-                        id="modal-title"
-                        class:text-center="{variant === 'success'}"
-                    >
-                        {title}
-                    </h3>
-                    {#if description}
-                        <p id="modal-description" class="{descriptionClasses}">
-                            {description}
-                        </p>
-                    {/if}
-                </div>
-                {#if close && variant !== 'success'}
-                    <div class="pr-1 pt-1 flex-none">
-                        <Button shape="circle" variant="static" glue="{['right', 'top']}">
-                            <X />
-                        </Button>
+                {#if variant === 'success'}
+                    <div class="flex justify-center">
+                        <div
+                            class="h-12 w-12 rounded-full bg-success-200 text-success-700 flex items-center justify-center"
+                        >
+                            <Check size="{6}" />
+                        </div>
                     </div>
                 {/if}
-            </div>
-            {#if $$slots.default}
-                <div class="overflow-scroll">
-                    <slot />
-                </div>
-            {/if}
-            {#if $$slots.actions || confirmText}
-                <div class="flex justify-end flex-none">
-                    {#if $$slots.actions && variant !== 'success'}
-                        <slot name="actions" />
-                    {:else}
-                        <div
-                            class="flex space-x-4"
-                            class:w-full="{variant === 'success'}"
-                            class:mt-2="{variant === 'success'}"
+                <div
+                    class="flex flex-none"
+                    class:justify-between="{variant !== 'success'}"
+                    class:justify-center="{variant === 'success'}"
+                >
+                    <div>
+                        <h3
+                            class:h4="{variant !== 'success'}"
+                            class:h5="{variant === 'success'}"
+                            id="modal-title"
+                            class:text-center="{variant === 'success'}"
                         >
-                            {#if cancelText}
-                                <div class="{buttonContainerClasses}">
-                                    <Button variant="secondary" width="{buttonWidth}">
-                                        {cancelText}
-                                    </Button>
-                                </div>
-                            {/if}
-                            <div class="{buttonContainerClasses}">
-                                <Button width="{buttonWidth}">
-                                    {confirmText}
-                                </Button>
-                            </div>
+                            {title}
+                        </h3>
+                        {#if description}
+                            <p id="modal-description" class="{descriptionClasses}">
+                                {description}
+                            </p>
+                        {/if}
+                    </div>
+                    {#if close && variant !== 'success'}
+                        <div class="pr-1 pt-1 flex-none">
+                            <Button
+                                shape="circle"
+                                variant="static"
+                                glue="{['right', 'top']}"
+                                on:click="{() => (isOpen = false)}"
+                            >
+                                <X />
+                            </Button>
                         </div>
                     {/if}
                 </div>
-            {/if}
-        </Container>
-    </div>
-</Portal>
+                {#if $$slots.default}
+                    <div class="overflow-scroll">
+                        <slot />
+                    </div>
+                {/if}
+                {#if $$slots.actions || confirmText}
+                    <div class="flex justify-end flex-none">
+                        {#if $$slots.actions && variant !== 'success'}
+                            <slot name="actions" />
+                        {:else}
+                            <div
+                                class="flex space-x-4"
+                                class:w-full="{variant === 'success'}"
+                                class:mt-2="{variant === 'success'}"
+                            >
+                                {#if cancelText}
+                                    <div class="{buttonContainerClasses}">
+                                        <Button
+                                            variant="secondary"
+                                            width="{buttonWidth}"
+                                            on:click="{handleCancel}"
+                                        >
+                                            {cancelText}
+                                        </Button>
+                                    </div>
+                                {/if}
+                                <div class="{buttonContainerClasses}">
+                                    <Button width="{buttonWidth}" on:click="{handleConfirm}">
+                                        {confirmText}
+                                    </Button>
+                                </div>
+                            </div>
+                        {/if}
+                    </div>
+                {/if}
+            </Container>
+        </div>
+    </Portal>
+{/if}

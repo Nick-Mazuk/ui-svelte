@@ -1,17 +1,21 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte'
+    import { fade } from 'svelte/transition'
+
     import Portal from 'svelte-portal/src/Portal.svelte'
+    import { TransitionSpeed, TRANSITION_SPEED_MAP } from '../../configs/transitions'
 
     export let x = 0
     export let y = 0
     export let center = false
     export let overlay: boolean | 'color' = false
     export let overlayAriaLabel: string | undefined = undefined
+    export let transitionSpeed: TransitionSpeed = 'small'
 
     const dispatch = createEventDispatcher()
 
     $: container = center
-        ? 'fixed inset-0 flex items-center justify-center'
+        ? 'fixed transform top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
         : 'absolute inset-0 bottom-auto right-auto'
     $: transform = center ? '' : `transform: translate3d(${x}px, ${y}px, 0px)`
 
@@ -27,6 +31,8 @@
             on:click="{() => dispatch('close', true)}"
             tabindex="{-1}"
             aria-label="{overlayAriaLabel}"
+            in:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].in }}"
+            out:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].out }}"
         >
         </button>
     {/if}
