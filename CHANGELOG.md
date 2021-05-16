@@ -1,3 +1,10 @@
+## [0.8.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.1...v0.8.2) (2021-05-16)
+
+
+### Bug Fixes
+
+* clciking subheader logo scrolls to top ([1fe373c](https://github.com/Nick-Mazuk/ui-svelte/commit/1fe373ce532ba53417b802db139feab5d3b2e812))
+
 ## [0.8.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.0...v0.8.1) (2021-05-16)
 
 
