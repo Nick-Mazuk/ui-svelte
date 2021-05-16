@@ -30,6 +30,7 @@
                 : 'opacity-0'}"
             on:click="{() => dispatch('close', true)}"
             tabindex="{-1}"
+            data-test="overlay"
             aria-label="{overlayAriaLabel}"
             in:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].in }}"
             out:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].out }}"

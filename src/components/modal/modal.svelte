@@ -23,6 +23,10 @@
     export let isOpen = false
 
     const dispatch = createEventDispatcher<ModalDispatcher>()
+    let containerElement: HTMLDivElement
+    let firstFocusableElement: HTMLElement
+    let lastFocusableElement: HTMLElement
+    let previousElement: Element | null
 
     const SIZE_MAP: Record<Size, string> = {
         small: 'w-[28rem]',
@@ -47,22 +51,59 @@
         dispatch('cancel')
         isOpen = false
     }
+    const handleWindowKeydown: svelte.JSX.KeyboardEventHandler<Window> = (event) => {
+        if (!isOpen) return
+        if (event.key === 'Escape') isOpen = false
+        if (event.key !== 'Tab') return
+        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus()
+            event.preventDefault()
+        }
+        if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus()
+            event.preventDefault()
+        }
+    }
+
+    $: {
+        if (isOpen && containerElement) {
+            containerElement.focus()
+            const focusableElements =
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            const elements = containerElement.querySelectorAll(focusableElements)
+            const firstElement = elements[0]
+            const lastElement = elements[elements.length - 1]
+            if (firstElement instanceof HTMLElement) firstFocusableElement = firstElement
+            if (lastElement instanceof HTMLElement) lastFocusableElement = lastElement
+        }
+    }
+    $: if (isOpen) previousElement = document.activeElement
+    $: if (isOpen === false && previousElement instanceof HTMLElement) previousElement.focus()
+    $: isOpen
+        ? document.body.classList.add('overflow-hidden')
+        : document.body.classList.remove('overflow-hidden')
 
 </script>
 
-<svelte:window
-    on:keydown="{(event) => {
-        if (event.key === 'Escape' && isOpen) isOpen = false
-    }}"
-/>
+<svelte:window on:keydown="{handleWindowKeydown}" />
 {#if isOpen}
-    <Portal overlay="color" center transitionSpeed="medium" on:close="{() => (isOpen = false)}">
+    <Portal
+        overlay="color"
+        overlayAriaLabel="Close modal"
+        center
+        transitionSpeed="medium"
+        on:close="{() => (isOpen = false)}"
+    >
         <div
             role="alertdialog"
+            data-test="modal"
             aria-labelledby="modal-title"
             aria-describedby="{description ? 'modal-description' : undefined}"
             in:scale="{{ duration: TRANSITION_SPEED_MAP.medium.in, start: 0.9 }}"
             out:fade="{{ duration: TRANSITION_SPEED_MAP.medium.out }}"
+            tabindex="{-1}"
+            bind:this="{containerElement}"
+            class="focus:outline-none outline-none"
         >
             <Container
                 variant="shadow"
@@ -107,6 +148,7 @@
                                 variant="static"
                                 glue="{['right', 'top']}"
                                 on:click="{() => (isOpen = false)}"
+                                ariaLabel="Close modal"
                             >
                                 <X />
                             </Button>

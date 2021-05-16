@@ -61,13 +61,13 @@
 
 <Story name="Default" args="{{ description: 'Would you like to continue?' }}" let:args>
     <Button variant="secondary" on:click="{() => (isOpen = true)}">Open modal</Button>
-    <Modal {...args} bind:isOpen on:confirm="{() => (isOpen = false)}"
-        >This is the contents of the modal.</Modal
-    >
+    <Modal {...args} bind:isOpen on:confirm="{() => (isOpen = false)}">
+        This is the contents of the modal.
+    </Modal>
 </Story>
 
 <Story
-    name="Confirm"
+    name="Success"
     args="{{
         variant: 'success',
         title: 'Payment successful',
@@ -80,5 +80,5 @@
     let:args
 >
     <Button variant="secondary" on:click="{() => (isOpen = true)}">Open modal</Button>
-    <Modal {...args} bind:isOpen />
+    <Modal {...args} bind:isOpen on:confirm="{() => (isOpen = false)}" />
 </Story>
