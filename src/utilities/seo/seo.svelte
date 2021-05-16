@@ -2,6 +2,7 @@
 
 <script lang="ts">
     import type { OpenGraph, Twitter } from '.'
+
     export let title: string
     export let siteName: string
     export let noindex = false
@@ -18,7 +19,6 @@
         if (siteName) return siteName
         return ''
     }
-
 </script>
 
 <svelte:head>

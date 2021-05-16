@@ -32,7 +32,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />
@@ -82,7 +81,7 @@
         </div>
     </div>
 </Story>
-<Story name="Subfooter" args="{{ sticky: true }}" let:args parameters="{{ layout: 'fullscreen' }}">
+<Story name="Sub header" args="{{ sticky: true }}" let:args parameters="{{ layout: 'fullscreen' }}">
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
             <HeaderBrand text="UI Svelte" image="http://placeimg.com/150/150/nature" slot="left" />

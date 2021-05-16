@@ -13,7 +13,7 @@
 
     const headerContext = getContext<HeaderContext>('headerContext')
     const subheaderContext = getContext<SubheaderContext>('subheaderContext')
-    const page = typeof headerContext === 'undefined' ? undefined : headerContext.currentPage
+    const page = headerContext?.currentPage
     let isCurrentPath = false
 
     $: {
@@ -21,7 +21,6 @@
         else if (matchExact) isCurrentPath = $page === href
         else isCurrentPath = isParentPath($page, href)
     }
-
 </script>
 
 <HeaderItemWrapper breakpoint="{subheaderContext ? 'none' : breakpoint}">

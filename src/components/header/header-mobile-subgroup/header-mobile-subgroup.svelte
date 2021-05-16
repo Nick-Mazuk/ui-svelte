@@ -16,10 +16,9 @@
     const isMainItemActive = writable(false)
     setContext('headerMobileSubgroup', isMainItemActive)
     const headerContext = getContext<HeaderContext>('headerContext')
-    const page = typeof headerContext === 'undefined' ? undefined : headerContext.currentPage
+    const page = headerContext?.currentPage
     $: currentPage = typeof page === 'undefined' ? '' : $page
     $: isActive = basePath ? currentPage.startsWith(basePath) : $isMainItemActive
-
 </script>
 
 <slot name="main" />

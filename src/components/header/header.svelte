@@ -30,7 +30,6 @@
     $: scrolledStore.set(scrolledToTop)
     $: borderClasses =
         !sticky || scrolledToTop ? 'border-b' : 'border-b border-background dark:border-gray-200'
-
 </script>
 
 <header class:contents="{!mobileOpen}" class:fixed="{mobileOpen}">

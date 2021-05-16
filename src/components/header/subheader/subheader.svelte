@@ -11,12 +11,11 @@
     const headerContext = getContext<HeaderContext>('headerContext')
     const stickyStore = headerContext?.sticky
     const scrolledStore = headerContext?.scrolledToTop
-    $: sticky = typeof stickyStore !== 'undefined' && $stickyStore ? true : false
-    $: scrolledToTop = typeof scrolledStore !== 'undefined' && $scrolledStore ? true : false
+    $: sticky = typeof stickyStore !== 'undefined' && $stickyStore
+    $: scrolledToTop = typeof scrolledStore !== 'undefined' && $scrolledStore
     $: stickyClasses = sticky ? 'sticky top-0 overflow-visible' : 'relative'
     $: borderClasses =
         !sticky || scrolledToTop ? 'border-b' : 'border-b border-background dark:border-gray-200'
-
 </script>
 
 <div
@@ -65,5 +64,4 @@
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
     }
-
 </style>

@@ -9,7 +9,7 @@
     export let matchExact = false
 
     const headerContext = getContext<HeaderContext>('headerContext')
-    const page = typeof headerContext === 'undefined' ? undefined : headerContext.currentPage
+    const page = headerContext?.currentPage
     const subgroupContext = getContext<Writable<boolean> | undefined>('headerMobileSubgroup')
     let isCurrentPath = false
 
@@ -19,7 +19,6 @@
         else isCurrentPath = isParentPath($page, href)
     }
     $: if (subgroupContext) subgroupContext.set(isCurrentPath)
-
 </script>
 
 <HeaderMobileItemWrapper>
