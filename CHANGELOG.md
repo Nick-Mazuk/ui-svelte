@@ -1,3 +1,10 @@
+## [0.8.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.2...v0.8.3) (2021-05-16)
+
+
+### Bug Fixes
+
+* header links correctly determine current pages ([198d39d](https://github.com/Nick-Mazuk/ui-svelte/commit/198d39d59cc0dd5eab92db1d22e4ca02fb3d0720))
+
 ## [0.8.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.1...v0.8.2) (2021-05-16)
 
 
