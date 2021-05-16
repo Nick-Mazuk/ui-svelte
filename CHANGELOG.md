@@ -1,3 +1,17 @@
+# [0.8.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.7.1...v0.8.0) (2021-05-16)
+
+
+### Bug Fixes
+
+* align hamburger menu to right margin ([d372d99](https://github.com/Nick-Mazuk/ui-svelte/commit/d372d99f17009cb7b1c2f4bc897d91dafbb88236))
+* remove collision between header-brand image and subfooter ([7d31ba2](https://github.com/Nick-Mazuk/ui-svelte/commit/7d31ba214886979efa988faffb3dafa6b680ab03))
+
+
+### Features
+
+* add icon to subfooter ([378944c](https://github.com/Nick-Mazuk/ui-svelte/commit/378944c8b9e864a9bc16ac7664944d6e782fa9ef))
+* add subheader ([6bf9cdf](https://github.com/Nick-Mazuk/ui-svelte/commit/6bf9cdfeafaa0da27ae6094271ffea30b8170620))
+
 ## [0.7.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.7.0...v0.7.1) (2021-05-15)
 
 
