@@ -8,6 +8,7 @@
         sm: 'hidden sm:flex',
         md: 'hidden md:flex',
     }
+
 </script>
 
 <div class="{BREAKPOINT_MAP[breakpoint]} flex" class:items-center="{center}">

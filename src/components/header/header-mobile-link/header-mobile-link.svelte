@@ -3,11 +3,13 @@
     import type { Writable } from 'svelte/store'
     import { isParentPath } from '@nick-mazuk/lib/esm/url'
     import HeaderMobileItemWrapper from '../header-mobile-item-wrapper/header-mobile-item-wrapper.svelte'
+    import type { HeaderContext } from '..'
 
     export let href: string
     export let matchExact = false
 
-    const page = getContext<Writable<string> | undefined>('headerPage')
+    const headerContext = getContext<HeaderContext>('headerContext')
+    const page = typeof headerContext === 'undefined' ? undefined : headerContext.currentPage
     const subgroupContext = getContext<Writable<boolean> | undefined>('headerMobileSubgroup')
     let isCurrentPath = false
 
@@ -17,6 +19,7 @@
         else isCurrentPath = isParentPath($page, href)
     }
     $: if (subgroupContext) subgroupContext.set(isCurrentPath)
+
 </script>
 
 <HeaderMobileItemWrapper>

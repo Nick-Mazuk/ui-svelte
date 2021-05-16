@@ -3,6 +3,7 @@
     import { setContext } from 'svelte'
     import { writable } from 'svelte/store'
     import Button from '../../elements/button/button.svelte'
+    import type { HeaderContext } from '.'
 
     export let sticky = false
     export let small = false
@@ -13,7 +14,7 @@
     let mobileOpen = false
 
     const pageStore = writable(page)
-    setContext('headerPage', pageStore)
+    setContext<HeaderContext>('headerContext', { currentPage: pageStore })
 
     if (typeof window !== 'undefined')
         window.addEventListener('sveltekit:navigation-end', () => (mobileOpen = false))
@@ -22,6 +23,7 @@
     $: pageStore.set(page)
     $: borderClasses =
         !sticky || scrolledToTop ? 'border-b' : 'border-b border-background dark:border-gray-200'
+
 </script>
 
 <header
@@ -42,7 +44,7 @@
                 : 'opacity-100'}"
         ></div>
     {/if}
-    <nav class="mx-auto flex wrapper space-x-4 {small ? 'h-12 text-sm' : 'h-16'}">
+    <nav class="flex wrapper space-x-4 {small ? 'h-12' : 'h-16'}">
         <div class="flex space-x-4 flex-grow">
             <slot name="left" />
         </div>
@@ -78,6 +80,14 @@
             {/if}
         </div>
     </nav>
+
+    <nav class="h-12 wrapper flex space-x-4 overflow-x-scroll">
+        <p class="whitespace-nowrap">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quia modi quisquam illo
+            consectetur aliquam, dolorem eum, maiores fugiat placeat, veniam nobis tempore delectus
+            consequuntur labore nostrum excepturi recusandae? Odio.
+        </p>
+    </nav>
 </header>
 <IntersectionObserver element="{sentinal}" bind:intersecting="{scrolledToTop}">
     <div bind:this="{sentinal}" class="h-1 w-full absolute top-0 z-50"></div>
@@ -97,3 +107,16 @@
         <slot name="mobile" />
     </nav>
 {/if}
+
+<style>
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    nav {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+</style>
