@@ -16,7 +16,7 @@
     $: {
         if (typeof page === 'undefined' || typeof $page === 'undefined') isCurrentPath = false
         else if (matchExact) isCurrentPath = $page === href
-        else isCurrentPath = isParentPath($page, href)
+        else isCurrentPath = isParentPath(href, $page)
     }
     $: if (subgroupContext) subgroupContext.set(isCurrentPath)
 
