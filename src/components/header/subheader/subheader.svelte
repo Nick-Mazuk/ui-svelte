@@ -16,6 +16,7 @@
     $: stickyClasses = sticky ? 'sticky top-0 overflow-visible' : 'relative'
     $: borderClasses =
         !sticky || scrolledToTop ? 'border-b' : 'border-b border-background dark:border-gray-200'
+
 </script>
 
 <div
@@ -28,10 +29,10 @@
                 {#if image}
                     <div
                         class="relative self-stretch overflow-visible transition-all duration-[0.25s] ease-out -mr-4 flex-none"
-                        class:w-10="{!scrolledToTop}"
-                        class:w-0="{scrolledToTop}"
+                        class:w-10="{!scrolledToTop && sticky}"
+                        class:w-0="{scrolledToTop || !sticky}"
                     >
-                        {#if !scrolledToTop}
+                        {#if !scrolledToTop && sticky}
                             <img
                                 src="{image}"
                                 alt=""
@@ -64,4 +65,5 @@
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
     }
+
 </style>

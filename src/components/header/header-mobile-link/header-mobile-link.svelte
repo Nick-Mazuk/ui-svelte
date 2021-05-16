@@ -19,6 +19,7 @@
         else isCurrentPath = isParentPath($page, href)
     }
     $: if (subgroupContext) subgroupContext.set(isCurrentPath)
+
 </script>
 
 <HeaderMobileItemWrapper>
