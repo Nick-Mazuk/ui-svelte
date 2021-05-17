@@ -47,7 +47,10 @@
     })
     const dispatch = createEventDispatcher<FormDispatcher>()
 
-    const resetForm = () => Object.keys(formInputs).forEach((input) => formInputs[input].reset())
+    const resetForm = () => {
+        formElement.reset()
+        Object.keys(formInputs).forEach((input) => formInputs[input].reset())
+    }
 
     const handleOffline = () => {
         if (!window.navigator.onLine && !allowOffline) {
@@ -121,6 +124,7 @@
         )
         formData = temporaryFormData
     }
+
 </script>
 
 <form bind:this="{formElement}" on:submit|preventDefault="{handleSubmit}" novalidate>
