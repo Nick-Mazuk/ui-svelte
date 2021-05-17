@@ -35,7 +35,7 @@ context('FormEntity', () => {
         cy.get('[role="progressbar"]').should('not.exist')
     })
 
-    it.only('can submit requests', () => {
+    it('can submit requests', () => {
         cy.loadStory('Form/FormEntity', 'With description', {
             method: 'POST',
             action: mockApiUrl,
