@@ -47,7 +47,7 @@
         "axe-core": "^4.2.0",
         "chromatic": "^5.8.0",
         "concurrently": "^6.0.2",
-        "cypress": "^7.2.0",
+        "cypress": "^7.3.0",
         "cypress-axe": "^0.12.2",
         "cypress-plugin-tab": "^1.0.5",
         "cypress-real-events": "^1.4.0",

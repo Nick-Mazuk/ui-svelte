@@ -29,7 +29,7 @@ specifiers:
   axe-core: ^4.2.0
   chromatic: ^5.8.0
   concurrently: ^6.0.2
-  cypress: ^7.2.0
+  cypress: ^7.3.0
   cypress-axe: ^0.12.2
   cypress-plugin-tab: ^1.0.5
   cypress-real-events: ^1.4.0
@@ -98,10 +98,10 @@ devDependencies:
   axe-core: 4.2.0
   chromatic: 5.8.0
   concurrently: 6.0.2
-  cypress: 7.2.0
-  cypress-axe: 0.12.2_axe-core@4.2.0+cypress@7.2.0
+  cypress: 7.3.0
+  cypress-axe: 0.12.2_axe-core@4.2.0+cypress@7.3.0
   cypress-plugin-tab: 1.0.5
-  cypress-real-events: 1.4.0_cypress@7.2.0
+  cypress-real-events: 1.4.0_cypress@7.3.0
   esbuild: 0.11.0
   eslint: 7.26.0
   feather-icons: 4.28.0
@@ -7480,7 +7480,7 @@ packages:
     resolution: {integrity: sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=}
     dev: true
 
-  /cypress-axe/0.12.2_axe-core@4.2.0+cypress@7.2.0:
+  /cypress-axe/0.12.2_axe-core@4.2.0+cypress@7.3.0:
     resolution: {integrity: sha512-gn+rVJ2JnvUWhBshbZ/8dkJdANaEB96zgtAEClJ7vNvDgmqAYb+HhQpW0GM04EqtIiPhenqUeKNQDoqrquY5+w==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -7488,7 +7488,7 @@ packages:
       cypress: ^3 || ^4 || ^5 || ^6
     dependencies:
       axe-core: 4.2.0
-      cypress: 7.2.0
+      cypress: 7.3.0
     dev: true
 
   /cypress-plugin-tab/1.0.5:
@@ -7497,16 +7497,16 @@ packages:
       ally.js: 1.4.1
     dev: true
 
-  /cypress-real-events/1.4.0_cypress@7.2.0:
+  /cypress-real-events/1.4.0_cypress@7.3.0:
     resolution: {integrity: sha512-1s4BQN1D++vFSuaad0qKsWcoApM5tQqPBFyDJEa6JeCZIsAdgMdGLuKi5QNIdl5KTJix0jxglzFJAThyz3borQ==}
     peerDependencies:
       cypress: ^4.x || ^5.x || ^6.x || ^7.x
     dependencies:
-      cypress: 7.2.0
+      cypress: 7.3.0
     dev: true
 
-  /cypress/7.2.0:
-    resolution: {integrity: sha512-lHHGay+YsffDn4M0bkkwezylBVHUpwwhtqte4LNPrFRCHy77X38+1PUe3neFb3glVTM+rbILtTN6FhO2djcOuQ==}
+  /cypress/7.3.0:
+    resolution: {integrity: sha512-aseRCH1tRVCrM6oEfja6fR/bo5l6e4SkHRRSATh27UeN4f/ANC8U7tGIulmrISJVy9xuOkOdbYKbUb2MNM+nrw==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
