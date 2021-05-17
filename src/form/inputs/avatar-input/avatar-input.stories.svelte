@@ -36,6 +36,10 @@
             disabled: {
                 control: 'boolean',
             },
+            ariaLabel: {
+                conrol: 'text',
+                defaultValue: 'Avatar',
+            },
         },
     }
 

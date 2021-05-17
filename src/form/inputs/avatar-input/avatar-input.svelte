@@ -7,6 +7,7 @@
     import type { FormSync } from '../..'
     import type { AvatarInputDispatcher } from '.'
 
+    export let ariaLabel = 'Avatar'
     export let name = 'avatar'
     export let maxFileSize: number | undefined = undefined
     export let readonly = false
@@ -65,7 +66,7 @@
 </script>
 
 <div class="inline-block">
-    <Label>
+    <Label ariaLabel="{ariaLabel}">
         <div
             class="hidden sm:block relative flex-none w-24 h-24 w-full h-full cursor-pointer rounded-full overflow-hidden transition filter hover:brightness-90 focus-within:brightness-75"
         >

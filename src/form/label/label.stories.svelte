@@ -15,18 +15,26 @@
         },
         argTypes: {
             value: {
-                control: {
-                    type: 'text',
-                },
+                control: 'text',
                 defaultValue: 'Label',
             },
-            info: {
-                control: {
-                    type: 'text',
-                },
+            ariaLabel: {
+                control: 'text',
+                description:
+                    "For those rare cases where a label shouldn't be visible, yet needs to exist for screen readers.",
+            },
+            readonly: {
+                control: 'boolean',
+            },
+            optional: {
+                control: 'boolean',
+            },
+            hideOptionalLabel: {
+                control: 'boolean',
             },
         },
     }
+
 </script>
 
 <Meta {...meta} />
