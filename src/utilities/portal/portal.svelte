@@ -19,7 +19,6 @@
         ? 'fixed transform top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
         : 'absolute inset-0 bottom-auto right-auto'
     $: transform = center ? '' : `transform: translate3d(${x}px, ${y}px, 0px)`
-
 </script>
 
 <Portal>

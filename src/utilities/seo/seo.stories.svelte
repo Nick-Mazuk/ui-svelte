@@ -13,10 +13,11 @@
         },
         argTypes: {},
     }
+
 </script>
 
 <Meta {...meta} />
 
-<Story name="Default" let:args>
+<Story name="Default">
     <Note label="Note">This component does not display anything.</Note>
 </Story>

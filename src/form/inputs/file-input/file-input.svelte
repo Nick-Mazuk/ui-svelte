@@ -48,17 +48,18 @@
             () => true
         )
     }
-    $: if (files && files[0]) showError = true
+    $: if (files?.[0]) showError = true
     $: {
         let tempErrorMessage = ''
-        if ((!files || files.length < 1) && !optional) {
+        if ((!files || files.length === 0) && !optional) {
             tempErrorMessage = requiredMessage
         } else if (files && (maxUploadSize || maxFileSize)) {
             let totalUpload = 0
             let maxFile = 0
 
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i]
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of, unicorn/no-for-loop -- for loop needed
+            for (let index = 0; index < files.length; index++) {
+                const file = files[index]
                 totalUpload += file.size / (1024 * 1024)
                 maxFile = Math.max(maxFile, file.size / (1024 * 1024))
             }
@@ -77,15 +78,11 @@
         if (maxUploadSize)
             feedback = `Maximum upload size is ${formatNumber(maxUploadSize)} MB (total)`
         else if (maxFileSize) feedback = `Maximum file size is ${formatNumber(maxFileSize)} MB`
-        if (helpTextProp && feedback) {
+        if (helpTextProp && feedback)
             helpText = `${endWithPunctuation(helpTextProp, '.')} ${feedback}.`
-        } else if (helpTextProp) {
-            helpText = helpTextProp
-        } else if (feedback) {
-            helpText = feedback
-        } else {
-            helpText = ''
-        }
+        else if (helpTextProp) helpText = helpTextProp
+        else if (feedback) helpText = feedback
+        else helpText = ''
     }
     $: name = nameProp ? nameProp : slugify(label)
 

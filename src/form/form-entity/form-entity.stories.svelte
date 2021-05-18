@@ -3,7 +3,6 @@
     import Button from '../../elements/button/button.svelte'
     import { FORM_FEEDBACK } from '../form-feedback'
     import EmailInput from '../inputs/email-input/email-input.svelte'
-    import TextInput from '../inputs/text-input/text-input.svelte'
 
     import FormEntity from './form-entity.svelte'
 
@@ -99,21 +98,20 @@
         },
     }
 
+    const handleSubmit = () => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(true)
+            }, 500)
+        })
+    }
+
 </script>
 
 <Meta {...meta} />
 
 <Story name="Default" let:args>
-    <FormEntity
-        {...args}
-        handleSubmit="{() => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve(true)
-                }, 500)
-            })
-        }}"
-    >
+    <FormEntity {...args} handleSubmit="{handleSubmit}">
         <EmailInput defaultValue="hello@exaple.com" />
     </FormEntity>
 </Story>
@@ -172,17 +170,7 @@
 </Story>
 
 <Story name="With upload progress" let:args>
-    <FormEntity
-        {...args}
-        handleSubmit="{() => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve(true)
-                }, 500)
-            })
-        }}"
-        progress="{0.5}"
-    >
+    <FormEntity {...args} handleSubmit="{handleSubmit}" progress="{0.5}">
         <EmailInput defaultValue="hello@exaple.com" />
     </FormEntity>
 </Story>

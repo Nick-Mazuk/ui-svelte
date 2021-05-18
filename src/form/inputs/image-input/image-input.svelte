@@ -57,7 +57,7 @@
             () => true
         )
     }
-    $: if (files && files[0]) {
+    $: if (files?.[0]) {
         fileReader?.readAsDataURL(files[0])
         showError = true
     }
@@ -74,15 +74,11 @@
     let helpText = ''
     $: {
         const feedback = maxFileSize ? `Maximum file size is ${formatNumber(maxFileSize)} MB` : ''
-        if (helpTextProp && feedback) {
+        if (helpTextProp && feedback)
             helpText = `${endWithPunctuation(helpTextProp, '.')} ${feedback}.`
-        } else if (helpTextProp) {
-            helpText = helpTextProp
-        } else if (feedback) {
-            helpText = feedback
-        } else {
-            helpText = ''
-        }
+        else if (helpTextProp) helpText = helpTextProp
+        else if (feedback) helpText = feedback
+        else helpText = ''
     }
     $: name = nameProp ? nameProp : slugify(label)
 

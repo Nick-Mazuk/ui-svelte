@@ -9,7 +9,6 @@
     export let hideOptionalLabel = false
 
     setContext('label', writable(value))
-
 </script>
 
 <!-- svelte-ignore a11y-label-has-associated-control -- input will be inside the slot -->

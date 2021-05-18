@@ -44,7 +44,7 @@
             () => true
         )
     }
-    $: if (files && files[0]) {
+    $: if (files?.[0]) {
         fileReader?.readAsDataURL(files[0])
         showError = true
     }

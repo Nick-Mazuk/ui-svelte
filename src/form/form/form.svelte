@@ -124,7 +124,6 @@
         )
         formData = temporaryFormData
     }
-
 </script>
 
 <form bind:this="{formElement}" on:submit|preventDefault="{handleSubmit}" novalidate>
