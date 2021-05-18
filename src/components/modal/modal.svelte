@@ -21,6 +21,7 @@
     export let variant: Variant = 'default'
     export let size: Size | undefined = undefined
     export let isOpen = false
+    export let refocusOnClose = true
 
     const dispatch = createEventDispatcher<ModalDispatcher>()
     let containerElement: HTMLDivElement
@@ -78,10 +79,13 @@
         }
     }
     $: if (isOpen) previousElement = document.activeElement
-    $: if (!isOpen && previousElement instanceof HTMLElement) previousElement.focus()
+    $: if (!isOpen && refocusOnClose && previousElement instanceof HTMLElement)
+        previousElement.focus()
     $: isOpen
         ? document.body.classList.add('overflow-hidden')
         : document.body.classList.remove('overflow-hidden')
+    $: if (!isOpen) dispatch('close')
+
 </script>
 
 <svelte:window on:keydown="{handleWindowKeydown}" />
@@ -121,7 +125,7 @@
                     </div>
                 {/if}
                 <div
-                    class="flex flex-none"
+                    class="flex flex-none p-px"
                     class:justify-between="{variant !== 'success'}"
                     class:justify-center="{variant === 'success'}"
                 >
@@ -155,12 +159,12 @@
                     {/if}
                 </div>
                 {#if $$slots.default}
-                    <div class="overflow-scroll">
+                    <div class="overflow-y-scroll overflow-x-visible p-px">
                         <slot />
                     </div>
                 {/if}
                 {#if $$slots.actions || confirmText}
-                    <div class="flex justify-end flex-none">
+                    <div class="flex justify-end flex-none p-px">
                         {#if $$slots.actions && variant !== 'success'}
                             <slot name="actions" />
                         {:else}

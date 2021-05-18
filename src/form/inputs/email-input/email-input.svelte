@@ -41,6 +41,7 @@
     }
 
     $: shownIcon = hideIcon ? undefined : Mail
+
 </script>
 
 <TextInput
@@ -59,6 +60,7 @@
     autocomplete="{autocomplete}"
     maxCharacters="{maxCharacters}"
     prefix="{shownIcon}"
+    keyboard="email"
     autofocus="{autofocus}"
     validationRules="{[
         {

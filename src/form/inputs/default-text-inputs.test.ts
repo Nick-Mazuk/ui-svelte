@@ -1,4 +1,4 @@
-import type { TextInputAutocomplete } from './text-input'
+import type { TextInputAutocomplete, TextInputKeyboard } from './text-input'
 import type { TextInputType } from './text-input/index.d'
 
 type Input = {
@@ -11,6 +11,7 @@ type Input = {
     parsedValue: string
     hasIcon?: boolean
     requiredMessage?: string
+    keyboard?: TextInputKeyboard
     autocomplete?: TextInputAutocomplete
     minCharacters?: boolean
     maxCharacters?: boolean
@@ -26,6 +27,7 @@ const inputs: Input[] = [
         parsedValue: 'hello@gmail.com',
         invalidValue: 'invalid',
         hasIcon: true,
+        keyboard: 'email',
         requiredMessage: 'Enter your email',
         autocomplete: 'email',
         maxCharacters: true,
@@ -49,6 +51,7 @@ const inputs: Input[] = [
         label: 'Number',
         validValue: '123',
         parsedValue: '123',
+        keyboard: 'decimal',
         requiredMessage: 'Enter a number',
     },
     {
@@ -62,11 +65,22 @@ const inputs: Input[] = [
         requiredMessage: 'Enter your password',
         autocomplete: 'current-password',
     },
+    {
+        componentName: 'UrlInput',
+        type: 'url',
+        name: 'url',
+        label: 'Url',
+        validValue: 'https://example.com',
+        parsedValue: 'https://example.com',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a url',
+    },
 ]
 
 // eslint-disable-next-line max-lines-per-function -- has multiple shorter tests
 inputs.forEach((input) => {
-    // eslint-disable-next-line max-lines-per-function -- has multiple shorter tests
+    // eslint-disable-next-line max-lines-per-function, sonarjs/cognitive-complexity -- has multiple shorter tests
     context(input.componentName, () => {
         it(`${input.componentName} functions correctly`, () => {
             cy.loadStory(`Form/Inputs/${input.componentName}`, 'Default')
@@ -120,6 +134,7 @@ inputs.forEach((input) => {
             cy.get('input').should('have.value', 'Custom value')
             cy.get('input').should('have.attr', 'autofocus')
             if (input.maxCharacters) cy.contains('12 / 100')
+            if (input.keyboard) cy.get('input').should('have.attr', 'inputmode', input.keyboard)
             cy.contains('Custom help text')
 
             cy.loadStory(`Form/Inputs/${input.componentName}`, 'Default', {
