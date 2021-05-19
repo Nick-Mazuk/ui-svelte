@@ -18,13 +18,16 @@
     $: container = center
         ? 'fixed transform top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
         : 'absolute inset-0 bottom-auto right-auto'
-    $: transform = center ? '' : `transform: translate3d(${x}px, ${y}px, 0px)`
+    $: transform = center
+        ? 'transform: transform:translateZ(10000px)'
+        : `transform: translate3d(${x}px, ${y}px, 10000px);`
+
 </script>
 
 <Portal>
     {#if overlay}
         <button
-            class="fixed inset-0 bg-foreground dark:bg-background w-screen h-screen cursor-default {overlay ===
+            class="fixed z-50 inset-0 bg-foreground dark:bg-background w-screen h-screen cursor-default {overlay ===
             'color'
                 ? 'opacity-25'
                 : 'opacity-0'}"
@@ -34,10 +37,11 @@
             aria-label="{overlayAriaLabel}"
             in:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].in }}"
             out:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].out }}"
+            style="transform: transform:translateZ(10000px)"
         >
         </button>
     {/if}
-    <div class="{container}" style="{transform}">
+    <div class="z-50 {container}" style="{transform}">
         <slot />
     </div>
 </Portal>
