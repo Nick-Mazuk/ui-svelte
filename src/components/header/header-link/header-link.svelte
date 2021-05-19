@@ -21,7 +21,6 @@
         else if (matchExact) isCurrentPath = $page === href
         else isCurrentPath = isParentPath(href, $page)
     }
-
 </script>
 
 <HeaderItemWrapper breakpoint="{subheaderContext ? 'none' : breakpoint}">

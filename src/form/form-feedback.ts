@@ -9,6 +9,7 @@ export const FORM_FEEDBACK = Object.freeze({
     },
     success: {
         default: 'Submitted successfully',
+        saved: 'Saved successfully',
     },
     auth: {
         errors: {

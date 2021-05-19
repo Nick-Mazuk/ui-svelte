@@ -59,6 +59,7 @@
     autocomplete="{autocomplete}"
     maxCharacters="{maxCharacters}"
     prefix="{shownIcon}"
+    keyboard="email"
     autofocus="{autofocus}"
     validationRules="{[
         {

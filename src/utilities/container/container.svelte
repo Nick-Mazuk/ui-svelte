@@ -11,8 +11,12 @@
     export let rounded: Rounded = 'default'
     export let variant: Variant | undefined = undefined
     export let href = ''
+    export let role: svelte.JSX.HTMLAttributes<
+        HTMLAnchorElement | HTMLDivElement
+    >['role'] = undefined
     let classes = ''
     export { classes as class }
+    export let style = ''
 
     const disabledStore = writable(variant === 'disable')
     setContext('disabled', disabledStore)
@@ -62,11 +66,11 @@
 </script>
 
 {#if href}
-    <a sveltekit:prefetch href="{href}" class="{classes}" on:click>
+    <a sveltekit:prefetch href="{href}" class="{classes}" role="{role}" style="{style}" on:click>
         <slot />
     </a>
 {:else}
-    <div class="{classes}" on:click>
+    <div class="{classes}" role="{role}" style="{style}" on:click>
         <slot />
     </div>
 {/if}

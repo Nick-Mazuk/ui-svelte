@@ -1,4 +1,4 @@
-import type { TextInputAutocomplete } from './text-input'
+import type { TextInputAutocomplete, TextInputKeyboard } from './text-input'
 import type { TextInputType } from './text-input/index.d'
 
 type Input = {
@@ -8,15 +8,36 @@ type Input = {
     label: string
     validValue: string
     invalidValue?: string
-    parsedValue: string
+    parsedValue?: string
     hasIcon?: boolean
     requiredMessage?: string
+    keyboard?: TextInputKeyboard
     autocomplete?: TextInputAutocomplete
     minCharacters?: boolean
     maxCharacters?: boolean
+    customDefaultValue?: boolean
 }
 
 const inputs: Input[] = [
+    {
+        componentName: 'DateInput',
+        type: 'text',
+        name: 'date',
+        label: 'Date',
+        validValue: 'March 2, 2021',
+        invalidValue: 'gibberjabber',
+        hasIcon: true,
+        requiredMessage: 'Enter a date',
+    },
+    {
+        componentName: 'DollarInput',
+        type: 'text',
+        name: 'dollar',
+        label: 'Dollar',
+        validValue: '1.00',
+        parsedValue: '1',
+        requiredMessage: 'Enter an amount',
+    },
     {
         componentName: 'EmailInput',
         type: 'email',
@@ -26,9 +47,46 @@ const inputs: Input[] = [
         parsedValue: 'hello@gmail.com',
         invalidValue: 'invalid',
         hasIcon: true,
+        keyboard: 'email',
         requiredMessage: 'Enter your email',
         autocomplete: 'email',
         maxCharacters: true,
+    },
+    {
+        componentName: 'FacebookPageInput',
+        type: 'url',
+        name: 'facebook',
+        label: 'Facebook',
+        validValue: 'https://facebook.com/facebook',
+        parsedValue: 'https://facebook.com/facebook',
+        invalidValue: 'https://www.facebook.com/groups/743327632675687/',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a Facebook page',
+    },
+    {
+        componentName: 'LinkedinInput',
+        type: 'url',
+        name: 'linkedin',
+        label: 'LinkedIn',
+        validValue: 'https://www.linkedin.com/in/person',
+        parsedValue: 'https://www.linkedin.com/in/person',
+        invalidValue: 'https://example.com',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a LinkedIn profile page',
+    },
+    {
+        componentName: 'NameInput',
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+        validValue: 'John smith',
+        parsedValue: 'first: John, last: smith',
+        invalidValue: 'https://example.com',
+        hasIcon: true,
+        requiredMessage: 'Enter your name',
+        autocomplete: 'name',
     },
     {
         componentName: 'NewPasswordInput',
@@ -49,6 +107,7 @@ const inputs: Input[] = [
         label: 'Number',
         validValue: '123',
         parsedValue: '123',
+        keyboard: 'decimal',
         requiredMessage: 'Enter a number',
     },
     {
@@ -62,11 +121,61 @@ const inputs: Input[] = [
         requiredMessage: 'Enter your password',
         autocomplete: 'current-password',
     },
+    {
+        componentName: 'TwitterProfileInput',
+        type: 'url',
+        name: 'twitter',
+        label: 'Twitter',
+        validValue: 'https://twitter.com/hello',
+        parsedValue: 'https://twitter.com/hello',
+        invalidValue: 'https://example.com',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a Twitter profile page',
+    },
+    {
+        componentName: 'UrlInput',
+        type: 'url',
+        name: 'url',
+        label: 'Url',
+        validValue: 'https://example.com',
+        invalidValue: 'not a url',
+        parsedValue: 'https://example.com',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a url',
+    },
+    {
+        componentName: 'YouTubeChannelInput',
+        type: 'url',
+        name: 'youtube-channel',
+        label: 'YouTube Channel',
+        validValue: 'youtube.com/c/YouTubeCreators',
+        parsedValue: 'YouTubeCreators',
+        invalidValue: 'youtube.com/watch?v=abcdefg',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a YouTube channel url',
+        customDefaultValue: true,
+    },
+    {
+        componentName: 'YouTubeVideoInput',
+        type: 'url',
+        name: 'youtube-video',
+        label: 'YouTube Video',
+        validValue: 'youtube.com/watch?v=abcdefg',
+        parsedValue: 'abcdefg',
+        invalidValue: 'youtube.com/YouTubeCreators',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a YouTube video url',
+        customDefaultValue: true,
+    },
 ]
 
 // eslint-disable-next-line max-lines-per-function -- has multiple shorter tests
 inputs.forEach((input) => {
-    // eslint-disable-next-line max-lines-per-function -- has multiple shorter tests
+    // eslint-disable-next-line max-lines-per-function, sonarjs/cognitive-complexity -- has multiple shorter tests
     context(input.componentName, () => {
         it(`${input.componentName} functions correctly`, () => {
             cy.loadStory(`Form/Inputs/${input.componentName}`, 'Default')
@@ -86,7 +195,7 @@ inputs.forEach((input) => {
             if (input.requiredMessage) cy.get('[data-test="error"]').contains(input.requiredMessage)
             cy.get('input').type(input.validValue).should('have.value', input.validValue)
             cy.get('[data-test="error"]').should('not.exist')
-            cy.contains(`Parsed value: "${input.parsedValue}"`)
+            if (input.parsedValue) cy.contains(`Parsed value: "${input.parsedValue}"`)
             if (input.invalidValue) {
                 cy.get('input').clear().type(input.invalidValue).blur()
                 cy.get('[data-test="error"]')
@@ -109,7 +218,7 @@ inputs.forEach((input) => {
                 defaultValue: 'Custom value',
             })
             cy.checkAccessibility()
-            cy.get('[data-test="text-input-prefix"]').should('not.exist')
+            if (input.hasIcon) cy.get('[data-test="text-input-prefix"]').should('not.exist')
             cy.contains('Custom label')
             cy.get('input').should('have.attr', 'name', 'custom-name')
             cy.get('input').should('have.attr', 'autocomplete', 'off')
@@ -117,9 +226,10 @@ inputs.forEach((input) => {
             cy.get('input').should('have.attr', 'readonly')
             cy.get('input').should('not.be.disabled')
             cy.get('input').should('have.attr', 'placeholder', 'Custom placeholder')
-            cy.get('input').should('have.value', 'Custom value')
+            if (!input.customDefaultValue) cy.get('input').should('have.value', 'Custom value')
             cy.get('input').should('have.attr', 'autofocus')
             if (input.maxCharacters) cy.contains('12 / 100')
+            if (input.keyboard) cy.get('input').should('have.attr', 'inputmode', input.keyboard)
             cy.contains('Custom help text')
 
             cy.loadStory(`Form/Inputs/${input.componentName}`, 'Default', {

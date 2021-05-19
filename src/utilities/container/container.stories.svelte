@@ -44,6 +44,10 @@
                     type: 'text',
                 },
             },
+            role: {
+                control: 'text',
+                description: 'The aria role',
+            },
         },
     }
 </script>

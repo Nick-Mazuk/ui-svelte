@@ -13,7 +13,7 @@
     import TextInput from '../text-input/text-input.svelte'
 
     export let label = 'Number'
-    export let name = 'number'
+    export let name = ''
     export let defaultValue = ''
     export let placeholder = ''
     export let helpText = ''

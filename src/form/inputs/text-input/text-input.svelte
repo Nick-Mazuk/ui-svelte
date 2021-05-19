@@ -2,7 +2,7 @@
     import { slugify } from '@nick-mazuk/lib/esm/text-styling'
     import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
     import { diffChars } from 'diff'
-    import { createEventDispatcher, getContext, tick } from 'svelte'
+    import { createEventDispatcher, getContext, onMount, tick } from 'svelte'
 
     import Label from '../../label/label.svelte'
     import Error from '../../../elements/error/error.svelte'
@@ -52,12 +52,10 @@
     export let maxCharacters: number | undefined = undefined
     export let autofocus = false
 
-    const disabledClasses = disabled
-        ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
-        : 'hover:text-gray-800 focus-within:text-gray-800 text-gray'
     const dispatch = createEventDispatcher<TextInputDispatcher>()
     const formSync = getContext<FormSync>('formSync')
 
+    let inputElement: HTMLInputElement | HTMLTextAreaElement
     let isValid: boolean
     let showError: boolean
     let errorMessage: string
@@ -65,6 +63,12 @@
     let parsedValue: string
     let formattedValue: string
     let feedback: string
+    onMount(async () => {
+        if (autofocus) {
+            await tick()
+            inputElement.focus()
+        }
+    })
     const handleBlur = () => {
         showError = true
         if (formatter) value = formatter(value)
@@ -182,6 +186,9 @@
             feedback = ''
         }
     }
+    $: disabledClasses = disabled
+        ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
+        : 'hover:text-gray-800 focus-within:text-gray-800 text-gray'
 </script>
 
 <Label
@@ -227,6 +234,7 @@
                 autocomplete="{autocomplete}"
                 name="{name}"
                 autofocus="{autofocus}"
+                bind:this="{inputElement}"
                 on:blur="{handleBlur}"
                 on:input="{handleInput}"
                 rows="{textareaRows}"></textarea>
@@ -248,6 +256,7 @@
                 type="{type}"
                 name="{name}"
                 autofocus="{autofocus}"
+                bind:this="{inputElement}"
                 on:blur="{handleBlur}"
                 on:input="{handleInput}"
             />

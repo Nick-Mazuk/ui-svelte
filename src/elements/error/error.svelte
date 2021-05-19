@@ -1,6 +1,5 @@
 <script lang="ts">
     import AlertCircle from '../icon/alert-circle.svelte'
-    import ArrowRight from '../icon/arrow-right.svelte'
 
     type Action = { text: string; href: string } | undefined
     type Size = 'default' | 'large'
@@ -37,8 +36,7 @@
                 class="border-b border-error font-semibold inline-flex items-center space-x-1"
                 sveltekit:prefetch
             >
-                <span>{action.text}</span>
-                <span class=""><ArrowRight size="{4}" /></span>
+                {action.text}&nbsp;→
             </a>
         {/if}
     </p>

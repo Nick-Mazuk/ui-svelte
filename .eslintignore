@@ -7,3 +7,5 @@ cli/dist
 src/style-guide/colors.stories.mdx
 src/style-guide/icons.stories.mdx
 src/elements/icon/*.svelte
+
+src/form/inputs/rich-text-input/rich-text-input.stories.svelte
