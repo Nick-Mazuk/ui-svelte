@@ -1,6 +1,10 @@
 <script lang="ts">
-    import { onMount, onDestroy } from 'svelte'
+    import { onMount, onDestroy, getContext } from 'svelte'
+    import type { Content } from '@tiptap/core'
     import { Editor } from '@tiptap/core'
+
+    import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
+    import { slugify } from '@nick-mazuk/lib/esm/text-styling'
 
     import BoldIcon from '../../../elements/icon/bold.svelte'
     import CodeIcon from '../../../elements/icon/code.svelte'
@@ -21,6 +25,9 @@
     import type { TextInputChangeEvent } from '../text-input'
     import { buildExtensions } from './_build-extensions'
     import { FormItemSize, FORM_SIZE_MAP } from '../../form-sizes'
+    import Label from '../../label/label.svelte'
+    import Error from '../../../elements/error/error.svelte'
+    import type { FormSync } from '../..'
 
     type Heading = 1 | 2 | 3 | 4 | boolean
     export let h1: Heading = false
@@ -34,7 +41,18 @@
     export let code = false
     export let img = false
 
+    export let label = 'Rich text'
+    let nameProp = ''
+    export { nameProp as name }
+    export let defaultValue: Content = ''
     export let size: FormItemSize = 'default'
+    export let maxCharacters = 0
+    export let helpText = ''
+    export let requiredMessage = 'This field is required'
+    export let optional = false
+    export let hideOptionalLabel = false
+    export let readonly = false
+    export let disabled = false
 
     let containerElement: HTMLDivElement | undefined = undefined
 
@@ -44,6 +62,7 @@
     let modalLinkValue = ''
     let modalLinkDefaultValue = ''
     let showAddImageSlot = false
+    const formSync = getContext<FormSync>('formSync')
 
     const openLinkModal = () => {
         const existingHref = editor.getAttributes('link')?.href
@@ -85,18 +104,20 @@
                 img,
                 openImageModal,
                 openLinkModal,
+                maxCharacters,
             }),
-            content: `<p>Hello world</p>`,
             onTransaction: () => {
                 // force re-render so `editor.isActive` works as expected
                 editor = editor
             },
+            content: defaultValue,
             injectCSS: false,
             editorProps: {
                 attributes: {
-                    class: `focus:outline-none outline-none ${FORM_SIZE_MAP[size].content.paddingLeft} ${FORM_SIZE_MAP[size].content.paddingRight} py-4 prose max-w-none bg-background whitespace-pre-wrap`,
+                    class: `focus:outline-none outline-none ${FORM_SIZE_MAP[size].content.paddingLeft} ${FORM_SIZE_MAP[size].content.paddingRight} py-4 prose max-w-none whitespace-pre-wrap`,
                 },
             },
+            editable: !disabled && !readonly,
             onFocus: () => (isFocused = true),
             onBlur: () => (isFocused = false),
         })
@@ -123,6 +144,7 @@
         property: string
         propertyOptions?: Record<string, any>
         tooltip?: string
+        buttonName: string
     }[]
     $: isMac = navigator?.platform.toUpperCase().indexOf('MAC') >= 0
     $: isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/iu.test(
@@ -142,6 +164,7 @@
                 property: 'heading',
                 propertyOptions: { level },
                 tooltip: `${metaKey}${shiftKey}1`,
+                buttonName: 'large heading',
             })
         }
         if (h2) {
@@ -153,6 +176,7 @@
                 property: 'heading',
                 propertyOptions: { level },
                 tooltip: `${metaKey}${shiftKey}2`,
+                buttonName: 'small heading',
             })
         }
         if (b) {
@@ -162,6 +186,7 @@
                 canRun: () => editor?.can().toggleBold(),
                 property: 'bold',
                 tooltip: `${metaKey}B`,
+                buttonName: 'bold',
             })
         }
         if (i) {
@@ -171,6 +196,7 @@
                 canRun: () => editor?.can().toggleItalic(),
                 property: 'italic',
                 tooltip: `${metaKey}I`,
+                buttonName: 'italics',
             })
         }
         if (a) {
@@ -179,6 +205,7 @@
                 onClick: openLinkModal,
                 property: 'link',
                 tooltip: `${metaKey}K`,
+                buttonName: 'link',
             })
         }
         if (ul) {
@@ -188,6 +215,7 @@
                 canRun: () => editor?.can().toggleBulletList(),
                 property: 'bulletList',
                 tooltip: `${metaKey}${shiftKey}8`,
+                buttonName: 'bulleted list',
             })
         }
         if (ol) {
@@ -197,6 +225,7 @@
                 canRun: () => editor?.can().toggleOrderedList(),
                 property: 'orderedList',
                 tooltip: `${metaKey}${shiftKey}7`,
+                buttonName: 'numbered list',
             })
         }
 
@@ -207,6 +236,7 @@
                 canRun: () => editor?.can().toggleBlockquote(),
                 property: 'blockquote',
                 tooltip: `${metaKey}${shiftKey}B`,
+                buttonName: 'block quote',
             })
         }
         if (code) {
@@ -216,6 +246,7 @@
                 canRun: () => editor?.can().toggleCodeBlock(),
                 property: 'codeBlock',
                 tooltip: `${metaKey}${shiftKey}E`,
+                buttonName: 'code block',
             })
         }
         if (img) {
@@ -225,64 +256,129 @@
                 canRun: () => editor?.can().toggleHeading({ level: 1 }),
                 property: 'image',
                 tooltip: `${metaKey}${shiftKey}I`,
+                buttonName: 'image',
             })
         }
         menuButtons = tempButtons
     }
+    $: isEditable = !readonly && !disabled
+    $: characterCount = editor?.getCharacterCount() || 0
+    $: feedback = maxCharacters ? `${characterCount} / ${formatNumber(maxCharacters)}` : ''
+    let showError = false
+    const reset = () => {
+        editor.commands.setContent(defaultValue, true)
+    }
+    $: name = nameProp ? nameProp : slugify(label)
+    $: if (formSync) {
+        formSync.updateForm(
+            name,
+            {
+                json: JSON.stringify(editor?.getJSON() || ''),
+                html: JSON.stringify(editor?.getHTML() || ''),
+            },
+            () => {
+                showError = true
+                return isValid
+            },
+            reset
+        )
+    }
+    $: isValid = optional || characterCount > 0
+    $: isInvalidState = !isValid && showError
 
 </script>
 
-<div class="input-wrapper input-wrapper-active">
-    <div class="border-b px-1 flex overflow-x-scroll hide-scrollbar">
-        {#each menuButtons as button}
-            <div
-                class="hover:text-primary flex-none"
-                class:text-primary="{getIsButtonActive(
-                    button.property,
-                    editor,
-                    isFocused,
-                    button.propertyOptions
-                )}"
-                class:text-gray="{!getIsButtonActive(
-                    button.property,
-                    editor,
-                    isFocused,
-                    button.propertyOptions
-                )}"
-            >
-                <Tooltip
-                    value="{isMobile || (button.canRun && !button.canRun()) ? '' : button.tooltip}"
+<div class="flex flex-col space-y-1">
+    <Label
+        value="{label}"
+        optional="{optional}"
+        hideOptionalLabel="{hideOptionalLabel}"
+        readonly="{readonly}"
+    />
+    <div
+        class="input-wrapper"
+        class:input-wrapper-readonly="{readonly}"
+        class:input-wrapper-disabled="{disabled}"
+        class:input-wrapper-active="{!disabled && !readonly && !isInvalidState}"
+        class:input-wrapper-error="{isInvalidState}"
+    >
+        <div class="border-b px-1 flex overflow-x-scroll hide-scrollbar">
+            {#each menuButtons as button}
+                <div
+                    class="hover:text-primary flex-none"
+                    class:text-primary="{getIsButtonActive(
+                        button.property,
+                        editor,
+                        isFocused,
+                        button.propertyOptions
+                    )}"
+                    class:text-gray="{!getIsButtonActive(
+                        button.property,
+                        editor,
+                        isFocused,
+                        button.propertyOptions
+                    )}"
                 >
-                    <Button
-                        on:click="{button.onClick}"
-                        variant="static"
-                        shape="square"
-                        slot="trigger"
-                        disabled="{button.canRun && !button.canRun()}"
-                        size="{size === 'small' ? 'small' : 'default'}"
+                    <Tooltip
+                        value="{isMobile || !isEditable || (button.canRun && !button.canRun())
+                            ? ''
+                            : button.tooltip}"
                     >
-                        <div class:text-gray-200="{button.canRun && !button.canRun()}">
-                            <svelte:component
-                                this="{button.icon}"
-                                size="{size === 'small' ? 4 : 5}"
-                                strokeWidth="{getIsButtonActive(
-                                    button.property,
-                                    editor,
-                                    isFocused,
-                                    button.propertyOptions
-                                )
-                                    ? 3
-                                    : 2}"
-                            />
-                        </div>
-                    </Button>
-                </Tooltip>
-            </div>
-        {/each}
+                        <Button
+                            on:click="{button.onClick}"
+                            variant="static"
+                            shape="square"
+                            slot="trigger"
+                            disabled="{!isEditable || (button.canRun && !button.canRun())}"
+                            size="{size === 'small' ? 'small' : 'default'}"
+                            ariaLabel="{getIsButtonActive(
+                                button.property,
+                                editor,
+                                isFocused,
+                                button.propertyOptions
+                            ) && button.buttonName !== 'image'
+                                ? 'Remove ' + button.buttonName
+                                : 'Add ' + button.buttonName}"
+                        >
+                            <div class:text-gray-200="{button.canRun && !button.canRun()}">
+                                <svelte:component
+                                    this="{button.icon}"
+                                    size="{size === 'small' ? 4 : 5}"
+                                    strokeWidth="{getIsButtonActive(
+                                        button.property,
+                                        editor,
+                                        isFocused,
+                                        button.propertyOptions
+                                    )
+                                        ? 3
+                                        : 2}"
+                                />
+                            </div>
+                        </Button>
+                    </Tooltip>
+                </div>
+            {/each}
+        </div>
+        <div bind:this="{containerElement}"></div>
     </div>
-    <div bind:this="{containerElement}"></div>
+    <div
+        class="grid grid-cols-2 gap-y-1"
+        class:gap-x-6="{feedback}"
+        style="grid-template-columns: minmax(0, 1fr) auto"
+    >
+        {#if helpText}
+            <p class="col-start-1 text-sm text-gray-700">{helpText}</p>
+        {/if}
+        {#if feedback}
+            <p class="col-start-2 text-sm text-gray-700 text-right">{feedback}</p>
+        {/if}
+        {#if isInvalidState}
+            <div class="col-start-1" class:row-start-1="{!helpText}">
+                <Error label="">{requiredMessage}</Error>
+            </div>
+        {/if}
+    </div>
 </div>
-
 <Modal
     title="Add link"
     bind:isOpen="{showLinkModal}"

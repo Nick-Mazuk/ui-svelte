@@ -4,6 +4,7 @@ import type { Extensions } from '@tiptap/core'
 import Blockquote from '@tiptap/extension-blockquote'
 import Bold from '@tiptap/extension-bold'
 import BulletList from '@tiptap/extension-bullet-list'
+import CharacterCount from '@tiptap/extension-character-count'
 import Code from '@tiptap/extension-code'
 import CodeBlock from '@tiptap/extension-code-block'
 import Document from '@tiptap/extension-document'
@@ -30,6 +31,7 @@ type Props = {
     blockquote: boolean
     code: boolean
     img: boolean
+    maxCharacters: number
     openLinkModal: () => boolean
     openImageModal: () => boolean
 }
@@ -45,10 +47,18 @@ export const buildExtensions = ({
     blockquote,
     code,
     img,
+    maxCharacters,
     openLinkModal,
     openImageModal,
 }: Props): Extensions => {
-    const extensions: Extensions = [Paragraph, Text, Typography, Document, History]
+    const extensions: Extensions = [
+        CharacterCount.configure({ limit: maxCharacters }),
+        Document,
+        History,
+        Paragraph,
+        Text,
+        Typography,
+    ]
     if (blockquote) {
         extensions.push(
             Blockquote.extend({

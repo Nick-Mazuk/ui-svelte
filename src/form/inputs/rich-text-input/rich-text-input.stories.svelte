@@ -1,6 +1,5 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
-    import { resourceUsage } from 'process'
     import Modal from '../../../components/modal/modal.svelte'
     import Button from '../../../elements/button/button.svelte'
     import Form from '../../form/form.svelte'
@@ -71,12 +70,49 @@
                 description:
                     "Will allow you to use images. Note: because images often require file uploads (which is specific to every site), you'll need to impliment the upload modal.",
             },
+            label: {
+                control: {
+                    type: 'text',
+                },
+                defaultValue: 'Rich text',
+            },
             size: {
                 control: {
                     type: 'radio',
                     options: ['small', 'default', 'large'],
                 },
                 defaultValue: 'default',
+            },
+            disabled: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            readonly: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            optional: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            hideOptionalLabel: {
+                control: {
+                    type: 'boolean',
+                },
+                defaultValue: false,
+            },
+            maxCharacters: {
+                control: {
+                    type: 'number',
+                },
+                description:
+                    'Specify the maximum number of characters that must be included for the input to be valid. This will automatically give the user feedback as they type.',
             },
         },
     }
