@@ -149,11 +149,13 @@
         buttonName: string
     }[]
     $: isMac = navigator?.platform.toUpperCase().includes('MAC')
-    $: isMobile = Boolean(
-        navigator?.userAgent.match(
-            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/iu
+    $: isMobile =
+        typeof navigator !== 'undefined' &&
+        Boolean(
+            navigator.userAgent.match(
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/iu
+            )
         )
-    )
     $: shiftKey = isMac ? '⇧' : 'Shift+'
     $: metaKey = isMac ? '⌘' : 'Ctrl+'
 
@@ -289,6 +291,7 @@
     }
     $: isValid = optional || characterCount > 0
     $: isInvalidState = !isValid && showError
+
 </script>
 
 <div class="flex flex-col space-y-1">
