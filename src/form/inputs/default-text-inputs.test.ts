@@ -52,6 +52,18 @@ const inputs: Input[] = [
         maxCharacters: true,
     },
     {
+        componentName: 'FacebookPageInput',
+        type: 'text',
+        name: 'facebook',
+        label: 'Facebook',
+        validValue: 'https://facebook.com/facebook',
+        parsedValue: 'https://facebook.com/facebook',
+        invalidValue: 'https://www.facebook.com/groups/743327632675687/',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a Facebook page',
+    },
+    {
         componentName: 'NewPasswordInput',
         type: 'password',
         name: 'password',
