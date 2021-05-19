@@ -64,6 +64,18 @@ const inputs: Input[] = [
         requiredMessage: 'Enter a Facebook page',
     },
     {
+        componentName: 'NameInput',
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+        validValue: 'John smith',
+        parsedValue: 'first: John, last: smith',
+        invalidValue: 'https://example.com',
+        hasIcon: true,
+        requiredMessage: 'Enter your name',
+        autocomplete: 'name',
+    },
+    {
         componentName: 'NewPasswordInput',
         type: 'password',
         name: 'password',

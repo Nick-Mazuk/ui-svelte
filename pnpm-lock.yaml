@@ -58,6 +58,7 @@ specifiers:
   fs-extra: ^10.0.0
   hast-util-to-html: ^8.0.0
   marked: ^2.0.1
+  parse-full-name-esm: ^1.2.5
   postcss: ^8.2.8
   prettier: ^2.2.1
   prettier-plugin-svelte: ^2.2.0
@@ -100,6 +101,7 @@ dependencies:
   '@tiptap/extension-typography': 2.0.0-beta.11_@tiptap+core@2.0.0-beta.62
   diff: 5.0.0
   marked: 2.0.1
+  parse-full-name-esm: 1.2.5
   svelte-intersection-observer: 0.7.0
   svelte-portal: 2.1.2
   validator: 13.6.0
@@ -12568,6 +12570,10 @@ packages:
       is-decimal: 1.0.4
       is-hexadecimal: 1.0.4
     dev: true
+
+  /parse-full-name-esm/1.2.5:
+    resolution: {integrity: sha512-j2Dqe47c/Lv/S3oGP+rYLZwJsG3Sst0OsAAC1E8Lp40c+Cne4GHkgjBIO/p/Yy0U8lVy6cZhWD680/203mFngQ==}
+    dev: false
 
   /parse-glob/3.0.4:
     resolution: {integrity: sha1-ssN2z7EfNVE7rdFz7wu246OIORw=}
