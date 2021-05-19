@@ -53,7 +53,7 @@ const inputs: Input[] = [
     },
     {
         componentName: 'FacebookPageInput',
-        type: 'text',
+        type: 'url',
         name: 'facebook',
         label: 'Facebook',
         validValue: 'https://facebook.com/facebook',
@@ -62,6 +62,18 @@ const inputs: Input[] = [
         hasIcon: true,
         keyboard: 'url',
         requiredMessage: 'Enter a Facebook page',
+    },
+    {
+        componentName: 'LinkedinInput',
+        type: 'url',
+        name: 'linkedin',
+        label: 'LinkedIn',
+        validValue: 'https://www.linkedin.com/in/person',
+        parsedValue: 'https://www.linkedin.com/in/person',
+        invalidValue: 'https://example.com',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a LinkedIn profile page',
     },
     {
         componentName: 'NameInput',

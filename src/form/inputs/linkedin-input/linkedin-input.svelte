@@ -1,13 +1,12 @@
 <script lang="ts">
     import isURL from 'validator/es/lib/isURL'
-    import { isFacebookUrl, isFacebookPageUrl } from '@nick-mazuk/lib/esm/facebook'
 
-    import Facebook from '../../../elements/icon/facebook.svelte'
+    import LinkedIn from '../../../elements/icon/linkedin.svelte'
     import type { FormItemSize } from '../../form-sizes'
     import type { TextInputAutocomplete } from '../text-input'
     import TextInput from '../text-input/text-input.svelte'
 
-    export let label = 'Facebook'
+    export let label = 'LinkedIn'
     export let name = ''
     export let defaultValue = ''
     export let placeholder = ''
@@ -19,11 +18,11 @@
     export let disabled = false
 
     export let hideIcon = false
-    export let requiredMessage = 'Enter a Facebook page'
+    export let requiredMessage = 'Enter a LinkedIn profile page'
     export let autocomplete: TextInputAutocomplete = undefined
     export let autofocus = false
 
-    $: shownIcon = hideIcon ? undefined : Facebook
+    $: shownIcon = hideIcon ? undefined : LinkedIn
 
 </script>
 
@@ -50,12 +49,8 @@
             error: `Enter a valid url`,
         },
         {
-            assert: (value) => isFacebookUrl(value),
-            error: 'Must be a Facebook url',
-        },
-        {
-            assert: (value) => isFacebookPageUrl(value),
-            error: 'Enter a Facebook page url',
+            assert: (value) => value.includes('linkedin.com/in/'),
+            error: `Enter a valid LinkedIn profile page`,
         },
     ]}"
     on:change
