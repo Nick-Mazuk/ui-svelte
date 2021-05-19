@@ -27,9 +27,9 @@
 <Portal>
     {#if overlay}
         <button
-            class="fixed z-50 inset-0 bg-foreground dark:bg-background w-screen h-screen cursor-default {overlay ===
+            class="fixed z-50 inset-0 bg-foreground dark:bg-background w-screen h-screen cursor-default focus:outline-none {overlay ===
             'color'
-                ? 'opacity-25'
+                ? 'opacity-50'
                 : 'opacity-0'}"
             on:click="{() => dispatch('close', true)}"
             tabindex="{-1}"
