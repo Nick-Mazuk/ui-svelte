@@ -56,11 +56,11 @@
         if (!isOpen) return
         if (event.key === 'Escape') isOpen = false
         if (event.key !== 'Tab') return
-        if (event.shiftKey && document?.activeElement === firstFocusableElement) {
+        if (event.shiftKey && document.activeElement === firstFocusableElement) {
             lastFocusableElement.focus()
             event.preventDefault()
         }
-        if (!event.shiftKey && document?.activeElement === lastFocusableElement) {
+        if (!event.shiftKey && document.activeElement === lastFocusableElement) {
             firstFocusableElement.focus()
             event.preventDefault()
         }
@@ -81,9 +81,13 @@
     $: if (isOpen && typeof document !== 'undefined') previousElement = document.activeElement
     $: if (!isOpen && refocusOnClose && previousElement instanceof HTMLElement)
         previousElement.focus()
-    $: isOpen
-        ? document?.body.classList.add('overflow-hidden')
-        : document?.body.classList.remove('overflow-hidden')
+    $: {
+        if (typeof document !== 'undefined') {
+            isOpen
+                ? document.body.classList.add('overflow-hidden')
+                : document.body.classList.remove('overflow-hidden')
+        }
+    }
     $: if (!isOpen) dispatch('close')
 
 </script>
