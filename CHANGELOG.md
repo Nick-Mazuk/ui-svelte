@@ -1,3 +1,10 @@
+## [0.9.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.0...v0.9.1) (2021-05-19)
+
+
+### Bug Fixes
+
+* modal works with SSR ([3d97921](https://github.com/Nick-Mazuk/ui-svelte/commit/3d97921ea5d4a45d887678192b5cc121f97e9ce9))
+
 # [0.9.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.4...v0.9.0) (2021-05-19)
 
 
