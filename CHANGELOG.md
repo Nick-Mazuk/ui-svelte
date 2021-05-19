@@ -1,3 +1,10 @@
+## [0.9.8](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.7...v0.9.8) (2021-05-19)
+
+
+### Bug Fixes
+
+* rich-text-input can render SSR ([11cc16a](https://github.com/Nick-Mazuk/ui-svelte/commit/11cc16abac5240112a666624267c1deeff97ca69))
+
 ## [0.9.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.6...v0.9.7) (2021-05-19)
 
 ## [0.9.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.5...v0.9.6) (2021-05-19)
