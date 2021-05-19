@@ -79,7 +79,12 @@
         }
     }
     $: if (isOpen && typeof document !== 'undefined') previousElement = document.activeElement
-    $: if (!isOpen && refocusOnClose && previousElement instanceof HTMLElement)
+    $: if (
+        !isOpen &&
+        typeof document !== 'undefined' &&
+        refocusOnClose &&
+        previousElement instanceof HTMLElement
+    )
         previousElement.focus()
     $: {
         if (typeof document !== 'undefined') {
