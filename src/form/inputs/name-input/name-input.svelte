@@ -25,9 +25,9 @@
     export let maxCharacters: number | undefined = undefined
     export let autofocus = false
 
-    const parser: Parser = (name) => {
-        const parsedName = parseFullName(name)
-        if (parsedName.error?.length !== 0) return name
+    const parser: Parser = (value) => {
+        const parsedName = parseFullName(value)
+        if (parsedName.error?.length !== 0) return value
         return {
             title: parsedName.title ?? '',
             first: parsedName.first ?? '',
@@ -35,12 +35,11 @@
             last: parsedName.last ?? '',
             nick: parsedName.nick ?? '',
             suffix: parsedName.suffix ?? '',
-            full: name,
+            full: value,
         }
     }
 
     $: shownIcon = hideIcon ? undefined : User
-
 </script>
 
 <TextInput

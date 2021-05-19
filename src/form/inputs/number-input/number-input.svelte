@@ -77,7 +77,6 @@
         }
         validationRules = rules
     }
-
 </script>
 
 <TextInput

@@ -23,7 +23,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : LinkedIn
-
 </script>
 
 <TextInput

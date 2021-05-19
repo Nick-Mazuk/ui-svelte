@@ -24,7 +24,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : Facebook
-
 </script>
 
 <TextInput

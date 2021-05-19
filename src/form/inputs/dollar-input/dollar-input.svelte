@@ -23,7 +23,6 @@
     export let max: number | undefined = undefined
 
     export let autocomplete: TextInputAutocomplete | undefined = undefined
-
 </script>
 
 <NumberInput

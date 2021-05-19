@@ -27,7 +27,6 @@
     }
 
     $: shownIcon = hideIcon ? undefined : Calendar
-
 </script>
 
 <TextInput

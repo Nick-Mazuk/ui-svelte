@@ -120,7 +120,6 @@
         },
     }
     let parsedValue = NaN
-
 </script>
 
 <Meta {...meta} />

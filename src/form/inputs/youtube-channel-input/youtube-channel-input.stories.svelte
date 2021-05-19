@@ -102,7 +102,6 @@
         },
     }
     let parsedValue = ''
-
 </script>
 
 <Meta {...meta} />

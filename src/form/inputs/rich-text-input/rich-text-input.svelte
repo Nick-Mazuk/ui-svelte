@@ -289,7 +289,6 @@
     }
     $: isValid = optional || characterCount > 0
     $: isInvalidState = !isValid && showError
-
 </script>
 
 <div class="flex flex-col space-y-1">
