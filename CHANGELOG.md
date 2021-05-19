@@ -1,3 +1,10 @@
+## [0.9.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.4...v0.9.5) (2021-05-19)
+
+
+### Bug Fixes
+
+* ensure portal is always above other elements ([1245672](https://github.com/Nick-Mazuk/ui-svelte/commit/1245672411d8db333746a75fb269cd9c38f19a9e))
+
 ## [0.9.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.3...v0.9.4) (2021-05-19)
 
 
