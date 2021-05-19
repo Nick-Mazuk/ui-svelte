@@ -56,11 +56,11 @@
         if (!isOpen) return
         if (event.key === 'Escape') isOpen = false
         if (event.key !== 'Tab') return
-        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+        if (event.shiftKey && document?.activeElement === firstFocusableElement) {
             lastFocusableElement.focus()
             event.preventDefault()
         }
-        if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+        if (!event.shiftKey && document?.activeElement === lastFocusableElement) {
             firstFocusableElement.focus()
             event.preventDefault()
         }
@@ -78,7 +78,7 @@
             if (lastElement instanceof HTMLElement) lastFocusableElement = lastElement
         }
     }
-    $: if (isOpen && document) previousElement = document.activeElement
+    $: if (isOpen) previousElement = document?.activeElement
     $: if (!isOpen && refocusOnClose && previousElement instanceof HTMLElement)
         previousElement.focus()
     $: isOpen
