@@ -8,7 +8,7 @@ type Input = {
     label: string
     validValue: string
     invalidValue?: string
-    parsedValue: string
+    parsedValue?: string
     hasIcon?: boolean
     requiredMessage?: string
     keyboard?: TextInputKeyboard
@@ -18,6 +18,16 @@ type Input = {
 }
 
 const inputs: Input[] = [
+    {
+        componentName: 'DateInput',
+        type: 'text',
+        name: 'date',
+        label: 'Date',
+        validValue: 'March 2, 2021',
+        invalidValue: 'gibberjabber',
+        hasIcon: true,
+        requiredMessage: 'Enter a date',
+    },
     {
         componentName: 'EmailInput',
         type: 'email',
@@ -71,6 +81,7 @@ const inputs: Input[] = [
         name: 'url',
         label: 'Url',
         validValue: 'https://example.com',
+        invalidValue: 'not a url',
         parsedValue: 'https://example.com',
         hasIcon: true,
         keyboard: 'url',
@@ -100,7 +111,7 @@ inputs.forEach((input) => {
             if (input.requiredMessage) cy.get('[data-test="error"]').contains(input.requiredMessage)
             cy.get('input').type(input.validValue).should('have.value', input.validValue)
             cy.get('[data-test="error"]').should('not.exist')
-            cy.contains(`Parsed value: "${input.parsedValue}"`)
+            if (input.parsedValue) cy.contains(`Parsed value: "${input.parsedValue}"`)
             if (input.invalidValue) {
                 cy.get('input').clear().type(input.invalidValue).blur()
                 cy.get('[data-test="error"]')
