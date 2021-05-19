@@ -121,6 +121,18 @@ const inputs: Input[] = [
         autocomplete: 'current-password',
     },
     {
+        componentName: 'TwitterProfileInput',
+        type: 'url',
+        name: 'twitter',
+        label: 'Twitter',
+        validValue: 'https://twitter.com/hello',
+        parsedValue: 'https://twitter.com/hello',
+        invalidValue: 'https://example.com',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a Twitter profile page',
+    },
+    {
         componentName: 'UrlInput',
         type: 'url',
         name: 'url',
