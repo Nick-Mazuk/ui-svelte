@@ -85,7 +85,6 @@
         ? document.body.classList.add('overflow-hidden')
         : document.body.classList.remove('overflow-hidden')
     $: if (!isOpen) dispatch('close')
-
 </script>
 
 <svelte:window on:keydown="{handleWindowKeydown}" />

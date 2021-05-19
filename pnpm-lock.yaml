@@ -6,7 +6,7 @@ specifiers:
   '@nick-mazuk/eslint-config': ^0.8.11
   '@nick-mazuk/lib': ^0.8.49
   '@nick-mazuk/semantic-release-config': ^1.1.3
-  '@nick-mazuk/ui-config': ^0.10.48
+  '@nick-mazuk/ui-config': ^0.10.52
   '@semantic-release/changelog': ^5.0.1
   '@semantic-release/git': ^9.0.0
   '@storybook/addon-a11y': ^6.2.9
@@ -25,7 +25,6 @@ specifiers:
   '@tiptap/extension-code': ^2.0.0-beta.12
   '@tiptap/extension-code-block': ^2.0.0-beta.14
   '@tiptap/extension-document': ^2.0.0-beta.11
-  '@tiptap/extension-hard-break': ^2.0.0-beta.12
   '@tiptap/extension-heading': ^2.0.0-beta.12
   '@tiptap/extension-history': ^2.0.0-beta.11
   '@tiptap/extension-image': ^2.0.0-beta.13
@@ -89,7 +88,6 @@ dependencies:
   '@tiptap/extension-code': 2.0.0-beta.12_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-code-block': 2.0.0-beta.14_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-document': 2.0.0-beta.11_@tiptap+core@2.0.0-beta.62
-  '@tiptap/extension-hard-break': 2.0.0-beta.12_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-heading': 2.0.0-beta.12_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-history': 2.0.0-beta.11_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-image': 2.0.0-beta.13_@tiptap+core@2.0.0-beta.62
@@ -113,7 +111,7 @@ devDependencies:
   '@nick-mazuk/eslint-config': 0.8.11_e6f156314b6b47ed10dab7a74945d1de
   '@nick-mazuk/lib': 0.8.49
   '@nick-mazuk/semantic-release-config': 1.1.3_96e29e7a57c65d488f627694047bf5b5
-  '@nick-mazuk/ui-config': 0.10.48_tailwindcss@2.1.1
+  '@nick-mazuk/ui-config': 0.10.52_tailwindcss@2.1.1
   '@semantic-release/changelog': 5.0.1_semantic-release@17.4.2
   '@semantic-release/git': 9.0.0_semantic-release@17.4.2
   '@storybook/addon-a11y': 6.2.9
@@ -3001,8 +2999,8 @@ packages:
       semantic-release: 17.4.2
     dev: true
 
-  /@nick-mazuk/ui-config/0.10.48_tailwindcss@2.1.1:
-    resolution: {integrity: sha512-pOw427LN6ygXbKH/uHwAp+xMh6BKdRUYvEgzX85h8ayxBtkmJReyG4cMdctfOR2gSawk8ckVqZdKy0Sr2qyDXw==}
+  /@nick-mazuk/ui-config/0.10.52_tailwindcss@2.1.1:
+    resolution: {integrity: sha512-R34I/PalUrweD3cDA3EVfvYktVCWWqTek3EUtMU9soYGA0EyCqZOJUeleDvx7JFAeQP6qu7X4uEYXJGyg5YyCw==}
     peerDependencies:
       tailwindcss: ^2.1.1
     dependencies:
@@ -5047,14 +5045,6 @@ packages:
 
   /@tiptap/extension-document/2.0.0-beta.11_@tiptap+core@2.0.0-beta.62:
     resolution: {integrity: sha512-mew+RsPCL5nvYhlrk1zzSi2q460q76ttlvCk82WWIsoTMQNYqfW7SUYjwA5dvYZIxzbwBJpWyiW9iNOvpwddsg==}
-    peerDependencies:
-      '@tiptap/core': ^2.0.0-beta.1
-    dependencies:
-      '@tiptap/core': 2.0.0-beta.62
-    dev: false
-
-  /@tiptap/extension-hard-break/2.0.0-beta.12_@tiptap+core@2.0.0-beta.62:
-    resolution: {integrity: sha512-QMzqbelEWE/CBkv0QoAwrONhDE7TeWkIrcxKrU1kUcXq7nF+Za449pTg+uCRWJlZi2uPy7ngFVwr/0ihpd8FYQ==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.1
     dependencies:

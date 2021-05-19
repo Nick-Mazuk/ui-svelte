@@ -62,7 +62,6 @@
         isValid: !isInvalidState,
         errorMessage,
     })
-
 </script>
 
 <div class="inline-block">

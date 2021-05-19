@@ -25,7 +25,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : Link
-
 </script>
 
 <TextInput

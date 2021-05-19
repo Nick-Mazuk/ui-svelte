@@ -13,7 +13,6 @@
         },
         argTypes: {},
     }
-
 </script>
 
 <Meta {...meta} />

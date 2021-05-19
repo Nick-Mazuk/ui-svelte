@@ -189,7 +189,6 @@
     $: disabledClasses = disabled
         ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
         : 'hover:text-gray-800 focus-within:text-gray-800 text-gray'
-
 </script>
 
 <Label

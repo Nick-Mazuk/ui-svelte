@@ -81,7 +81,6 @@
         else helpText = ''
     }
     $: name = nameProp ? nameProp : slugify(label)
-
 </script>
 
 <Label value="{label}" optional="{optional}" hideOptionalLabel="{hideOptionalLabel}">
