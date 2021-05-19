@@ -78,13 +78,14 @@
             if (lastElement instanceof HTMLElement) lastFocusableElement = lastElement
         }
     }
-    $: if (isOpen) previousElement = document.activeElement
+    $: if (isOpen && document) previousElement = document.activeElement
     $: if (!isOpen && refocusOnClose && previousElement instanceof HTMLElement)
         previousElement.focus()
     $: isOpen
-        ? document.body.classList.add('overflow-hidden')
-        : document.body.classList.remove('overflow-hidden')
+        ? document?.body.classList.add('overflow-hidden')
+        : document?.body.classList.remove('overflow-hidden')
     $: if (!isOpen) dispatch('close')
+
 </script>
 
 <svelte:window on:keydown="{handleWindowKeydown}" />
