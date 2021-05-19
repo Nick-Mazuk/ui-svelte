@@ -1,3 +1,10 @@
+## [0.9.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.5...v0.9.6) (2021-05-19)
+
+
+### Bug Fixes
+
+* closed modal can be rendered SSR ([74b2bde](https://github.com/Nick-Mazuk/ui-svelte/commit/74b2bdec52473877b294a7298aad3cccb357f3d2))
+
 ## [0.9.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.4...v0.9.5) (2021-05-19)
 
 
