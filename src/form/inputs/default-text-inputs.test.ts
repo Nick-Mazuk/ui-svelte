@@ -158,6 +158,19 @@ const inputs: Input[] = [
         requiredMessage: 'Enter a YouTube channel url',
         customDefaultValue: true,
     },
+    {
+        componentName: 'YouTubeVideoInput',
+        type: 'url',
+        name: 'youtube-video',
+        label: 'YouTube Video',
+        validValue: 'youtube.com/watch?v=abcdefg',
+        parsedValue: 'abcdefg',
+        invalidValue: 'youtube.com/YouTubeCreators',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a YouTube video url',
+        customDefaultValue: true,
+    },
 ]
 
 // eslint-disable-next-line max-lines-per-function -- has multiple shorter tests
