@@ -24,7 +24,8 @@
     import Form from '../../form/form.svelte'
     import type { TextInputChangeEvent } from '../text-input'
     import { buildExtensions } from './_build-extensions'
-    import { FormItemSize, FORM_SIZE_MAP } from '../../form-sizes'
+    import type { FormItemSize } from '../../form-sizes'
+    import { FORM_SIZE_MAP } from '../../form-sizes'
     import Label from '../../label/label.svelte'
     import Error from '../../../elements/error/error.svelte'
     import type { FormSync } from '../..'
@@ -33,6 +34,8 @@
     export let h1: Heading = false
     export let h2: Heading = false
     export let b = false
+
+    // eslint-disable-next-line unicorn/prevent-abbreviations -- false positive
     export let i = false
     export let ol = false
     export let ul = false
@@ -107,7 +110,6 @@
                 maxCharacters,
             }),
             onTransaction: () => {
-                // force re-render so `editor.isActive` works as expected
                 editor = editor
             },
             content: defaultValue,
@@ -146,9 +148,11 @@
         tooltip?: string
         buttonName: string
     }[]
-    $: isMac = navigator?.platform.toUpperCase().indexOf('MAC') >= 0
-    $: isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/iu.test(
-        navigator?.userAgent
+    $: isMac = navigator?.platform.toUpperCase().includes('MAC')
+    $: isMobile = Boolean(
+        navigator?.userAgent.match(
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/iu
+        )
     )
     $: shiftKey = isMac ? '⇧' : 'Shift+'
     $: metaKey = isMac ? '⌘' : 'Ctrl+'
@@ -337,8 +341,8 @@
                                 isFocused,
                                 button.propertyOptions
                             ) && button.buttonName !== 'image'
-                                ? 'Remove ' + button.buttonName
-                                : 'Add ' + button.buttonName}"
+                                ? `Remove ${button.buttonName}`
+                                : `Add ${button.buttonName}`}"
                         >
                             <div class:text-gray-200="{button.canRun && !button.canRun()}">
                                 <svelte:component
