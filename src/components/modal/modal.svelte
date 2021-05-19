@@ -78,7 +78,7 @@
             if (lastElement instanceof HTMLElement) lastFocusableElement = lastElement
         }
     }
-    $: if (isOpen) previousElement = document?.activeElement
+    $: if (isOpen && typeof document !== 'undefined') previousElement = document.activeElement
     $: if (!isOpen && refocusOnClose && previousElement instanceof HTMLElement)
         previousElement.focus()
     $: isOpen
