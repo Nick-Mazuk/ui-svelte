@@ -15,6 +15,7 @@ type Input = {
     autocomplete?: TextInputAutocomplete
     minCharacters?: boolean
     maxCharacters?: boolean
+    customDefaultValue?: boolean
 }
 
 const inputs: Input[] = [
@@ -144,6 +145,19 @@ const inputs: Input[] = [
         keyboard: 'url',
         requiredMessage: 'Enter a url',
     },
+    {
+        componentName: 'YouTubeChannelInput',
+        type: 'url',
+        name: 'youtube-channel',
+        label: 'YouTube Channel',
+        validValue: 'youtube.com/c/YouTubeCreators',
+        parsedValue: 'YouTubeCreators',
+        invalidValue: 'youtube.com/watch?v=abcdefg',
+        hasIcon: true,
+        keyboard: 'url',
+        requiredMessage: 'Enter a YouTube channel url',
+        customDefaultValue: true,
+    },
 ]
 
 // eslint-disable-next-line max-lines-per-function -- has multiple shorter tests
@@ -199,7 +213,7 @@ inputs.forEach((input) => {
             cy.get('input').should('have.attr', 'readonly')
             cy.get('input').should('not.be.disabled')
             cy.get('input').should('have.attr', 'placeholder', 'Custom placeholder')
-            cy.get('input').should('have.value', 'Custom value')
+            if (!input.customDefaultValue) cy.get('input').should('have.value', 'Custom value')
             cy.get('input').should('have.attr', 'autofocus')
             if (input.maxCharacters) cy.contains('12 / 100')
             if (input.keyboard) cy.get('input').should('have.attr', 'inputmode', input.keyboard)
