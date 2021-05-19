@@ -1,3 +1,28 @@
+# [0.9.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.4...v0.9.0) (2021-05-19)
+
+
+### Bug Fixes
+
+* add aria-label to avatar input ([44cd816](https://github.com/Nick-Mazuk/ui-svelte/commit/44cd8163cea29081d67490190f89c5fa4ea98240))
+
+
+### Features
+
+* add avatar input ([036a126](https://github.com/Nick-Mazuk/ui-svelte/commit/036a1266d0126bbfcea3584537ba6f30026e10d6))
+* add date-input ([4cb6b72](https://github.com/Nick-Mazuk/ui-svelte/commit/4cb6b72b05361ff95e72d528e6dfaa6632983c52))
+* add dollar input ([8f1d279](https://github.com/Nick-Mazuk/ui-svelte/commit/8f1d279d4fd4cde816bd33e58c8771c58c9a0c7d))
+* add facebook-page-input ([5ac234a](https://github.com/Nick-Mazuk/ui-svelte/commit/5ac234af05bd59cf5c92050fa17e5c2bad62f0a7))
+* add file input ([d24d874](https://github.com/Nick-Mazuk/ui-svelte/commit/d24d874898facabf28ac48135f967a5834be8d59))
+* add form entity ([819cd03](https://github.com/Nick-Mazuk/ui-svelte/commit/819cd03762147db33706067099cdbb9fea7f1066))
+* add image-input ([81b9759](https://github.com/Nick-Mazuk/ui-svelte/commit/81b9759f6ab84cc07abe8e08a94c6d46d25857a7))
+* add linkedin-input ([bae40ac](https://github.com/Nick-Mazuk/ui-svelte/commit/bae40ac604d6a0f39967beb80587de38899151c0))
+* add modal component ([d44ac5e](https://github.com/Nick-Mazuk/ui-svelte/commit/d44ac5ef770cdd2830bc39e18507260ba0673a68))
+* add name input ([389676f](https://github.com/Nick-Mazuk/ui-svelte/commit/389676f29bc2ef96adabab3c63c5d63629bb280b))
+* add rich text input ([f25dddd](https://github.com/Nick-Mazuk/ui-svelte/commit/f25ddddb6d71ee757fbf9c755b1498ace4daab5c))
+* add twitter-profile-input ([9ee17e1](https://github.com/Nick-Mazuk/ui-svelte/commit/9ee17e11403bfcaaee1f11ef06a080462d050f67))
+* add youtube-channel-input ([dfeefdd](https://github.com/Nick-Mazuk/ui-svelte/commit/dfeefddfb4f7a8b828a47d5e93cee4f9471776c5))
+* add youtube-video-input ([0c2471e](https://github.com/Nick-Mazuk/ui-svelte/commit/0c2471e8b5443b07530044925a08f095e2613c28))
+
 ## [0.8.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.3...v0.8.4) (2021-05-16)
 
 ## [0.8.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.8.2...v0.8.3) (2021-05-16)
