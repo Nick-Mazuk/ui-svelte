@@ -29,6 +29,15 @@ const inputs: Input[] = [
         requiredMessage: 'Enter a date',
     },
     {
+        componentName: 'DollarInput',
+        type: 'text',
+        name: 'dollar',
+        label: 'Dollar',
+        validValue: '1.00',
+        parsedValue: '1',
+        requiredMessage: 'Enter an amount',
+    },
+    {
         componentName: 'EmailInput',
         type: 'email',
         name: 'email',
@@ -134,7 +143,7 @@ inputs.forEach((input) => {
                 defaultValue: 'Custom value',
             })
             cy.checkAccessibility()
-            cy.get('[data-test="text-input-prefix"]').should('not.exist')
+            if (input.hasIcon) cy.get('[data-test="text-input-prefix"]').should('not.exist')
             cy.contains('Custom label')
             cy.get('input').should('have.attr', 'name', 'custom-name')
             cy.get('input').should('have.attr', 'autocomplete', 'off')
