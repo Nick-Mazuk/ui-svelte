@@ -1,3 +1,10 @@
+## [0.9.11](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.10...v0.9.11) (2021-05-20)
+
+
+### Bug Fixes
+
+* regression in center modal positioning ([3366f8b](https://github.com/Nick-Mazuk/ui-svelte/commit/3366f8bc31df0e26dab1b0525fff705f7596cb8d))
+
 ## [0.9.10](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.9...v0.9.10) (2021-05-20)
 
 
