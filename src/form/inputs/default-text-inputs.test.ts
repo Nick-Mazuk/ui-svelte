@@ -16,6 +16,7 @@ type Input = {
     minCharacters?: boolean
     maxCharacters?: boolean
     customDefaultValue?: boolean
+    optionalByDefault?: boolean
 }
 
 const inputs: Input[] = [
@@ -122,6 +123,18 @@ const inputs: Input[] = [
         autocomplete: 'current-password',
     },
     {
+        componentName: 'SearchInput',
+        type: 'search',
+        name: '',
+        label: '',
+        validValue: 'abc',
+        parsedValue: 'abc',
+        hasIcon: true,
+        keyboard: 'search',
+        requiredMessage: 'Enter your query',
+        optionalByDefault: true,
+    },
+    {
         componentName: 'TwitterProfileInput',
         type: 'url',
         name: 'twitter',
@@ -181,18 +194,18 @@ inputs.forEach((input) => {
             cy.loadStory(`Form/Inputs/${input.componentName}`, 'Default')
             cy.checkAccessibility()
             if (input.hasIcon) cy.get('[data-test="text-input-prefix"]')
-            cy.contains(input.label)
-            cy.get('input')
-                .should('have.attr', 'type', input.type)
-                .should('have.attr', 'name', input.name)
-                .should('have.attr', 'required')
+            if (input.label) cy.contains(input.label)
+            if (input.name) cy.get('input').should('have.attr', 'name', input.name)
+            cy.get('input').should('have.attr', 'type', input.type)
+            if (!input.optionalByDefault) cy.get('input').should('have.attr', 'required')
             if (input.autocomplete)
                 cy.get('input').should('have.attr', 'autocomplete', input.autocomplete)
             cy.get('input').should('not.have.attr', 'readonly')
             cy.get('input').should('not.be.disabled')
 
             cy.get('input').focus().blur()
-            if (input.requiredMessage) cy.get('[data-test="error"]').contains(input.requiredMessage)
+            if (input.requiredMessage && !input.optionalByDefault)
+                cy.get('[data-test="error"]').contains(input.requiredMessage)
             cy.get('input').type(input.validValue).should('have.value', input.validValue)
             cy.get('[data-test="error"]').should('not.exist')
             if (input.parsedValue) cy.contains(`Parsed value: "${input.parsedValue}"`)
@@ -242,6 +255,7 @@ inputs.forEach((input) => {
             cy.get('input').should('not.have.attr', 'required')
             cy.contains('optional').should('not.exist')
 
+            if (input.optionalByDefault) return
             cy.loadStory(`Form/Inputs/${input.componentName}`, 'Default', {
                 requiredMessage: 'Custom required message',
             })

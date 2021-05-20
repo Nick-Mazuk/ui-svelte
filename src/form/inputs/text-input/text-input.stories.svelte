@@ -125,6 +125,11 @@
                 description:
                     'For providing feedback as the user types. For instance, this can be used for showing the current character count.',
             },
+            hideFeedback: {
+                control: 'boolean',
+                description:
+                    "Hide the feedback. Useful if you need to limit the character count but don't want to display the current count. Use sparingly.",
+            },
             requiredMessage: {
                 control: {
                     type: 'string',
@@ -193,6 +198,7 @@
 
     let formatterValue = '150.00'
     let formatterParsedValue = '150'
+
 </script>
 
 <Meta {...meta} />
