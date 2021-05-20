@@ -1,3 +1,10 @@
+## [0.9.12](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.11...v0.9.12) (2021-05-20)
+
+
+### Bug Fixes
+
+* make progress prop optional in form-entity ([a3b3c81](https://github.com/Nick-Mazuk/ui-svelte/commit/a3b3c81cfc13f690ca398dc7bb16285fd4bed6c9))
+
 ## [0.9.11](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.10...v0.9.11) (2021-05-20)
 
 
