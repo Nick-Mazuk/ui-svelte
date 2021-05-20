@@ -148,7 +148,7 @@
         tooltip?: string
         buttonName: string
     }[]
-    $: isMac = navigator?.platform.toUpperCase().includes('MAC')
+    $: isMac = typeof navigator !== 'undefined' && navigator.platform.toUpperCase().includes('MAC')
     $: isMobile =
         typeof navigator !== 'undefined' &&
         Boolean(
