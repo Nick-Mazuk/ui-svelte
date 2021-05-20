@@ -1,3 +1,11 @@
+## [0.9.10](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.9...v0.9.10) (2021-05-20)
+
+
+### Bug Fixes
+
+* another typo ([9d522ef](https://github.com/Nick-Mazuk/ui-svelte/commit/9d522efe026650866920ad650acc46dd3774f45c))
+* typo in portal overlay style tag ([e6fde2f](https://github.com/Nick-Mazuk/ui-svelte/commit/e6fde2f344ea6f396d27fab99f65ed5b97deec92))
+
 ## [0.9.9](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.8...v0.9.9) (2021-05-20)
 
 
