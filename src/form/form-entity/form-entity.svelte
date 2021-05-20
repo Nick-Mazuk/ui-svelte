@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { slugify } from '@nick-mazuk/lib/esm/text-styling'
+
     import Button from '../../elements/button/button.svelte'
     import Error from '../../elements/error/error.svelte'
     import ProgressBar from '../../elements/progress-bar/progress-bar.svelte'
@@ -74,7 +76,7 @@
 
 </script>
 
-<Container padding="{false}">
+<Container padding="{false}" id="{slugify(title)}">
     <Form
         method="{method}"
         action="{action}"

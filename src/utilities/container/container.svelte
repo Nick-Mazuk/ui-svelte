@@ -17,6 +17,7 @@
     let classes = ''
     export { classes as class }
     export let style = ''
+    export let id: string | undefined = undefined
 
     const disabledStore = writable(variant === 'disable')
     setContext('disabled', disabledStore)
@@ -63,14 +64,23 @@
         VARIANT_MAP[variant ?? (href ? 'click' : 'border')],
     ].join(' ')
     $: disabledStore.set(variant === 'disable')
+
 </script>
 
 {#if href}
-    <a sveltekit:prefetch href="{href}" class="{classes}" role="{role}" style="{style}" on:click>
+    <a
+        sveltekit:prefetch
+        href="{href}"
+        class="{classes}"
+        role="{role}"
+        style="{style}"
+        id="{id}"
+        on:click
+    >
         <slot />
     </a>
 {:else}
-    <div class="{classes}" role="{role}" style="{style}" on:click>
+    <div class="{classes}" role="{role}" style="{style}" id="{id}" on:click>
         <slot />
     </div>
 {/if}

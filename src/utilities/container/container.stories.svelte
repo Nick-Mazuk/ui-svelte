@@ -48,8 +48,12 @@
                 control: 'text',
                 description: 'The aria role',
             },
+            od: {
+                control: 'text',
+            },
         },
     }
+
 </script>
 
 <Meta {...meta} />
