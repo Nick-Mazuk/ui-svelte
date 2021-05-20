@@ -15,11 +15,9 @@
 
     const dispatch = createEventDispatcher()
 
-    $: container = center
-        ? 'fixed transform top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-        : 'absolute inset-0 bottom-auto right-auto'
+    $: container = center ? 'fixed top-1/2 left-1/2' : 'absolute inset-0 bottom-auto right-auto'
     $: transform = center
-        ? 'transform: translateZ(10000px)'
+        ? 'transform: translate3d(-50%, -50%, 10000px)'
         : `transform: translate3d(${x}px, ${y}px, 10000px);`
 
 </script>
