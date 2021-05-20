@@ -35,7 +35,7 @@
     export let allowOffline = false
     export let error: Partial<ErrorMessages> | string = ''
     export let success = FORM_FEEDBACK.success.saved
-    export let progress: number | undefined
+    export let progress: number | undefined = undefined
 
     const defaultErrorMessages: ErrorMessages = {
         default: FORM_FEEDBACK.errors.default,
@@ -71,6 +71,7 @@
             errorMessages = { ...defaultErrorMessages, default: error }
         else errorMessages = { ...defaultErrorMessages, ...error }
     }
+
 </script>
 
 <Container padding="{false}">
