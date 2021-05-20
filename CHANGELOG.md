@@ -1,3 +1,10 @@
+## [0.9.13](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.12...v0.9.13) (2021-05-20)
+
+
+### Bug Fixes
+
+* add anchor to form-entity ([ad84b36](https://github.com/Nick-Mazuk/ui-svelte/commit/ad84b36ee7f338d18839b332897e3848b37ea5e0))
+
 ## [0.9.12](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.11...v0.9.12) (2021-05-20)
 
 
