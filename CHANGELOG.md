@@ -1,3 +1,10 @@
+## [0.9.14](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.13...v0.9.14) (2021-05-20)
+
+
+### Bug Fixes
+
+* migrate search-input to modern text-input ([7a4c092](https://github.com/Nick-Mazuk/ui-svelte/commit/7a4c092f257790d0683b66df3829f9b912b8fc34))
+
 ## [0.9.13](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.12...v0.9.13) (2021-05-20)
 
 
