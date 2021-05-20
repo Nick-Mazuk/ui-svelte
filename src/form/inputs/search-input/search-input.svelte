@@ -4,7 +4,7 @@
     import type { TextInputAutocomplete } from '../text-input'
     import TextInput from '../text-input/text-input.svelte'
 
-    export let label = 'Search'
+    export let label = ''
     export let name = ''
     export let defaultValue = ''
     export let placeholder = ''
