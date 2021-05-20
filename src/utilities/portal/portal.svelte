@@ -37,7 +37,7 @@
             aria-label="{overlayAriaLabel}"
             in:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].in }}"
             out:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].out }}"
-            style="transform: transform:translateZ(10000px)"
+            style="transform: translateZ(10000px)"
         >
         </button>
     {/if}
