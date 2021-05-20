@@ -40,6 +40,7 @@
     export let helpText = ''
     let feedbackProp = ''
     export { feedbackProp as feedback }
+    export let hideFeedback = false
     export let requiredMessage = 'This field is required.'
     export let validationRules: ValidationRules = []
     export let parser: Parser = undefined
@@ -189,6 +190,7 @@
     $: disabledClasses = disabled
         ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
         : 'hover:text-gray-800 focus-within:text-gray-800 text-gray'
+
 </script>
 
 <Label
@@ -283,7 +285,7 @@
         {#if helpText}
             <p class="col-start-1 text-sm text-gray-700">{helpText}</p>
         {/if}
-        {#if feedback}
+        {#if feedback && !hideFeedback}
             <p class="col-start-2 text-sm text-gray-700 text-right">{feedback}</p>
         {/if}
         {#if isInvalidState}

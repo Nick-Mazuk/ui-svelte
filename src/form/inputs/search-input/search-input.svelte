@@ -1,88 +1,49 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition'
-
-    import LoadingDots from '../../../elements/loading-dots/loading-dots.svelte'
     import Search from '../../../elements/icon/search.svelte'
+    import type { FormItemSize } from '../../form-sizes'
+    import type { TextInputAutocomplete } from '../text-input'
+    import TextInput from '../text-input/text-input.svelte'
 
-    export let options: string[] = []
-    export let isLoading = false
-    export let emptyMessage = 'No results found'
-    export let hideOptions = false
-    export let value = ''
-    export let width = -1
+    export let label = 'Search'
+    export let name = ''
+    export let defaultValue = ''
+    export let placeholder = ''
+    export let helpText = ''
+    export let size: FormItemSize = 'default'
+    export let optional = true
+    export let hideOptionalLabel = true
+    export let readonly = false
+    export let disabled = false
 
-    $: widthStyle = width > 0 ? `width:${width * 4}px` : ''
+    export let hideIcon = false
+    export let requiredMessage = 'Enter your query'
+    export let autocomplete: TextInputAutocomplete = undefined
+    export let maxCharacters: number | undefined = undefined
+    export let hideCharacterCount = false
+    export let autofocus = false
 
-    const animationDuration = 150
-    let isOpen = false
+    $: shownIcon = hideIcon ? undefined : Search
 
-    const close = () => (isOpen = false)
-    const open = () => (isOpen = true)
-
-    const handleFocus = () => resetListAndOpen()
-    const handleBlur = () => close()
-
-    const resetListAndOpen = () => {
-        open()
-    }
-
-    const onItemClick = (listItem: string) => {
-        value = listItem
-        close()
-    }
 </script>
 
-<div
-    class="relative text-gray-500 hover:text-gray-700 transition-colors isolate"
-    style="{widthStyle}"
->
-    <div class="absolute h-full flex items-center top-0 left-2.5 pointer-events-none w-4">
-        <Search />
-    </div>
-    <input
-        type="text"
-        class="bg-transparent w-full text-base rounded placeholder-gray-400 text-gray-900 border h-10 border-gray-200 hover:border-gray focus:border-primary focus:ring-primary transition-colors"
-        class:pl-8="{true}"
-        placeholder="Search"
-        bind:value
-        on:focus="{handleFocus}"
-        on:blur="{handleBlur}"
-        on:focus
-        on:blur
-        on:input
-        on:change
-    />
-    {#if isOpen && !hideOptions}
-        <div
-            class="absolute shadow-xl w-full rounded overflow-hidden mt-2 text-gray-700 bg-background dark:border dark:border-gray"
-            transition:fade="{{ duration: animationDuration }}"
-        >
-            {#if options.length > 0}
-                {#each options as option}
-                    {#if $$slots.option}
-                        <button class="block w-full" on:focus="{() => open()}" tabindex="{-1}">
-                            <slot name="option" option="{option}" />
-                        </button>
-                    {:else}
-                        <button
-                            class="px-3 py-2 hover:bg-gray-100 w-full transition-colors cursor-pointer hover:text-gray-900 block focus:outline-none text-left"
-                            on:click="{() => onItemClick(option)}"
-                            on:focus="{() => open()}"
-                            tabindex="{-1}"
-                        >
-                            {option}
-                        </button>
-                    {/if}
-                {/each}
-            {:else if isLoading}
-                <div class="px-3 py-2 text-center">
-                    <LoadingDots text="Loading" />
-                </div>
-            {:else if emptyMessage}
-                <div class="px-3 py-2 text-sm">
-                    {emptyMessage}
-                </div>
-            {/if}
-        </div>
-    {/if}
-</div>
+<TextInput
+    type="search"
+    label="{label}"
+    name="{name}"
+    defaultValue="{defaultValue}"
+    placeholder="{placeholder}"
+    helpText="{helpText}"
+    size="{size}"
+    optional="{optional}"
+    hideOptionalLabel="{hideOptionalLabel}"
+    readonly="{readonly}"
+    disabled="{disabled}"
+    requiredMessage="{requiredMessage}"
+    autocomplete="{autocomplete}"
+    maxCharacters="{maxCharacters}"
+    prefix="{shownIcon}"
+    keyboard="search"
+    feedback="{hideCharacterCount ? '' : undefined}"
+    autofocus="{autofocus}"
+    on:change
+/>
