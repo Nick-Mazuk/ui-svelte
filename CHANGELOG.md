@@ -1,3 +1,10 @@
+## [0.9.15](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.14...v0.9.15) (2021-05-20)
+
+
+### Bug Fixes
+
+* match label with docs for search-input ([a92a12d](https://github.com/Nick-Mazuk/ui-svelte/commit/a92a12d8dbb5649693d8acf0a5ddfaf51c1910f6))
+
 ## [0.9.14](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.13...v0.9.14) (2021-05-20)
 
 
