@@ -1,3 +1,10 @@
+## [0.9.16](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.15...v0.9.16) (2021-05-21)
+
+
+### Bug Fixes
+
+* animate sesarch-input prefix when searching ([dd14a1d](https://github.com/Nick-Mazuk/ui-svelte/commit/dd14a1d50d214a0097d4b9dddd6a9e86d14bd08e))
+
 ## [0.9.15](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.14...v0.9.15) (2021-05-20)
 
 
