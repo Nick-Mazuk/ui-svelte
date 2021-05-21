@@ -1,5 +1,6 @@
 <script lang="ts">
     import LoadingSpinner from '../loading-spinner/loading-spinner.svelte'
+    import LoadingDots from '../loading-dots/loading-dots.svelte'
     import type { Writable } from 'svelte/store'
     import { getContext } from 'svelte'
     import type { FormItemGlueSide, FormItemSize } from '../../form/form-sizes'
@@ -69,7 +70,7 @@
             classes: `bg-background text-gray-700 ${
                 shadow
                     ? 'border-transparent'
-                    : 'border-gray-300 hover:border-foreground hover:text-foreground active:bg-gray-200'
+                    : 'border-gray-300 hover:border-foreground dark:hover:border-gray hover:text-foreground active:bg-gray-200'
             } focus:ring-gray-900`,
             disabled: 'text-gray-300 border cursor-not-allowed !transition-none',
         },
@@ -123,7 +124,7 @@
     $: sizeClasses = [
         FORM_SIZE_MAP[size].height,
         FORM_SIZE_MAP[size].textSize,
-        prefix || loading ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
+        prefix ? '' : FORM_SIZE_MAP[size].content.paddingLeft,
         suffix ? '' : FORM_SIZE_MAP[size].content.paddingRight,
     ].join(' ')
     $: glueClasses = [
@@ -134,6 +135,7 @@
         glue.includes('right') && !prefix ? FORM_SIZE_MAP[size].glue.right : '',
         glue.includes('right') && prefix ? FORM_SIZE_MAP[size].glue.rightPrefix : '',
     ].join(' ')
+
 </script>
 
 {#if href}
@@ -162,20 +164,32 @@
         href="{href}"
         data-test="{testId}"
     >
-        {#if loading}
-            <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
-                <div style="{`width: ${FORM_SIZE_MAP[size].affix.icon * 4}px`}"></div>
-                <span class="{loadingSpinnerClasses[size]}">
-                    <LoadingSpinner size="{FORM_SIZE_MAP[size].affix.icon}" />
-                </span>
-            </span>
-        {:else if prefix}
+        {#if prefix}
             <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
                 <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
             </span>
         {/if}
         {#if shape === 'none'}
-            <span><slot /></span>
+            <span class="relative">
+                <span class="transition-opacity" class:opacity-0="{loading}">
+                    <slot />
+                </span>
+                <span
+                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class:opacity-0="{!loading}"
+                >
+                    <LoadingDots />
+                </span>
+            </span>
+        {:else if loading}
+            <span class="relative w-full h-full">
+                <span
+                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class:opacity-0="{!loading}"
+                >
+                    <LoadingDots />
+                </span>
+            </span>
         {:else}
             <slot />
         {/if}
@@ -211,20 +225,32 @@
         aria-label="{ariaLabel}"
         data-test="{testId}"
     >
-        {#if loading}
-            <div class="{FORM_SIZE_MAP[size].affix.paddingPrefix} relative">
-                <div style="{`width: ${FORM_SIZE_MAP[size].affix.icon * 4}px`}"></div>
-                <span class="{loadingSpinnerClasses[size]}">
-                    <LoadingSpinner size="{FORM_SIZE_MAP[size].affix.icon}" />
-                </span>
-            </div>
-        {:else if prefix}
+        {#if prefix}
             <span class="{FORM_SIZE_MAP[size].affix.paddingPrefix}">
                 <svelte:component this="{prefix}" size="{FORM_SIZE_MAP[size].affix.icon}" />
             </span>
         {/if}
         {#if shape === 'none'}
-            <span><slot /></span>
+            <span class="relative">
+                <span class="transition-opacity" class:opacity-0="{loading}">
+                    <slot />
+                </span>
+                <span
+                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class:opacity-0="{!loading}"
+                >
+                    <LoadingDots />
+                </span>
+            </span>
+        {:else if loading}
+            <span class="relative w-full h-full">
+                <span
+                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class:opacity-0="{!loading}"
+                >
+                    <LoadingDots />
+                </span>
+            </span>
         {:else}
             <slot />
         {/if}

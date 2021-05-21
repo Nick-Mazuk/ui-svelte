@@ -60,7 +60,7 @@
     let isValid: boolean
     let showError: boolean
     let errorMessage: string
-    let value = defaultValue
+    let value = defaultValue || ''
     let parsedValue: string
     let formattedValue: string
     let feedback: string
@@ -116,7 +116,7 @@
         }
     }
     const reset = () => {
-        value = defaultValue
+        value = defaultValue || ''
         showError = false
     }
     $: name = nameProp ? nameProp : slugify(label)
