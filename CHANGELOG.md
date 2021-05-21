@@ -1,3 +1,10 @@
+## [0.9.17](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.16...v0.9.17) (2021-05-21)
+
+
+### Bug Fixes
+
+* give avatar-input a default value ([848013e](https://github.com/Nick-Mazuk/ui-svelte/commit/848013e007865eba43509b33539f4c902d2b7e68))
+
 ## [0.9.16](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.15...v0.9.16) (2021-05-21)
 
 
