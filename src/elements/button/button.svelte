@@ -69,7 +69,7 @@
             classes: `bg-background text-gray-700 ${
                 shadow
                     ? 'border-transparent'
-                    : 'border-gray-300 hover:border-foreground hover:text-foreground active:bg-gray-200'
+                    : 'border-gray-300 hover:border-foreground dark:hover:border-gray hover:text-foreground active:bg-gray-200'
             } focus:ring-gray-900`,
             disabled: 'text-gray-300 border cursor-not-allowed !transition-none',
         },
@@ -134,6 +134,7 @@
         glue.includes('right') && !prefix ? FORM_SIZE_MAP[size].glue.right : '',
         glue.includes('right') && prefix ? FORM_SIZE_MAP[size].glue.rightPrefix : '',
     ].join(' ')
+
 </script>
 
 {#if href}
