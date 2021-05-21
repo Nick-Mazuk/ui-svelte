@@ -37,8 +37,8 @@
             ? FORM_SIZE_MAP[size].content.paddingLeftWithPrefix
             : FORM_SIZE_MAP[size].content.paddingLeft,
         hideArrow
-            ? FORM_SIZE_MAP[size].content.paddingRightWithPrefix
-            : FORM_SIZE_MAP[size].content.paddingRight,
+            ? FORM_SIZE_MAP[size].content.paddingRight
+            : FORM_SIZE_MAP[size].content.paddingRightWithPrefix,
     ].join(' ')
     const affixClasses = 'absolute top-0 h-full flex items-center pointer-events-none'
 
