@@ -1,3 +1,18 @@
+# [0.10.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.17...v0.10.0) (2021-05-21)
+
+
+### Bug Fixes
+
+* add guard in case null is passed into text input ([d44d776](https://github.com/Nick-Mazuk/ui-svelte/commit/d44d77663b36f248084864290c06ec35a10c6c07))
+* remove layout shift from loading buttons ([c9aea33](https://github.com/Nick-Mazuk/ui-svelte/commit/c9aea33f915ec62799ac69287c0af70de26e6466))
+* secondary button border color matches form inputs ([0a03c73](https://github.com/Nick-Mazuk/ui-svelte/commit/0a03c733f583e7e338192b1e3fc8225f7482313d))
+* select no longer shrinks as flex child ([0a986fb](https://github.com/Nick-Mazuk/ui-svelte/commit/0a986fbeb90f70fa7168587ffa8002cd45e0ef86))
+
+
+### Features
+
+* add formSync to select-input ([1615300](https://github.com/Nick-Mazuk/ui-svelte/commit/1615300c8b066478184e57adec060e98b056d9c0))
+
 ## [0.9.17](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.16...v0.9.17) (2021-05-21)
 
 
