@@ -181,6 +181,15 @@
                     <LoadingDots />
                 </span>
             </span>
+        {:else if loading}
+            <span class="relative w-full h-full">
+                <span
+                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class:opacity-0="{!loading}"
+                >
+                    <LoadingDots />
+                </span>
+            </span>
         {:else}
             <slot />
         {/if}
