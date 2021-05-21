@@ -17,12 +17,13 @@
         else if ($store === 'dark') prefix = Moon
         else prefix = Monitor
     }
+
 </script>
 
 <Select
     on:change="{(event) => store.set(event.detail)}"
-    value="{$store}"
-    title="Set site theme"
+    defaultValue="{$store}"
+    ariaLabel="Set site theme"
     size="{size}"
     prefix="{prefix}"
 >
