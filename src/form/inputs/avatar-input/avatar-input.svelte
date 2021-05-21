@@ -14,6 +14,7 @@
     export let disabled = false
     export let optional = false
     export let requiredMessage = 'Select an image to upload'
+    export let defaultValue = ''
 
     let files: FileList | undefined
     let fileReader: FileReader | undefined
@@ -62,16 +63,17 @@
         isValid: !isInvalidState,
         errorMessage,
     })
+
 </script>
 
 <div class="inline-block">
     <Label ariaLabel="{ariaLabel}">
         <div
-            class="hidden sm:block relative flex-none w-24 h-24 w-full h-full cursor-pointer rounded-full overflow-hidden transition filter hover:brightness-90 focus-within:brightness-75"
+            class="hidden sm:block relative flex-none w-24 h-24 cursor-pointer rounded-full overflow-hidden transition filter hover:brightness-90 focus-within:brightness-75"
         >
-            {#if typeof previewBlob === 'string'}
+            {#if typeof previewBlob === 'string' || defaultValue}
                 <img
-                    src="{previewBlob}"
+                    src="{previewBlob || defaultValue}"
                     alt=""
                     class="w-full h-full object-cover absolute"
                     class:grayscale="{disabled}"

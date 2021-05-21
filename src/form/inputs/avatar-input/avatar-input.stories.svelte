@@ -27,6 +27,9 @@
                 control: 'text',
                 defaultValue: 'Select an image to upload',
             },
+            defaultValue: {
+                control: 'text',
+            },
             optional: {
                 control: 'boolean',
             },
@@ -42,6 +45,7 @@
             },
         },
     }
+
 </script>
 
 <Meta {...meta} />
