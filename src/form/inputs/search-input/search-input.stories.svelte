@@ -24,6 +24,9 @@
             name: {
                 control: 'text',
             },
+            isSearching: {
+                control: 'boolean',
+            },
             size: {
                 control: {
                     type: 'inline-radio',

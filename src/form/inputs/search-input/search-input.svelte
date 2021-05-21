@@ -3,6 +3,7 @@
     import type { FormItemSize } from '../../form-sizes'
     import type { TextInputAutocomplete } from '../text-input'
     import TextInput from '../text-input/text-input.svelte'
+    import Refresh from './_search-input-refresh.svelte'
 
     export let label = ''
     export let name = ''
@@ -21,8 +22,10 @@
     export let maxCharacters: number | undefined = undefined
     export let hideCharacterCount = false
     export let autofocus = false
+    export let isSearching = false
 
-    $: shownIcon = hideIcon ? undefined : Search
+    $: icon = isSearching ? Refresh : Search
+    $: shownIcon = hideIcon ? undefined : icon
 
 </script>
 
