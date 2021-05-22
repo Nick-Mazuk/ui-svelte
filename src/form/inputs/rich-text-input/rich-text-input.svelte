@@ -280,7 +280,7 @@
             name,
             {
                 json: JSON.stringify(editor?.getJSON() || ''),
-                html: JSON.stringify(editor?.getHTML() || ''),
+                html: editor?.getHTML() || '',
             },
             () => {
                 showError = true
