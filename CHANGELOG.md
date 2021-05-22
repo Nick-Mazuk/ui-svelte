@@ -1,3 +1,10 @@
+## [0.10.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.10.0...v0.10.1) (2021-05-22)
+
+
+### Bug Fixes
+
+* remove quotes from rich-text-input html output ([7e2be80](https://github.com/Nick-Mazuk/ui-svelte/commit/7e2be809ce7ad735c69f29906f25cca319c072f4))
+
 # [0.10.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.9.17...v0.10.0) (2021-05-21)
 
 
