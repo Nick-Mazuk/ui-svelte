@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-lines-per-function -- tests are short
 context('Modal', () => {
     it('renders', () => {
         cy.loadStory('Components/Modal', 'Default')
@@ -15,9 +14,6 @@ context('Modal', () => {
         cy.get('button').click()
         cy.get('#modal-description').should('not.exist')
         cy.get('[data-test="modal"').should('not.have.attr', 'aria-describedby')
-        cy.loadStory('Components/Modal', 'Success')
-        cy.get('button').click()
-        cy.get('[data-test="modal"] [aria-label="Close modal"]').should('not.exist')
     })
     it('is accessible', () => {
         cy.loadStory('Components/Modal', 'Default', {
@@ -47,8 +43,6 @@ context('Modal', () => {
         cy.get('[data-test="modal"]').should('exist')
         cy.get('[data-test="modal"] [aria-label="Close modal"]').click()
         cy.get('[data-test="modal"]').should('not.exist')
-        cy.loadStory('Components/Modal', 'Success')
-        cy.checkAccessibility()
     })
 })
 
