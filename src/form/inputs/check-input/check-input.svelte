@@ -6,6 +6,7 @@
     import type { FormSync } from '../..'
     import type { CheckboxValue } from '.'
     import Error from '../../../elements/error/error.svelte'
+    import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
 
     export let defaultValue: CheckboxValue = 'unchecked'
     export let ariaLabel: string | undefined = undefined
@@ -69,6 +70,7 @@
         else if (value === 'checked') isValid = true
         else isValid = false
     }
+
 </script>
 
 <Label value="{label}" on:mouseup="{handleMouseUp}">
@@ -121,4 +123,10 @@
     {#if !hideError && showError && !isValid}
         <Error>{requiredMessage}</Error>
     {/if}
+    <InputFeedbackSection
+        helpText=""
+        feedback=""
+        isInvalidState="{!hideError && showError && !isValid}"
+        errorMessage="{requiredMessage}"
+    />
 </Label>

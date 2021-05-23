@@ -3,10 +3,10 @@
 
     import Label from '../../label/label.svelte'
     import Upload from '../../../elements/icon/upload.svelte'
-    import Error from '../../../elements/error/error.svelte'
     import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
     import { endWithPunctuation, slugify } from '@nick-mazuk/lib/esm/text-styling'
     import type { FormSync } from '../..'
+    import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
 
     type FileType = 'image' | 'audio' | 'pdf' | 'any'
 
@@ -85,6 +85,7 @@
         else helpText = ''
     }
     $: name = nameProp ? nameProp : slugify(label)
+
 </script>
 
 <Label value="{label}" optional="{optional}" hideOptionalLabel="{hideOptionalLabel}">
@@ -123,11 +124,10 @@
         />
     </div>
 
-    {#if helpText}
-        <p class="text-sm text-gray-700">{helpText}</p>
-    {/if}
-
-    {#if isInvalidState}
-        <Error label="">{errorMessage}</Error>
-    {/if}
+    <InputFeedbackSection
+        helpText="{helpText}"
+        feedback=""
+        isInvalidState="{isInvalidState}"
+        errorMessage="{errorMessage}"
+    />
 </Label>

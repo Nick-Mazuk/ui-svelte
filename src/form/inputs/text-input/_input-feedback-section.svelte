@@ -5,7 +5,7 @@
     export let errorMessage: string
     export let helpText: string
     export let feedback: string
-    export let hideFeedback: boolean
+    export let hideFeedback = false
 
 </script>
 

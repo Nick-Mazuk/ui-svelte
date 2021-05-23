@@ -8,6 +8,7 @@
     import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
     import { endWithPunctuation, slugify } from '@nick-mazuk/lib/esm/text-styling'
     import type { FormSync } from '../..'
+    import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
 
     type AspectRatio = '1x1' | '4x3' | '3x2' | '16x9'
 
@@ -81,6 +82,7 @@
         else helpText = ''
     }
     $: name = nameProp ? nameProp : slugify(label)
+
 </script>
 
 <Label value="{label}" optional="{optional}" hideOptionalLabel="{hideOptionalLabel}">
@@ -140,11 +142,10 @@
         />
     </div>
 
-    {#if helpText}
-        <p class="text-sm text-gray-700">{helpText}</p>
-    {/if}
-
-    {#if isInvalidState}
-        <Error label="">{errorMessage}</Error>
-    {/if}
+    <InputFeedbackSection
+        helpText="{helpText}"
+        feedback=""
+        isInvalidState="{isInvalidState}"
+        errorMessage="{errorMessage}"
+    />
 </Label>

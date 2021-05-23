@@ -5,8 +5,8 @@
     import { createEventDispatcher, getContext, onMount, tick } from 'svelte'
 
     import Label from '../../label/label.svelte'
-    import Error from '../../../elements/error/error.svelte'
     import TextInputAffix from './text-input-affix.svelte'
+    import InputFeedbackSection from './_input-feedback-section.svelte'
     import type {
         Formatter,
         Parser,
@@ -20,7 +20,6 @@
     import type { FormSync } from '../..'
     import { FORM_SIZE_MAP } from '../../form-sizes'
     import type { FormItemSize } from '../../form-sizes'
-    import TextInputFeedback from './_text-input-feedback.svelte'
 
     export let label = ''
     let nameProp = ''
@@ -278,7 +277,7 @@
     {#if $$slots['before-feedback']}
         <slot name="before-feedback" />
     {/if}
-    <TextInputFeedback
+    <InputFeedbackSection
         helpText="{helpText}"
         feedback="{feedback}"
         hideFeedback="{hideFeedback}"
