@@ -175,7 +175,7 @@
                     <slot />
                 </span>
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />
@@ -184,7 +184,7 @@
         {:else if loading}
             <span class="relative w-full h-full">
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />
@@ -236,7 +236,7 @@
                     <slot />
                 </span>
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />
@@ -245,7 +245,7 @@
         {:else if loading}
             <span class="relative w-full h-full">
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />
