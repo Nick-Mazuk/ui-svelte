@@ -99,3 +99,9 @@ export const FORM_SIZE_MAP: Record<FormItemSize, SizeDetail> = {
         },
     },
 }
+
+export const INPUT_LAYOUT_SIZE_MAP: Record<FormItemSize, string> = {
+    small: 'gap-6',
+    default: 'gap-6',
+    large: 'gap-6',
+}
