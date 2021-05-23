@@ -9,6 +9,7 @@
     import type { FormMethod, FormOnError, FormOnStateChange, FormState, HandleSubmit } from '..'
     import { FORM_FEEDBACK } from '../form-feedback'
     import Form from '../form/form.svelte'
+    import FormLayout from '../form-layout/form-layout.svelte'
 
     type DescriptionLink = {
         value: string
@@ -110,8 +111,10 @@
                     {/if}
                 </p>
             {/if}
-            <div class="grid grid-cols-1 gap-3 pt-3 border-t mt-3">
-                <slot />
+            <div class="pt-3 border-t mt-3">
+                <FormLayout>
+                    <slot />
+                </FormLayout>
             </div>
         </Container>
         {#if primaryAction || secondaryAction || destructiveAction || showProgress}

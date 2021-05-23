@@ -3,6 +3,7 @@
     import Button from '../../elements/button/button.svelte'
     import { FORM_FEEDBACK } from '../form-feedback'
     import EmailInput from '../inputs/email-input/email-input.svelte'
+    import PasswordInput from '../inputs/password-input/password-input.svelte'
 
     import FormEntity from './form-entity.svelte'
 
@@ -105,6 +106,7 @@
             }, 500)
         })
     }
+
 </script>
 
 <Meta {...meta} />
@@ -166,6 +168,13 @@
             <EmailInput defaultValue="hello@exaple.com" />
         </FormEntity>
     </div>
+</Story>
+
+<Story name="Multiple inputs" let:args>
+    <FormEntity {...args} handleSubmit="{handleSubmit}">
+        <EmailInput />
+        <PasswordInput />
+    </FormEntity>
 </Story>
 
 <Story name="With upload progress" let:args>
