@@ -6,14 +6,35 @@
     import Portal from '../../../utilities/portal/portal.svelte'
     import Container from '../../../utilities/container/container.svelte'
     import Button from '../../../elements/button/button.svelte'
-    import Check from '../../../elements/icon/check.svelte'
+    import X from '../../../elements/icon/x.svelte'
     import { TRANSITION_SPEED_MAP } from '../../../configs/transitions'
+    import FormEntity from '../../../form/form-entity/form-entity.svelte'
+    import { slugify } from '@nick-mazuk/lib/esm/text-styling'
+    import { FORM_FEEDBACK } from '../../../form/form-feedback'
+    import type { FormMethod, HandleSubmit } from '../../../form'
+    import type { DescriptionLink, ErrorMessages } from '../../../form/form-entity'
+
+    type Size = 'small' | 'default' | 'large'
 
     export let title: string
     export let description = ''
-    export let confirmText = ''
+    export let descriptionLink: DescriptionLink | undefined = undefined
+    export let size: Size = 'default'
     export let isOpen = false
     export let refocusOnClose = true
+
+    export let primaryAction = 'Save'
+    export let secondaryAction = ''
+    export let destructiveAction = ''
+
+    export let method: FormMethod = undefined
+    export let action: string | undefined = undefined
+    export let handleSubmit: HandleSubmit = undefined
+    export let resetOnSubmit = false
+    export let allowOffline = false
+    export let error: Partial<ErrorMessages> | string = ''
+    export let success = FORM_FEEDBACK.success.saved
+    export let progress: number | undefined = undefined
 
     const dispatch = createEventDispatcher<ModalDispatcher>()
     let containerElement: HTMLDivElement
@@ -21,7 +42,12 @@
     let lastFocusableElement: HTMLElement
     let previousElement: Element | null
 
-    const handleConfirm = () => dispatch('confirm')
+    const SIZE_MAP: Record<Size, string> = {
+        small: 'w-[24rem]',
+        default: 'w-[32rem]',
+        large: 'w-[42rem]',
+    }
+
     const handleWindowKeydown: svelte.JSX.KeyboardEventHandler<Window> = (event) => {
         if (!isOpen) return
         if (event.key === 'Escape') isOpen = false
@@ -79,8 +105,8 @@
         <div
             role="alertdialog"
             data-test="modal"
-            aria-labelledby="modal-title"
-            aria-describedby="{description ? 'modal-description' : undefined}"
+            aria-labelledby="{slugify(title)}-form-title"
+            aria-describedby="{description ? `${slugify(title)}-form-description` : undefined}"
             in:scale="{{ duration: TRANSITION_SPEED_MAP.medium.in, start: 0.9 }}"
             out:fade="{{ duration: TRANSITION_SPEED_MAP.medium.out }}"
             tabindex="{-1}"
@@ -89,44 +115,43 @@
         >
             <Container
                 variant="shadow"
-                class="bg-background relative flex flex-col space-y-4 overflow-y-scroll w-[24rem]"
+                class="bg-background border-0 w-full relative flex flex-col space-y-4 overflow-y-scroll {SIZE_MAP[
+                    size
+                ]}"
+                padding="{0}"
                 style="max-height: calc(100vh - 2rem); max-width: calc(100vw - 1.5rem);"
             >
-                <div class="flex justify-center">
-                    <div
-                        class="h-12 w-12 rounded-full bg-success-200 text-success-700 flex items-center justify-center"
-                    >
-                        <Check size="{6}" />
-                    </div>
-                </div>
-
-                <div class="flex flex-none justify-center">
-                    <div>
-                        <h3 class="h5 text-center" id="modal-title">
-                            {title}
-                        </h3>
-                        {#if description}
-                            <p
-                                id="modal-description"
-                                class="text-center mt-2 text-gray-700 text-balance"
+                <FormEntity
+                    title="{title}"
+                    description="{description}"
+                    descriptionLink="{descriptionLink}"
+                    primaryAction="{primaryAction}"
+                    secondaryAction="{secondaryAction}"
+                    destructiveAction="{destructiveAction}"
+                    method="{method}"
+                    action="{action}"
+                    handleSubmit="{handleSubmit}"
+                    resetOnSubmit="{resetOnSubmit}"
+                    allowOffline="{allowOffline}"
+                    error="{error}"
+                    success="{success}"
+                    progress="{progress}"
+                >
+                    <svelte:fragment slot="extra-actions">
+                        <div class="absolute top-0 right-0 pr-1 pt-1 flex-none">
+                            <Button
+                                shape="circle"
+                                variant="static"
+                                glue="{['right', 'top']}"
+                                on:click="{() => (isOpen = false)}"
+                                ariaLabel="Close modal"
                             >
-                                {description}
-                            </p>
-                        {/if}
-                    </div>
-                </div>
-                {#if $$slots.default}
-                    <div class="overflow-y-scroll overflow-x-visible">
-                        <slot />
-                    </div>
-                {/if}
-                {#if confirmText}
-                    <div class="mt-2">
-                        <Button width="full" on:click="{handleConfirm}">
-                            {confirmText}
-                        </Button>
-                    </div>
-                {/if}
+                                <X />
+                            </Button>
+                        </div>
+                    </svelte:fragment>
+                    <slot />
+                </FormEntity>
             </Container>
         </div>
     </Portal>

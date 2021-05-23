@@ -30,7 +30,7 @@
     let previousElement: Element | null
 
     const SIZE_MAP: Record<Size, string> = {
-        small: 'w-[28rem]',
+        small: 'w-[24rem]',
         default: 'w-[32rem]',
         large: 'w-[42rem]',
     }

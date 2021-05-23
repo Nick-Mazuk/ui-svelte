@@ -10,19 +10,7 @@
     import { FORM_FEEDBACK } from '../form-feedback'
     import Form from '../form/form.svelte'
     import FormLayout from '../form-layout/form-layout.svelte'
-
-    type DescriptionLink = {
-        value: string
-        href: string
-    }
-    type ErrorMessages = {
-        default: string
-        offline: string | false
-        403: string | false
-        429: string | false
-        400: string | false
-        500: string | false
-    }
+    import type { DescriptionLink, ErrorMessages } from '.'
 
     export let title: string
     export let description = ''
@@ -93,16 +81,20 @@
         <Container class="rounded-none -m-px">
             <div class="flex items-start justify-between">
                 <div>
-                    <h3 class="h6">{title}</h3>
+                    <h3 class="h6" id="{slugify(title)}-form-title">{title}</h3>
                 </div>
                 {#if $$slots['extra-actions']}
-                    <div class="flex space-x-3">
+                    <div class="relative flex space-x-3">
                         <slot name="extra-actions" />
                     </div>
                 {/if}
             </div>
             {#if description}
-                <p class:mt-3="{!$$slots['extra-actions']}" class:mt-2="{$$slots['extra-actions']}">
+                <p
+                    class:mt-3="{!$$slots['extra-actions']}"
+                    class:mt-2="{$$slots['extra-actions']}"
+                    id="{slugify(title)}-form-description"
+                >
                     {description}
                     {#if descriptionLink}
                         <a sveltekit:prefetch href="{descriptionLink.href}" class="link">
