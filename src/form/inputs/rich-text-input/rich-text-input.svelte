@@ -29,6 +29,7 @@
     import Label from '../../label/label.svelte'
     import type { FormSync } from '../..'
     import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
+    import ModalForm from '../../../components/modal/modal-form/modal-form.svelte'
 
     type Heading = 1 | 2 | 3 | 4 | boolean
     export let h1: Heading = false
@@ -374,34 +375,31 @@
         errorMessage="{requiredMessage}"
     />
 </div>
-<Modal
+<ModalForm
     title="Add link"
     bind:isOpen="{showLinkModal}"
     refocusOnClose="{false}"
     on:close="{() => closeLinkModal('close')}"
+    resetOnSubmit
+    handleSubmit="{() => {
+        closeLinkModal()
+        return Promise.resolve(true)
+    }}"
+    primaryAction="Add link"
+    secondaryAction="Remove link"
+    secondaryActionSubmit="{false}"
+    on:secondaryClick="{() => closeLinkModal('unset')}"
+    success=""
+    size="small"
 >
-    <Form
-        resetOnSubmit
-        handleSubmit="{() => {
-            closeLinkModal()
-            return Promise.resolve(true)
-        }}"
-    >
-        <UrlInput
-            on:change="{handleUrlInputChange}"
-            defaultValue="{modalLinkDefaultValue}"
-            autofocus
-            optional
-            hideOptionalLabel
-        />
-        <div class="mt-4 flex justify-end space-x-4">
-            <Button variant="secondary" on:click="{() => closeLinkModal('unset')}">
-                Remove link
-            </Button>
-            <Button submit>Add link</Button>
-        </div>
-    </Form>
-</Modal>
+    <UrlInput
+        on:change="{handleUrlInputChange}"
+        defaultValue="{modalLinkDefaultValue}"
+        autofocus
+        optional
+        hideOptionalLabel
+    />
+</ModalForm>
 
 {#if showAddImageSlot}
     <slot

@@ -10,3 +10,8 @@ export type ErrorMessages = {
     400: string | false
     500: string | false
 }
+export type FormEntityDispatcher = {
+    primaryClick: MouseEvent
+    secondaryClick: MouseEvent
+    destructiveClick: MouseEvent
+}

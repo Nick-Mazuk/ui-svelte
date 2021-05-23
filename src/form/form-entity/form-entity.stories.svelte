@@ -38,6 +38,21 @@
             destructiveAction: {
                 control: 'text',
             },
+            primaryActionSubmit: {
+                control: 'boolean',
+                defaultValue: true,
+                description: 'Determines whether the primary button has `type="submit"`',
+            },
+            secondaryActionSubmit: {
+                control: 'boolean',
+                defaultValue: true,
+                description: 'Determines whether the secondary button has `type="submit"`',
+            },
+            destructiveActionSubmit: {
+                control: 'boolean',
+                defaultValue: true,
+                description: 'Determines whether the destructive button has `type="submit"`',
+            },
             handleSubmit: {
                 description:
                     'A function to handle the submission. Passed directly to the `Form` component.',

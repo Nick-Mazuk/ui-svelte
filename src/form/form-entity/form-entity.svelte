@@ -10,14 +10,18 @@
     import { FORM_FEEDBACK } from '../form-feedback'
     import Form from '../form/form.svelte'
     import FormLayout from '../form-layout/form-layout.svelte'
-    import type { DescriptionLink, ErrorMessages } from '.'
+    import type { DescriptionLink, ErrorMessages, FormEntityDispatcher } from '.'
+    import { createEventDispatcher } from 'svelte'
 
     export let title: string
     export let description = ''
     export let descriptionLink: DescriptionLink | undefined = undefined
     export let primaryAction = 'Save'
+    export let primaryActionSubmit = true
     export let secondaryAction = ''
+    export let secondaryActionSubmit = true
     export let destructiveAction = ''
+    export let destructiveActionSubmit = true
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
@@ -36,6 +40,7 @@
         400: FORM_FEEDBACK.errors[400],
         500: FORM_FEEDBACK.errors[500],
     }
+    const dispatch = createEventDispatcher<FormEntityDispatcher>()
     let formState: FormState = 'ready'
 
     let shownErrorMessage: string
@@ -125,7 +130,8 @@
                                     variant="error"
                                     size="small"
                                     loading="{isSubmitting}"
-                                    submit
+                                    on:click="{(event) => dispatch('destructiveClick', event)}"
+                                    submit="{destructiveActionSubmit}"
                                 >
                                     {destructiveAction}
                                 </Button>
@@ -155,7 +161,8 @@
                                         variant="secondary"
                                         size="small"
                                         loading="{isSubmitting}"
-                                        submit
+                                        on:click="{(event) => dispatch('secondaryClick', event)}"
+                                        submit="{secondaryActionSubmit}"
                                     >
                                         {secondaryAction}
                                     </Button>
@@ -163,7 +170,12 @@
                             {/if}
                             {#if primaryAction}
                                 <div class="row-start-1 flex flex-col items-stretch">
-                                    <Button size="small" loading="{isSubmitting}" submit>
+                                    <Button
+                                        size="small"
+                                        loading="{isSubmitting}"
+                                        on:click="{(event) => dispatch('primaryClick', event)}"
+                                        submit="{primaryActionSubmit}"
+                                    >
                                         {primaryAction}
                                     </Button>
                                 </div>

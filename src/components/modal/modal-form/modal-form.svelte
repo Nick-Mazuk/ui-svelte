@@ -24,8 +24,11 @@
     export let refocusOnClose = true
 
     export let primaryAction = 'Save'
+    export let primaryActionSubmit = true
     export let secondaryAction = ''
+    export let secondaryActionSubmit = true
     export let destructiveAction = ''
+    export let destructiveActionSubmit = true
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
@@ -126,8 +129,11 @@
                     description="{description}"
                     descriptionLink="{descriptionLink}"
                     primaryAction="{primaryAction}"
+                    primaryActionSubmit="{primaryActionSubmit}"
                     secondaryAction="{secondaryAction}"
+                    secondaryActionSubmit="{secondaryActionSubmit}"
                     destructiveAction="{destructiveAction}"
+                    destructiveActionSubmit="{destructiveActionSubmit}"
                     method="{method}"
                     action="{action}"
                     handleSubmit="{handleSubmit}"
@@ -136,6 +142,12 @@
                     error="{error}"
                     success="{success}"
                     progress="{progress}"
+                    on:primaryClick
+                    on:secondaryClick
+                    on:destructiveClick
+                    on:stateChange
+                    on:success
+                    on:error
                 >
                     <svelte:fragment slot="extra-actions">
                         <div class="absolute top-0 right-0 pr-1 pt-1 flex-none">
