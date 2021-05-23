@@ -18,7 +18,6 @@
         },
         argTypes: {},
     }
-
 </script>
 
 <Meta {...meta} />

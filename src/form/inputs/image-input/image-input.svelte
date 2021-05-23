@@ -4,7 +4,6 @@
     import Label from '../../label/label.svelte'
     import Upload from '../../../elements/icon/upload.svelte'
     import Image from '../../../elements/icon/image.svelte'
-    import Error from '../../../elements/error/error.svelte'
     import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
     import { endWithPunctuation, slugify } from '@nick-mazuk/lib/esm/text-styling'
     import type { FormSync } from '../..'
@@ -82,7 +81,6 @@
         else helpText = ''
     }
     $: name = nameProp ? nameProp : slugify(label)
-
 </script>
 
 <Label value="{label}" optional="{optional}" hideOptionalLabel="{hideOptionalLabel}">

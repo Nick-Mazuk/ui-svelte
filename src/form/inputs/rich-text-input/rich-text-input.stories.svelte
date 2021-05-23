@@ -1,9 +1,6 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
     import ModalForm from '../../../components/modal/modal-form/modal-form.svelte'
-    import Modal from '../../../components/modal/modal.svelte'
-    import Button from '../../../elements/button/button.svelte'
-    import Form from '../../form/form.svelte'
     import UrlInput from '../url-input/url-input.svelte'
 
     import RichTextInput from './rich-text-input.svelte'
@@ -117,7 +114,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />
@@ -133,7 +129,7 @@
                 primaryAction="Upload"
                 handleSubmit="{(data) => {
                     const url = data['image-url']
-                    if (typeof url === 'string') addImageToText(url)
+                    if (typeof url === 'string') addImageToText({ url })
                     return Promise.resolve(true)
                 }}"
             >
@@ -168,7 +164,7 @@
                 primaryAction="Upload"
                 handleSubmit="{(data) => {
                     const url = data['image-url']
-                    if (typeof url === 'string') addImageToText(url)
+                    if (typeof url === 'string') addImageToText({ url })
                     return Promise.resolve(true)
                 }}"
             >

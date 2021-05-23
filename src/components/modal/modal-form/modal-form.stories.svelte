@@ -115,7 +115,6 @@
         isOpen = false
         return Promise.resolve(true)
     }
-
 </script>
 
 <Meta {...meta} />

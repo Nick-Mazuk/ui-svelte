@@ -64,7 +64,6 @@
         }
     }
     $: if (!isOpen) dispatch('close')
-
 </script>
 
 <svelte:window on:keydown="{handleWindowKeydown}" />

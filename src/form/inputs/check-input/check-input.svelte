@@ -70,7 +70,6 @@
         else if (value === 'checked') isValid = true
         else isValid = false
     }
-
 </script>
 
 <Label value="{label}" on:mouseup="{handleMouseUp}">

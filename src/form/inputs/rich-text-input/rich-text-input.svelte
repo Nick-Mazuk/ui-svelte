@@ -19,9 +19,7 @@
 
     import Button from '../../../elements/button/button.svelte'
     import Tooltip from '../../../components/tooltip/tooltip.svelte'
-    import Modal from '../../../components/modal/modal.svelte'
     import UrlInput from '../url-input/url-input.svelte'
-    import Form from '../../form/form.svelte'
     import type { TextInputChangeEvent } from '../text-input'
     import { buildExtensions } from './_build-extensions'
     import type { FormItemSize } from '../../form-sizes'
@@ -86,8 +84,16 @@
         editor.chain().focus().run()
     }
     const openImageModal = () => (showAddImageSlot = true)
-    const addImageToText = (url: string) => {
-        if (url) editor.chain().focus().setImage({ src: url }).run()
+    const addImageToText = ({
+        url,
+        width,
+        height,
+    }: {
+        url: string
+        width?: number
+        height?: number
+    }) => {
+        if (url) editor.chain().focus().setImage({ src: url, width, height }).run()
         else editor.chain().focus().run()
         showAddImageSlot = false
     }
@@ -292,7 +298,6 @@
     }
     $: isValid = optional || characterCount > 0
     $: isInvalidState = !isValid && showError
-
 </script>
 
 <div class="flex flex-col space-y-1">

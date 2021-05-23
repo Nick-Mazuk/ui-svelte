@@ -14,7 +14,6 @@
     const formLayoutContext = getContext<FormLayoutContext>('formLayout')
 
     $: formLayoutClasses = formLayoutContext ? '-mt-2 first:mt-0' : ''
-
 </script>
 
 <!-- svelte-ignore a11y-label-has-associated-control -- input will be inside the slot -->

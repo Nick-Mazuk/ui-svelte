@@ -67,7 +67,6 @@
             errorMessages = { ...defaultErrorMessages, default: error }
         else errorMessages = { ...defaultErrorMessages, ...error }
     }
-
 </script>
 
 <Container padding="{false}" id="{slugify(title)}">

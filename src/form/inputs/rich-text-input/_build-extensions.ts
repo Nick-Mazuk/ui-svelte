@@ -10,7 +10,6 @@ import CodeBlock from '@tiptap/extension-code-block'
 import Document from '@tiptap/extension-document'
 import Heading from '@tiptap/extension-heading'
 import History from '@tiptap/extension-history'
-import Image from '@tiptap/extension-image'
 import Italic from '@tiptap/extension-italic'
 import Link from '@tiptap/extension-link'
 import ListItem from '@tiptap/extension-list-item'
@@ -18,6 +17,8 @@ import OrderedList from '@tiptap/extension-ordered-list'
 import Paragraph from '@tiptap/extension-paragraph'
 import Text from '@tiptap/extension-text'
 import Typography from '@tiptap/extension-typography'
+
+import { Image } from './_image'
 
 type Heading = 1 | 2 | 3 | 4 | boolean
 type Props = {
@@ -124,6 +125,10 @@ export const buildExtensions = ({
                     return {
                         'Mod-Shift-i': openImageModal,
                     }
+                },
+            }).configure({
+                HTMLAttributes: {
+                    loading: 'lazy',
                 },
             })
         )

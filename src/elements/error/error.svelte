@@ -20,7 +20,6 @@
         else if (size === 'default') iconStrokeWeight = 2
         else iconStrokeWeight = 1.5
     }
-
 </script>
 
 <div

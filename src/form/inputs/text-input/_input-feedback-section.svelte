@@ -11,7 +11,6 @@
     export let hideFeedback = false
 
     const formLayoutContext = getContext<FormLayoutContext>('formLayout')
-
 </script>
 
 <div class="relative">
