@@ -20,6 +20,7 @@
     import type { FormSync } from '../..'
     import { FORM_SIZE_MAP } from '../../form-sizes'
     import type { FormItemSize } from '../../form-sizes'
+    import TextInputFeedback from './_text-input-feedback.svelte'
 
     export let label = ''
     let nameProp = ''
@@ -277,21 +278,11 @@
     {#if $$slots['before-feedback']}
         <slot name="before-feedback" />
     {/if}
-    <div
-        class="grid grid-cols-2 gap-y-1"
-        class:gap-x-6="{feedback}"
-        style="grid-template-columns: minmax(0, 1fr) auto"
-    >
-        {#if helpText}
-            <p class="col-start-1 text-sm text-gray-700">{helpText}</p>
-        {/if}
-        {#if feedback && !hideFeedback}
-            <p class="col-start-2 text-sm text-gray-700 text-right">{feedback}</p>
-        {/if}
-        {#if isInvalidState}
-            <div class="col-start-1" class:row-start-1="{!helpText}">
-                <Error label="">{errorMessage}</Error>
-            </div>
-        {/if}
-    </div>
+    <TextInputFeedback
+        helpText="{helpText}"
+        feedback="{feedback}"
+        hideFeedback="{hideFeedback}"
+        isInvalidState="{isInvalidState}"
+        errorMessage="{errorMessage}"
+    />
 </Label>
