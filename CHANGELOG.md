@@ -1,3 +1,10 @@
+## [0.11.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.3...v0.11.4) (2021-05-24)
+
+
+### Bug Fixes
+
+* update changelog links to be easliy parsed ([46922f3](https://github.com/Nick-Mazuk/ui-svelte/commit/46922f3670fe46d9b34966617c2fbb773e32ab90))
+
 ## [0.11.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.2...v0.11.3) (2021-05-24)
 
 
