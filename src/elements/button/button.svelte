@@ -1,5 +1,4 @@
 <script lang="ts">
-    import LoadingSpinner from '../loading-spinner/loading-spinner.svelte'
     import LoadingDots from '../loading-dots/loading-dots.svelte'
     import type { Writable } from 'svelte/store'
     import { getContext } from 'svelte'
@@ -86,12 +85,6 @@
         },
     }
 
-    const loadingSpinnerClasses: Record<FormItemSize, string> = {
-        small: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.small.affix.paddingPrefix}`,
-        default: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.default.affix.paddingPrefix}`,
-        large: `transform flex items-center left-0 -translate-y-1/2 absolute ${FORM_SIZE_MAP.large.affix.paddingPrefix}`,
-    }
-
     const SHAPE_MAP: Record<Shape, Record<FormItemSize, string>> = {
         square: {
             small: 'w-8 !px-1.5',
@@ -135,7 +128,6 @@
         glue.includes('right') && !prefix ? FORM_SIZE_MAP[size].glue.right : '',
         glue.includes('right') && prefix ? FORM_SIZE_MAP[size].glue.rightPrefix : '',
     ].join(' ')
-
 </script>
 
 {#if href}
@@ -175,7 +167,7 @@
                     <slot />
                 </span>
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />
@@ -184,7 +176,7 @@
         {:else if loading}
             <span class="relative w-full h-full">
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />
@@ -236,7 +228,7 @@
                     <slot />
                 </span>
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />
@@ -245,7 +237,7 @@
         {:else if loading}
             <span class="relative w-full h-full">
                 <span
-                    class="absolute inset-0 flex items-center justify-center transition-opacity"
+                    class="absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none"
                     class:opacity-0="{!loading}"
                 >
                     <LoadingDots />

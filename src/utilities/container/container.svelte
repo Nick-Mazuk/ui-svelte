@@ -64,7 +64,6 @@
         VARIANT_MAP[variant ?? (href ? 'click' : 'border')],
     ].join(' ')
     $: disabledStore.set(variant === 'disable')
-
 </script>
 
 {#if href}

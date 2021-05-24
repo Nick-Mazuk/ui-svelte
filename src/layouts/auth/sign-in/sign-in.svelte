@@ -9,6 +9,7 @@
         HandleSubmit,
     } from '../../../form'
     import { FORM_FEEDBACK } from '../../../form/form-feedback'
+    import FormLayout from '../../../form/form-layout/form-layout.svelte'
     import Form from '../../../form/form/form.svelte'
     import EmailInput from '../../../form/inputs/email-input/email-input.svelte'
     import PasswordInput from '../../../form/inputs/password-input/password-input.svelte'
@@ -57,7 +58,7 @@
     on:success="{() => (error = '')}"
     on:success
 >
-    <div class="grid grid-flow-row gap-4">
+    <FormLayout>
         {#if error}
             <Note variant="error">{error}</Note>
         {:else if note && formState === 'ready'}
@@ -69,24 +70,28 @@
         {/if}
         <EmailInput />
         <PasswordInput />
-        {#if forgotPassword && createAccount}
-            <a href="{forgotPassword}" sveltekit:prefetch class="link text-sm">Forgot password</a>
-        {/if}
-        <div
-            class="flex"
-            class:justify-between="{createAccount || forgotPassword}"
-            class:justify-end="{!createAccount && !forgotPassword}"
-        >
-            {#if createAccount}
-                <Button variant="link" glue="{['left']}" href="{createAccount}">
-                    Create account
-                </Button>
-            {:else if forgotPassword}
-                <Button variant="link" glue="{['left']}" href="{forgotPassword}">
-                    Forgot password
-                </Button>
+        <div class="grid grid-cols-1 gap-2">
+            {#if forgotPassword && createAccount}
+                <a href="{forgotPassword}" sveltekit:prefetch class="link text-sm"
+                    >Forgot password</a
+                >
             {/if}
-            <Button submit loading="{formState === 'submitting'}">Sign in</Button>
+            <div
+                class="flex"
+                class:justify-between="{createAccount || forgotPassword}"
+                class:justify-end="{!createAccount && !forgotPassword}"
+            >
+                {#if createAccount}
+                    <Button variant="link" glue="{['left']}" href="{createAccount}">
+                        Create account
+                    </Button>
+                {:else if forgotPassword}
+                    <Button variant="link" glue="{['left']}" href="{forgotPassword}">
+                        Forgot password
+                    </Button>
+                {/if}
+                <Button submit loading="{formState === 'submitting'}">Sign in</Button>
+            </div>
         </div>
-    </div>
+    </FormLayout>
 </Form>

@@ -30,7 +30,7 @@
             size: {
                 control: {
                     type: 'radio',
-                    options: ['default', 'large'],
+                    options: ['small', 'default', 'large'],
                 },
                 defaultValue: 'default',
             },
@@ -64,7 +64,9 @@
     </Error>
 </Story>
 <Story name="Sizes" let:args>
-    <Error {...args} size="default">Email address is already in use.</Error>
+    <Error {...args} size="small">Small error message.</Error>
     <Spacer />
-    <Error {...args} size="large">Email address is already in use.</Error>
+    <Error {...args} size="default">Default error message.</Error>
+    <Spacer />
+    <Error {...args} size="large">Large error message.</Error>
 </Story>

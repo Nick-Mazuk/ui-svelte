@@ -9,26 +9,19 @@
     import type { FormMethod, FormOnError, FormOnStateChange, FormState, HandleSubmit } from '..'
     import { FORM_FEEDBACK } from '../form-feedback'
     import Form from '../form/form.svelte'
-
-    type DescriptionLink = {
-        value: string
-        href: string
-    }
-    type ErrorMessages = {
-        default: string
-        offline: string | false
-        403: string | false
-        429: string | false
-        400: string | false
-        500: string | false
-    }
+    import FormLayout from '../form-layout/form-layout.svelte'
+    import type { DescriptionLink, ErrorMessages, FormEntityDispatcher } from '.'
+    import { createEventDispatcher } from 'svelte'
 
     export let title: string
     export let description = ''
     export let descriptionLink: DescriptionLink | undefined = undefined
     export let primaryAction = 'Save'
+    export let primaryActionSubmit = true
     export let secondaryAction = ''
+    export let secondaryActionSubmit = true
     export let destructiveAction = ''
+    export let destructiveActionSubmit = true
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
@@ -47,6 +40,7 @@
         400: FORM_FEEDBACK.errors[400],
         500: FORM_FEEDBACK.errors[500],
     }
+    const dispatch = createEventDispatcher<FormEntityDispatcher>()
     let formState: FormState = 'ready'
 
     let shownErrorMessage: string
@@ -73,7 +67,6 @@
             errorMessages = { ...defaultErrorMessages, default: error }
         else errorMessages = { ...defaultErrorMessages, ...error }
     }
-
 </script>
 
 <Container padding="{false}" id="{slugify(title)}">
@@ -92,16 +85,20 @@
         <Container class="rounded-none -m-px">
             <div class="flex items-start justify-between">
                 <div>
-                    <h3 class="h6">{title}</h3>
+                    <h3 class="h6" id="{slugify(title)}-form-title">{title}</h3>
                 </div>
                 {#if $$slots['extra-actions']}
-                    <div class="flex space-x-3">
+                    <div class="relative flex space-x-3">
                         <slot name="extra-actions" />
                     </div>
                 {/if}
             </div>
             {#if description}
-                <p class:mt-3="{!$$slots['extra-actions']}" class:mt-2="{$$slots['extra-actions']}">
+                <p
+                    class:mt-3="{!$$slots['extra-actions']}"
+                    class:mt-2="{$$slots['extra-actions']}"
+                    id="{slugify(title)}-form-description"
+                >
                     {description}
                     {#if descriptionLink}
                         <a sveltekit:prefetch href="{descriptionLink.href}" class="link">
@@ -110,8 +107,10 @@
                     {/if}
                 </p>
             {/if}
-            <div class="grid grid-cols-1 gap-3 pt-3 border-t mt-3">
-                <slot />
+            <div class="pt-3 border-t mt-3">
+                <FormLayout>
+                    <slot />
+                </FormLayout>
             </div>
         </Container>
         {#if primaryAction || secondaryAction || destructiveAction || showProgress}
@@ -130,7 +129,8 @@
                                     variant="error"
                                     size="small"
                                     loading="{isSubmitting}"
-                                    submit
+                                    on:click="{(event) => dispatch('destructiveClick', event)}"
+                                    submit="{destructiveActionSubmit}"
                                 >
                                     {destructiveAction}
                                 </Button>
@@ -160,7 +160,8 @@
                                         variant="secondary"
                                         size="small"
                                         loading="{isSubmitting}"
-                                        submit
+                                        on:click="{(event) => dispatch('secondaryClick', event)}"
+                                        submit="{secondaryActionSubmit}"
                                     >
                                         {secondaryAction}
                                     </Button>
@@ -168,7 +169,12 @@
                             {/if}
                             {#if primaryAction}
                                 <div class="row-start-1 flex flex-col items-stretch">
-                                    <Button size="small" loading="{isSubmitting}" submit>
+                                    <Button
+                                        size="small"
+                                        loading="{isSubmitting}"
+                                        on:click="{(event) => dispatch('primaryClick', event)}"
+                                        submit="{primaryActionSubmit}"
+                                    >
                                         {primaryAction}
                                     </Button>
                                 </div>

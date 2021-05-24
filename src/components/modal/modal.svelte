@@ -7,10 +7,8 @@
     import Container from '../../utilities/container/container.svelte'
     import Button from '../../elements/button/button.svelte'
     import X from '../../elements/icon/x.svelte'
-    import Check from '../../elements/icon/check.svelte'
     import { TRANSITION_SPEED_MAP } from '../../configs/transitions'
 
-    type Variant = 'default' | 'success'
     type Size = 'small' | 'default' | 'large'
 
     export let title: string
@@ -18,8 +16,7 @@
     export let close = true
     export let confirmText = ''
     export let cancelText = ''
-    export let variant: Variant = 'default'
-    export let size: Size | undefined = undefined
+    export let size: Size = 'default'
     export let isOpen = false
     export let refocusOnClose = true
 
@@ -30,21 +27,9 @@
     let previousElement: Element | null
 
     const SIZE_MAP: Record<Size, string> = {
-        small: 'w-[28rem]',
+        small: 'w-[24rem]',
         default: 'w-[32rem]',
         large: 'w-[42rem]',
-    }
-
-    let buttonWidth: 'full' | undefined
-    $: buttonWidth = variant === 'success' ? 'full' : undefined
-    $: descriptionClasses =
-        variant === 'success' ? 'text-center mt-2 text-gray-700 text-balance' : ''
-    $: buttonContainerClasses = variant === 'success' ? 'flex-1' : 'flex-shrink-0'
-    let displaySize: Size
-    $: {
-        if (size) displaySize = size
-        else if (variant === 'success') displaySize = 'small'
-        else displaySize = 'default'
     }
 
     const handleConfirm = () => dispatch('confirm')
@@ -94,7 +79,6 @@
         }
     }
     $: if (!isOpen) dispatch('close')
-
 </script>
 
 <svelte:window on:keydown="{handleWindowKeydown}" />
@@ -119,88 +103,69 @@
         >
             <Container
                 variant="shadow"
-                class="bg-background w-full relative flex flex-col space-y-4 overflow-y-scroll {SIZE_MAP[
-                    displaySize
-                ]}"
+                class="bg-background w-full relative overflow-y-scroll {SIZE_MAP[size]}"
                 style="max-height: calc(100vh - 2rem); max-width: calc(100vw - 1.5rem);"
+                padding="{false}"
             >
-                {#if variant === 'success'}
-                    <div class="flex justify-center">
-                        <div
-                            class="h-12 w-12 rounded-full bg-success-200 text-success-700 flex items-center justify-center"
-                        >
-                            <Check size="{6}" />
+                <Container class="-m-px" rounded="none">
+                    <div class="relative flex flex-none justify-between">
+                        <div>
+                            <h3 class="h6" id="modal-title">
+                                {title}
+                            </h3>
+                            {#if description}
+                                <p id="modal-description" class="mt-3">
+                                    {description}
+                                </p>
+                            {/if}
                         </div>
-                    </div>
-                {/if}
-                <div
-                    class="flex flex-none p-px"
-                    class:justify-between="{variant !== 'success'}"
-                    class:justify-center="{variant === 'success'}"
-                >
-                    <div>
-                        <h3
-                            class:h4="{variant !== 'success'}"
-                            class:h5="{variant === 'success'}"
-                            id="modal-title"
-                            class:text-center="{variant === 'success'}"
-                        >
-                            {title}
-                        </h3>
-                        {#if description}
-                            <p id="modal-description" class="{descriptionClasses}">
-                                {description}
-                            </p>
-                        {/if}
-                    </div>
-                    {#if close && variant !== 'success'}
-                        <div class="pr-1 pt-1 flex-none">
-                            <Button
-                                shape="circle"
-                                variant="static"
-                                glue="{['right', 'top']}"
-                                on:click="{() => (isOpen = false)}"
-                                ariaLabel="Close modal"
-                            >
-                                <X />
-                            </Button>
-                        </div>
-                    {/if}
-                </div>
-                {#if $$slots.default}
-                    <div class="overflow-y-scroll overflow-x-visible p-px">
-                        <slot />
-                    </div>
-                {/if}
-                {#if $$slots.actions || confirmText}
-                    <div class="flex justify-end flex-none p-px">
-                        {#if $$slots.actions && variant !== 'success'}
-                            <slot name="actions" />
-                        {:else}
-                            <div
-                                class="flex space-x-4"
-                                class:w-full="{variant === 'success'}"
-                                class:mt-2="{variant === 'success'}"
-                            >
-                                {#if cancelText}
-                                    <div class="{buttonContainerClasses}">
-                                        <Button
-                                            variant="secondary"
-                                            width="{buttonWidth}"
-                                            on:click="{handleCancel}"
-                                        >
-                                            {cancelText}
-                                        </Button>
-                                    </div>
-                                {/if}
-                                <div class="{buttonContainerClasses}">
-                                    <Button width="{buttonWidth}" on:click="{handleConfirm}">
-                                        {confirmText}
-                                    </Button>
-                                </div>
+                        {#if close}
+                            <div class="absolute top-0 right-0 pr-1 pt-1 flex-none">
+                                <Button
+                                    shape="circle"
+                                    variant="static"
+                                    glue="{['right', 'top']}"
+                                    on:click="{() => (isOpen = false)}"
+                                    ariaLabel="Close modal"
+                                >
+                                    <X />
+                                </Button>
                             </div>
                         {/if}
                     </div>
+                    {#if $$slots.default}
+                        <div class="pt-3 border-t mt-3 overflow-y-scroll">
+                            <slot />
+                        </div>
+                    {/if}
+                </Container>
+                {#if $$slots.actions || confirmText}
+                    <Container variant="fill" class="-m-px py-3" rounded="none">
+                        <div class="flex justify-end flex-none">
+                            {#if $$slots.actions}
+                                <slot name="actions" />
+                            {:else}
+                                <div class="flex space-x-4 justify-end">
+                                    {#if cancelText}
+                                        <div class="flex-shrink-0">
+                                            <Button
+                                                variant="secondary"
+                                                on:click="{handleCancel}"
+                                                size="small"
+                                            >
+                                                {cancelText}
+                                            </Button>
+                                        </div>
+                                    {/if}
+                                    <div class="flex-shrink-0">
+                                        <Button on:click="{handleConfirm}" size="small">
+                                            {confirmText}
+                                        </Button>
+                                    </div>
+                                </div>
+                            {/if}
+                        </div>
+                    </Container>
                 {/if}
             </Container>
         </div>

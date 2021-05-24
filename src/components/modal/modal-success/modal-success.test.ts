@@ -1,23 +1,22 @@
 context('Modal', () => {
     it('renders', () => {
-        cy.loadStory('Components/Modal', 'Default')
+        cy.loadStory('Components/Modal/ModalSuccess', 'Default')
         cy.get('button').click()
         cy.get('#modal-title').contains('Title')
-        cy.contains('This is the contents of the modal.')
-        cy.get('button').contains('Cancel')
-        cy.get('button').contains('Confirm')
-        cy.get('button').contains('Cancel').click()
+        cy.get('[data-test="modal"').should('not.have.attr', 'aria-describedby')
+        cy.get('[data-test="modal"] [aria-label="Close modal"]').should('not.exist')
+        cy.get('button').contains('Confirm').click()
         cy.get('[data-test="modal"]').should('not.exist')
-        cy.loadStory('Components/Modal', 'Default', {
-            description: '',
+        cy.loadStory('Components/Modal/ModalSuccess', 'Default', {
+            description: 'This is a description',
         })
         cy.get('button').click()
-        cy.get('#modal-description').should('not.exist')
-        cy.get('[data-test="modal"').should('not.have.attr', 'aria-describedby')
+        cy.get('#modal-description').contains('This is a description')
     })
     it('is accessible', () => {
-        cy.loadStory('Components/Modal', 'Default', {
+        cy.loadStory('Components/Modal/ModalSuccess', 'Default', {
             title: 'Modal title',
+            description: 'This is a description',
         })
         cy.get('[data-test="modal"]').should('not.exist')
         cy.tab().realPress(' ')
@@ -29,20 +28,14 @@ context('Modal', () => {
             .should('be.focused')
         cy.checkAccessibility()
         cy.get('#modal-title').contains('Modal title')
-        cy.get('#modal-description').contains('Would you like to continue?')
         cy.realPress('Tab')
         cy.realPress('Tab')
-        cy.realPress('Tab')
-        cy.realPress('Tab')
-        cy.get(':focused').should('have.attr', 'aria-label', 'Close modal')
+        cy.get(':focused').contains('Confirm')
         cy.realPress(['Shift', 'Tab'])
         cy.get(':focused').contains('Confirm')
         cy.realPress('Escape')
         cy.get('[data-test="modal"]').should('not.exist')
-        cy.get('button').should('be.focused').click()
-        cy.get('[data-test="modal"]').should('exist')
-        cy.get('[data-test="modal"] [aria-label="Close modal"]').click()
-        cy.get('[data-test="modal"]').should('not.exist')
+        cy.get('button').should('be.focused')
     })
 })
 

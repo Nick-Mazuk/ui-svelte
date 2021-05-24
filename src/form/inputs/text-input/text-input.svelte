@@ -5,8 +5,8 @@
     import { createEventDispatcher, getContext, onMount, tick } from 'svelte'
 
     import Label from '../../label/label.svelte'
-    import Error from '../../../elements/error/error.svelte'
     import TextInputAffix from './text-input-affix.svelte'
+    import InputFeedbackSection from './_input-feedback-section.svelte'
     import type {
         Formatter,
         Parser,
@@ -190,7 +190,6 @@
     $: disabledClasses = disabled
         ? 'cursor-not-allowed !border-gray-200 !ring-0 !bg-gray-100 !text-gray-300'
         : 'hover:text-gray-800 focus-within:text-gray-800 text-gray'
-
 </script>
 
 <Label
@@ -277,21 +276,11 @@
     {#if $$slots['before-feedback']}
         <slot name="before-feedback" />
     {/if}
-    <div
-        class="grid grid-cols-2 gap-y-1"
-        class:gap-x-6="{feedback}"
-        style="grid-template-columns: minmax(0, 1fr) auto"
-    >
-        {#if helpText}
-            <p class="col-start-1 text-sm text-gray-700">{helpText}</p>
-        {/if}
-        {#if feedback && !hideFeedback}
-            <p class="col-start-2 text-sm text-gray-700 text-right">{feedback}</p>
-        {/if}
-        {#if isInvalidState}
-            <div class="col-start-1" class:row-start-1="{!helpText}">
-                <Error label="">{errorMessage}</Error>
-            </div>
-        {/if}
-    </div>
+    <InputFeedbackSection
+        helpText="{helpText}"
+        feedback="{feedback}"
+        hideFeedback="{hideFeedback}"
+        isInvalidState="{isInvalidState}"
+        errorMessage="{errorMessage}"
+    />
 </Label>

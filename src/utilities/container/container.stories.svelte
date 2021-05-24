@@ -53,7 +53,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />

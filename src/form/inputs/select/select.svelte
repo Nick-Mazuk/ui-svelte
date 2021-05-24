@@ -62,7 +62,6 @@
         )
     }
     $: isInvalidState = showError && !isValid
-
 </script>
 
 <Label

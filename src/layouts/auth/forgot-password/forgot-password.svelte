@@ -9,6 +9,7 @@
         HandleSubmit,
     } from '../../../form'
     import { FORM_FEEDBACK } from '../../../form/form-feedback'
+    import FormLayout from '../../../form/form-layout/form-layout.svelte'
     import Form from '../../../form/form/form.svelte'
     import EmailInput from '../../../form/inputs/email-input/email-input.svelte'
     import Spacer from '../../../utilities/spacer/spacer.svelte'
@@ -47,7 +48,7 @@
     on:success="{() => (error = '')}"
     on:success
 >
-    <div class="grid grid-flow-row gap-4">
+    <FormLayout>
         {#if error}
             <Note variant="error">{error}</Note>
         {:else if formState === 'success'}
@@ -60,5 +61,5 @@
             <Button variant="link" glue="{['left']}" href="{signIn}">Sign in</Button>
             <Button submit loading="{formState === 'submitting'}">Send reset link</Button>
         </div>
-    </div>
+    </FormLayout>
 </Form>

@@ -14,6 +14,7 @@
     import TextInput from './text-input.svelte'
     import Form from '../../form/form.svelte'
     import Button from '../../../elements/button/button.svelte'
+    import FormLayout from '../../form-layout/form-layout.svelte'
 
     const meta = {
         title: 'Form/Inputs/TextInput',
@@ -198,7 +199,6 @@
 
     let formatterValue = '150.00'
     let formatterParsedValue = '150'
-
 </script>
 
 <Meta {...meta} />
@@ -207,21 +207,19 @@
     <TextInput {...args} />
 </Story>
 <Story name="Anatomy" let:args>
-    <div class="grid grid-cols-1 gap-4">
-        <TextInput
-            {...args}
-            label="Label"
-            prefix="Prefix"
-            suffix="Suffix"
-            helpText="Help text"
-            placeholder="Placeholder"
-            feedback="Feedback"
-            optional
-        />
-    </div>
+    <TextInput
+        {...args}
+        label="Label"
+        prefix="Prefix"
+        suffix="Suffix"
+        helpText="Help text"
+        placeholder="Placeholder"
+        feedback="Feedback"
+        optional
+    />
 </Story>
 <Story name="Prefix and suffix" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
-    <div class="grid grid-cols-1 gap-4">
+    <FormLayout>
         <TextInput {...args} label="Prefix" prefix="https://" />
         <TextInput {...args} label="Icon prefix" prefix="{Mail}" />
         <TextInput {...args} label="Suffix" suffix=".com" />
@@ -237,10 +235,10 @@
                 onClick: () => alert('toggle show password'),
             }}"
         />
-    </div>
+    </FormLayout>
 </Story>
 <Story name="States" let:args>
-    <div class="grid grid-cols-1 gap-4">
+    <FormLayout>
         <TextInput {...args} label="Active" helpText="Ready for user input" />
         <TextInput
             {...args}
@@ -255,10 +253,10 @@
             readonly
         />
         <TextInput {...args} label="Disabled" helpText="Is not accepting user input." disabled />
-    </div>
+    </FormLayout>
 </Story>
 <Story name="Sizes" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
-    <div class="grid grid-cols-1 gap-4">
+    <FormLayout>
         <TextInput {...args} label="Small" defaultValue="Some text" size="small" />
         <TextInput {...args} label="Default" defaultValue="Some text" size="default" />
         <TextInput {...args} label="Large" defaultValue="Some text" size="large" />
@@ -283,36 +281,34 @@
             prefix="{Mail}"
             size="large"
         />
-    </div>
+    </FormLayout>
 </Story>
 <Story name="Validation" let:args>
-    <div class="grid grid-cols-1 gap-4">
-        <TextInput
-            {...args}
-            label="Password"
-            validationRules="{[
-                {
-                    assert: (value) => value.length >= 8,
-                    error: 'Password must be at least 8 characters',
-                },
-                {
-                    assert: (value) => (value.match(/[A-Z]/gu) || []).length >= 2,
-                    error: 'Password must have at least 2 uppercase characters',
-                },
-                {
-                    assert: (value) => (value.match(/[a-z]/gu) || []).length >= 2,
-                    error: 'Password must have at least 2 lowercase characters',
-                },
-                {
-                    assert: (value) => (value.match(/\d/gu) || []).length >= 2,
-                    error: 'Password must have at least 2 numbers',
-                },
-            ]}"
-        />
-    </div>
+    <TextInput
+        {...args}
+        label="Password"
+        validationRules="{[
+            {
+                assert: (value) => value.length >= 8,
+                error: 'Password must be at least 8 characters',
+            },
+            {
+                assert: (value) => (value.match(/[A-Z]/gu) || []).length >= 2,
+                error: 'Password must have at least 2 uppercase characters',
+            },
+            {
+                assert: (value) => (value.match(/[a-z]/gu) || []).length >= 2,
+                error: 'Password must have at least 2 lowercase characters',
+            },
+            {
+                assert: (value) => (value.match(/\d/gu) || []).length >= 2,
+                error: 'Password must have at least 2 numbers',
+            },
+        ]}"
+    />
 </Story>
 <Story name="Formatters" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
-    <div class="grid grid-cols-1 gap-4">
+    <FormLayout>
         <TextInput
             {...args}
             label="Number"
@@ -332,13 +328,13 @@
         />
         <p>Value: "{formatterValue}"</p>
         <p>Parsed value: "{formatterParsedValue}"</p>
-    </div>
+    </FormLayout>
 </Story>
 <Story name="Character limits" let:args>
-    <div class="grid grid-cols-1 gap-4">
+    <FormLayout>
         <TextInput {...args} label="Upper character limit" maxCharacters="{30}" />
         <TextInput {...args} label="Lower character limit" minCharacters="{8}" />
-    </div>
+    </FormLayout>
 </Story>
 <Story
     name="Textarea"
@@ -347,19 +343,19 @@
     }}"
     let:args
 >
-    <div class="grid grid-cols-1 gap-4">
+    <FormLayout>
         <TextInput {...args} label="Small" size="small" />
         <TextInput {...args} label="Default" />
         <TextInput {...args} label="Large" size="large" />
-    </div>
+    </FormLayout>
 </Story>
 <Story name="With form" let:args>
     <Form handleSubmit="{() => Promise.resolve(true)}" resetOnSubmit>
-        <div class="grid grid-cols-1 gap-4">
+        <FormLayout>
             <TextInput {...args} label="Text input" />
             <div>
                 <Button submit>Submit</Button>
             </div>
-        </div>
+        </FormLayout>
     </Form>
 </Story>

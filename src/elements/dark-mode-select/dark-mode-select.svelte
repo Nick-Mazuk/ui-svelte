@@ -17,7 +17,6 @@
         else if ($store === 'dark') prefix = Moon
         else prefix = Monitor
     }
-
 </script>
 
 <Select

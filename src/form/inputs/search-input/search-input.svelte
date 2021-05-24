@@ -26,7 +26,6 @@
 
     $: icon = isSearching ? Refresh : Search
     $: shownIcon = hideIcon ? undefined : icon
-
 </script>
 
 <TextInput

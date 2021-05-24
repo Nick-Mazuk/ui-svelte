@@ -19,16 +19,15 @@
 
     import Button from '../../../elements/button/button.svelte'
     import Tooltip from '../../../components/tooltip/tooltip.svelte'
-    import Modal from '../../../components/modal/modal.svelte'
     import UrlInput from '../url-input/url-input.svelte'
-    import Form from '../../form/form.svelte'
     import type { TextInputChangeEvent } from '../text-input'
     import { buildExtensions } from './_build-extensions'
     import type { FormItemSize } from '../../form-sizes'
     import { FORM_SIZE_MAP } from '../../form-sizes'
     import Label from '../../label/label.svelte'
-    import Error from '../../../elements/error/error.svelte'
     import type { FormSync } from '../..'
+    import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
+    import ModalForm from '../../../components/modal/modal-form/modal-form.svelte'
 
     type Heading = 1 | 2 | 3 | 4 | boolean
     export let h1: Heading = false
@@ -85,8 +84,16 @@
         editor.chain().focus().run()
     }
     const openImageModal = () => (showAddImageSlot = true)
-    const addImageToText = (url: string) => {
-        if (url) editor.chain().focus().setImage({ src: url }).run()
+    const addImageToText = ({
+        url,
+        width,
+        height,
+    }: {
+        url: string
+        width?: number
+        height?: number
+    }) => {
+        if (url) editor.chain().focus().setImage({ src: url, width, height }).run()
         else editor.chain().focus().run()
         showAddImageSlot = false
     }
@@ -291,7 +298,6 @@
     }
     $: isValid = optional || characterCount > 0
     $: isInvalidState = !isValid && showError
-
 </script>
 
 <div class="flex flex-col space-y-1">
@@ -367,52 +373,38 @@
         </div>
         <div bind:this="{containerElement}"></div>
     </div>
-    <div
-        class="grid grid-cols-2 gap-y-1"
-        class:gap-x-6="{feedback}"
-        style="grid-template-columns: minmax(0, 1fr) auto"
-    >
-        {#if helpText}
-            <p class="col-start-1 text-sm text-gray-700">{helpText}</p>
-        {/if}
-        {#if feedback}
-            <p class="col-start-2 text-sm text-gray-700 text-right">{feedback}</p>
-        {/if}
-        {#if isInvalidState}
-            <div class="col-start-1" class:row-start-1="{!helpText}">
-                <Error label="">{requiredMessage}</Error>
-            </div>
-        {/if}
-    </div>
+    <InputFeedbackSection
+        helpText="{helpText}"
+        feedback="{feedback}"
+        isInvalidState="{isInvalidState}"
+        errorMessage="{requiredMessage}"
+    />
 </div>
-<Modal
+<ModalForm
     title="Add link"
     bind:isOpen="{showLinkModal}"
     refocusOnClose="{false}"
     on:close="{() => closeLinkModal('close')}"
+    resetOnSubmit
+    handleSubmit="{() => {
+        closeLinkModal()
+        return Promise.resolve(true)
+    }}"
+    primaryAction="Add link"
+    secondaryAction="Remove link"
+    secondaryActionSubmit="{false}"
+    on:secondaryClick="{() => closeLinkModal('unset')}"
+    success=""
+    size="small"
 >
-    <Form
-        resetOnSubmit
-        handleSubmit="{() => {
-            closeLinkModal()
-            return Promise.resolve(true)
-        }}"
-    >
-        <UrlInput
-            on:change="{handleUrlInputChange}"
-            defaultValue="{modalLinkDefaultValue}"
-            autofocus
-            optional
-            hideOptionalLabel
-        />
-        <div class="mt-4 flex justify-end space-x-4">
-            <Button variant="secondary" on:click="{() => closeLinkModal('unset')}">
-                Remove link
-            </Button>
-            <Button submit>Add link</Button>
-        </div>
-    </Form>
-</Modal>
+    <UrlInput
+        on:change="{handleUrlInputChange}"
+        defaultValue="{modalLinkDefaultValue}"
+        autofocus
+        optional
+        hideOptionalLabel
+    />
+</ModalForm>
 
 {#if showAddImageSlot}
     <slot

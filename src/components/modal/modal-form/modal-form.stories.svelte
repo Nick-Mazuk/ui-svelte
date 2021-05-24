@@ -1,29 +1,39 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
-    import Button from '../../elements/button/button.svelte'
-    import { FORM_FEEDBACK } from '../form-feedback'
-    import EmailInput from '../inputs/email-input/email-input.svelte'
-    import PasswordInput from '../inputs/password-input/password-input.svelte'
+    import Button from '../../../elements/button/button.svelte'
+    import { FORM_FEEDBACK } from '../../../form/form-feedback'
+    import UrlInput from '../../../form/inputs/url-input/url-input.svelte'
 
-    import FormEntity from './form-entity.svelte'
+    import ModalForm from './modal-form.svelte'
 
     const meta = {
-        title: 'Form/FormEntity',
-        component: FormEntity,
+        title: 'Components/Modal/ModalForm',
+        component: ModalForm,
         parameters: {
             docs: {
                 description: {
-                    component: '',
+                    component:
+                        'A modal version of the form-entity componenent. All valid props to form-entity props will be passed down.',
                 },
             },
         },
         argTypes: {
             title: {
                 control: 'text',
-                defaultValue: 'Form entity',
+                defaultValue: 'Title',
             },
             description: {
                 control: 'text',
+            },
+            isOpen: {
+                control: 'boolean',
+            },
+            size: {
+                control: {
+                    type: 'select',
+                    options: ['small', 'default', 'large'],
+                },
+                defaultValue: 'default',
             },
             descriptionLink: {
                 control: 'object',
@@ -37,21 +47,6 @@
             },
             destructiveAction: {
                 control: 'text',
-            },
-            primaryActionSubmit: {
-                control: 'boolean',
-                defaultValue: true,
-                description: 'Determines whether the primary button has `type="submit"`',
-            },
-            secondaryActionSubmit: {
-                control: 'boolean',
-                defaultValue: true,
-                description: 'Determines whether the secondary button has `type="submit"`',
-            },
-            destructiveActionSubmit: {
-                control: 'boolean',
-                defaultValue: true,
-                description: 'Determines whether the destructive button has `type="submit"`',
             },
             handleSubmit: {
                 description:
@@ -114,85 +109,25 @@
         },
     }
 
+    let isOpen = false
+
     const handleSubmit = () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(true)
-            }, 500)
-        })
+        isOpen = false
+        return Promise.resolve(true)
     }
 </script>
 
 <Meta {...meta} />
 
 <Story name="Default" let:args>
-    <FormEntity {...args} handleSubmit="{handleSubmit}">
-        <EmailInput defaultValue="hello@exaple.com" />
-    </FormEntity>
-</Story>
-<Story
-    name="With description"
-    args="{{
-        title: 'Your email',
-        description: 'Enter the email address you want to use to log in.',
-        descriptionLink: { value: 'Learn more', href: '#' },
-    }}"
-    let:args
->
-    <FormEntity {...args}>
-        <EmailInput defaultValue="hello@exaple.com" />
-    </FormEntity>
-</Story>
-<Story name="Actions" let:args>
-    <div class="grid gap-6">
-        <FormEntity
-            {...args}
-            title="All actions"
-            secondaryAction="Discard"
-            destructiveAction="Delete"
-        >
-            <EmailInput defaultValue="hello@exaple.com" />
-        </FormEntity>
-        <FormEntity
-            {...args}
-            title="No actions"
-            description="Set the primary action to an empty string to remove it"
-            primaryAction=""
-        >
-            <EmailInput defaultValue="hello@exaple.com" />
-        </FormEntity>
-        <FormEntity
-            {...args}
-            title="Destructive entity"
-            description="Set the primary action to an empty string to remove it"
-            primaryAction=""
-            destructiveAction="Delete permanently"
-        >
-            <EmailInput defaultValue="hello@exaple.com" />
-        </FormEntity>
-        <FormEntity
-            {...args}
-            title="Extra actions"
-            description="These extra actions are just small buttons"
-        >
-            <svelte:fragment slot="extra-actions">
-                <Button variant="secondary" size="small">Edit</Button>
-                <Button variant="secondary" size="small">Add</Button>
-            </svelte:fragment>
-            <EmailInput defaultValue="hello@exaple.com" />
-        </FormEntity>
-    </div>
-</Story>
-
-<Story name="Multiple inputs" let:args>
-    <FormEntity {...args} handleSubmit="{handleSubmit}">
-        <EmailInput />
-        <PasswordInput />
-    </FormEntity>
-</Story>
-
-<Story name="With upload progress" let:args>
-    <FormEntity {...args} handleSubmit="{handleSubmit}" progress="{0.5}">
-        <EmailInput defaultValue="hello@exaple.com" />
-    </FormEntity>
+    <ModalForm
+        {...args}
+        bind:isOpen
+        on:confirm="{() => (isOpen = false)}"
+        handleSubmit="{handleSubmit}"
+        success=""
+    >
+        <UrlInput optional hideOptionalLabel />
+    </ModalForm>
+    <Button variant="secondary" on:click="{() => (isOpen = true)}">Open modal</Button>
 </Story>
