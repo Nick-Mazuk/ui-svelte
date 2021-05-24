@@ -9,7 +9,6 @@
     import type { FormMethod, FormOnError, FormOnStateChange, FormState, HandleSubmit } from '..'
     import { FORM_FEEDBACK } from '../form-feedback'
     import Form from '../form/form.svelte'
-    import FormLayout from '../form-layout/form-layout.svelte'
     import type { DescriptionLink, ErrorMessages, FormEntityDispatcher } from '.'
     import { createEventDispatcher } from 'svelte'
 
@@ -67,6 +66,7 @@
             errorMessages = { ...defaultErrorMessages, default: error }
         else errorMessages = { ...defaultErrorMessages, ...error }
     }
+
 </script>
 
 <Container padding="{false}" id="{slugify(title)}">
@@ -107,10 +107,8 @@
                     {/if}
                 </p>
             {/if}
-            <div class="pt-3 border-t mt-3">
-                <FormLayout>
-                    <slot />
-                </FormLayout>
+            <div class="pt-3 border-t mt-3 form-layout">
+                <slot />
             </div>
         </Container>
         {#if primaryAction || secondaryAction || destructiveAction || showProgress}

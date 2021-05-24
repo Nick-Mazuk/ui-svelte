@@ -1,8 +1,5 @@
 <script lang="ts">
-    import { getContext } from 'svelte'
-
     import Error from '../../../elements/error/error.svelte'
-    import type { FormLayoutContext } from '../../form-layout'
 
     export let isInvalidState: boolean
     export let errorMessage: string
@@ -10,11 +7,10 @@
     export let feedback: string
     export let hideFeedback = false
 
-    const formLayoutContext = getContext<FormLayoutContext>('formLayout')
 </script>
 
 <div class="relative">
-    <div class="flex space-x-6 w-full" class:absolute="{formLayoutContext}">
+    <div class="flex space-x-6 w-full" data-test="input-feedback">
         {#if isInvalidState}
             <div class="flex-none">
                 <Error size="small">{errorMessage}</Error>

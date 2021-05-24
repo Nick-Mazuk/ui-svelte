@@ -6,7 +6,7 @@ specifiers:
   '@nick-mazuk/eslint-config': ^0.8.11
   '@nick-mazuk/lib': ^0.8.50
   '@nick-mazuk/semantic-release-config': ^1.1.3
-  '@nick-mazuk/ui-config': ^0.10.53
+  '@nick-mazuk/ui-config': ^0.10.61
   '@semantic-release/changelog': ^5.0.1
   '@semantic-release/git': ^9.0.0
   '@storybook/addon-a11y': ^6.2.9
@@ -115,7 +115,7 @@ devDependencies:
   '@nick-mazuk/eslint-config': 0.8.11_e6f156314b6b47ed10dab7a74945d1de
   '@nick-mazuk/lib': 0.8.50
   '@nick-mazuk/semantic-release-config': 1.1.3_96e29e7a57c65d488f627694047bf5b5
-  '@nick-mazuk/ui-config': 0.10.53_tailwindcss@2.1.1
+  '@nick-mazuk/ui-config': 0.10.61_tailwindcss@2.1.1
   '@semantic-release/changelog': 5.0.1_semantic-release@17.4.2
   '@semantic-release/git': 9.0.0_semantic-release@17.4.2
   '@storybook/addon-a11y': 6.2.9
@@ -3003,8 +3003,8 @@ packages:
       semantic-release: 17.4.2
     dev: true
 
-  /@nick-mazuk/ui-config/0.10.53_tailwindcss@2.1.1:
-    resolution: {integrity: sha512-QNNlsND07E1N/GqqiYEhfq35HLPqzzZO7wEoTokknAKF51ZXVRaZ9FRi6HDaFujAkT32Q9UFjkFtJ/OYyq4xbg==}
+  /@nick-mazuk/ui-config/0.10.61_tailwindcss@2.1.1:
+    resolution: {integrity: sha512-DvPICI84FUl5CXiaktY8Z2zzW/p1ISmvn8Z7lFDScKdmy00aI0hVt3Wsaih/9aZBkYyCzSHoRn0x4Y1jLevMyA==}
     peerDependencies:
       tailwindcss: ^2.1.1
     dependencies:

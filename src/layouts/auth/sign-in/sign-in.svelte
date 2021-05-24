@@ -9,7 +9,6 @@
         HandleSubmit,
     } from '../../../form'
     import { FORM_FEEDBACK } from '../../../form/form-feedback'
-    import FormLayout from '../../../form/form-layout/form-layout.svelte'
     import Form from '../../../form/form/form.svelte'
     import EmailInput from '../../../form/inputs/email-input/email-input.svelte'
     import PasswordInput from '../../../form/inputs/password-input/password-input.svelte'
@@ -42,6 +41,7 @@
         else error = FORM_FEEDBACK.errors[500]
     }
     const handleStateChange = (event: FormOnStateChange) => (formState = event.detail)
+
 </script>
 
 <svelte:head>
@@ -58,7 +58,7 @@
     on:success="{() => (error = '')}"
     on:success
 >
-    <FormLayout>
+    <div class="form-layout">
         {#if error}
             <Note variant="error">{error}</Note>
         {:else if note && formState === 'ready'}
@@ -93,5 +93,5 @@
                 <Button submit loading="{formState === 'submitting'}">Sign in</Button>
             </div>
         </div>
-    </FormLayout>
+    </div>
 </Form>

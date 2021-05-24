@@ -1,9 +1,12 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
     import Button from '../../elements/button/button.svelte'
+    import Spacer from '../../utilities/spacer/spacer.svelte'
     import { FORM_FEEDBACK } from '../form-feedback'
     import EmailInput from '../inputs/email-input/email-input.svelte'
+    import NameInput from '../inputs/name-input/name-input.svelte'
     import PasswordInput from '../inputs/password-input/password-input.svelte'
+    import TextInput from '../inputs/text-input/text-input.svelte'
 
     import FormEntity from './form-entity.svelte'
 
@@ -121,6 +124,7 @@
             }, 500)
         })
     }
+
 </script>
 
 <Meta {...meta} />
@@ -188,6 +192,15 @@
     <FormEntity {...args} handleSubmit="{handleSubmit}">
         <EmailInput />
         <PasswordInput />
+    </FormEntity>
+    <Spacer />
+    <FormEntity {...args} handleSubmit="{handleSubmit}">
+        <div class="form-layout-horizontal form-layout-item">
+            <NameInput />
+            <EmailInput />
+        </div>
+        <TextInput label="Subject" />
+        <TextInput label="Message" type="textarea" />
     </FormEntity>
 </Story>
 

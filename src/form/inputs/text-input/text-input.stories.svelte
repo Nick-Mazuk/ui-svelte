@@ -14,7 +14,6 @@
     import TextInput from './text-input.svelte'
     import Form from '../../form/form.svelte'
     import Button from '../../../elements/button/button.svelte'
-    import FormLayout from '../../form-layout/form-layout.svelte'
 
     const meta = {
         title: 'Form/Inputs/TextInput',
@@ -199,6 +198,7 @@
 
     let formatterValue = '150.00'
     let formatterParsedValue = '150'
+
 </script>
 
 <Meta {...meta} />
@@ -219,7 +219,7 @@
     />
 </Story>
 <Story name="Prefix and suffix" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
-    <FormLayout>
+    <div class="form-layout">
         <TextInput {...args} label="Prefix" prefix="https://" />
         <TextInput {...args} label="Icon prefix" prefix="{Mail}" />
         <TextInput {...args} label="Suffix" suffix=".com" />
@@ -235,10 +235,10 @@
                 onClick: () => alert('toggle show password'),
             }}"
         />
-    </FormLayout>
+    </div>
 </Story>
 <Story name="States" let:args>
-    <FormLayout>
+    <div class="form-layout">
         <TextInput {...args} label="Active" helpText="Ready for user input" />
         <TextInput
             {...args}
@@ -253,10 +253,10 @@
             readonly
         />
         <TextInput {...args} label="Disabled" helpText="Is not accepting user input." disabled />
-    </FormLayout>
+    </div>
 </Story>
 <Story name="Sizes" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
-    <FormLayout>
+    <div class="form-layout">
         <TextInput {...args} label="Small" defaultValue="Some text" size="small" />
         <TextInput {...args} label="Default" defaultValue="Some text" size="default" />
         <TextInput {...args} label="Large" defaultValue="Some text" size="large" />
@@ -281,7 +281,7 @@
             prefix="{Mail}"
             size="large"
         />
-    </FormLayout>
+    </div>
 </Story>
 <Story name="Validation" let:args>
     <TextInput
@@ -308,7 +308,7 @@
     />
 </Story>
 <Story name="Formatters" args="{{ optional: true, hideOptionalLabel: true }}" let:args>
-    <FormLayout>
+    <div class="form-layout">
         <TextInput
             {...args}
             label="Number"
@@ -328,13 +328,13 @@
         />
         <p>Value: "{formatterValue}"</p>
         <p>Parsed value: "{formatterParsedValue}"</p>
-    </FormLayout>
+    </div>
 </Story>
 <Story name="Character limits" let:args>
-    <FormLayout>
+    <div class="form-layout">
         <TextInput {...args} label="Upper character limit" maxCharacters="{30}" />
         <TextInput {...args} label="Lower character limit" minCharacters="{8}" />
-    </FormLayout>
+    </div>
 </Story>
 <Story
     name="Textarea"
@@ -343,19 +343,19 @@
     }}"
     let:args
 >
-    <FormLayout>
+    <div class="form-layout">
         <TextInput {...args} label="Small" size="small" />
         <TextInput {...args} label="Default" />
         <TextInput {...args} label="Large" size="large" />
-    </FormLayout>
+    </div>
 </Story>
 <Story name="With form" let:args>
     <Form handleSubmit="{() => Promise.resolve(true)}" resetOnSubmit>
-        <FormLayout>
+        <div class="form-layout">
             <TextInput {...args} label="Text input" />
             <div>
                 <Button submit>Submit</Button>
             </div>
-        </FormLayout>
+        </div>
     </Form>
 </Story>
