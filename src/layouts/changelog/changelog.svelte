@@ -120,6 +120,7 @@
                                         srcSet="{source.src}"
                                         media="{source.media}"
                                         type="{source.type}"
+                                        sizes="{source.sizes}"
                                     />
                                 {/each}
                             {/if}

@@ -8,6 +8,7 @@ export type ChangelogItem = {
             src?: string
             media?: string
             type?: string
+            sizes?: string
         }[]
         width?: number
         height?: number
