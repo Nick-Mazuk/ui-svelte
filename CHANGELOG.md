@@ -1,3 +1,21 @@
+# [0.11.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.10.1...v0.11.0) (2021-05-24)
+
+
+### Bug Fixes
+
+* changelog first image loads eager ([a49d390](https://github.com/Nick-Mazuk/ui-svelte/commit/a49d39068172b2ecd0b049f154178aa2631e6774))
+* ensure buttons are clickable even with new loading dots ([4e4c37e](https://github.com/Nick-Mazuk/ui-svelte/commit/4e4c37e0d606596e27ba43d9c3c983d3d009d10b))
+* limit layout shift for text-input errors ([311839c](https://github.com/Nick-Mazuk/ui-svelte/commit/311839c17648621f035f525ef6c4a092849b3554))
+
+
+### Features
+
+* add changelog component ([e2caea5](https://github.com/Nick-Mazuk/ui-svelte/commit/e2caea5742c4400ba1e1486ef2c420913b021353))
+* add form-layout component to vertically layout forms ([3c8562c](https://github.com/Nick-Mazuk/ui-svelte/commit/3c8562c4ea1c7e0d14bb51963cb94b95586a3b55))
+* add modal-entity component ([81f0bb5](https://github.com/Nick-Mazuk/ui-svelte/commit/81f0bb52fbb55a57c2c539e87aad15eac6a19d8a))
+* add modal-success component ([5cc5936](https://github.com/Nick-Mazuk/ui-svelte/commit/5cc5936c8c2237db61d0fd7ceb692ca789069640))
+* add small error size ([d99d138](https://github.com/Nick-Mazuk/ui-svelte/commit/d99d13897b42aa5f111b80c854889d00d7670a0f))
+
 ## [0.10.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.10.0...v0.10.1) (2021-05-22)
 
 
