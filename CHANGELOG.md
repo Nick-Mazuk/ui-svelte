@@ -1,3 +1,10 @@
+## [0.12.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.0...v0.12.1) (2021-05-24)
+
+
+### Bug Fixes
+
+* changelog item page contents spans max width ([d3aef28](https://github.com/Nick-Mazuk/ui-svelte/commit/d3aef28ea0a8484399645399a13b8a1b3463be91))
+
 # [0.12.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.5...v0.12.0) (2021-05-24)
 
 
