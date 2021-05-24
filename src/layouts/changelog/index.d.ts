@@ -1,6 +1,7 @@
 export type ChangelogItemVariant = 'feature' | 'bug' | 'announcement' | 'improvement'
 export type ChangelogItem = {
     title: string
+    slug: string
     publishedAt: Date
     image: {
         src?: string

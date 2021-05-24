@@ -26,8 +26,8 @@
         return format(date, 'MMM d, YYY')
     }
 
-    const createItemUrl = (itemTitle: string, publishedAt: Date): string => {
-        return slugify(`${hrefPrefix}/${formatDate(publishedAt)}/${itemTitle}`)
+    const createItemUrl = (slug: string): string => {
+        return `${hrefPrefix}/${slug}`
     }
 
     const VARIANT_MAP: Record<ChangelogItemVariant, { class: string; icon: unknown }> = {
@@ -91,7 +91,7 @@
                     class="absolute hidden lg:flex space-x-8 top-16 right-full w-64 justify-end items-center mr-16 transform translate-x-px"
                 >
                     <p class="text-lg text-gray">
-                        <a href="{createItemUrl(item.title, item.publishedAt)}">
+                        <a href="{createItemUrl(item.slug)}">
                             {formatDate(item.publishedAt)}
                         </a>
                     </p>
@@ -106,14 +106,14 @@
                 </div>
                 <div class="lg:hidden">
                     <p class="text-lg text-gray">
-                        <a href="{createItemUrl(item.title, item.publishedAt)}">
+                        <a href="{createItemUrl(item.slug)}">
                             {formatDate(item.publishedAt)}
                         </a>
                     </p>
                     <Spacer />
                 </div>
                 <div class="aspect-w-16 aspect-h-9 rounded-2xl shadow-lg overflow-hidden">
-                    <a href="{createItemUrl(item.title, item.publishedAt)}">
+                    <a href="{createItemUrl(item.slug)}">
                         <picture>
                             {#if item.image.srcSet}
                                 {#each item.image.srcSet as source (source.src)}
@@ -140,7 +140,7 @@
                 </div>
                 <Spacer y="{2}" />
                 <h2 class="h4">
-                    <a href="{createItemUrl(item.title, item.publishedAt)}">
+                    <a href="{createItemUrl(item.slug)}">
                         {item.title}
                     </a>
                 </h2>
