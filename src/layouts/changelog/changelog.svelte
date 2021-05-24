@@ -129,7 +129,7 @@
                             {/if}
                             <img
                                 alt=""
-                                class="object-cover"
+                                class="object-cover w-full h-full"
                                 width="{item.image.width}"
                                 height="{item.image.height}"
                                 loading="{index === 0 ? 'eager' : 'lazy'}"
