@@ -1,3 +1,10 @@
+## [0.11.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.2...v0.11.3) (2021-05-24)
+
+
+### Bug Fixes
+
+* changelog links can be prefixed ([cffec8b](https://github.com/Nick-Mazuk/ui-svelte/commit/cffec8b1421b7f6600e98bd921e5dcae3d5b02c7))
+
 ## [0.11.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.1...v0.11.2) (2021-05-24)
 
 
