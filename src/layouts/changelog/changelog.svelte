@@ -47,7 +47,6 @@
             icon: Plus,
         },
     }
-
 </script>
 
 <main id="main-content">

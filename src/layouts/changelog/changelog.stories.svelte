@@ -91,7 +91,6 @@
             image,
         },
     ]
-
 </script>
 
 <Meta {...meta} />

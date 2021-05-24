@@ -52,7 +52,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />
