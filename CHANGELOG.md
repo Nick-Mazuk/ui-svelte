@@ -1,3 +1,10 @@
+## [0.12.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.1...v0.12.2) (2021-05-24)
+
+
+### Bug Fixes
+
+* youtube video input now has correct label ([116d963](https://github.com/Nick-Mazuk/ui-svelte/commit/116d963e91c95c02ddf64193f78c7c0586aba817))
+
 ## [0.12.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.0...v0.12.1) (2021-05-24)
 
 
