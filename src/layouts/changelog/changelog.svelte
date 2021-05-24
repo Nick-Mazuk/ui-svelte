@@ -131,7 +131,7 @@
                                 class="object-cover"
                                 width="{item.image.width}"
                                 height="{item.image.height}"
-                                loading="lazy"
+                                loading="{index === 0 ? 'eager' : 'lazy'}"
                             />
                         </picture>
                     </a>
