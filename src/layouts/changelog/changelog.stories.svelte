@@ -34,6 +34,11 @@
                 control: 'object',
                 defaultValue: [],
             },
+            hrefPrefix: {
+                control: 'text',
+                description:
+                    "Used for linking to individual changelog item pages. If this prop is not defined, the changelog won't link to individual pages",
+            },
         },
     }
 
@@ -55,6 +60,7 @@
     const items = [
         {
             title: 'New feature',
+            slug: 'new-feature',
             variant: 'feature',
             publishedAt: new Date('may 28, 2021'),
             contents,
@@ -62,6 +68,7 @@
         },
         {
             title: 'Bug fix',
+            slug: 'bug-fix',
             variant: 'bug',
             publishedAt: new Date('may 27, 2021'),
             contents,
@@ -69,6 +76,7 @@
         },
         {
             title: 'Announcement',
+            slug: 'announcement',
             variant: 'announcement',
             publishedAt: new Date('may 26, 2021'),
             contents,
@@ -76,6 +84,7 @@
         },
         {
             title: 'Improvement',
+            slug: 'improvement',
             variant: 'improvement',
             publishedAt: new Date('may 25, 2021'),
             contents,

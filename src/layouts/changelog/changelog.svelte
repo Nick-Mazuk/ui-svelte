@@ -10,7 +10,6 @@
     import type { ChangelogItems, ChangelogItemVariant } from '.'
     import { format } from 'date-fns'
     import { createEventDispatcher } from 'svelte'
-    import { slugify } from '@nick-mazuk/lib/esm/text-styling'
 
     export let title = 'Changelog'
     export let description = ''
@@ -18,7 +17,7 @@
     export let showReachedEnd = false
     export let isLoading = false
     export let items: ChangelogItems
-    export let hrefPrefix = ''
+    export let hrefPrefix: string | undefined = undefined
 
     const dispatch = createEventDispatcher()
 
@@ -61,14 +60,17 @@
             {/if}
         </div>
     </div>
+
     <div class="wrapper">
         {#if $$slots.subscribe}
-            <div class="relative py-8 lg:ml-64">
-                <p class="text-lg transform lg:translate-y-1">
+            <div class="relative h-20 flex items-center lg:ml-64">
+                <p class="text-lg">
                     <slot name="subscribe" />
                 </p>
                 <div class="absolute top-12 bottom-0 border-l-2 -ml-20 lg:block"></div>
-                <div class="absolute hidden lg:flex -left-24 top-8 transform translate-x-px">
+                <div
+                    class="absolute hidden lg:flex -left-24 top-1/2 transform translate-x-px -translate-y-1/2"
+                >
                     <div
                         class="relative w-8 h-8 flex items-center justify-center bg-foreground rounded-full text-background"
                     >
@@ -91,9 +93,13 @@
                     class="absolute hidden lg:flex space-x-8 top-16 right-full w-64 justify-end items-center mr-16 transform translate-x-px"
                 >
                     <p class="text-lg text-gray">
-                        <a href="{createItemUrl(item.slug)}">
+                        {#if typeof hrefPrefix === 'undefined'}
                             {formatDate(item.publishedAt)}
-                        </a>
+                        {:else}
+                            <a href="{createItemUrl(item.slug)}" title="View post {item.title}">
+                                {formatDate(item.publishedAt)}
+                            </a>
+                        {/if}
                     </p>
 
                     <div
@@ -106,43 +112,49 @@
                 </div>
                 <div class="lg:hidden">
                     <p class="text-lg text-gray">
-                        <a href="{createItemUrl(item.slug)}">
+                        {#if typeof hrefPrefix === 'undefined'}
                             {formatDate(item.publishedAt)}
-                        </a>
+                        {:else}
+                            <a href="{createItemUrl(item.slug)}" title="View post {item.title}">
+                                {formatDate(item.publishedAt)}
+                            </a>
+                        {/if}
                     </p>
                     <Spacer />
                 </div>
                 <div class="aspect-w-16 aspect-h-9 rounded-2xl shadow-lg overflow-hidden">
-                    <a href="{createItemUrl(item.slug)}">
-                        <picture>
-                            {#if item.image.srcSet}
-                                {#each item.image.srcSet as source (source.src)}
-                                    <source
-                                        srcSet="{source.src}"
-                                        media="{source.media}"
-                                        type="{source.type}"
-                                        sizes="{source.sizes}"
-                                    />
-                                {/each}
-                            {/if}
-                            {#if item.image.src}
-                                <source srcSet="{item.image.src}" />
-                            {/if}
-                            <img
-                                alt=""
-                                class="object-cover w-full h-full"
-                                width="{item.image.width}"
-                                height="{item.image.height}"
-                                loading="{index === 0 ? 'eager' : 'lazy'}"
-                            />
-                        </picture>
-                    </a>
+                    <picture>
+                        {#if item.image.srcSet}
+                            {#each item.image.srcSet as source (source.src)}
+                                <source
+                                    srcSet="{source.src}"
+                                    media="{source.media}"
+                                    type="{source.type}"
+                                    sizes="{source.sizes}"
+                                />
+                            {/each}
+                        {/if}
+                        {#if item.image.src}
+                            <source srcSet="{item.image.src}" />
+                        {/if}
+                        <img
+                            alt=""
+                            class="object-cover w-full h-full"
+                            width="{item.image.width}"
+                            height="{item.image.height}"
+                            loading="{index === 0 ? 'eager' : 'lazy'}"
+                        />
+                    </picture>
                 </div>
                 <Spacer y="{2}" />
                 <h2 class="h4">
-                    <a href="{createItemUrl(item.slug)}">
+                    {#if typeof hrefPrefix === 'undefined'}
                         {item.title}
-                    </a>
+                    {:else}
+                        <a href="{createItemUrl(item.slug)}" title="View post {item.title}">
+                            {item.title}
+                        </a>
+                    {/if}
                 </h2>
                 <Spacer />
                 <TextContent>
