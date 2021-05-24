@@ -11,6 +11,7 @@
     export let content: string
     export let backHref: string
     export let backText = 'Back to changelog'
+
 </script>
 
 <main id="main-content">
@@ -26,7 +27,7 @@
         </div>
     </div>
 
-    <section class="wrapper !max-w-2xl mx-auto">
+    <section class="wrapper !max-w-2xl w-full mx-auto">
         {#if typeof image !== 'undefined'}
             <div class="aspect-w-16 aspect-h-9 rounded-2xl shadow-lg overflow-hidden my-6">
                 <picture>
