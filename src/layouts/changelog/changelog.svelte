@@ -27,7 +27,7 @@
     }
 
     const createItemUrl = (itemTitle: string, publishedAt: Date): string => {
-        return slugify(`${hrefPrefix}/${formatDate(publishedAt)} ${itemTitle}`)
+        return slugify(`${hrefPrefix}/${formatDate(publishedAt)}/${itemTitle}`)
     }
 
     const VARIANT_MAP: Record<ChangelogItemVariant, { class: string; icon: unknown }> = {
