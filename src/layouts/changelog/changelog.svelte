@@ -1,5 +1,4 @@
 <script lang="ts">
-    import TextContent from '../../typography/text-content/text-content.svelte'
     import Spacer from '../../utilities/spacer/spacer.svelte'
     import Button from '../../elements/button/button.svelte'
     import Plus from '../../elements/icon/plus.svelte'
@@ -47,6 +46,7 @@
             icon: Plus,
         },
     }
+
 </script>
 
 <main id="main-content">
@@ -156,9 +156,9 @@
                     {/if}
                 </h2>
                 <Spacer />
-                <TextContent>
+                <div class="prose">
                     {@html item.contents}
-                </TextContent>
+                </div>
             </article>
         {/each}
         {#if showLoadMore || showReachedEnd}

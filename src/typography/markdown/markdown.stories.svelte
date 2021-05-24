@@ -1,7 +1,6 @@
 <script>
     import { Meta, Template, Story } from '@storybook/addon-svelte-csf'
 
-    import TextContent from '../text-content/text-content.svelte'
     import Markdown from './markdown.svelte'
 
     const content = `# This is a header
@@ -112,6 +111,7 @@ This will be a link: https://example.com
             },
         },
     }
+
 </script>
 
 <Meta {...meta} />
@@ -123,9 +123,9 @@ This will be a link: https://example.com
 <Story name="Default" />
 
 <Story name="With TextContent" let:args>
-    <TextContent center>
+    <div class="prose mx-auto">
         <Markdown {...args} />
-    </TextContent>
+    </div>
 </Story>
 
 <Story name="Table of contents" args="{{ toc: true }}" />
