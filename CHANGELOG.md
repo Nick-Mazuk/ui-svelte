@@ -1,3 +1,10 @@
+## [0.11.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.0...v0.11.1) (2021-05-24)
+
+
+### Bug Fixes
+
+* changelog uses srcset accurately ([76c46c5](https://github.com/Nick-Mazuk/ui-svelte/commit/76c46c57ad6ba65e7be27621807f55736710d9fb))
+
 # [0.11.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.10.1...v0.11.0) (2021-05-24)
 
 
