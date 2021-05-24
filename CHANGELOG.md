@@ -1,3 +1,16 @@
+# [0.12.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.5...v0.12.0) (2021-05-24)
+
+
+### Features
+
+* add changelog ([a0a0084](https://github.com/Nick-Mazuk/ui-svelte/commit/a0a0084a1be683224129bbca4829e72c9715f790))
+* add changelog-item-page ([cbe3882](https://github.com/Nick-Mazuk/ui-svelte/commit/cbe3882c9b98cba62053ec84ef113d0dcf668420))
+
+
+### Performance Improvements
+
+* remove text-content component -> less javascript ([28eac48](https://github.com/Nick-Mazuk/ui-svelte/commit/28eac48bf595cec4b3e0de0525379b2f20d28e1a))
+
 ## [0.11.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.4...v0.11.5) (2021-05-24)
 
 
