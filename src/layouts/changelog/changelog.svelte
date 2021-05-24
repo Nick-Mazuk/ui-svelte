@@ -18,6 +18,7 @@
     export let showReachedEnd = false
     export let isLoading = false
     export let items: ChangelogItems
+    export let hrefPrefix = ''
 
     const dispatch = createEventDispatcher()
 
@@ -26,7 +27,7 @@
     }
 
     const createItemUrl = (itemTitle: string, publishedAt: Date): string => {
-        return slugify(`${formatDate(publishedAt)} ${itemTitle}`)
+        return slugify(`${hrefPrefix}/${formatDate(publishedAt)} ${itemTitle}`)
     }
 
     const VARIANT_MAP: Record<ChangelogItemVariant, { class: string; icon: unknown }> = {
