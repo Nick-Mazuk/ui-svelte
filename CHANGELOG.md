@@ -1,3 +1,10 @@
+## [0.11.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.1...v0.11.2) (2021-05-24)
+
+
+### Bug Fixes
+
+* changelog image is positioned correctly ([ab8f29f](https://github.com/Nick-Mazuk/ui-svelte/commit/ab8f29fe1fe1a0a0c5c36ebfac6f98659c124cfc))
+
 ## [0.11.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.11.0...v0.11.1) (2021-05-24)
 
 
