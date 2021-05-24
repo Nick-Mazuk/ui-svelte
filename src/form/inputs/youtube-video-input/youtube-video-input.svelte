@@ -13,7 +13,7 @@
     import type { TextInputAutocomplete } from '../text-input'
     import TextInput from '../text-input/text-input.svelte'
 
-    export let label = 'YouTube Channel'
+    export let label = 'YouTube video'
     export let name = ''
     export let defaultValue = ''
     export let placeholder = ''
@@ -30,6 +30,7 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : YouTube
+
 </script>
 
 <TextInput
