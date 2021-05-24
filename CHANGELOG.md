@@ -1,3 +1,10 @@
+## [0.12.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.2...v0.12.3) (2021-05-24)
+
+
+### Bug Fixes
+
+* convert form-layout to css class ([80a0839](https://github.com/Nick-Mazuk/ui-svelte/commit/80a083901cb33028b052fe2eb02e953f479be292))
+
 ## [0.12.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.1...v0.12.2) (2021-05-24)
 
 
