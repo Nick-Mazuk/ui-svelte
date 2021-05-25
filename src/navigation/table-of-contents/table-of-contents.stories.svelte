@@ -62,8 +62,12 @@
                 },
                 defaultValue: 'default',
             },
+            isOpen: {
+                control: 'boolean',
+            },
         },
     }
+
 </script>
 
 <Meta {...meta} />

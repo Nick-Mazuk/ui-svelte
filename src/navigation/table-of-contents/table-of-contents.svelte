@@ -10,6 +10,8 @@
     export let currentItem: string
     export let items: (TocItem | SectionItem)[]
     export let size: Size = 'default'
+    export let isOpen = false
+
 </script>
 
 <nav class:text-lg="{size === 'large'}">
@@ -17,7 +19,7 @@
         <a href="{item.href}" sveltekit:prefetch class="py-2 flex items-center space-x-3 -ml-2">
             {#if !('children' in item)}
                 <Dot size="{4}" align="middle" color="--c-gray-400" />
-            {:else if currentItem.startsWith(item.href)}
+            {:else if currentItem.startsWith(item.href) || isOpen}
                 <ChevronDown size="{4}" align="middle" color="--c-gray-400" />
             {:else}
                 <ChevronRight size="{4}" align="middle" color="--c-gray-400" />
@@ -28,7 +30,7 @@
                     : 'text-gray-600'} transition-colors">{item.text}</span
             >
         </a>
-        {#if 'children' in item && currentItem.startsWith(item.href)}
+        {#if 'children' in item && (currentItem.startsWith(item.href) || isOpen)}
             {#each item.children as child}
                 <a
                     href="{child.href}"
