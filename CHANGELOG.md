@@ -1,3 +1,10 @@
+## [0.13.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.13.0...v0.13.1) (2021-05-25)
+
+
+### Bug Fixes
+
+* move table of contents items type definition to external file ([9988b31](https://github.com/Nick-Mazuk/ui-svelte/commit/9988b318b5d5be2951d4b2489c4e1d310db4b727))
+
 # [0.13.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.4...v0.13.0) (2021-05-25)
 
 
