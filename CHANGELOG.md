@@ -1,3 +1,10 @@
+## [0.13.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.13.1...v0.13.2) (2021-05-25)
+
+
+### Bug Fixes
+
+* remove twitter metatags when twitter is not defined ([1a08133](https://github.com/Nick-Mazuk/ui-svelte/commit/1a08133d750644856b8807571b9ac28c4fa30344))
+
 ## [0.13.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.13.0...v0.13.1) (2021-05-25)
 
 
