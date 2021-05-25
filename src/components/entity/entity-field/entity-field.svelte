@@ -1,6 +1,7 @@
 <script lang="ts">
     export let title = ''
     export let right = false
+
 </script>
 
 <div
@@ -17,7 +18,9 @@
         class:sm:justify-end="{right}"
         class:justify-between="{right}"
     >
-        <p class="text-gray"><slot /></p>
-        <div class="flex w-6"><slot name="avatar" /></div>
+        <p class="text-gray w-full"><slot /></p>
+        {#if $$slots.avatar}
+            <div class="flex w-6"><slot name="avatar" /></div>
+        {/if}
     </div>
 </div>
