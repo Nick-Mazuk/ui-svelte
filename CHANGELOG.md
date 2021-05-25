@@ -1,3 +1,10 @@
+# [0.13.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.4...v0.13.0) (2021-05-25)
+
+
+### Features
+
+* allow table of contents to be completely open ([c7da600](https://github.com/Nick-Mazuk/ui-svelte/commit/c7da600187305fd969e8cc89499f78140ab0e6da))
+
 ## [0.12.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.3...v0.12.4) (2021-05-25)
 
 
