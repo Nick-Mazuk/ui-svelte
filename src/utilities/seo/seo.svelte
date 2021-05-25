@@ -10,8 +10,8 @@
     export let description = ''
     export let keywords: string[] = []
     export let canonicalUrl = ''
-    export let openGraph: OpenGraph = {}
-    export let twitter: Twitter = {}
+    export let openGraph: OpenGraph | undefined = undefined
+    export let twitter: Twitter | undefined = undefined
 
     const getTitleTagContents = () => {
         if (title && siteName) return `${title} • ${siteName}`
@@ -19,6 +19,7 @@
         if (siteName) return siteName
         return ''
     }
+
 </script>
 
 <svelte:head>
