@@ -1,3 +1,10 @@
+## [0.12.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.3...v0.12.4) (2021-05-25)
+
+
+### Bug Fixes
+
+* hide avatar slot in entity-field if no avatar present ([5fd96bd](https://github.com/Nick-Mazuk/ui-svelte/commit/5fd96bdbc5ca62b6283123e7882f0d7eb6af28b1))
+
 ## [0.12.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.12.2...v0.12.3) (2021-05-24)
 
 
