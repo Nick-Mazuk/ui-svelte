@@ -2,13 +2,12 @@
     import ChevronRight from '../../elements/icon/chevron-right.svelte'
     import ChevronDown from '../../elements/icon/chevron-down.svelte'
     import Dot from '../../elements/icon/dot.svelte'
+    import type { TocItems } from '.'
 
-    type TocItem = { href: string; text: string }
-    type SectionItem = TocItem & { children: TocItem[] }
     type Size = 'default' | 'large'
 
     export let currentItem: string
-    export let items: (TocItem | SectionItem)[]
+    export let items: TocItems
     export let size: Size = 'default'
     export let isOpen = false
 
