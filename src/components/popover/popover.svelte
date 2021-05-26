@@ -1,8 +1,10 @@
 <script lang="ts">
-    import Portal from '../../utilities/portal/portal.svelte'
     import { createEventDispatcher, getContext, setContext } from 'svelte'
     import type { Writable } from 'svelte/store'
     import { writable } from 'svelte/store'
+    import { fade } from 'svelte/transition'
+    import Portal from '../../utilities/portal/portal.svelte'
+    import { TransitionSpeed, TRANSITION_SPEED_MAP } from '../../configs/transitions'
 
     type Placement =
         | 'top'
@@ -22,6 +24,7 @@
     export let disabled = false
     export let placement: Placement = 'right-start'
     export let open = false
+    export let transitionSpeed: TransitionSpeed = 'none'
 
     type GetPlacement = () => number
     let PLACEMENT_MAP: Record<Placement, { x: GetPlacement; y: GetPlacement }>
@@ -117,6 +120,7 @@
     $: x = boundingRect && open ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && open ? PLACEMENT_MAP[placement].y() : 0
     $: isDisabled = typeof outerDisabledStore === 'undefined' ? disabled : $outerDisabledStore
+
 </script>
 
 <svelte:window
@@ -141,12 +145,15 @@
         x="{x}"
         y="{y}"
         overlayAriaLabel="close"
+        transitionSpeed="{transitionSpeed}"
     >
         <div
             class="inline-flex"
             bind:offsetHeight="{popoverHeight}"
             bind:offsetWidth="{popoverWidth}"
             data-test="popover"
+            in:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].in }}"
+            out:fade="{{ duration: TRANSITION_SPEED_MAP[transitionSpeed].out }}"
         >
             <slot />
         </div>

@@ -11,7 +11,7 @@
     export let center = false
     export let overlay: boolean | 'color' = false
     export let overlayAriaLabel: string | undefined = undefined
-    export let transitionSpeed: TransitionSpeed = 'small'
+    export let transitionSpeed: TransitionSpeed = 'none'
 
     const dispatch = createEventDispatcher()
 
@@ -19,6 +19,7 @@
     $: transform = center
         ? 'transform: translate3d(-50%, -50%, 10000px)'
         : `transform: translate3d(${x}px, ${y}px, 10000px);`
+
 </script>
 
 <Portal>

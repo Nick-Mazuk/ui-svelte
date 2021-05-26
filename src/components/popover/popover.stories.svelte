@@ -47,8 +47,16 @@
                 },
                 defaultValue: false,
             },
+            transitionSpeed: {
+                control: {
+                    type: 'inline-radio',
+                    options: ['none', 'small', 'medium', 'large'],
+                },
+                defaultValue: 'none',
+            },
         },
     }
+
 </script>
 
 <Meta {...meta} />

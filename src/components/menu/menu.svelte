@@ -23,9 +23,10 @@
     export let minWidth = 32
 
     let open: boolean
+
 </script>
 
-<Popover placement="{placement}" bind:open>
+<Popover placement="{placement}" transitionSpeed="small" bind:open>
     <svelte:fragment slot="trigger"><slot name="button" /></svelte:fragment>
     <div
         class="shadow-lg border rounded-lg overflow-hidden bg-background"
