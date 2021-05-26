@@ -1,3 +1,10 @@
+## [0.14.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.0...v0.14.1) (2021-05-26)
+
+
+### Bug Fixes
+
+* dashboard sidebar is visible on larger layouts ([790b8a8](https://github.com/Nick-Mazuk/ui-svelte/commit/790b8a82ca479ef6efade1d74d33b66f5ce050cf))
+
 # [0.14.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.13.2...v0.14.0) (2021-05-26)
 
 
