@@ -62,6 +62,7 @@
         )
     }
     $: isInvalidState = showError && !isValid
+
 </script>
 
 <Label
@@ -86,9 +87,8 @@
             bind:value
             title="{ariaLabel || label || name}"
             name="{name}"
-            disabled="{disabled}"
+            disabled="{disabled || readonly}"
             aria-invalid="{isInvalidState}"
-            readonly="{readonly}"
         >
             <slot />
         </select>
