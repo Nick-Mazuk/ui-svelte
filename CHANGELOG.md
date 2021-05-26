@@ -1,3 +1,10 @@
+## [0.14.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.5...v0.14.6) (2021-05-26)
+
+
+### Bug Fixes
+
+* dashboard-sidebar closes on page-change ([619fe85](https://github.com/Nick-Mazuk/ui-svelte/commit/619fe85de1145cee00a0beb642c668f9003f3f29))
+
 ## [0.14.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.4...v0.14.5) (2021-05-26)
 
 
