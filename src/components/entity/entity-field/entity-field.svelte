@@ -1,7 +1,6 @@
 <script lang="ts">
     export let title = ''
     export let right = false
-
 </script>
 
 <div

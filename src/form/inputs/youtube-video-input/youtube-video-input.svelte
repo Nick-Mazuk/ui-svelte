@@ -30,7 +30,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : YouTube
-
 </script>
 
 <TextInput

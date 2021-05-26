@@ -6,7 +6,6 @@
     export let helpText: string
     export let feedback: string
     export let hideFeedback = false
-
 </script>
 
 <div class="relative">
