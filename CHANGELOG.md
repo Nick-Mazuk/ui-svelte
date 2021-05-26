@@ -1,3 +1,5 @@
+## [0.14.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.1...v0.14.2) (2021-05-26)
+
 ## [0.14.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.0...v0.14.1) (2021-05-26)
 
 
