@@ -31,6 +31,7 @@
                     href="{item.href}"
                     class="py-2"
                     class:font-bold="{item.href === currentPage}"
+                    class:text-gray="{item.href !== currentPage}"
                     data-test="dashbar-sidebar-item"
                 >
                     {item.text}
