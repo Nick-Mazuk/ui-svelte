@@ -13,11 +13,11 @@
 </script>
 
 <div class="md:flex md:space-x-12">
-    <aside class="py-6 border-b mb-6 md:w-64 flex-none md:py-0 md:border-b-0 md:mb-0">
+    <aside class="pb-6 border-b mb-6 md:w-54 flex-none md:py-0 md:border-b-0 md:mb-0">
         <div class="md:hidden">
             <Button
                 variant="static"
-                glue="{['left']}"
+                glue="{['left', 'top']}"
                 suffix="{showSidebarItems ? ChevronUp : ChevronDown}"
                 on:click="{() => (showSidebarItems = !showSidebarItems)}"
             >
