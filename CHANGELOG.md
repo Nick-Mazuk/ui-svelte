@@ -1,3 +1,10 @@
+## [0.14.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.4...v0.14.5) (2021-05-26)
+
+
+### Bug Fixes
+
+* revert sidebar width to older version ([740e66f](https://github.com/Nick-Mazuk/ui-svelte/commit/740e66f47dcc66ed528ae83923807f2a0eba9f27))
+
 ## [0.14.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.3...v0.14.4) (2021-05-26)
 
 
