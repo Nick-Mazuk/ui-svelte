@@ -1,3 +1,10 @@
+## [0.14.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.3...v0.14.4) (2021-05-26)
+
+
+### Bug Fixes
+
+* fix typo in dashboard-sidebar class ([e426179](https://github.com/Nick-Mazuk/ui-svelte/commit/e426179f728b1c72273f4159690e56b6d6e0224d))
+
 ## [0.14.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.2...v0.14.3) (2021-05-26)
 
 ## [0.14.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.1...v0.14.2) (2021-05-26)
