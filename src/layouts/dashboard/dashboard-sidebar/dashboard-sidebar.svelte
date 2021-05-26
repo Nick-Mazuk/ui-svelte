@@ -33,6 +33,7 @@
                     class:font-bold="{item.href === currentPage}"
                     class:text-gray="{item.href !== currentPage}"
                     data-test="dashbar-sidebar-item"
+                    on:click="{() => (showSidebarItems = false)}"
                 >
                     {item.text}
                 </a>
