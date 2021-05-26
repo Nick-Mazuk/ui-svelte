@@ -1,3 +1,10 @@
+## [0.14.8](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.7...v0.14.8) (2021-05-26)
+
+
+### Bug Fixes
+
+* improve note contrast in dark mode ([c75204a](https://github.com/Nick-Mazuk/ui-svelte/commit/c75204a0f5c4992bc2231205261d216ff8061c05))
+
 ## [0.14.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.6...v0.14.7) (2021-05-26)
 
 
