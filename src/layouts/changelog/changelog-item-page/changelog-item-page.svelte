@@ -11,7 +11,6 @@
     export let content: string
     export let backHref: string
     export let backText = 'Back to changelog'
-
 </script>
 
 <main id="main-content">

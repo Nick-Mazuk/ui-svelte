@@ -10,7 +10,6 @@
     export let items: TocItems
     export let size: Size = 'default'
     export let isOpen = false
-
 </script>
 
 <nav class:text-lg="{size === 'large'}">

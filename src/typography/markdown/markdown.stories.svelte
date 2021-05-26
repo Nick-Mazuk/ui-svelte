@@ -111,7 +111,6 @@ This will be a link: https://example.com
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />

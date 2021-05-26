@@ -19,7 +19,6 @@
         if (siteName) return siteName
         return ''
     }
-
 </script>
 
 <svelte:head>
