@@ -1,3 +1,10 @@
+## [0.14.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.6...v0.14.7) (2021-05-26)
+
+
+### Bug Fixes
+
+* select-input readonly works ([74a8d48](https://github.com/Nick-Mazuk/ui-svelte/commit/74a8d483da49ef928f04b04711a133e357f7c381))
+
 ## [0.14.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.5...v0.14.6) (2021-05-26)
 
 
