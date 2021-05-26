@@ -9,13 +9,14 @@
     export let label: string | undefined = undefined
 
     const VARIANT_MAP: Record<Variant, string> = {
-        primary: 'bg-primary-200 text-primary-700 dark:text-primary-800',
-        error: 'bg-error-200 text-error-700 dark:text-error-800',
-        success: 'bg-success-200 text-success-700 dark:text-success-800',
-        warning: 'bg-warning-200 text-warning-700 dark:text-warning-800',
-        gray: 'bg-gray-200 text-gray-700 dark:text-gray-800',
-        highlight: 'bg-highlight-200 text-highlight-700 dark:text-highlight-800',
+        primary: 'bg-primary-200 text-primary-700 dark:bg-primary-100',
+        error: 'bg-error-200 text-error-700 dark:bg-error-100',
+        success: 'bg-success-200 text-success-700 dark:bg-success-100',
+        warning: 'bg-warning-200 text-warning-700 dark:bg-warning-100',
+        gray: 'bg-gray-200 text-gray-700 dark:bg-gray-100',
+        highlight: 'bg-highlight-200 text-highlight-700 dark:bg-highlight-100',
     }
+
 </script>
 
 <div
