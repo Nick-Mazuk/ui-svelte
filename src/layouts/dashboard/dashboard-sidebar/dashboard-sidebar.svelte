@@ -9,6 +9,7 @@
     export let title: string
 
     let showSidebarItems = false
+
 </script>
 
 <div class="md:flex md:space-x-12">
@@ -23,7 +24,7 @@
                 {title}
             </Button>
         </div>
-        <nav class="flex flex-col md:sticky md:top-16" class:hidden="{!showSidebarItems}">
+        <nav class="flex flex-col md:flex md:sticky md:top-16" class:hidden="{!showSidebarItems}">
             {#each sidebarItems as item}
                 <a
                     sveltekit:prefetch
