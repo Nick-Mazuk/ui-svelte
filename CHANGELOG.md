@@ -1,3 +1,10 @@
+# [0.14.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.13.2...v0.14.0) (2021-05-26)
+
+
+### Features
+
+* add dashboard-sidebar ([4a51c8e](https://github.com/Nick-Mazuk/ui-svelte/commit/4a51c8e4238adda00792f9338ff9cd6cdc180519))
+
 ## [0.13.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.13.1...v0.13.2) (2021-05-25)
 
 
