@@ -1,93 +1,74 @@
 <script lang="ts">
-    import { onMount, setContext, createEventDispatcher } from 'svelte'
-    import { get, writable } from 'svelte/store'
+    import { setContext } from 'svelte'
+    import { writable } from 'svelte/store'
+    import type { ListContext, RegisterListItem } from '.'
+    import type { ListItemShape, ListItemVariant } from './list-item'
 
-    type Variant = 'primary' | 'error' | 'success' | 'warning' | 'highlight'
-    type Shape = 'rounded' | 'square' | 'default'
-    type Mode = 'display' | 'focus' | 'active'
-
-    export let compact = false
-    export let role: svelte.JSX.HTMLAttributes<HTMLUListElement>['role'] = undefined
-    export let variant: Variant = 'primary'
     export let rotateFocus = false
-    export let autofocus: boolean | number = false
-    export let ariaLabel: string | undefined = undefined
-    export let shape: Shape = 'default'
-    export let mode: Mode = 'display'
+    export let variant: ListItemVariant | undefined = undefined
+    export let shape: ListItemShape | undefined = undefined
 
-    let listItems: (string | null)[] = []
-    const focusedListItem = writable(typeof autofocus === 'number' ? autofocus : -1)
-    const activeListItem = writable(-1)
-    const dispatch = createEventDispatcher()
-    let element: HTMLUListElement
+    const itemKeys = writable<string[]>([])
+    const focusedItem = writable<string | undefined>(undefined)
+    const selectedItem = writable<string | undefined>(undefined)
+    const variantStore = writable(variant)
+    const shapeStore = writable(shape)
 
-    const registerListItem = (text: string | null): number => {
-        listItems = [...listItems, text]
-        return listItems.length - 1
+    let containerElement: HTMLDivElement
+
+    const registerListItem: RegisterListItem = ({ selected, key }) => {
+        if (!containerElement) return
+        const listItemElements = containerElement.querySelectorAll('[data-list-item-key]')
+        const newKeys: string[] = []
+        listItemElements.forEach((item) => {
+            if (!(item instanceof HTMLElement)) return
+            const key = item.dataset.listItemKey
+            if (key) newKeys.push(key)
+        })
+        if (selected) selectedItem.set(key)
+        itemKeys.set(newKeys)
     }
 
-    if (role !== 'group') {
-        setContext('compact', compact)
-        setContext('registerListItem', registerListItem)
-        setContext('focusedListItem', focusedListItem)
-        setContext('activeListItem', activeListItem)
-        setContext('listItemVariant', variant)
-        setContext('listItemShape', shape)
-        setContext('autofocusList', autofocus)
-        setContext('listMode', mode)
-        setContext('listRole', role)
-    }
-
-    onMount(() => {
-        if (autofocus) element.focus()
+    setContext<ListContext>('listContext', {
+        itemKeys,
+        focusedItem,
+        selectedItem,
+        registerListItem,
+        variantStore,
+        shapeStore,
     })
 
-    $: rotateFocusedItem = (amount: 1 | -1) => {
-        focusedListItem.update((current) => {
-            const newItem = current + amount
-            if (!rotateFocus) return Math.min(listItems.length - 1, Math.max(0, newItem))
-            if (newItem < 0) return listItems.length - 1
-            if (newItem > listItems.length - 1) return 0
-            return newItem
-        })
+    const rotateFocusedItem = (amount: 1 | -1) => {
+        const listItems = $itemKeys
+        if (!$focusedItem) {
+            focusedItem.set(listItems[amount === 1 ? 0 : listItems.length - 1])
+            return
+        }
+        const currentIndex = listItems.indexOf($focusedItem)
+        let newIndex = currentIndex + amount
+        if (!rotateFocus) newIndex = Math.min(listItems.length - 1, Math.max(0, newIndex))
+        else if (newIndex < 0) newIndex = listItems.length - 1
+        else if (newIndex >= listItems.length) newIndex = 0
+        focusedItem.set(listItems[newIndex])
     }
 
-    let handleKeypress: svelte.JSX.KeyboardEventHandler<HTMLUListElement>
+    const handleKeyDown: svelte.JSX.KeyboardEventHandler<HTMLDivElement | Window> = (event) => {
+        const key = event.key
+        if (key === 'ArrowDown') rotateFocusedItem(1)
+        else if (key === 'ArrowUp') rotateFocusedItem(-1)
+        else if (key === 'Home') focusedItem.set($itemKeys[0])
+        else if (key === 'End') focusedItem.set($itemKeys[$itemKeys.length - 1])
+        else if (key === ' ' && $focusedItem) selectedItem.set($focusedItem)
+        else if (key === 'Enter' && $focusedItem) selectedItem.set($focusedItem)
+    }
 
-    $: handleKeypress = (event) => {
-        if (event.key === 'ArrowDown') rotateFocusedItem(1)
-        if (event.key === 'ArrowUp') rotateFocusedItem(-1)
-        if (event.key === 'Home') focusedListItem.set(0)
-        if (event.key === 'End') focusedListItem.set(listItems.length - 1)
-        if (event.key === ' ') activeListItem.set(get(focusedListItem))
-        if (event.key === 'Enter') activeListItem.set(get(focusedListItem))
-
-        if (['ArrowUp', 'ArrowDown'].includes(event.key)) event.preventDefault()
-    }
-    const handleFocusOut: svelte.JSX.FocusEventHandler<HTMLUListElement> = () => {
-        focusedListItem.set(-1)
-        if (mode !== 'active') activeListItem.set(-1)
-    }
-    $: {
-        if ($activeListItem >= 0)
-            dispatch('change', { index: $activeListItem, value: listItems[$activeListItem] })
-    }
-    let listRole: svelte.JSX.HTMLAttributes<HTMLUListElement>['role']
-    $: {
-        if (role) listRole = role
-        else if (mode !== 'display') listRole = 'listbox'
-    }
 </script>
 
-<ul
-    class:py-2="{!compact && role !== 'group'}"
-    role="{listRole}"
-    on:keydown="{handleKeypress}"
-    on:focusout="{handleFocusOut}"
-    aria-label="{ariaLabel}"
-    bind:this="{element}"
-    class="focus:bg-primary"
-    data-test="list"
+<div
+    bind:this="{containerElement}"
+    on:mouseleave="{() => focusedItem.set(undefined)}"
+    on:focusout="{() => focusedItem.set(undefined)}"
+    on:keydown="{handleKeyDown}"
 >
     <slot />
-</ul>
+</div>

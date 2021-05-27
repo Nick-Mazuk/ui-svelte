@@ -1,201 +1,156 @@
+<script lang="ts" context="module">
+    let counter = 0
+
+</script>
+
 <script lang="ts">
-    import { getContext, onMount, createEventDispatcher } from 'svelte'
-    import type { Writable } from 'svelte/store'
+    import { getContext, onDestroy, onMount } from 'svelte'
 
-    type Variant = 'primary' | 'error' | 'success' | 'warning' | 'gray' | 'highlight'
-    type Shape = 'rounded' | 'square' | 'default'
+    import type { ListItemShape, ListItemVariant } from '.'
+    import type { ListContext } from '..'
 
-    export let href = ''
-    export let variant: Variant | undefined = undefined
-    let activeProperty: boolean | undefined = undefined
-    export { activeProperty as active }
-    export let shape: Shape | undefined = undefined
+    import { FORM_SIZE_MAP } from '../../../form/form-sizes'
 
-    let element: HTMLAnchorElement | HTMLLIElement
-    let index = -1
-    let textContent: string | null
-    const dispatch = createEventDispatcher()
+    export let variant: ListItemVariant | undefined = undefined
+    export let shape: ListItemShape | undefined = undefined
+    export let prefixIcon: unknown = undefined
+    export let suffixIcon: unknown = undefined
+    export let focused = false
+    export let selected = false
 
-    const compact = getContext<boolean>('compact')
-    const autofocus = getContext<boolean>('autofocusList')
-    const register = getContext<(text: string | null) => number>('registerListItem')
-    const focused = getContext<Writable<number>>('focusedListItem')
-    const active = getContext<Writable<number>>('activeListItem')
-    const listVariant = getContext<Variant>('listItemVariant')
-    const listShape = getContext<Shape | undefined>('listItemShape')
-    const listRole = getContext<svelte.JSX.HTMLAttributes<HTMLUListElement>['role']>('listRole')
-    const mode = getContext<'display' | 'focus' | 'active'>('listMode')
+    type VariantClasses = { default: string; focused: string; selected: string }
+
+    const listContext = getContext<ListContext>('listContext')
+    const focusedItem = listContext?.focusedItem
+    const selectedItem = listContext?.selectedItem
+    const itemKeys = listContext?.itemKeys
+    const variantStore = listContext?.variantStore
+    const shapeStore = listContext?.shapeStore
+    const key = String(counter++)
 
     onMount(() => {
-        textContent = element.textContent
-        index = register(textContent)
-        if (autofocus && index === 0) element.focus()
+        listContext?.registerListItem({ selected, key })
     })
 
-    let hasFocusedAlready = false
-    const handleFocus: svelte.JSX.FocusEventHandler<HTMLAnchorElement | HTMLLIElement> = () => {
-        if (!hasFocusedAlready && autofocus && index === 0) hasFocusedAlready = true
-        else if (mode !== 'display') focused.set(index)
-    }
-    const handleClick: svelte.JSX.MouseEventHandler<HTMLAnchorElement | HTMLLIElement> = () => {
-        if (mode !== 'display') active.set(index)
-    }
+    onDestroy(() => {
+        if (focusedItem && $focusedItem === key) focusedItem.set(undefined)
+        if (selectedItem && $selectedItem === key) selectedItem.set(undefined)
+        if (itemKeys) itemKeys.update((current) => current.filter((item) => item != key))
+    })
 
-    type VariantColors = {
-        container: {
-            active: string
-        }
-        affix: {
-            default: string
-            active: string
-        }
-        text: {
-            default: string
-            focused: string
-        }
-    }
-    const VARIANT_MAP: Record<Variant, VariantColors> = {
+    const VARIANT_MAP: Record<ListItemVariant, VariantClasses> = {
+        gray: {
+            default: 'text-gray-700',
+            focused: 'bg-gray-200 text-foreground',
+            selected: 'bg-gray-200 bg-opacity-60 text-700',
+        },
         primary: {
-            container: { active: '!bg-primary-200 !text-primary-700' },
-            affix: { default: 'text-primary', active: 'text-primary-700' },
-            text: { default: 'text-primary', focused: 'text-primary' },
+            default: 'text-primary',
+            focused: 'bg-primary-200 text-primary-800',
+            selected: 'bg-primary-200 bg-opacity-60 text-primary-700',
         },
         error: {
-            container: { active: '!bg-error-200 !text-error-700' },
-            affix: { default: 'text-error', active: 'text-error-700' },
-            text: { default: 'text-error', focused: 'text-error' },
-        },
-        success: {
-            container: { active: '!bg-success-200 !text-success-700' },
-            affix: { default: 'text-success', active: 'text-success-700' },
-            text: { default: 'text-success', focused: 'text-success' },
-        },
-        warning: {
-            container: { active: '!bg-warning-200 !text-warning-700' },
-            affix: { default: 'text-warning', active: 'text-warning-700' },
-            text: { default: 'text-warning', focused: 'text-warning' },
+            default: 'text-error',
+            focused: 'bg-error-200 text-error-800',
+            selected: 'bg-error-200 bg-opacity-60 text-error-700',
         },
         highlight: {
-            container: { active: '!bg-highlight-200 !text-highlight-700' },
-            affix: { default: 'text-highlight', active: 'text-highlight-700' },
-            text: { default: 'text-highlight', focused: 'text-highlight' },
+            default: 'text-highlight',
+            focused: 'bg-highlight-200 text-highlight-800',
+            selected: 'bg-highlight-200 bg-opacity-60 text-highlight-700',
         },
-        gray: {
-            container: { active: '!bg-gray-200 !text-gray-700' },
-            affix: {
-                default: `text-gray ${mode === 'display' ? '' : 'group-hover:text-gray-900'}`,
-                active: 'text-gray-700',
-            },
-            text: {
-                default: `text-gray-700${mode === 'display' ? '' : 'hover:text-gray-900'}`,
-                focused: 'text-gray-900',
-            },
+        warning: {
+            default: 'text-warning',
+            focused: 'bg-warning-200 text-warning-800',
+            selected: 'bg-warning-200 bg-opacity-60 text-warning-700',
+        },
+        success: {
+            default: 'text-success',
+            focused: 'bg-success-200 text-success-800',
+            selected: 'bg-success-200 bg-opacity-60 text-success-700',
         },
     }
-    const SHAPE_MAP: Record<Shape, string> = {
-        default: 'rounded',
-        rounded: 'rounded rounded-r-full',
+
+    const SHAPE_MAP: Record<ListItemShape, string> = {
+        rounded: 'rounded',
         square: '',
     }
 
-    $: if (activeProperty) active.set(index)
-    $: isFocused = $focused === index
-    $: isActive = ($active === index && mode === 'active') || activeProperty
-    let itemShape: Shape
-    $: itemShape = (shape ? shape : listShape) ?? 'default'
-    $: currentVariant = variant ?? listVariant ?? 'primary'
-    $: classes = {
-        container: [
-            'list-none h-10 items-center flex bg-background transition-colors group focus:outline-none',
-            mode === 'display' ? '' : 'hover:bg-gray-100 cursor-pointer',
-            VARIANT_MAP[variant ?? 'gray'].text.default,
-            compact ? 'px-3' : 'px-4',
-            isFocused
-                ? `bg-gray-200 bg-opacity-50 hover:bg-gray-200 ${
-                      VARIANT_MAP[variant ?? 'gray'].text.focused
-                  }`
-                : '',
-            isActive ? VARIANT_MAP[currentVariant].container.active : '',
-            SHAPE_MAP[itemShape],
-        ].join(' '),
-        content: 'truncate',
-        affix: {
-            default: [
-                `flex transition-colors`,
-                isActive
-                    ? VARIANT_MAP[currentVariant].affix.active
-                    : VARIANT_MAP[variant ?? 'gray'].affix.default,
-            ].join(' '),
-            prefix: 'w-5 mr-3',
-            suffix: 'w-8 pl-3 ml-auto',
-        },
-    }
-    let tabindex: number
+    $: if (focusedItem) focused = $focusedItem === key
+    $: if (selectedItem) selected = $selectedItem === key
+
+    const handleFocus = () => focusedItem?.set(key)
+    const handleMouseEnter = () => focusedItem?.set(key)
+    const handleClick = () => selectedItem?.set(key)
+
+    let displayedVariant: ListItemVariant
     $: {
-        if (mode === 'display') tabindex = -1
-        else if ($active >= 0) tabindex = index === $active ? 0 : -1
-        else tabindex = index === 0 ? 0 : -1
+        if (variant) displayedVariant = variant
+        else if (selected && variantStore && $variantStore) displayedVariant = $variantStore
+        else displayedVariant = 'gray'
     }
+    let displayedShape: ListItemShape
     $: {
-        if ($active === index) dispatch('action')
+        if (shape) displayedShape = shape
+        else if (shapeStore && $shapeStore) displayedShape = $shapeStore
+        else shape = 'square'
     }
-    $: listItemRole = listRole === 'menu' && mode !== 'display' ? 'menuitem' : 'option'
+
+    let colorClasses: string
+    $: {
+        if (focused) colorClasses = VARIANT_MAP[displayedVariant].focused
+        else if (selected) colorClasses = VARIANT_MAP[displayedVariant].selected
+        else colorClasses = VARIANT_MAP[displayedVariant].default
+    }
+
+    $: containerClasses = [
+        FORM_SIZE_MAP.default.height,
+        FORM_SIZE_MAP.default.textSize,
+        prefixIcon || $$slots.prefix ? '' : FORM_SIZE_MAP.default.content.paddingLeft,
+        suffixIcon || $$slots.suffix ? '' : FORM_SIZE_MAP.default.content.paddingRight,
+        SHAPE_MAP[displayedShape],
+        colorClasses,
+    ].join(' ')
+
+    let tabIndex: 0 | -1
+    $: {
+        if (!itemKeys) tabIndex = 0
+        else if (selectedItem && $selectedItem) tabIndex = $selectedItem === key ? 0 : -1
+        else tabIndex = $itemKeys[0] === key ? 0 : -1
+    }
+
 </script>
 
-{#if href}
-    <li role="{mode === 'display' ? undefined : 'none'}">
-        <a
-            href="{href}"
-            sveltekit:prefetch
-            class="{classes.container}"
-            bind:this="{element}"
-            tabindex="{tabindex}"
-            on:focus="{handleFocus}"
-            on:click="{handleClick}"
-            aria-selected="{isActive ? true : undefined}"
-            aria-current="{isFocused ? true : undefined}"
-            role="{mode === 'display' ? undefined : listItemRole}"
-            data-test="list-item"
-        >
-            {#if $$slots.prefix}
-                <div class="{classes.affix.default} {classes.affix.prefix}">
-                    <slot name="prefix" />
-                </div>
-            {/if}
-            <div class="{classes.content}">
-                <slot />
-            </div>
-            {#if $$slots.suffix}
-                <div class="{classes.affix.default} {classes.affix.suffix}">
-                    <slot name="suffix" />
-                </div>
-            {/if}
-        </a>
-    </li>
-{:else}
-    <li
-        class="{classes.container}"
-        bind:this="{element}"
-        tabindex="{tabindex}"
-        on:focus="{handleFocus}"
-        on:click="{handleClick}"
-        aria-selected="{isActive ? true : undefined}"
-        aria-current="{isFocused ? true : undefined}"
-        role="{mode === 'display' ? undefined : listItemRole}"
-        data-test="list-item"
-    >
-        {#if $$slots.prefix}
-            <div class="{classes.affix.default} {classes.affix.prefix}">
+<span
+    class="{containerClasses} group flex items-center focus:outline-none cursor-pointer"
+    tabindex="{tabIndex}"
+    data-list-item-key="{key}"
+    data-test="list-item"
+    data-focused="{focused}"
+    aria-selected="{selected}"
+    on:focus="{handleFocus}"
+    on:mouseenter="{handleMouseEnter}"
+    on:click="{handleClick}"
+>
+    {#if prefixIcon || $$slots.prefix}
+        <span class="{FORM_SIZE_MAP.default.affix.paddingPrefix}">
+            {#if prefixIcon}
+                <svelte:component this="{prefixIcon}" size="{FORM_SIZE_MAP.default.affix.icon}" />
+            {:else}
                 <slot name="prefix" />
-            </div>
-        {/if}
-        <div class="{classes.content}">
-            <slot />
-        </div>
-        {#if $$slots.suffix}
-            <div class="{classes.affix.default} {classes.affix.suffix}">
+            {/if}
+        </span>
+    {/if}
+    <span class="w-full">
+        <slot />
+    </span>
+    {#if suffixIcon || $$slots.suffix}
+        <span class="{FORM_SIZE_MAP.default.affix.paddingSuffix}">
+            {#if prefixIcon}
+                <svelte:component this="{suffixIcon}" size="{FORM_SIZE_MAP.default.affix.icon}" />
+            {:else}
                 <slot name="suffix" />
-            </div>
-        {/if}
-    </li>
-{/if}
+            {/if}
+        </span>
+    {/if}
+</span>
