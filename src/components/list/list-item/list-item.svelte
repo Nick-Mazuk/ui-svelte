@@ -46,32 +46,38 @@
         gray: {
             default: 'text-gray-700',
             focused: 'bg-gray-200 text-foreground',
-            selected: 'bg-gray-200 bg-opacity-60 text-700',
+            selected:
+                'bg-gray-200 bg-opacity-60 text-700 dark:bg-opacity-80 dark:text-gray-800 dark:text-opacity-80',
         },
         primary: {
             default: 'text-primary',
             focused: 'bg-primary-200 text-primary-800',
-            selected: 'bg-primary-200 bg-opacity-60 text-primary-700',
+            selected:
+                'bg-primary-200 bg-opacity-60 text-primary-700 dark:bg-opacity-80 dark:text-primary-800 dark:text-opacity-80',
         },
         error: {
             default: 'text-error',
             focused: 'bg-error-200 text-error-800',
-            selected: 'bg-error-200 bg-opacity-60 text-error-700',
+            selected:
+                'bg-error-200 bg-opacity-60 text-error-700 dark:bg-opacity-80 dark:text-error-800 dark:text-opacity-80',
         },
         highlight: {
             default: 'text-highlight',
             focused: 'bg-highlight-200 text-highlight-800',
-            selected: 'bg-highlight-200 bg-opacity-60 text-highlight-700',
+            selected:
+                'bg-highlight-200 bg-opacity-60 text-highlight-700 dark:bg-opacity-80 dark:text-highlight-800 dark:text-opacity-80',
         },
         warning: {
             default: 'text-warning',
             focused: 'bg-warning-200 text-warning-800',
-            selected: 'bg-warning-200 bg-opacity-60 text-warning-700',
+            selected:
+                'bg-warning-200 bg-opacity-60 text-warning-700 dark:bg-opacity-80 dark:text-warning-800 dark:text-opacity-80',
         },
         success: {
             default: 'text-success',
             focused: 'bg-success-200 text-success-800',
-            selected: 'bg-success-200 bg-opacity-60 text-success-700',
+            selected:
+                'bg-success-200 bg-opacity-60 text-success-700 dark:bg-opacity-80 dark:text-success-800 dark:text-opacity-80',
         },
     }
 
