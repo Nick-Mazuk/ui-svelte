@@ -7,7 +7,7 @@
     import { getContext, onDestroy, onMount } from 'svelte'
 
     import type { ListItemShape, ListItemVariant } from '.'
-    import type { ListContext, ListMode } from '..'
+    import type { ListContext, ListMode, ListRole } from '..'
 
     import { FORM_SIZE_MAP } from '../../../form/form-sizes'
 
@@ -27,6 +27,8 @@
     const variantStore = listContext?.variantStore
     const shapeStore = listContext?.shapeStore
     const modeStore = listContext?.modeStore
+    const roleStore = listContext?.roleStore
+
     const key = String(counter++)
 
     onMount(() => {
@@ -77,6 +79,12 @@
         square: '',
     }
 
+    const ROLE_MAP: Record<ListRole, string | undefined> = {
+        list: 'listitem',
+        listbox: 'option',
+        menu: 'menuitem',
+    }
+
     $: if (focusedItem) focused = $focusedItem === key
     $: if (selectedItem) selected = $selectedItem === key
 
@@ -90,7 +98,7 @@
         if (mode !== 'display') focusedItem?.set(key)
     }
     const handleClick = () => {
-        if (mode !== 'display') selectedItem?.set(key)
+        if (mode === 'singleSelect') selectedItem?.set(key)
     }
 
     let displayedVariant: ListItemVariant
@@ -130,21 +138,23 @@
         else if (selectedItem && $selectedItem) tabIndex = $selectedItem === key ? 0 : -1
         else tabIndex = $itemKeys[0] === key ? 0 : -1
     }
+    $: role = roleStore ? ROLE_MAP[$roleStore] : undefined
     let ariaSelected: boolean | undefined
     $: {
-        if (mode === 'display') ariaSelected = undefined
+        if (mode !== 'singleSelect' || role === 'listitem') ariaSelected = undefined
         else ariaSelected = selected
     }
 
 </script>
 
-<span
+<div
     class="{containerClasses} group flex items-center"
     tabindex="{tabIndex}"
     data-list-item-key="{key}"
     data-test="list-item"
     data-focused="{focused}"
     aria-selected="{ariaSelected}"
+    role="{role}"
     on:focus="{handleFocus}"
     on:mouseenter="{handleMouseEnter}"
     on:click="{handleClick}"
@@ -170,4 +180,4 @@
             {/if}
         </span>
     {/if}
-</span>
+</div>

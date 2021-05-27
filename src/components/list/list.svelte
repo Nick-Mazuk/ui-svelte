@@ -1,13 +1,23 @@
 <script lang="ts">
     import { setContext } from 'svelte'
     import { writable } from 'svelte/store'
-    import type { ListContext, ListMode, RegisterListItem } from '.'
+    import type { ListContext, ListMode, RegisterListItem, ListRole } from '.'
     import type { ListItemShape, ListItemVariant } from './list-item'
 
+    export let ariaLabel: string
     export let rotateFocus = false
     export let variant: ListItemVariant | undefined = undefined
     export let shape: ListItemShape | undefined = undefined
     export let mode: ListMode = 'interactive'
+    export let autofocus = false
+    export let compact = false
+    export let role: ListRole | undefined = undefined
+
+    const getRole = (roleProp: ListRole | undefined): ListRole => {
+        if (roleProp) return roleProp
+        if (mode === 'display') return 'list'
+        return 'listbox'
+    }
 
     const itemKeys = writable<string[]>([])
     const focusedItem = writable<string | undefined>(undefined)
@@ -15,10 +25,14 @@
     const variantStore = writable(variant)
     const shapeStore = writable(shape)
     const modeStore = writable(mode)
+    const compactStore = writable(compact)
+    const roleStore = writable(getRole(role))
 
     $: variantStore.set(variant)
     $: shapeStore.set(shape)
     $: modeStore.set(mode)
+    $: modeStore.set(mode)
+    $: roleStore.set(getRole(role))
 
     let containerElement: HTMLDivElement
 
@@ -43,6 +57,8 @@
         variantStore,
         shapeStore,
         modeStore,
+        compactStore,
+        roleStore,
     })
 
     const rotateFocusedItem = (amount: 1 | -1) => {
@@ -65,13 +81,23 @@
         else if (key === 'ArrowUp') rotateFocusedItem(-1)
         else if (key === 'Home') focusedItem.set($itemKeys[0])
         else if (key === 'End') focusedItem.set($itemKeys[$itemKeys.length - 1])
-        else if (key === ' ' && $focusedItem) selectedItem.set($focusedItem)
-        else if (key === 'Enter' && $focusedItem) selectedItem.set($focusedItem)
+        else if (key === ' ' && $focusedItem && mode === 'singleSelect')
+            selectedItem.set($focusedItem)
+        else if (key === 'Enter' && $focusedItem && mode === 'singleSelect')
+            selectedItem.set($focusedItem)
     }
+
+    $: if (autofocus && containerElement) containerElement.focus()
 
 </script>
 
 <div
+    tabindex="{autofocus ? -1 : undefined}"
+    class:focus:outline-none="{autofocus}"
+    class:py-2="{!compact}"
+    data-test="list"
+    role="{$roleStore}"
+    aria-label="{ariaLabel}"
     bind:this="{containerElement}"
     on:mouseleave="{() => focusedItem.set(undefined)}"
     on:focusout="{() => focusedItem.set(undefined)}"
