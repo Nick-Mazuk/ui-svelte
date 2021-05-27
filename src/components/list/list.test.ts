@@ -122,7 +122,7 @@ context('List', () => {
         cy.realPress('ArrowDown')
         cy.get('[data-focused="true"]')
     })
-    it.only('has correct aria-roles', () => {
+    it('has correct aria-roles', () => {
         cy.loadStory('Components/List', 'Default', {
             role: 'list',
         })

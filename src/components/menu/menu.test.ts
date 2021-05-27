@@ -19,9 +19,10 @@ context('Menu', () => {
         cy.tab().realType(' ')
         cy.get('[data-test="menu"]').should('exist')
         cy.realPress('ArrowDown')
-        cy.get('[data-test="list-item"]').first().should('have.attr', 'aria-current', 'true')
+        cy.get('[data-test="list-item"]').first().should('have.attr', 'data-focused', 'true')
         cy.realType(' ')
         cy.get('[data-test="menu"]').should('not.exist')
+        cy.get('button').should('be.focused')
     })
 
     it('width can be customized', () => {

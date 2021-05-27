@@ -23,10 +23,15 @@
     export let minWidth = 32
 
     let open: boolean
+    let previousElement: Element | null
+
+    $: if (open && typeof document !== 'undefined') previousElement = document.activeElement
+    $: if (!open && typeof document !== 'undefined' && previousElement instanceof HTMLElement)
+        previousElement.focus()
 
 </script>
 
-<Popover placement="{placement}" transitionSpeed="small" bind:open>
+<Popover placement="{placement}" transitionSpeed="none" bind:open>
     <svelte:fragment slot="trigger"><slot name="button" /></svelte:fragment>
     <div
         class="shadow-lg border rounded-lg overflow-hidden bg-background"

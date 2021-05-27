@@ -142,7 +142,7 @@
     $: role = roleStore ? ROLE_MAP[$roleStore] : undefined
     let ariaSelected: boolean | undefined
     $: {
-        if (mode !== 'singleSelect' || role === 'listitem') ariaSelected = undefined
+        if (mode !== 'singleSelect' || role !== 'option') ariaSelected = undefined
         else ariaSelected = selected
     }
     $: if (selectedItem && $selectedItem === key) dispatch('click')
@@ -170,7 +170,7 @@
             {/if}
         </span>
     {/if}
-    <span class="w-full">
+    <span class="w-full text-current">
         <slot />
     </span>
     {#if suffixIcon || $$slots.suffix}
