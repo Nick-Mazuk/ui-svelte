@@ -54,7 +54,7 @@ context('List', () => {
         cy.realPress('ArrowDown')
         cy.get(listItem).first().should('have.attr', 'data-focused', 'true')
     })
-    it.only('works with mouse', () => {
+    it('works with mouse', () => {
         cy.loadStory('Components/List', 'Default')
         cy.get(listItem).first().realHover()
         cy.get(listItem).first().should('have.attr', 'data-focused', 'true')
@@ -78,13 +78,21 @@ context('List', () => {
         cy.realPress('ArrowDown')
         cy.get(listItem).eq(2).should('have.attr', 'data-focused', 'true')
     })
-    it.only('non-interactive mode works', () => {
+    it.only('works with alternate modes', () => {
         cy.loadStory('Components/List', 'Default', {
-            mode: 'nonInteractive',
+            mode: 'display',
         })
         cy.get(listItem).should('not.have.attr', 'tabindex')
-        cy.tab()
+        cy.realPress('Tab')
         cy.get(listItem).should('not.be.focused')
+        cy.get(listItem).first().realHover()
+        cy.get(listItem).first().should('have.attr', 'data-focused', 'false')
+        cy.get(listItem).first().click()
+        cy.get(listItem).first().should('not.have.attr', 'aria-selected')
+
+        cy.loadStory('Components/List', 'Default', {
+            mode: 'singleSelect',
+        })
     })
 })
 

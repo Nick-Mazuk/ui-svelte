@@ -7,7 +7,7 @@
     import { getContext, onDestroy, onMount } from 'svelte'
 
     import type { ListItemShape, ListItemVariant } from '.'
-    import type { ListContext } from '..'
+    import type { ListContext, ListMode } from '..'
 
     import { FORM_SIZE_MAP } from '../../../form/form-sizes'
 
@@ -26,6 +26,7 @@
     const itemKeys = listContext?.itemKeys
     const variantStore = listContext?.variantStore
     const shapeStore = listContext?.shapeStore
+    const modeStore = listContext?.modeStore
     const key = String(counter++)
 
     onMount(() => {
@@ -79,9 +80,18 @@
     $: if (focusedItem) focused = $focusedItem === key
     $: if (selectedItem) selected = $selectedItem === key
 
-    const handleFocus = () => focusedItem?.set(key)
-    const handleMouseEnter = () => focusedItem?.set(key)
-    const handleClick = () => selectedItem?.set(key)
+    let mode: ListMode
+    $: mode = modeStore ? $modeStore : 'display'
+
+    const handleFocus = () => {
+        if (mode !== 'display') focusedItem?.set(key)
+    }
+    const handleMouseEnter = () => {
+        if (mode !== 'display') focusedItem?.set(key)
+    }
+    const handleClick = () => {
+        if (mode !== 'display') selectedItem?.set(key)
+    }
 
     let displayedVariant: ListItemVariant
     $: {
@@ -110,24 +120,31 @@
         suffixIcon || $$slots.suffix ? '' : FORM_SIZE_MAP.default.content.paddingRight,
         SHAPE_MAP[displayedShape],
         colorClasses,
+        mode === 'display' ? '' : 'focus:outline-none cursor-pointer',
     ].join(' ')
 
-    let tabIndex: 0 | -1
+    let tabIndex: 0 | -1 | undefined
     $: {
-        if (!itemKeys) tabIndex = 0
+        if (mode === 'display') tabIndex = undefined
+        else if (!itemKeys) tabIndex = 0
         else if (selectedItem && $selectedItem) tabIndex = $selectedItem === key ? 0 : -1
         else tabIndex = $itemKeys[0] === key ? 0 : -1
+    }
+    let ariaSelected: boolean | undefined
+    $: {
+        if (mode === 'display') ariaSelected = undefined
+        else ariaSelected = selected
     }
 
 </script>
 
 <span
-    class="{containerClasses} group flex items-center focus:outline-none cursor-pointer"
+    class="{containerClasses} group flex items-center"
     tabindex="{tabIndex}"
     data-list-item-key="{key}"
     data-test="list-item"
     data-focused="{focused}"
-    aria-selected="{selected}"
+    aria-selected="{ariaSelected}"
     on:focus="{handleFocus}"
     on:mouseenter="{handleMouseEnter}"
     on:click="{handleClick}"

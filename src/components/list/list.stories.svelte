@@ -20,7 +20,7 @@
         argTypes: {
             mode: {
                 control: 'inline-radio',
-                options: ['nonInteractive', 'interactive', 'singleSelect'],
+                options: ['display', 'interactive', 'singleSelect'],
                 defaultValue: 'interactive',
             },
             variant: {

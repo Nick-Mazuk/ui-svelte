@@ -1,18 +1,24 @@
 <script lang="ts">
     import { setContext } from 'svelte'
     import { writable } from 'svelte/store'
-    import type { ListContext, RegisterListItem } from '.'
+    import type { ListContext, ListMode, RegisterListItem } from '.'
     import type { ListItemShape, ListItemVariant } from './list-item'
 
     export let rotateFocus = false
     export let variant: ListItemVariant | undefined = undefined
     export let shape: ListItemShape | undefined = undefined
+    export let mode: ListMode = 'interactive'
 
     const itemKeys = writable<string[]>([])
     const focusedItem = writable<string | undefined>(undefined)
     const selectedItem = writable<string | undefined>(undefined)
     const variantStore = writable(variant)
     const shapeStore = writable(shape)
+    const modeStore = writable(mode)
+
+    $: variantStore.set(variant)
+    $: shapeStore.set(shape)
+    $: modeStore.set(mode)
 
     let containerElement: HTMLDivElement
 
@@ -36,6 +42,7 @@
         registerListItem,
         variantStore,
         shapeStore,
+        modeStore,
     })
 
     const rotateFocusedItem = (amount: 1 | -1) => {

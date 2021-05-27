@@ -11,5 +11,6 @@ export type ListContext =
           registerListItem: registerListItem
           variantStore: Writable<ListItemVariant | undefined>
           shapeStore: Writable<ListItemShape | undefined>
+          modeStore: Writable<ListMode>
       }
     | undefined
