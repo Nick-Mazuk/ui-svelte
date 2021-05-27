@@ -60,6 +60,7 @@
             },
         },
     }
+
 </script>
 
 <Meta {...meta} />
@@ -69,18 +70,9 @@
         <Button shape="square" slot="button" ariaLabel="Open menu">
             <ChevronDown />
         </Button>
-        <ListItem>
-            <Home slot="prefix" />
-            Home
-        </ListItem>
-        <ListItem>
-            <Edit slot="prefix" />
-            Posts
-        </ListItem>
-        <ListItem>
-            <Settings slot="prefix" />
-            Settings
-        </ListItem>
+        <ListItem prefixIcon="{Home}">Home</ListItem>
+        <ListItem prefixIcon="{Edit}">Posts</ListItem>
+        <ListItem prefixIcon="{Settings}">Settings</ListItem>
     </Menu>
 </Story>
 <Story name="Custom width" args="{{ minWidth: 64 }}" let:args>
@@ -88,17 +80,8 @@
         <Button shape="square" slot="button" ariaLabel="Open menu">
             <ChevronDown />
         </Button>
-        <ListItem>
-            <Home slot="prefix" />
-            Home
-        </ListItem>
-        <ListItem>
-            <Edit slot="prefix" />
-            Posts
-        </ListItem>
-        <ListItem>
-            <Settings slot="prefix" />
-            Settings
-        </ListItem>
+        <ListItem prefixIcon="{Home}">Home</ListItem>
+        <ListItem prefixIcon="{Edit}">Posts</ListItem>
+        <ListItem prefixIcon="{Settings}">Settings</ListItem>
     </Menu>
 </Story>

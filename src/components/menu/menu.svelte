@@ -41,8 +41,9 @@
             compact="{!loose}"
             role="menu"
             autofocus
-            mode="focus"
             shape="square"
+            mode="singleSelect"
+            ariaLabel="Menu options"
             on:change="{() => (open = false)}"
         >
             <slot />

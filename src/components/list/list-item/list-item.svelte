@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-    import { getContext, onDestroy, onMount } from 'svelte'
+    import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte'
 
     import type { ListItemShape, ListItemVariant } from '.'
     import type { ListContext, ListMode, ListRole } from '..'
@@ -30,6 +30,7 @@
     const roleStore = listContext?.roleStore
 
     const key = String(counter++)
+    const dispatch = createEventDispatcher()
 
     onMount(() => {
         listContext?.registerListItem({ selected, key })
@@ -144,6 +145,7 @@
         if (mode !== 'singleSelect' || role === 'listitem') ariaSelected = undefined
         else ariaSelected = selected
     }
+    $: if (selectedItem && $selectedItem === key) dispatch('click')
 
 </script>
 
@@ -160,7 +162,7 @@
     on:click="{handleClick}"
 >
     {#if prefixIcon || $$slots.prefix}
-        <span class="{FORM_SIZE_MAP.default.affix.paddingPrefix}">
+        <span class="{FORM_SIZE_MAP.default.affix.paddingPrefix} flex-none">
             {#if prefixIcon}
                 <svelte:component this="{prefixIcon}" size="{FORM_SIZE_MAP.default.affix.icon}" />
             {:else}
@@ -172,7 +174,7 @@
         <slot />
     </span>
     {#if suffixIcon || $$slots.suffix}
-        <span class="{FORM_SIZE_MAP.default.affix.paddingSuffix}">
+        <span class="{FORM_SIZE_MAP.default.affix.paddingSuffix} flex-none">
             {#if prefixIcon}
                 <svelte:component this="{suffixIcon}" size="{FORM_SIZE_MAP.default.affix.icon}" />
             {:else}

@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { setContext } from 'svelte'
+    import { createEventDispatcher, setContext } from 'svelte'
     import { writable } from 'svelte/store'
-    import type { ListContext, ListMode, RegisterListItem, ListRole } from '.'
+    import type { ListContext, ListMode, RegisterListItem, ListRole, ListDispatcher } from '.'
     import type { ListItemShape, ListItemVariant } from './list-item'
 
     export let ariaLabel: string
@@ -35,6 +35,7 @@
     $: roleStore.set(getRole(role))
 
     let containerElement: HTMLDivElement
+    const dispatch = createEventDispatcher<ListDispatcher>()
 
     const registerListItem: RegisterListItem = ({ selected, key }) => {
         if (!containerElement) return
@@ -88,6 +89,12 @@
     }
 
     $: if (autofocus && containerElement) containerElement.focus()
+
+    selectedItem.subscribe((item) => {
+        dispatch('change', {
+            index: $itemKeys.indexOf(item ?? ''),
+        })
+    })
 
 </script>
 

@@ -17,3 +17,9 @@ export type ListContext =
           roleStore: Writable<ListRole>
       }
     | undefined
+
+export type ListChangeDetail = { index: number }
+export type ListOnChange = CustomEvent<ListChangeDetail>
+export type ListDispatcher = {
+    change: ListChangeDetail
+}
