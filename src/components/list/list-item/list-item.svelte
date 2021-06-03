@@ -151,7 +151,7 @@
         if (mode !== 'singleSelect' || role !== 'option') ariaSelected = undefined
         else ariaSelected = selected
     }
-    $: if (selectedItem && $selectedItem === key) dispatch('click')
+    $: if (selectedItem && $selectedItem === key) dispatch('activate')
 
 </script>
 
@@ -166,6 +166,7 @@
     on:focus="{handleFocus}"
     on:mouseenter="{handleMouseEnter}"
     on:click="{handleClick}"
+    on:click
 >
     {#if prefixIcon || $$slots.prefix}
         <span class="{FORM_SIZE_MAP.default.affix.paddingPrefix} flex-none">

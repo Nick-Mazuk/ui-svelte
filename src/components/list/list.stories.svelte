@@ -63,8 +63,8 @@
 
 <Story name="Default" let:args>
     <List {...args}>
-        <ListItem prefixIcon="{Home}">Home</ListItem>
-        <ListItem prefixIcon="{Edit}">Posts</ListItem>
+        <ListItem prefixIcon="{Home}" on:click="{() => alert('world')}">Home</ListItem>
+        <ListItem prefixIcon="{Edit}" on:click="{() => alert('hello')}">Posts</ListItem>
         <ListItem prefixIcon="{Settings}">Settings</ListItem>
     </List>
 </Story>
