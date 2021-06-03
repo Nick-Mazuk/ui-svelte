@@ -1,3 +1,10 @@
+## [0.15.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.2...v0.15.3) (2021-06-03)
+
+
+### Bug Fixes
+
+* header center items are actually centered ([9bd8b2b](https://github.com/Nick-Mazuk/ui-svelte/commit/9bd8b2b22b61a78f25ed60e46ce70c22175456e8))
+
 ## [0.15.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.1...v0.15.2) (2021-06-03)
 
 ## [0.15.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.0...v0.15.1) (2021-06-03)
