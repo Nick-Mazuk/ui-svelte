@@ -1,3 +1,17 @@
+# [0.15.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.8...v0.15.0) (2021-06-03)
+
+
+### Bug Fixes
+
+* improve list item contrast in dark mode ([c2217e3](https://github.com/Nick-Mazuk/ui-svelte/commit/c2217e33f91bd836c11e2d3292a802c9376dc233))
+* menu button refocuses on close ([f76fa97](https://github.com/Nick-Mazuk/ui-svelte/commit/f76fa9773a150dcb387031c79a24eae209f5099f))
+
+
+### Features
+
+* add transitions to menu/popover ([3fcf97c](https://github.com/Nick-Mazuk/ui-svelte/commit/3fcf97ca159a69fcf82dc4d734ace371b4090977))
+* new list components ([77584c5](https://github.com/Nick-Mazuk/ui-svelte/commit/77584c561a2dd060ebfb685c3d45a5e7811ab117))
+
 ## [0.14.8](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.14.7...v0.14.8) (2021-05-26)
 
 
