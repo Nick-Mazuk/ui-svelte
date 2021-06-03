@@ -70,7 +70,7 @@
                 shadow
                     ? 'border-transparent'
                     : 'border-gray-300 hover:border-foreground dark:hover:border-gray hover:text-foreground active:bg-gray-200'
-            } focus:ring-gray-900`,
+            } focus:ring-gray-700`,
             disabled: 'text-gray-300 border cursor-not-allowed !transition-none',
         },
         link: {
@@ -80,7 +80,7 @@
             disabled: 'text-gray-300 border-transparent cursor-not-allowed !transition-none',
         },
         static: {
-            classes: 'border-transparent focus:ring-gray-900',
+            classes: 'border-transparent focus:ring-gray-700',
             disabled: 'text-gray-300 border-transparent cursor-not-allowed !transition-none',
         },
     }
@@ -128,6 +128,7 @@
         glue.includes('right') && !prefix ? FORM_SIZE_MAP[size].glue.right : '',
         glue.includes('right') && prefix ? FORM_SIZE_MAP[size].glue.rightPrefix : '',
     ].join(' ')
+
 </script>
 
 {#if href}
