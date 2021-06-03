@@ -54,13 +54,13 @@
             ></div>
         {/if}
         <nav class="flex wrapper space-x-4 h-16 {fullWidth ? '!max-w-none' : ''}">
-            <div class="flex space-x-4 flex-grow">
+            <div class="flex space-x-4 w-full">
                 <slot name="left" />
             </div>
             <div class="flex space-x-4 justify-center">
                 <slot name="center" />
             </div>
-            <div class="flex space-x-4 ml-auto justify-end flex-grow">
+            <div class="flex space-x-4 ml-auto justify-end w-full">
                 <slot name="right" />
                 {#if $$slots.mobile}
                     <div class="flex items-center pr-1 sm:hidden">
