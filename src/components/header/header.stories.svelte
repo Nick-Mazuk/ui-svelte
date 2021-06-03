@@ -30,8 +30,12 @@
                 control: { type: 'string' },
                 description: 'Current page of the website',
             },
+            fullWidth: {
+                control: { type: 'boolean' },
+            },
         },
     }
+
 </script>
 
 <Meta {...meta} />

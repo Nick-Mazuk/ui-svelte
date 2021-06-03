@@ -7,6 +7,7 @@
 
     export let sticky = false
     export let page = ''
+    export let fullWidth = false
 
     let scrolledToTop = true
     let sentinal: HTMLElement
@@ -30,6 +31,7 @@
     $: scrolledStore.set(scrolledToTop)
     $: borderClasses =
         !sticky || scrolledToTop ? 'border-b' : 'border-b border-background dark:border-gray-200'
+
 </script>
 
 <header class:contents="{!mobileOpen}" class:fixed="{mobileOpen}">
@@ -51,7 +53,7 @@
                     : 'opacity-100'}"
             ></div>
         {/if}
-        <nav class="flex wrapper space-x-4 h-16">
+        <nav class="flex wrapper space-x-4 h-16 {fullWidth ? '!max-w-none' : ''}">
             <div class="flex space-x-4 flex-grow">
                 <slot name="left" />
             </div>
