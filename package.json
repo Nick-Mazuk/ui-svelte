@@ -1,6 +1,7 @@
 {
     "name": "@nick-mazuk/ui-svelte",
     "version": "0.0.0-development",
+    "type": "module",
     "scripts": {
         "dev": "start-storybook -p 6006 --quiet",
         "build": "build-storybook -c .storybook -o docs",
