@@ -1,6 +1,6 @@
 <script lang="ts">
-    import isEmail from 'validator/es/lib/isEmail'
-    import normalizeEmail from 'validator/es/lib/normalizeEmail'
+    import isEmail from 'validator/lib/isEmail'
+    import normalizeEmail from 'validator/lib/normalizeEmail'
 
     import Mail from '../../../elements/icon/mail.svelte'
     import type { FormItemSize } from '../../form-sizes'
@@ -41,6 +41,7 @@
     }
 
     $: shownIcon = hideIcon ? undefined : Mail
+
 </script>
 
 <TextInput
