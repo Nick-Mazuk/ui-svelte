@@ -1,3 +1,10 @@
+## [0.15.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.3...v0.15.4) (2021-06-18)
+
+
+### Bug Fixes
+
+* validator es imports now work with sveltekit ([7589ea2](https://github.com/Nick-Mazuk/ui-svelte/commit/7589ea2f998a4e56b4505bb3030ba4689cc7dcf9))
+
 ## [0.15.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.2...v0.15.3) (2021-06-03)
 
 
