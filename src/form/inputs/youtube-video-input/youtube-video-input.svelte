@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/es/lib/isURL'
+    import isURL from 'validator/lib/isURL'
     import {
         getYouTubeVideoId,
         isYouTubeChannelUrl,
