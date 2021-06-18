@@ -1,3 +1,10 @@
+## [0.15.9](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.8...v0.15.9) (2021-06-18)
+
+
+### Bug Fixes
+
+* finally make validator work with svelte/kit ([3bd402a](https://github.com/Nick-Mazuk/ui-svelte/commit/3bd402a11d515c8ecdebdd16f49127de156e3d8c))
+
 ## [0.15.8](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.7...v0.15.8) (2021-06-18)
 
 
