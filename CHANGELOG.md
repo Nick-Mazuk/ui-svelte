@@ -1,3 +1,10 @@
+## [0.15.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.5...v0.15.6) (2021-06-18)
+
+
+### Bug Fixes
+
+* switch back to es imports for validator ([e966509](https://github.com/Nick-Mazuk/ui-svelte/commit/e9665099ef7acb7188e3987bc1f572fc84b640d1))
+
 ## [0.15.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.4...v0.15.5) (2021-06-18)
 
 
