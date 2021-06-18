@@ -1,6 +1,6 @@
 <script lang="ts">
-    import isEmail from 'validator/lib/isEmail'
-    import isURL from 'validator/lib/isURL'
+    import isEmail from 'validator/lib/isEmail.js'
+    import isURL from 'validator/lib/isUrl.js'
 
     import Link from '../../../elements/icon/link.svelte'
     import type { FormItemSize } from '../../form-sizes'

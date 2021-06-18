@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/lib/isURL'
+    import isURL from 'validator/lib/isUrl.js'
     import { isFacebookUrl, isFacebookPageUrl } from '@nick-mazuk/lib/esm/facebook'
 
     import Facebook from '../../../elements/icon/facebook.svelte'
