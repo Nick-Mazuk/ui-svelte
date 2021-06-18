@@ -1,3 +1,10 @@
+## [0.15.8](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.7...v0.15.8) (2021-06-18)
+
+
+### Bug Fixes
+
+* test validator imports with .js extension ([fffa418](https://github.com/Nick-Mazuk/ui-svelte/commit/fffa418883d8a6bfa75ec611722bdbac2dfffc71))
+
 ## [0.15.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.6...v0.15.7) (2021-06-18)
 
 
