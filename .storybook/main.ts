@@ -1,7 +1,7 @@
 module.exports = {
     stories: ['../src/**/*.stories.svelte', '../src/**/*.stories.mdx'],
     addons: [
-        'storybook-addon-turbo-build',
+        // 'storybook-addon-turbo-build',
         { name: '@storybook/addon-essentials', options: { backgrounds: false, actions: true } },
         '@storybook/addon-links',
         '@storybook/addon-a11y',

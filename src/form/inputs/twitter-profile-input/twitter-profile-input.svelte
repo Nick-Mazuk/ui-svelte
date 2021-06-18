@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/lib/isUrl.js'
+    import isURL from 'validator/lib/isURL.js'
     import { isTwitterUrl } from '@nick-mazuk/lib/esm/twitter'
 
     import Twitter from '../../../elements/icon/twitter.svelte'

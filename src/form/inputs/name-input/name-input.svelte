@@ -1,6 +1,6 @@
 <script lang="ts">
     import isEmail from 'validator/lib/isEmail.js'
-    import isURL from 'validator/lib/isUrl.js'
+    import isURL from 'validator/lib/isURL.js'
     import { parseFullName } from 'parse-full-name-esm'
 
     import User from '../../../elements/icon/user.svelte'

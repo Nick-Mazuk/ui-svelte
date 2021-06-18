@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/lib/isUrl.js'
+    import isURL from 'validator/lib/isURL.js'
 
     import LinkedIn from '../../../elements/icon/linkedin.svelte'
     import type { FormItemSize } from '../../form-sizes'
