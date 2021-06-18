@@ -1,3 +1,13 @@
+## [0.15.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.4...v0.15.5) (2021-06-18)
+
+
+### Bug Fixes
+
+* actually fix semantic-release ([efdd48c](https://github.com/Nick-Mazuk/ui-svelte/commit/efdd48cd7233a7ff006a0b77fe311389983fed9a))
+* add type: module to package.json ([97dc6f7](https://github.com/Nick-Mazuk/ui-svelte/commit/97dc6f73d2f1b061ba0d787441c98f0ac76bfc8f))
+* convert release.config.js to esm ([c19b78f](https://github.com/Nick-Mazuk/ui-svelte/commit/c19b78fff423e46801ac78c90f08f1dd3e656216))
+* fix build errors ([81903a4](https://github.com/Nick-Mazuk/ui-svelte/commit/81903a4ddaa363b0f691e8a5cd9a86d7f99650b2))
+
 ## [0.15.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.3...v0.15.4) (2021-06-18)
 
 
