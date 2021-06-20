@@ -5,7 +5,6 @@
     import Label from '../../label/label.svelte'
     import type { FormSync } from '../..'
     import type { CheckboxValue } from '.'
-    import Error from '../../../elements/error/error.svelte'
     import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
 
     export let defaultValue: CheckboxValue = 'unchecked'
