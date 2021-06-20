@@ -1,3 +1,10 @@
+## [0.15.10](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.9...v0.15.10) (2021-06-20)
+
+
+### Bug Fixes
+
+* import TransitionSpeed as a type declaration ([e08f7eb](https://github.com/Nick-Mazuk/ui-svelte/commit/e08f7ebc4ade63ab92c68e669f57f97363638738))
+
 ## [0.15.9](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.8...v0.15.9) (2021-06-18)
 
 
