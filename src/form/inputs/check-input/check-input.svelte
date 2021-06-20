@@ -119,9 +119,6 @@
             </span>
         {/if}
     </div>
-    {#if !hideError && showError && !isValid}
-        <Error>{requiredMessage}</Error>
-    {/if}
     <InputFeedbackSection
         helpText=""
         feedback=""
