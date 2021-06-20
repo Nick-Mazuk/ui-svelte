@@ -1,3 +1,10 @@
+## [0.15.11](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.10...v0.15.11) (2021-06-20)
+
+
+### Bug Fixes
+
+* import validator as esm ([c923206](https://github.com/Nick-Mazuk/ui-svelte/commit/c923206a2527fe050061cca628712dd452a3f863))
+
 ## [0.15.10](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.9...v0.15.10) (2021-06-20)
 
 
