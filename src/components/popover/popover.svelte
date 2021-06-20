@@ -4,7 +4,8 @@
     import { writable } from 'svelte/store'
     import { fade } from 'svelte/transition'
     import Portal from '../../utilities/portal/portal.svelte'
-    import { TransitionSpeed, TRANSITION_SPEED_MAP } from '../../configs/transitions'
+    import { TRANSITION_SPEED_MAP } from '../../configs/transitions'
+    import type { TransitionSpeed } from '../../configs/transitions'
 
     type Placement =
         | 'top'
@@ -120,7 +121,6 @@
     $: x = boundingRect && open ? PLACEMENT_MAP[placement].x() : 0
     $: y = boundingRect && open ? PLACEMENT_MAP[placement].y() : 0
     $: isDisabled = typeof outerDisabledStore === 'undefined' ? disabled : $outerDisabledStore
-
 </script>
 
 <svelte:window
