@@ -1,6 +1,6 @@
 <script lang="ts">
-    import isEmail from 'validator/lib/isEmail.js'
-    import isURL from 'validator/lib/isURL.js'
+    import isEmail from 'validator/es/lib/isEmail.js'
+    import isURL from 'validator/es/lib/isURL.js'
     import { parseFullName } from 'parse-full-name-esm'
 
     import User from '../../../elements/icon/user.svelte'
@@ -40,7 +40,6 @@
     }
 
     $: shownIcon = hideIcon ? undefined : User
-
 </script>
 
 <TextInput

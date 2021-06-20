@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/lib/isURL.js'
+    import isURL from 'validator/es/lib/isURL.js'
     import {
         getYouTubeVideoId,
         isYouTubeChannelUrl,
@@ -30,7 +30,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : YouTube
-
 </script>
 
 <TextInput

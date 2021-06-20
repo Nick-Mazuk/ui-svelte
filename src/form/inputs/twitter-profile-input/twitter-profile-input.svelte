@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/lib/isURL.js'
+    import isURL from 'validator/es/lib/isURL.js'
     import { isTwitterUrl } from '@nick-mazuk/lib/esm/twitter'
 
     import Twitter from '../../../elements/icon/twitter.svelte'
@@ -24,7 +24,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : Twitter
-
 </script>
 
 <TextInput

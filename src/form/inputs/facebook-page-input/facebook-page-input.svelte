@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/lib/isURL.js'
+    import isURL from 'validator/es/lib/isURL.js'
     import { isFacebookUrl, isFacebookPageUrl } from '@nick-mazuk/lib/esm/facebook'
 
     import Facebook from '../../../elements/icon/facebook.svelte'
@@ -24,7 +24,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : Facebook
-
 </script>
 
 <TextInput

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import isURL from 'validator/lib/isURL.js'
+    import isURL from 'validator/es/lib/isURL.js'
 
     import LinkedIn from '../../../elements/icon/linkedin.svelte'
     import type { FormItemSize } from '../../form-sizes'
@@ -23,7 +23,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : LinkedIn
-
 </script>
 
 <TextInput

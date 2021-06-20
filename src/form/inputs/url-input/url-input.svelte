@@ -1,6 +1,6 @@
 <script lang="ts">
-    import isEmail from 'validator/lib/isEmail.js'
-    import isURL from 'validator/lib/isURL.js'
+    import isEmail from 'validator/es/lib/isEmail.js'
+    import isURL from 'validator/es/lib/isURL.js'
 
     import Link from '../../../elements/icon/link.svelte'
     import type { FormItemSize } from '../../form-sizes'
@@ -25,7 +25,6 @@
     export let autofocus = false
 
     $: shownIcon = hideIcon ? undefined : Link
-
 </script>
 
 <TextInput
