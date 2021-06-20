@@ -1,3 +1,15 @@
+# [0.16.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.11...v0.16.0) (2021-06-20)
+
+
+### Bug Fixes
+
+* remove extra error message from checkbox ([77c65de](https://github.com/Nick-Mazuk/ui-svelte/commit/77c65de49b82cccc056d4dbd628ba07b530eac99))
+
+
+### Features
+
+* add sign up component ([be809cf](https://github.com/Nick-Mazuk/ui-svelte/commit/be809cff830187052eeff5219fd5727252ba8bb5))
+
 ## [0.15.11](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.10...v0.15.11) (2021-06-20)
 
 
