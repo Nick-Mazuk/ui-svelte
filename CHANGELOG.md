@@ -1,3 +1,10 @@
+## [0.17.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.0...v0.17.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* update feedback messages for reset-password ([6b3d717](https://github.com/Nick-Mazuk/ui-svelte/commit/6b3d7170eebc8587422c4361ed9867f424b46359))
+
 # [0.17.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.16.2...v0.17.0) (2021-06-21)
 
 
