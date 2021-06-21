@@ -1,3 +1,10 @@
+## [0.16.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.16.0...v0.16.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* add showConfirmEmailMessage for sign-up component ([5e86d08](https://github.com/Nick-Mazuk/ui-svelte/commit/5e86d08c229a59067adc742c6dee1336b12b41e8))
+
 # [0.16.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.15.11...v0.16.0) (2021-06-20)
 
 
