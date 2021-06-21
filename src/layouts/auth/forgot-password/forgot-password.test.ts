@@ -35,7 +35,7 @@ context('ForgotPassword', () => {
 
         cy.goOffline()
         cy.get('button[type="submit"]').click()
-        cy.get('[data-test="error"]').contains('offline')
+        cy.get('[data-test="error"]').contains(FORM_FEEDBACK.errors.offline)
         cy.contains(FORM_FEEDBACK.auth.success.passwordResetLinkSent).should('not.exist')
         cy.goOnline()
 
