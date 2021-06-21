@@ -1,3 +1,10 @@
+## [0.16.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.16.1...v0.16.2) (2021-06-21)
+
+
+### Bug Fixes
+
+* remove forgot password <title> tag ([6ac3ccc](https://github.com/Nick-Mazuk/ui-svelte/commit/6ac3cccd3e6367759836bf5ac0daf7a6b7348727))
+
 ## [0.16.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.16.0...v0.16.1) (2021-06-21)
 
 
