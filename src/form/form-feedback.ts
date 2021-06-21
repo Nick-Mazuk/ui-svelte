@@ -15,6 +15,8 @@ export const FORM_FEEDBACK = Object.freeze({
         errors: {
             noEmailFound: 'There is not an account with that email.',
             invalidEmailLogin: 'Invalid email or password. Try again.',
+            resetPasswordLinkExpired:
+                'Password reset link expired. Request a new link and try again.',
         },
         success: {
             passwordIsReset: 'Your password is reset and you can sign in',

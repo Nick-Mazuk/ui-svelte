@@ -24,7 +24,7 @@
         if (message) error = message
         else if (status === 'offline') error = FORM_FEEDBACK.errors.offline
         else if (typeof status === 'undefined' || [400, 403].includes(status))
-            error = FORM_FEEDBACK.auth.errors.noEmailFound
+            error = FORM_FEEDBACK.auth.errors.resetPasswordLinkExpired
         else if (status === 429) error = FORM_FEEDBACK.errors[429]
         else error = FORM_FEEDBACK.errors[500]
     }

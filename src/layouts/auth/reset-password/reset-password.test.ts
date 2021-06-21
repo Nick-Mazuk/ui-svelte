@@ -2,8 +2,8 @@ import { FORM_FEEDBACK } from '../../../form/form-feedback'
 
 const mockApiUrl = 'api'
 const errorCodes: [number, string][] = [
-    [400, FORM_FEEDBACK.auth.errors.noEmailFound],
-    [403, FORM_FEEDBACK.auth.errors.noEmailFound],
+    [400, FORM_FEEDBACK.auth.errors.resetPasswordLinkExpired],
+    [403, FORM_FEEDBACK.auth.errors.resetPasswordLinkExpired],
     [429, FORM_FEEDBACK.errors[429]],
     [500, FORM_FEEDBACK.errors[500]],
 ]
@@ -33,7 +33,6 @@ context('ResetPassword', () => {
         cy.goOffline()
         cy.get('button[type="submit"]').click()
         cy.get('[data-test="error"]').contains(FORM_FEEDBACK.errors.offline)
-        cy.contains(FORM_FEEDBACK.auth.success.passwordResetLinkSent).should('not.exist')
         cy.goOnline()
 
         errorCodes.forEach(([status, message]) => {
