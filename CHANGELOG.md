@@ -1,3 +1,10 @@
+# [0.17.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.16.2...v0.17.0) (2021-06-21)
+
+
+### Features
+
+* add reset-password component ([05aa93c](https://github.com/Nick-Mazuk/ui-svelte/commit/05aa93c9d0a7e8c4ff0db42c4e30ee8b54fa8432))
+
 ## [0.16.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.16.1...v0.16.2) (2021-06-21)
 
 
