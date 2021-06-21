@@ -25,6 +25,7 @@
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
     export let handleSubmit: HandleSubmit = undefined
+    export let showConfirmEmailMessage = false
 
     let error = ''
     let formState: FormState = 'ready'
@@ -56,6 +57,8 @@
             <Note variant="error">{error}</Note>
         {:else if note && formState === 'ready'}
             <Note label="{note.label}" variant="{note.variant}">{note.value}</Note>
+        {:else if showConfirmEmailMessage && formState === 'success'}
+            <Note label="Account created" variant="success">Confirm your email to sign in</Note>
         {/if}
         <EmailInput />
         <NewPasswordInput />

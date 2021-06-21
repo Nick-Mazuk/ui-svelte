@@ -35,6 +35,10 @@
                 control: 'object',
                 description: 'To display some sort of message.',
             },
+            showConfirmEmailMessage: {
+                control: 'boolean',
+                description: 'Shows a message to confirm your email after account is created.',
+            },
         },
     }
 </script>
