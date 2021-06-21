@@ -14,7 +14,6 @@
     import Spacer from '../../../utilities/spacer/spacer.svelte'
 
     export let signIn: string
-    export let seoTitle = 'Reset password'
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
     export let handleSubmit: HandleSubmit = undefined
@@ -33,9 +32,6 @@
     const handleStateChange = (event: FormOnStateChange) => (formState = event.detail)
 </script>
 
-<svelte:head>
-    <title>{seoTitle}</title>
-</svelte:head>
 <h1 class="h4 text-center">Reset password</h1>
 <Spacer />
 <Form

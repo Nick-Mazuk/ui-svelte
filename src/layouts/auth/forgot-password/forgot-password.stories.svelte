@@ -31,10 +31,6 @@
                 description:
                     'The url to send the http request to. Not needed if using `handleSubmit`. Passed directly to the `Form` component.',
             },
-            seoTitle: {
-                control: 'text',
-                description: 'The title of the page (in the `title` tag)',
-            },
         },
     }
 </script>
