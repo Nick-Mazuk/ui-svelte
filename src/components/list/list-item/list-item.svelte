@@ -31,8 +31,11 @@
     const key = String(counter++)
     const dispatch = createEventDispatcher()
 
+    let isMounted = false
+
     onMount(() => {
         listContext?.registerListItem({ selected, key })
+        isMounted = true
     })
 
     onDestroy(() => {
@@ -91,8 +94,8 @@
         menu: 'menuitem',
     }
 
-    $: if (focusedItem) focused = $focusedItem === key
-    $: if (selectedItem) selected = $selectedItem === key
+    $: if (focusedItem && isMounted) focused = $focusedItem === key
+    $: if (selectedItem && isMounted) selected = $selectedItem === key
 
     let mode: ListMode
     $: mode = modeStore ? $modeStore : 'display'

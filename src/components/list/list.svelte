@@ -95,7 +95,6 @@
             index: $itemKeys.indexOf(item ?? ''),
         })
     })
-
 </script>
 
 <div

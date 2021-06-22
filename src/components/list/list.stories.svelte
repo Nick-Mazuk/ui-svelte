@@ -56,7 +56,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />
@@ -74,6 +73,14 @@
         <ListItem prefixIcon="{Home}">Home</ListItem>
         <ListItem prefixIcon="{Edit}">Posts</ListItem>
         <ListDivider />
+        <ListItem prefixIcon="{Settings}">Settings</ListItem>
+    </List>
+</Story>
+
+<Story name="Default selected" args="{{ mode: 'singleSelect' }}" let:args>
+    <List {...args}>
+        <ListItem prefixIcon="{Home}" selected>Home</ListItem>
+        <ListItem prefixIcon="{Edit}">Posts</ListItem>
         <ListItem prefixIcon="{Settings}">Settings</ListItem>
     </List>
 </Story>

@@ -10,7 +10,7 @@ const errorCodes: [number, string][] = [
 const validPassword = 'this is a strong password'
 
 context('ResetPassword', () => {
-    it.only('functions properly', () => {
+    it('functions properly', () => {
         cy.loadStory('Layouts/Auth/ResetPassword', 'Default', {
             action: mockApiUrl,
             method: 'POST',
