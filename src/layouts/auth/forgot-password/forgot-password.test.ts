@@ -18,7 +18,6 @@ context('ForgotPassword', () => {
         })
         cy.checkAccessibility()
         cy.get('h1').contains('Reset password')
-        cy.title().should('eq', 'Reset password')
         cy.get('input')
             .first()
             .should('have.attr', 'type', 'email')
@@ -62,10 +61,8 @@ context('ForgotPassword', () => {
         cy.intercept(mockApiUrl, { statusCode: 200 })
         cy.loadStory('Layouts/Auth/ForgotPassword', 'Default', {
             signIn: 'url',
-            seoTitle: 'Title',
         })
         cy.contains('Sign in').should('have.attr', 'href', 'url')
-        cy.title().should('eq', 'Title')
     })
 })
 
