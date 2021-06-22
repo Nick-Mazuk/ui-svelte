@@ -1,3 +1,10 @@
+## [0.17.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.1...v0.17.2) (2021-06-22)
+
+
+### Bug Fixes
+
+* list-item custom suffix works ([9640f93](https://github.com/Nick-Mazuk/ui-svelte/commit/9640f930c4937cfe83394e6567d5d3b5fc9defb1))
+
 ## [0.17.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.0...v0.17.1) (2021-06-21)
 
 
