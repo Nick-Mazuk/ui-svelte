@@ -1,3 +1,10 @@
+## [0.17.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.2...v0.17.3) (2021-06-22)
+
+
+### Bug Fixes
+
+* list-items can be selected or focused by default ([cb63c09](https://github.com/Nick-Mazuk/ui-svelte/commit/cb63c09b6b33d9733f04a6ea541e66fd79df905e))
+
 ## [0.17.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.1...v0.17.2) (2021-06-22)
 
 
