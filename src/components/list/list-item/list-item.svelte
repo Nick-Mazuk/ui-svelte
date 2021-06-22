@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
     let counter = 0
-
 </script>
 
 <script lang="ts">
@@ -152,7 +151,6 @@
         else ariaSelected = selected
     }
     $: if (selectedItem && $selectedItem === key) dispatch('activate')
-
 </script>
 
 <div
@@ -182,7 +180,7 @@
     </span>
     {#if suffixIcon || $$slots.suffix}
         <span class="{FORM_SIZE_MAP.default.affix.paddingSuffix} flex-none">
-            {#if prefixIcon}
+            {#if suffixIcon}
                 <svelte:component this="{suffixIcon}" size="{FORM_SIZE_MAP.default.affix.icon}" />
             {:else}
                 <slot name="suffix" />
