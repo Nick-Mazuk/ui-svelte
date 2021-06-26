@@ -17,7 +17,7 @@
         class:sm:justify-end="{right}"
         class:justify-between="{right}"
     >
-        <p class="text-gray w-full"><slot /></p>
+        <p class="text-gray-700 w-full"><slot /></p>
         {#if $$slots.avatar}
             <div class="flex w-6"><slot name="avatar" /></div>
         {/if}
