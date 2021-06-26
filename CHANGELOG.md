@@ -1,3 +1,10 @@
+## [0.17.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.3...v0.17.4) (2021-06-26)
+
+
+### Bug Fixes
+
+* improve entity-field color contrast ([56017da](https://github.com/Nick-Mazuk/ui-svelte/commit/56017da3c89b73103598f4240cb77e912edb0a07))
+
 ## [0.17.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.2...v0.17.3) (2021-06-22)
 
 
