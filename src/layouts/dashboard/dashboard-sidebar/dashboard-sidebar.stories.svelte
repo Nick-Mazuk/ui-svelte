@@ -1,6 +1,9 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
     import ListItem from '../../../components/list/list-item/list-item.svelte'
+    import FileText from '../../../elements/icon/file-text.svelte'
+    import Settings from '../../../elements/icon/settings.svelte'
+    import User from '../../../elements/icon/user.svelte'
 
     import DashboardSidebar from './dashboard-sidebar.svelte'
 
@@ -17,26 +20,17 @@
         argTypes: {
             title: {
                 control: 'text',
-                defaultValue: 'Account settings',
+                defaultValue: 'Dashboard',
             },
-            sidebarItems: {
+            items: {
                 control: 'object',
                 defaultValue: [
-                    {
-                        text: 'General',
-                        href: '/',
-                    },
-                    {
-                        text: 'Profile',
-                        href: '/profile',
-                    },
-                    {
-                        text: 'Settings',
-                        href: '/settings',
-                    },
+                    { value: 'Posts', icon: FileText, href: '/posts' },
+                    { value: 'Profile', icon: User, href: '/profile' },
+                    { value: 'Settings', icon: Settings, href: '/settings' },
                 ],
             },
-            currentPage: {
+            page: {
                 control: 'text',
                 defaultValue: '/profile',
             },
@@ -48,13 +42,7 @@
 
 <Story name="Default" let:args>
     <DashboardSidebar {...args}>
-        <svelte:fragment slot="items">
-            <ListItem>General</ListItem>
-            <ListItem>Profile</ListItem>
-            <ListItem>Settings</ListItem>
-        </svelte:fragment>
-        <h1 class="h4">This is the main content</h1>
-        <div class="my-6 h-24 bg-gray-200 rounded-lg"></div>
+        <div class="mb-6 h-24 bg-gray-200 rounded-lg"></div>
         <div class="my-6 h-24 bg-gray-200 rounded-lg"></div>
         <div class="my-6 h-24 bg-gray-200 rounded-lg"></div>
         <div class="my-6 h-24 bg-gray-200 rounded-lg"></div>

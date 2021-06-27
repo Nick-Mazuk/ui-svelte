@@ -1,36 +1,35 @@
 <script lang="ts">
+    import ListItem from '../../../components/list/list-item/list-item.svelte'
+
     import List from '../../../components/list/list.svelte'
-    import Button from '../../../elements/button/button.svelte'
-    import ChevronDown from '../../../elements/icon/chevron-down.svelte'
-    import ChevronUp from '../../../elements/icon/chevron-up.svelte'
+    import Select from '../../../form/inputs/select/select.svelte'
 
     export let title: string
-
-    let showSidebarItems = false
+    export let items: DashboardSidebarItem[] = []
+    export let page: string
 </script>
 
-<div class="md:flex md:space-x-12">
-    <aside class="pb-6 border-b mb-6 md:w-64 flex-none md:py-0 md:border-b-0 md:mb-0">
-        <div class="md:hidden">
-            <Button
-                variant="static"
-                glue="{['left', 'top']}"
-                suffix="{showSidebarItems ? ChevronUp : ChevronDown}"
-                on:click="{() => (showSidebarItems = !showSidebarItems)}"
-            >
-                {title}
-            </Button>
-        </div>
-        <nav class="flex flex-col md:flex md:sticky md:top-16" class:hidden="{!showSidebarItems}">
-            <List
-                ariaLabel="Sidebar"
-                mode="singleSelect"
-                shape="rounded"
-                on:change="{() => (showSidebarItems = false)}"
-            >
-                <slot name="items" />
-            </List>
-        </nav>
-    </aside>
-    <main id="main-content" class="w-full"><slot /></main>
+<div class="wrapper my-6">
+    <h1 class="h5">{title}</h1>
+    <div class="md:flex md:space-x-12">
+        <aside class="mt-3 mb-6 md:w-64 flex-none md:my-0">
+            <div class="md:hidden">
+                <Select on:change defaultValue="{page}">
+                    {#each items as item}
+                        <option value="{item.href}">{item.value}</option>
+                    {/each}
+                </Select>
+            </div>
+            <nav class="hidden flex-col md:flex md:sticky md:top-24">
+                <List ariaLabel="Sidebar" mode="singleSelect" shape="rounded">
+                    {#each items as item}
+                        <ListItem prefixIcon="{item.icon}" selected="{page === item.href}">
+                            {item.value}
+                        </ListItem>
+                    {/each}
+                </List>
+            </nav>
+        </aside>
+        <main id="main-content" class="w-full md:pt-2"><slot /></main>
+    </div>
 </div>
