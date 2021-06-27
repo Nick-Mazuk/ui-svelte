@@ -20,7 +20,7 @@
                     {/each}
                 </Select>
             </div>
-            <nav class="hidden flex-col md:flex md:sticky md:top-24">
+            <nav class="hidden flex-col md:flex sticky top-20">
                 <List ariaLabel="Sidebar" mode="singleSelect" shape="rounded">
                     {#each items as item}
                         <ListItem
