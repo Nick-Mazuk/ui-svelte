@@ -3,7 +3,7 @@
     import { writable } from 'svelte/store'
     import type { HeaderContext } from '..'
 
-    import TableOfContents from '../../../navigation/table-of-contents/table-of-contents.svelte'
+    import TableOfContents from '../../table-of-contents/table-of-contents.svelte'
     import HeaderMobileItemWrapper from '../header-mobile-item-wrapper/header-mobile-item-wrapper.svelte'
 
     type TocItem = { href: string; text: string }
