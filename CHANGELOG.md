@@ -1,3 +1,10 @@
+## [0.19.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.19.0...v0.19.1) (2021-06-27)
+
+
+### Bug Fixes
+
+* minor improvements to styles in dashboard sidebar ([ac1978a](https://github.com/Nick-Mazuk/ui-svelte/commit/ac1978acef8fed08096fc63ccfcdc4849665160d))
+
 # [0.19.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.18.0...v0.19.0) (2021-06-27)
 
 
