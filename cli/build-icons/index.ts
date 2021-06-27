@@ -65,8 +65,9 @@ const createIconComponent = ({
     templateContents: string
 }) => {
     let contents = templateContents.replace(TEMPLATE_CONTENTS, svgContents)
-    if (fill) contents = contents.replace('fill="none"', 'fill="currentColor"')
-    if (!stroke) contents = contents.replace('stroke="currentColor"', 'stroke="none"')
+    if (fill) contents = contents.replace('export let fill = false', 'export let fill = true')
+    if (!stroke)
+        contents = contents.replace('export let stroke = true', 'export let stroke = false')
     fs.writeFileSync(`${OUTPUT_PATH}/${name}.svelte`, contents)
 }
 

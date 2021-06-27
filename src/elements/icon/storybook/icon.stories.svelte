@@ -53,6 +53,14 @@
                 name: 'align',
                 type: { name: 'string', required: false },
             },
+            fill: {
+                control: 'boolean',
+                defaultValue: false,
+            },
+            stroke: {
+                control: 'boolean',
+                defaultValue: true,
+            },
         },
     }
 </script>

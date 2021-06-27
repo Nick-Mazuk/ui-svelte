@@ -4,7 +4,7 @@
     import BottomNavItem from './bottom-nav-item.svelte'
 
     const meta = {
-        title: 'Components/Bottom Nav/BottomNavItem',
+        title: 'Components/BottomNav/BottomNavItem',
         component: BottomNavItem,
         parameters: {
             docs: {

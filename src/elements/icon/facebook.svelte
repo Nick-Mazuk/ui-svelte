@@ -6,6 +6,8 @@
     export let align: Align = 'default'
     export let title = ''
     export let flexNone = false
+    export let fill = true
+    export let stroke = false
 
     const ALIGN_MAP: Record<Align, string> = {
         top: 'vertical-align: text-top;',
@@ -22,11 +24,11 @@
     viewBox="0 0 24 24"
     width="{dimensions}"
     height="{dimensions}"
-    stroke="none"
+    stroke="{stroke ? 'currentColor' : 'none'}"
     stroke-width="{strokeWidth}"
     stroke-linecap="round"
     stroke-linejoin="round"
-    fill="currentColor"
+    fill="{fill ? 'currentColor' : 'none'}"
     shape-rendering="geometricPrecision"
     style="color: {parsedColor}; {ALIGN_MAP[align]}"
     class:flex-none="{flexNone}"
