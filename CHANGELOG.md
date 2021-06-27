@@ -1,3 +1,10 @@
+## [0.17.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.4...v0.17.5) (2021-06-27)
+
+
+### Bug Fixes
+
+* pressing arrow keys on focused list doesn't scroll page ([7b442c5](https://github.com/Nick-Mazuk/ui-svelte/commit/7b442c5b1d20479d2e72b484a0b4a126f00d4462))
+
 ## [0.17.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.3...v0.17.4) (2021-06-26)
 
 
