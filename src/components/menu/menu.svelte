@@ -28,7 +28,6 @@
     $: if (open && typeof document !== 'undefined') previousElement = document.activeElement
     $: if (!open && typeof document !== 'undefined' && previousElement instanceof HTMLElement)
         previousElement.focus()
-
 </script>
 
 <Popover placement="{placement}" transitionSpeed="none" bind:open>

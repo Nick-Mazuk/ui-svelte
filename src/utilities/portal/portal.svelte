@@ -19,7 +19,6 @@
     $: transform = center
         ? 'transform: translate3d(-50%, -50%, 10000px)'
         : `transform: translate3d(${x}px, ${y}px, 10000px);`
-
 </script>
 
 <Portal>

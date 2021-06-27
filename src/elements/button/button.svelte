@@ -128,7 +128,6 @@
         glue.includes('right') && !prefix ? FORM_SIZE_MAP[size].glue.right : '',
         glue.includes('right') && prefix ? FORM_SIZE_MAP[size].glue.rightPrefix : '',
     ].join(' ')
-
 </script>
 
 {#if href}

@@ -30,7 +30,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />

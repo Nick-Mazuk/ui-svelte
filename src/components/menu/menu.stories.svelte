@@ -60,7 +60,6 @@
             },
         },
     }
-
 </script>
 
 <Meta {...meta} />

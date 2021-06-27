@@ -5,7 +5,6 @@
     const compactStore = listContext?.compactStore
 
     $: compact = compactStore ? $compactStore : false
-
 </script>
 
 <span role="separator" class="border-t block" class:my-2="{!compact}"></span>
