@@ -1,6 +1,7 @@
 <script lang="ts">
     import { getContext } from 'svelte'
     import type { ListContext } from '..'
+
     const listContext = getContext<ListContext>('listContext')
     const compactStore = listContext?.compactStore
 

@@ -41,7 +41,7 @@
     onDestroy(() => {
         if (focusedItem && $focusedItem === key) focusedItem.set(undefined)
         if (selectedItem && $selectedItem === key) selectedItem.set(undefined)
-        if (itemKeys) itemKeys.update((current) => current.filter((item) => item != key))
+        if (itemKeys) itemKeys.update((current) => current.filter((item) => item !== key))
     })
 
     const VARIANT_MAP: Record<ListItemVariant, VariantClasses> = {

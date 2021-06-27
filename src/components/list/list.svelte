@@ -43,8 +43,8 @@
         const newKeys: string[] = []
         listItemElements.forEach((item) => {
             if (!(item instanceof HTMLElement)) return
-            const key = item.dataset.listItemKey
-            if (key) newKeys.push(key)
+            const itemKey = item.dataset.listItemKey
+            if (itemKey) newKeys.push(itemKey)
         })
         if (selected) selectedItem.set(key)
         itemKeys.set(newKeys)
