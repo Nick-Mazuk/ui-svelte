@@ -1,3 +1,18 @@
+# [0.18.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.6...v0.18.0) (2021-06-27)
+
+
+### Bug Fixes
+
+* improve preventDefault behavior for list keyboard shortcuts ([4de9174](https://github.com/Nick-Mazuk/ui-svelte/commit/4de917430feb3875bc0fdad629911c154d5fcf19))
+
+
+### Features
+
+* add bottom-navbar ([ad22088](https://github.com/Nick-Mazuk/ui-svelte/commit/ad22088f1ead0f8aa2deb489cf0562e655373f3d))
+* add fill/stroke options to icons ([4173874](https://github.com/Nick-Mazuk/ui-svelte/commit/4173874e1eb0d281628be7fa9132dcdf58fda5cf))
+* convert dashboard sidebar to use list component ([bd3f6d5](https://github.com/Nick-Mazuk/ui-svelte/commit/bd3f6d58dd700551f31a9070368d5278093acc8c))
+* move navigation components to "components" ([f676b0a](https://github.com/Nick-Mazuk/ui-svelte/commit/f676b0a84bba5f77a266edbc32e730e4668cb377))
+
 ## [0.17.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.5...v0.17.6) (2021-06-27)
 
 
