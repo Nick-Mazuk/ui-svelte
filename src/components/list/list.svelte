@@ -78,7 +78,7 @@
 
     const handleKeyDown: svelte.JSX.KeyboardEventHandler<HTMLDivElement | Window> = (event) => {
         const key = event.key
-        if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(key)) event.preventDefault()
+        let preventDefault = true
 
         if (key === 'ArrowDown') rotateFocusedItem(1)
         else if (key === 'ArrowUp') rotateFocusedItem(-1)
@@ -88,6 +88,9 @@
             selectedItem.set($focusedItem)
         else if (key === 'Enter' && $focusedItem && mode === 'singleSelect')
             selectedItem.set($focusedItem)
+        else preventDefault = false
+
+        if (preventDefault) event.preventDefault()
     }
 
     $: if (autofocus && containerElement) containerElement.focus()
