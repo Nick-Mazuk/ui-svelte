@@ -16,6 +16,7 @@
     export let suffixIcon: unknown = undefined
     export let focused = false
     export let selected = false
+    export let href = ''
 
     type VariantClasses = { default: string; focused: string; selected: string }
 
@@ -156,38 +157,90 @@
     $: if (selectedItem && $selectedItem === key) dispatch('activate')
 </script>
 
-<div
-    class="{containerClasses} group flex items-center"
-    tabindex="{tabIndex}"
-    data-list-item-key="{key}"
-    data-test="list-item"
-    data-focused="{focused}"
-    aria-selected="{ariaSelected}"
-    role="{role}"
-    on:focus="{handleFocus}"
-    on:mouseenter="{handleMouseEnter}"
-    on:click="{handleClick}"
-    on:click
->
-    {#if prefixIcon || $$slots.prefix}
-        <span class="{FORM_SIZE_MAP.default.affix.paddingPrefix} flex-none">
-            {#if prefixIcon}
-                <svelte:component this="{prefixIcon}" size="{FORM_SIZE_MAP.default.affix.icon}" />
-            {:else}
-                <slot name="prefix" />
-            {/if}
+{#if href}
+    <a
+        href="{href}"
+        sveltekit:prefetch
+        class="{containerClasses} group flex items-center"
+        tabindex="{tabIndex}"
+        data-list-item-key="{key}"
+        data-test="list-item"
+        data-focused="{focused}"
+        aria-selected="{ariaSelected}"
+        role="{role}"
+        on:focus="{handleFocus}"
+        on:mouseenter="{handleMouseEnter}"
+        on:click="{handleClick}"
+        on:click
+    >
+        {#if prefixIcon || $$slots.prefix}
+            <span class="{FORM_SIZE_MAP.default.affix.paddingPrefix} flex-none">
+                {#if prefixIcon}
+                    <svelte:component
+                        this="{prefixIcon}"
+                        size="{FORM_SIZE_MAP.default.affix.icon}"
+                    />
+                {:else}
+                    <slot name="prefix" />
+                {/if}
+            </span>
+        {/if}
+        <span class="w-full text-current">
+            <slot />
         </span>
-    {/if}
-    <span class="w-full text-current">
-        <slot />
-    </span>
-    {#if suffixIcon || $$slots.suffix}
-        <span class="{FORM_SIZE_MAP.default.affix.paddingSuffix} flex-none">
-            {#if suffixIcon}
-                <svelte:component this="{suffixIcon}" size="{FORM_SIZE_MAP.default.affix.icon}" />
-            {:else}
-                <slot name="suffix" />
-            {/if}
+        {#if suffixIcon || $$slots.suffix}
+            <span class="{FORM_SIZE_MAP.default.affix.paddingSuffix} flex-none">
+                {#if suffixIcon}
+                    <svelte:component
+                        this="{suffixIcon}"
+                        size="{FORM_SIZE_MAP.default.affix.icon}"
+                    />
+                {:else}
+                    <slot name="suffix" />
+                {/if}
+            </span>
+        {/if}
+    </a>
+{:else}
+    <div
+        class="{containerClasses} group flex items-center"
+        tabindex="{tabIndex}"
+        data-list-item-key="{key}"
+        data-test="list-item"
+        data-focused="{focused}"
+        aria-selected="{ariaSelected}"
+        role="{role}"
+        on:focus="{handleFocus}"
+        on:mouseenter="{handleMouseEnter}"
+        on:click="{handleClick}"
+        on:click
+    >
+        {#if prefixIcon || $$slots.prefix}
+            <span class="{FORM_SIZE_MAP.default.affix.paddingPrefix} flex-none">
+                {#if prefixIcon}
+                    <svelte:component
+                        this="{prefixIcon}"
+                        size="{FORM_SIZE_MAP.default.affix.icon}"
+                    />
+                {:else}
+                    <slot name="prefix" />
+                {/if}
+            </span>
+        {/if}
+        <span class="w-full text-current">
+            <slot />
         </span>
-    {/if}
-</div>
+        {#if suffixIcon || $$slots.suffix}
+            <span class="{FORM_SIZE_MAP.default.affix.paddingSuffix} flex-none">
+                {#if suffixIcon}
+                    <svelte:component
+                        this="{suffixIcon}"
+                        size="{FORM_SIZE_MAP.default.affix.icon}"
+                    />
+                {:else}
+                    <slot name="suffix" />
+                {/if}
+            </span>
+        {/if}
+    </div>
+{/if}
