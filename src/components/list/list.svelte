@@ -78,6 +78,8 @@
 
     const handleKeyDown: svelte.JSX.KeyboardEventHandler<HTMLDivElement | Window> = (event) => {
         const key = event.key
+        if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(key)) event.preventDefault()
+
         if (key === 'ArrowDown') rotateFocusedItem(1)
         else if (key === 'ArrowUp') rotateFocusedItem(-1)
         else if (key === 'Home') focusedItem.set($itemKeys[0])
@@ -107,7 +109,7 @@
     bind:this="{containerElement}"
     on:mouseleave="{() => focusedItem.set(undefined)}"
     on:focusout="{() => focusedItem.set(undefined)}"
-    on:keydown|preventDefault="{handleKeyDown}"
+    on:keydown="{handleKeyDown}"
 >
     <slot />
 </div>
