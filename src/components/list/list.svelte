@@ -107,7 +107,7 @@
     bind:this="{containerElement}"
     on:mouseleave="{() => focusedItem.set(undefined)}"
     on:focusout="{() => focusedItem.set(undefined)}"
-    on:keydown="{handleKeyDown}"
+    on:keydown|preventDefault="{handleKeyDown}"
 >
     <slot />
 </div>
