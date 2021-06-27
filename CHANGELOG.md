@@ -1,3 +1,10 @@
+## [0.17.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.5...v0.17.6) (2021-06-27)
+
+
+### Bug Fixes
+
+* with list, allow keyboard shortcuts to work ([4ec9c69](https://github.com/Nick-Mazuk/ui-svelte/commit/4ec9c6911fabcb4558ac87585a04c45b88aa5c5d))
+
 ## [0.17.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.4...v0.17.5) (2021-06-27)
 
 
