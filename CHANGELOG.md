@@ -1,3 +1,16 @@
+# [0.19.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.18.0...v0.19.0) (2021-06-27)
+
+
+### Bug Fixes
+
+* dashboard sidebar list-items are links ([18f0e8b](https://github.com/Nick-Mazuk/ui-svelte/commit/18f0e8bffc08b697a83882e2ab6c435b15b74179))
+* update dashboard sidebar design ([890215c](https://github.com/Nick-Mazuk/ui-svelte/commit/890215c12e1056c8ac02a1dc88180c02fc8b65f3))
+
+
+### Features
+
+* allow list items to be links ([553d3f8](https://github.com/Nick-Mazuk/ui-svelte/commit/553d3f846be0711ac415294395e51d495c06316b))
+
 # [0.18.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.17.6...v0.18.0) (2021-06-27)
 
 
