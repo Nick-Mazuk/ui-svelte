@@ -1,15 +1,12 @@
 <script lang="ts">
-    import type { SidebarItems } from '.'
+    import List from '../../../components/list/list.svelte'
     import Button from '../../../elements/button/button.svelte'
     import ChevronDown from '../../../elements/icon/chevron-down.svelte'
     import ChevronUp from '../../../elements/icon/chevron-up.svelte'
 
-    export let sidebarItems: SidebarItems
-    export let currentPage: string
     export let title: string
 
     let showSidebarItems = false
-
 </script>
 
 <div class="md:flex md:space-x-12">
@@ -25,19 +22,14 @@
             </Button>
         </div>
         <nav class="flex flex-col md:flex md:sticky md:top-16" class:hidden="{!showSidebarItems}">
-            {#each sidebarItems as item}
-                <a
-                    sveltekit:prefetch
-                    href="{item.href}"
-                    class="py-2"
-                    class:font-bold="{item.href === currentPage}"
-                    class:text-gray="{item.href !== currentPage}"
-                    data-test="dashbar-sidebar-item"
-                    on:click="{() => (showSidebarItems = false)}"
-                >
-                    {item.text}
-                </a>
-            {/each}
+            <List
+                ariaLabel="Sidebar"
+                mode="singleSelect"
+                shape="rounded"
+                on:change="{() => (showSidebarItems = false)}"
+            >
+                <slot name="items" />
+            </List>
         </nav>
     </aside>
     <main id="main-content" class="w-full"><slot /></main>
