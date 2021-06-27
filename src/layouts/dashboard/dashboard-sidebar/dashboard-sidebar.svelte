@@ -23,7 +23,11 @@
             <nav class="hidden flex-col md:flex md:sticky md:top-24">
                 <List ariaLabel="Sidebar" mode="singleSelect" shape="rounded">
                     {#each items as item}
-                        <ListItem prefixIcon="{item.icon}" selected="{page === item.href}">
+                        <ListItem
+                            prefixIcon="{item.icon}"
+                            selected="{page === item.href}"
+                            href="{item.href}"
+                        >
                             {item.value}
                         </ListItem>
                     {/each}
