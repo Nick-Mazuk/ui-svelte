@@ -1,3 +1,10 @@
+# [0.20.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.19.1...v0.20.0) (2021-06-28)
+
+
+### Features
+
+* add empty state component ([10577b8](https://github.com/Nick-Mazuk/ui-svelte/commit/10577b8ffc8ced22aedf12912417cd11d509ea2b))
+
 ## [0.19.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.19.0...v0.19.1) (2021-06-27)
 
 
