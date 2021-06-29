@@ -9,7 +9,7 @@
     import type { FormSync } from '../..'
     import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
 
-    type AspectRatio = '1x1' | '4x3' | '3x2' | '16x9'
+    type AspectRatio = '1x1' | '4x3' | '3x2' | '16x9' | '2x1'
 
     export let label = 'Image'
     let nameProp = ''
@@ -30,6 +30,7 @@
         '4x3': 'w-40',
         '3x2': 'w-48',
         '16x9': 'w-56',
+        '2x1': 'w-64',
     }
 
     let files: FileList | undefined
