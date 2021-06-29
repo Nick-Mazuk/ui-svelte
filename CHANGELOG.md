@@ -1,3 +1,10 @@
+## [0.20.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.20.0...v0.20.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* add 2x1 aspect ratio to image-input ([cb4abcb](https://github.com/Nick-Mazuk/ui-svelte/commit/cb4abcb5967f5d023223a7417755771094828426))
+
 # [0.20.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.19.1...v0.20.0) (2021-06-28)
 
 
