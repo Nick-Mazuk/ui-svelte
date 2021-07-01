@@ -5,7 +5,7 @@
     import Twitter from '../../../elements/icon/twitter.svelte'
     import Apple from '../../../elements/icon/apple.svelte'
     import Spacer from '../../../utilities/spacer/spacer.svelte'
-    import type { OauthDispatcher } from './types'
+    import type { OauthDispatcher } from '.'
     import { createEventDispatcher } from 'svelte'
 
     export let apple = false
