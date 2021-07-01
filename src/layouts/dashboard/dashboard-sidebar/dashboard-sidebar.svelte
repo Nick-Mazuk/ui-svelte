@@ -4,6 +4,8 @@
     import List from '../../../components/list/list.svelte'
     import Select from '../../../form/inputs/select/select.svelte'
 
+    import type { DashboardSidebarItem } from '.'
+
     export let title: string
     export let items: DashboardSidebarItem[] = []
     export let page: string

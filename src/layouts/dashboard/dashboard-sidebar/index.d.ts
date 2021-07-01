@@ -1,4 +1,4 @@
-type DashboardSidebarItem = {
+export type DashboardSidebarItem = {
     value: string
     href: string
     icon?: unknown
