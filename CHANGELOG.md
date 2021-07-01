@@ -1,3 +1,10 @@
+# [0.21.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.20.1...v0.21.0) (2021-07-01)
+
+
+### Features
+
+* add oauth component ([4c360d3](https://github.com/Nick-Mazuk/ui-svelte/commit/4c360d3db8eefb4ed3d0a8a4665f0f3d796d16fa))
+
 ## [0.20.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.20.0...v0.20.1) (2021-06-29)
 
 
