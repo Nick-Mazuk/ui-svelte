@@ -12,7 +12,7 @@
     export let links: Links = []
 </script>
 
-<div class="flex items-center !max-w-xl min-h-screen py-8 wrapper">
+<div class="flex items-center !max-w-lg min-h-screen py-8 wrapper">
     <main class="w-full" id="main-content">
         <div class="flex justify-around my-4">
             <a sveltekit:prefetch href="/" class="flex items-center space-x-2">
@@ -22,7 +22,7 @@
                 <span class="h5">{siteTitle}</span>
             </a>
         </div>
-        <Container padding="{12}">
+        <Container>
             <slot />
         </Container>
         {#if links.length > 0}
