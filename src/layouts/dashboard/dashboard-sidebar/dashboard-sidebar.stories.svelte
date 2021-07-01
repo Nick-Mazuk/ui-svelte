@@ -1,6 +1,5 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
-    import ListItem from '../../../components/list/list-item/list-item.svelte'
     import FileText from '../../../elements/icon/file-text.svelte'
     import Settings from '../../../elements/icon/settings.svelte'
     import User from '../../../elements/icon/user.svelte'
