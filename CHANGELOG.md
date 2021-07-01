@@ -1,3 +1,10 @@
+## [0.21.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.0...v0.21.1) (2021-07-01)
+
+
+### Bug Fixes
+
+* move oauth types to index.d.ts ([efb2459](https://github.com/Nick-Mazuk/ui-svelte/commit/efb24593bd716a407a9aebe95f11eb2dea5e9100))
+
 # [0.21.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.20.1...v0.21.0) (2021-07-01)
 
 
