@@ -1,3 +1,10 @@
+# [0.22.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.3...v0.22.0) (2021-07-03)
+
+
+### Features
+
+* add marketing icons ([efba2c4](https://github.com/Nick-Mazuk/ui-svelte/commit/efba2c4171250a36997dd4873041a8111af7e1d0))
+
 ## [0.21.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.2...v0.21.3) (2021-07-03)
 
 
