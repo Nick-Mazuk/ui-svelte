@@ -1,3 +1,10 @@
+## [0.21.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.2...v0.21.3) (2021-07-03)
+
+
+### Bug Fixes
+
+* give option to remove form-entity header ([80180df](https://github.com/Nick-Mazuk/ui-svelte/commit/80180df9879565d063f63dc6542405ca656a2db7))
+
 ## [0.21.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.1...v0.21.2) (2021-07-03)
 
 
