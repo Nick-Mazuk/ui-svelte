@@ -36,7 +36,7 @@
 </Story>
 <Story
     name="With logo"
-    args="{{ logo: 'http://placeimg.com/80/80/people' }}"
+    args="{{ logo: 'https://placeimg.com/80/80/people' }}"
     parameters="{{ layout: 'fullscreen' }}"
     let:args
 >
@@ -64,7 +64,7 @@
             { value: 'Terms', href: '#' },
             { value: 'Privacy', href: '#' },
         ],
-        logo: 'http://placeimg.com/80/80/people',
+        logo: 'https://placeimg.com/80/80/people',
     }}"
     parameters="{{ layout: 'fullscreen' }}"
     let:args

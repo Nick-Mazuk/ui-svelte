@@ -8,6 +8,13 @@
     import HeaderLink from './header-link/header-link.svelte'
     import HeaderMobileLink from './header-mobile-link/header-mobile-link.svelte'
     import Subheader from './subheader/subheader.svelte'
+    import HeaderDropdown from './header-dropdown/header-dropdown.svelte'
+    import List from '../list/list.svelte'
+    import ListItem from '../list/list-item/list-item.svelte'
+    import ListDivider from '../list/list-divider/list-divider.svelte'
+    import LogOut from '../../elements/icon/log-out.svelte'
+    import Settings from '../../elements/icon/settings.svelte'
+    import Layout from '../../elements/icon/layout.svelte'
 
     const meta = {
         title: 'Components/Header',
@@ -35,6 +42,8 @@
             },
         },
     }
+
+    let isOpen = false
 </script>
 
 <Meta {...meta} />
@@ -72,22 +81,64 @@
                 <HeaderMobileLink href="#">Contact</HeaderMobileLink>
             </svelte:fragment>
         </Header>
-        <div id="main-content" class="wrapper">
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+        <div id="main-content" class="wrapper grid gap-3 my-3">
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
         </div>
     </div>
 </Story>
+<Story name="Menu" args="{{ sticky: true }}" let:args parameters="{{ layout: 'fullscreen' }}">
+    <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
+        <Header {...args}>
+            <HeaderBrand text="UI Svelte" slot="left" />
+            <svelte:fragment slot="right">
+                <HeaderLink href="#">Docs</HeaderLink>
+                <HeaderLink href="#">About</HeaderLink>
+                <HeaderLink href="#">Contact</HeaderLink>
+                <HeaderDropdown bind:isOpen ariaLabel="Dropdown">
+                    <img
+                        src="https://placeimg.com/150/150/nature"
+                        alt=""
+                        class="rounded-full h-8 w-8"
+                        slot="trigger"
+                    />
+                    <List ariaLabel="list" autofocus on:change="{() => alert('hello')}">
+                        <ListItem prefixIcon="{Layout}">Dashboard</ListItem>
+                        <ListItem prefixIcon="{Settings}">Settings</ListItem>
+                        <ListDivider />
+                        <ListItem prefixIcon="{LogOut}">Sign out</ListItem>
+                    </List>
+                </HeaderDropdown>
+            </svelte:fragment>
+            <svelte:fragment slot="mobile">
+                <HeaderMobileLink href="#">Docs</HeaderMobileLink>
+                <HeaderMobileLink href="#">About</HeaderMobileLink>
+                <HeaderMobileLink href="#">Contact</HeaderMobileLink>
+            </svelte:fragment>
+        </Header>
+        <div id="main-content" class="wrapper grid gap-3 my-3">
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+        </div>
+    </div>
+</Story>
+
 <Story name="Sub header" args="{{ sticky: true }}" let:args parameters="{{ layout: 'fullscreen' }}">
     <div class="overflow-x-hidden overflow-y-scroll max-h-full fixed w-full">
         <Header {...args}>
-            <HeaderBrand text="UI Svelte" image="http://placeimg.com/150/150/nature" slot="left" />
+            <HeaderBrand text="UI Svelte" image="https://placeimg.com/150/150/nature" slot="left" />
             <svelte:fragment slot="right">
                 <HeaderLink href="#">Docs</HeaderLink>
                 <HeaderLink href="#">About</HeaderLink>
@@ -98,7 +149,7 @@
                 <HeaderMobileLink href="#">About</HeaderMobileLink>
                 <HeaderMobileLink href="#">Contact</HeaderMobileLink>
             </svelte:fragment>
-            <Subheader slot="subheader" image="http://placeimg.com/150/150/nature">
+            <Subheader slot="subheader" image="https://placeimg.com/150/150/nature">
                 <HeaderLink href="#">Overview</HeaderLink>
                 <HeaderLink href="#">Posts</HeaderLink>
                 <HeaderLink href="#">Activity</HeaderLink>
@@ -106,15 +157,15 @@
                 <HeaderLink href="#">Settings</HeaderLink>
             </Subheader>
         </Header>
-        <div id="main-content" class="wrapper">
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
-            <div class="h-32 rounded-lg my-4 bg-gray-200"></div>
+        <div id="main-content" class="wrapper grid gap-3 my-3">
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
+            <div class="h-32 rounded-lg bg-gray-200"></div>
         </div>
     </div>
 </Story>

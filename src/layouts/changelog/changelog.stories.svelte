@@ -54,7 +54,7 @@
                         definitely linked right here.
                     </p>`
     const image = {
-        src: 'http://placeimg.com/800/450/technics',
+        src: 'https://placeimg.com/800/450/technics',
     }
 
     const items = [

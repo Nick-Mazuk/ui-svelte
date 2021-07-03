@@ -6,29 +6,16 @@
     import Portal from '../../utilities/portal/portal.svelte'
     import { TRANSITION_SPEED_MAP } from '../../configs/transitions'
     import type { TransitionSpeed } from '../../configs/transitions'
-
-    type Placement =
-        | 'top'
-        | 'right'
-        | 'bottom'
-        | 'left'
-        | 'top-start'
-        | 'top-end'
-        | 'right-start'
-        | 'right-end'
-        | 'left-start'
-        | 'left-end'
-        | 'bottom-start'
-        | 'bottom-end'
+    import type { PopoverPlacement } from '.'
 
     export let overlay = false
     export let disabled = false
-    export let placement: Placement = 'right-start'
+    export let placement: PopoverPlacement = 'right-start'
     export let open = false
     export let transitionSpeed: TransitionSpeed = 'none'
 
     type GetPlacement = () => number
-    let PLACEMENT_MAP: Record<Placement, { x: GetPlacement; y: GetPlacement }>
+    let PLACEMENT_MAP: Record<PopoverPlacement, { x: GetPlacement; y: GetPlacement }>
 
     let triggerWidth = 0
     let triggerHeight = 0

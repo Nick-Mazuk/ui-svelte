@@ -49,16 +49,16 @@
 <Story name="Default" let:args>
     <HeaderBrand {...args} />
 </Story>
-<Story name="Image - square" args="{{ image: 'http://placeimg.com/150/150/nature' }}" let:args>
+<Story name="Image - square" args="{{ image: 'https://placeimg.com/150/150/nature' }}" let:args>
     <HeaderBrand {...args} />
 </Story>
-<Story name="Image - vertical" args="{{ image: 'http://placeimg.com/100/150/nature' }}" let:args>
+<Story name="Image - vertical" args="{{ image: 'https://placeimg.com/100/150/nature' }}" let:args>
     <HeaderBrand {...args} />
 </Story>
-<Story name="Image - horizontal" args="{{ image: 'http://placeimg.com/150/100/nature' }}" let:args>
+<Story name="Image - horizontal" args="{{ image: 'https://placeimg.com/150/100/nature' }}" let:args>
     <HeaderBrand {...args} />
 </Story>
-<Story name="Breakpoints" args="{{ image: 'http://placeimg.com/150/150/nature' }}" let:args>
+<Story name="Breakpoints" args="{{ image: 'https://placeimg.com/150/150/nature' }}" let:args>
     <div class="grid grid-flow-row gap-6">
         <HeaderBrand {...args} breakpoint="none" text="breakpoint='none'" />
         <HeaderBrand {...args} breakpoint="sm" text="breakpoint='sm'" />

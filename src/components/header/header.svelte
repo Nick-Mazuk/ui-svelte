@@ -52,7 +52,7 @@
                     : 'opacity-100'}"
             ></div>
         {/if}
-        <nav class="flex wrapper space-x-4 h-16 {fullWidth ? '!max-w-none' : ''}">
+        <nav class="relative flex wrapper space-x-4 h-16 {fullWidth ? '!max-w-none' : ''}">
             <div class="flex space-x-4 w-full">
                 <slot name="left" />
             </div>

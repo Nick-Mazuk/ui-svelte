@@ -25,7 +25,7 @@
             image: {
                 control: 'object',
                 defaultValue: {
-                    src: 'http://placeimg.com/800/450/technics',
+                    src: 'https://placeimg.com/800/450/technics',
                 },
             },
             content: {
