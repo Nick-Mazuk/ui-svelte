@@ -1,3 +1,10 @@
+# [0.23.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.22.0...v0.23.0) (2021-07-03)
+
+
+### Features
+
+* add header-dropdown ([67a4e74](https://github.com/Nick-Mazuk/ui-svelte/commit/67a4e741be5a49ac4863ea3254330120aac28bf1))
+
 # [0.22.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.3...v0.22.0) (2021-07-03)
 
 
