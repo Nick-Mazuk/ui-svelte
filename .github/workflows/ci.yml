@@ -13,7 +13,7 @@ jobs:
         node: [12, 14]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
+      - uses: actions/setup-node@v2.2.0
         with:
           node-version: ${{ matrix.node }}
       - name: Cache ~/.pnpm-store
@@ -34,7 +34,7 @@ jobs:
           - chrome
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
+      - uses: actions/setup-node@v2.2.0
         with:
           node-version: 14
       - name: Cache ~/.pnpm-store
