@@ -18,7 +18,7 @@
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
-    let handleSubmitInput: HandleSubmit
+    let handleSubmitInput: HandleSubmit = undefined
     export { handleSubmitInput as handleSubmit }
     export let resetOnSubmit = false
     export let allowOffline = false
