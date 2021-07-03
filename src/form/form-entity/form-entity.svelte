@@ -15,6 +15,7 @@
     export let title: string
     export let description = ''
     export let descriptionLink: DescriptionLink | undefined = undefined
+    export let hideHeader = false
     export let primaryAction = 'Save'
     export let primaryActionSubmit = true
     export let secondaryAction = ''
@@ -82,31 +83,38 @@
         on:success
     >
         <Container class="rounded-none -m-px">
-            <div class="flex items-start justify-between">
-                <div>
-                    <h3 class="h6" id="{slugify(title)}-form-title">{title}</h3>
-                </div>
-                {#if $$slots['extra-actions']}
-                    <div class="relative flex space-x-3">
-                        <slot name="extra-actions" />
+            {#if !hideHeader}
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="h6" id="{slugify(title)}-form-title">{title}</h3>
                     </div>
-                {/if}
-            </div>
-            {#if description}
-                <p
-                    class:mt-3="{!$$slots['extra-actions']}"
-                    class:mt-2="{$$slots['extra-actions']}"
-                    id="{slugify(title)}-form-description"
-                >
-                    {description}
-                    {#if descriptionLink}
-                        <a sveltekit:prefetch href="{descriptionLink.href}" class="link">
-                            {descriptionLink.value}&nbsp;→
-                        </a>
+                    {#if $$slots['extra-actions']}
+                        <div class="relative flex space-x-3">
+                            <slot name="extra-actions" />
+                        </div>
                     {/if}
-                </p>
+                </div>
+                {#if description}
+                    <p
+                        class:mt-3="{!$$slots['extra-actions']}"
+                        class:mt-2="{$$slots['extra-actions']}"
+                        id="{slugify(title)}-form-description"
+                    >
+                        {description}
+                        {#if descriptionLink}
+                            <a sveltekit:prefetch href="{descriptionLink.href}" class="link">
+                                {descriptionLink.value}&nbsp;→
+                            </a>
+                        {/if}
+                    </p>
+                {/if}
             {/if}
-            <div class="pt-3 border-t mt-3 form-layout">
+            <div
+                class="form-layout"
+                class:pt-3="{!hideHeader}"
+                class:mt-3="{!hideHeader}"
+                class:border-t="{!hideHeader}"
+            >
                 <slot />
             </div>
         </Container>

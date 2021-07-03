@@ -31,6 +31,12 @@
             descriptionLink: {
                 control: 'object',
             },
+            hideHeader: {
+                control: 'boolean',
+                defaultValue: false,
+                description:
+                    'This will hide the header, including the title, description, and extra actions. Use sparingly. This should only be used if the context for the form is explained elsewhere.',
+            },
             primaryAction: {
                 control: 'text',
                 defaultValue: 'Save',
