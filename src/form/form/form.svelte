@@ -18,8 +18,7 @@
 
     export let method: FormMethod = undefined
     export let action: string | undefined = undefined
-    let handleSubmitInput: HandleSubmit = undefined
-    export { handleSubmitInput as handleSubmit }
+    export let handleSubmit: HandleSubmit = undefined
     export let resetOnSubmit = false
     export let allowOffline = false
 
@@ -68,8 +67,8 @@
         let success = false
         let errorDetails: FormOnErrorDetail = { data: formData }
 
-        if (handleSubmitInput) {
-            const response = await handleSubmitInput(formData)
+        if (handleSubmit) {
+            const response = await handleSubmit(formData)
             success = response === true
             if (!success) {
                 if (typeof response === 'boolean') errorDetails = { data: formData }
@@ -106,14 +105,14 @@
         }
     }
 
-    const handleSubmit: svelte.JSX.FormEventHandler<HTMLFormElement> = () => {
+    const handleSubmitEvent: svelte.JSX.FormEventHandler<HTMLFormElement> = () => {
         const inputs = Object.keys(formInputs)
         let isValid = true
         inputs.forEach((input) => {
             if (!formInputs[input].validate()) isValid = false
         })
         if (!isValid) return
-        if (!(method && action) && !handleSubmitInput) return
+        if (!(method && action) && !handleSubmit) return
         submit()
     }
     $: dispatch('stateChange', $formState)
@@ -126,6 +125,6 @@
     }
 </script>
 
-<form bind:this="{formElement}" on:submit|preventDefault="{handleSubmit}" novalidate>
+<form bind:this="{formElement}" on:submit|preventDefault="{handleSubmitEvent}" novalidate>
     <slot />
 </form>

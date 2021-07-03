@@ -24,6 +24,9 @@
         })
     }
 
+    if (typeof window !== 'undefined')
+        window.addEventListener('sveltekit:navigation-end', () => (isOpen = false))
+
     $: style = align === 'full' ? '' : `width: ${width * 4}px; max-width: 100vw;`
 </script>
 
