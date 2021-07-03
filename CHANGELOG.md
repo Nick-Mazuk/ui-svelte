@@ -1,3 +1,10 @@
+## [0.21.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.1...v0.21.2) (2021-07-03)
+
+
+### Bug Fixes
+
+* make handleSubmit optional on form input ([d3b6fb3](https://github.com/Nick-Mazuk/ui-svelte/commit/d3b6fb3dda6228a3c9ecdd2d412f5e884a461a3e))
+
 ## [0.21.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.21.0...v0.21.1) (2021-07-01)
 
 
