@@ -1,3 +1,10 @@
+# [0.24.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.23.1...v0.24.0) (2021-07-04)
+
+
+### Features
+
+* add more marketting icons ([edf3eac](https://github.com/Nick-Mazuk/ui-svelte/commit/edf3eacbee8b8b5c9f5e9a88003b8a5304802825))
+
 ## [0.23.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.23.0...v0.23.1) (2021-07-04)
 
 
