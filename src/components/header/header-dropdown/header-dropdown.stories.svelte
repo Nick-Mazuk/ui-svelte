@@ -39,6 +39,15 @@
                 control: 'text',
                 defaultValue: 'Dropdown',
             },
+            breakpoint: {
+                control: {
+                    type: 'radio',
+                    options: ['sm', 'md', 'none'],
+                },
+                defaultValue: 'sm',
+                description:
+                    'Only shows the contents above the breakpoint. Equivalent to using responsive utilities in Tailwind.',
+            },
         },
     }
 </script>

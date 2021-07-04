@@ -2,6 +2,7 @@
     import { fly, fade } from 'svelte/transition'
 
     import { TRANSITION_SPEED_MAP } from '../../../configs/transitions'
+    import type { HeaderItemBreakpoint } from '../header-item-wrapper'
     import HeaderItemWrapper from '../header-item-wrapper/header-item-wrapper.svelte'
 
     type Align = 'left' | 'right' | 'full'
@@ -10,6 +11,7 @@
     export let width = 48
     export let isOpen = false
     export let ariaLabel: string
+    export let breakpoint: HeaderItemBreakpoint = 'sm'
 
     let isFocusLeaving = false
 
@@ -30,7 +32,7 @@
     $: style = align === 'full' ? '' : `width: ${width * 4}px; max-width: 100vw;`
 </script>
 
-<HeaderItemWrapper>
+<HeaderItemWrapper breakpoint="{breakpoint}">
     <div
         class="h-full flex items-stretch group"
         class:relative="{align !== 'full'}"
