@@ -49,11 +49,11 @@
         const { message, status } = event.detail
         if (typeof error === 'string' && error !== '') {
             shownErrorMessage = error
+        } else if (message) {
+            shownErrorMessage = message
         } else if (Object.keys(defaultErrorMessages).includes(String(status))) {
             const selectedError = errorMessages[status as keyof ErrorMessages]
             shownErrorMessage = selectedError ? selectedError : errorMessages.default
-        } else if (message) {
-            shownErrorMessage = message
         } else {
             shownErrorMessage = errorMessages.default
         }
