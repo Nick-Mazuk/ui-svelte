@@ -1,3 +1,10 @@
+## [0.24.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.0...v0.24.1) (2021-07-04)
+
+
+### Bug Fixes
+
+* fix files-text marketing icon color ([eb92b1f](https://github.com/Nick-Mazuk/ui-svelte/commit/eb92b1fb03ea55effe9abc89a3daa289c0fd7cb8))
+
 # [0.24.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.23.1...v0.24.0) (2021-07-04)
 
 
