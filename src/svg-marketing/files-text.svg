@@ -8,6 +8,7 @@
     class="{classProp}"
 >
     <path
+        fill="currentColor"
         d="M352,96L352,0L152,0C138.834,0 128,10.834 128,24L128,392C128,405.166 138.834,416 152,416L424,416C437.166,416 448,405.166 448,392L448,96L352,96Z"
         style="color: {VARIANT_MAP[variant].light}"
     />
