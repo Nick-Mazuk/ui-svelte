@@ -1,3 +1,10 @@
+## [0.23.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.23.0...v0.23.1) (2021-07-04)
+
+
+### Bug Fixes
+
+* header-dropdown should have a breakpoint ([ace90ab](https://github.com/Nick-Mazuk/ui-svelte/commit/ace90ab01c3c014d2527ab054f2d8040d52873da))
+
 # [0.23.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.22.0...v0.23.0) (2021-07-03)
 
 
