@@ -1,3 +1,10 @@
+## [0.24.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.1...v0.24.2) (2021-07-04)
+
+
+### Bug Fixes
+
+* errors with message will correctly display message for form-entity ([3b5653f](https://github.com/Nick-Mazuk/ui-svelte/commit/3b5653fc6cf80c357dbc64c7b7c037304033f12a))
+
 ## [0.24.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.0...v0.24.1) (2021-07-04)
 
 
