@@ -10,6 +10,7 @@
     import InputFeedbackSection from '../text-input/_input-feedback-section.svelte'
 
     type AspectRatio = '1x1' | '4x3' | '3x2' | '16x9' | '2x1'
+    type Variant = 'default' | 'full' | 'nopreview'
 
     export let label = 'Image'
     let nameProp = ''
@@ -22,15 +23,39 @@
     export let disabled = false
     export let optional = false
     export let hideOptionalLabel = false
-    export let hidePreview = false
     export let requiredMessage = 'Select an image to upload'
+    export let variant: Variant = 'default'
 
-    const RATIO_MAP: Record<AspectRatio, string> = {
-        '1x1': 'w-32',
-        '4x3': 'w-40',
-        '3x2': 'w-48',
-        '16x9': 'w-56',
-        '2x1': 'w-64',
+    type RatioStyle = {
+        width: string
+        ratio: string
+    }
+    const RATIO_MAP: Record<AspectRatio, RatioStyle> = {
+        '1x1': { width: 'w-32', ratio: 'aspect-w-1 aspect-h-1' },
+        '4x3': { width: 'w-40', ratio: 'aspect-w-4 aspect-h-3' },
+        '3x2': { width: 'w-48', ratio: 'aspect-w-3 aspect-h-2' },
+        '16x9': { width: 'w-56', ratio: 'aspect-w-16 aspect-h-9' },
+        '2x1': { width: 'w-64', ratio: 'aspect-w-2 aspect-h-1' },
+    }
+
+    type VariantStyle = {
+        preview: string
+        dropzone: string
+    }
+    let VARIANT_MAP: Record<Variant, VariantStyle>
+    $: VARIANT_MAP = {
+        default: {
+            preview: `hidden sm:block relative flex-none ${RATIO_MAP[aspectRatio].width} h-32`,
+            dropzone: 'flex flex-col w-full justify-center items-center py-4 px-2 h-32',
+        },
+        nopreview: {
+            preview: `hidden`,
+            dropzone: 'flex flex-col w-full justify-center items-center py-4 px-2 h-32',
+        },
+        full: {
+            preview: `w-full ${RATIO_MAP[aspectRatio].ratio}`,
+            dropzone: 'hidden',
+        },
     }
 
     let files: FileList | undefined
@@ -93,8 +118,8 @@
         class:input-wrapper-error="{isInvalidState}"
     >
         <div class="flex flex-col sm:flex-row">
-            {#if !hidePreview}
-                <div class="hidden sm:block relative flex-none {RATIO_MAP[aspectRatio]} h-32">
+            {#if variant !== 'nopreview'}
+                <div class="{VARIANT_MAP[variant].preview}">
                     {#if typeof previewBlob === 'string'}
                         <img
                             src="{previewBlob}"
@@ -114,7 +139,7 @@
                     {/if}
                 </div>
             {/if}
-            <div class="flex flex-col w-full justify-center items-center py-4 px-2 h-32">
+            <div class="{VARIANT_MAP[variant].dropzone}">
                 <Upload size="{6}" />
                 <p class="font-semibold">Choose an image…</p>
             </div>

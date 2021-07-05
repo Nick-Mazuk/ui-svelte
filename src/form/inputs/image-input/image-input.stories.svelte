@@ -50,12 +50,16 @@
             aspectRatio: {
                 control: {
                     type: 'select',
-                    options: ['1x1', '4x3', '3x2', '16x9'],
+                    options: ['1x1', '4x3', '3x2', '16x9', '2x1'],
                 },
                 defaultValue: '3x2',
             },
-            hidePreview: {
-                control: 'boolean',
+            variant: {
+                control: {
+                    type: 'inline-radio',
+                    options: ['default', 'nopreview', 'full'],
+                },
+                defaultValue: 'full',
             },
         },
     }
