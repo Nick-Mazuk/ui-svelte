@@ -5,7 +5,7 @@
     import TabItem from './tab-item.svelte'
 
     const meta = {
-        title: 'Navigation/Tabs/TabItem',
+        title: 'Components/Tabs/TabItem',
         component: TabItem,
         parameters: {
             docs: {
