@@ -1,3 +1,10 @@
+## [0.24.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.2...v0.24.3) (2021-07-05)
+
+
+### Bug Fixes
+
+* add new icons ([526c2b2](https://github.com/Nick-Mazuk/ui-svelte/commit/526c2b2d587b584237cf8758d65aff7a619a056e))
+
 ## [0.24.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.1...v0.24.2) (2021-07-04)
 
 
