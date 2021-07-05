@@ -6,7 +6,7 @@
     import Tabs from './tabs.svelte'
 
     const meta = {
-        title: 'Navigation/Tabs',
+        title: 'Components/Tabs',
         component: Tabs,
         parameters: {
             docs: {

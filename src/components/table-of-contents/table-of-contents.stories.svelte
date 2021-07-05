@@ -4,7 +4,7 @@
     import TableOfContents from './table-of-contents.svelte'
 
     const meta = {
-        title: 'Navigation/TableOfContents',
+        title: 'Components/TableOfContents',
         component: TableOfContents,
         parameters: {
             docs: {
