@@ -1,3 +1,10 @@
+## [0.24.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.3...v0.24.4) (2021-07-05)
+
+
+### Bug Fixes
+
+* add more style options to image-input ([9cf05f4](https://github.com/Nick-Mazuk/ui-svelte/commit/9cf05f4115878da30d923f649583fc42589f8728))
+
 ## [0.24.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.2...v0.24.3) (2021-07-05)
 
 
