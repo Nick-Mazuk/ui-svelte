@@ -1,3 +1,10 @@
+# [0.25.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.4...v0.25.0) (2021-07-06)
+
+
+### Features
+
+* allow custom buttons for submit component ([40b966f](https://github.com/Nick-Mazuk/ui-svelte/commit/40b966fd11a65f05cba90d1cef5f29b8163f98c6))
+
 ## [0.24.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.3...v0.24.4) (2021-07-05)
 
 
