@@ -53,6 +53,7 @@
             shownErrorMessage = errorMessages.default
         }
     }
+    $: isLoading = state && $state === 'submitting'
 </script>
 
 <div class="flex items-baseline justify-end space-x-6" data-test="submit">
@@ -69,12 +70,11 @@
             </div>
         {/if}
     {/if}
-    <div class="flex-none">
-        <Button
-            submit
-            loading="{state && $state === 'submitting'}"
-            prefix="{prefix}"
-            suffix="{suffix}">{value}</Button
-        >
+    <div class="flex-none flex space-x-3">
+        <slot isLoading="{isLoading}">
+            <Button submit loading="{isLoading}" prefix="{prefix}" suffix="{suffix}">
+                {value}
+            </Button>
+        </slot>
     </div>
 </div>

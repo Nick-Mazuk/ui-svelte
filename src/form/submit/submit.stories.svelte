@@ -4,6 +4,7 @@
     import Send from '../../elements/icon/send.svelte'
     import Submit from './submit.svelte'
     import { FORM_FEEDBACK } from '../form-feedback'
+    import Button from '../../elements/button/button.svelte'
 
     const meta = {
         title: 'Form/Submit',
@@ -113,6 +114,17 @@
         </Form>
         <Form handleSubmit="{() => Promise.resolve({ status: 500 })}">
             <Submit {...args} value="500: internal" />
+        </Form>
+    </div>
+</Story>
+
+<Story name="Custom buttons" let:args>
+    <div class="grid gap-4">
+        <Form handleSubmit="{handleSubmitTimeout}">
+            <Submit {...args} value="Default error" let:isLoading>
+                <Button variant="secondary" loading="{isLoading}" submit>Cancel</Button>
+                <Button variant="error" loading="{isLoading}" submit>Delete</Button>
+            </Submit>
         </Form>
     </div>
 </Story>
