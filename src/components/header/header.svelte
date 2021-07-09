@@ -62,7 +62,7 @@
             <div class="flex space-x-4 ml-auto justify-end w-full">
                 <slot name="right" />
                 {#if $$slots.mobile}
-                    <div class="flex items-center pr-1 sm:hidden">
+                    <div class="flex flex-none items-center pr-1 sm:hidden">
                         <Button
                             ariaLabel="{mobileOpen ? 'Close menu' : 'Open menu'}"
                             variant="static"
