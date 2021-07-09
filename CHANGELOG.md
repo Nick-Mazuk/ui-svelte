@@ -1,3 +1,10 @@
+## [0.25.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.25.0...v0.25.1) (2021-07-09)
+
+
+### Bug Fixes
+
+* header hamburger will not squish ([e50448c](https://github.com/Nick-Mazuk/ui-svelte/commit/e50448ce71beacf5428e7d6a020dd449c1f52986))
+
 # [0.25.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.24.4...v0.25.0) (2021-07-06)
 
 
