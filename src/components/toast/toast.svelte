@@ -3,7 +3,9 @@
 
     import ToastItem from './_toast-item.svelte'
 
-    let toasts: number[] = [0, 1, 2]
+    type Toast = number
+
+    let toasts: Toast[] = [0, 1, 2]
     let isHovered = false
 </script>
 
@@ -16,11 +18,7 @@
     on:mouseleave="{() => (isHovered = false)}"
 >
     {#each toasts as _, index}
-        <ToastItem
-            index="{toasts.length - 1 - index}"
-            isGroupHovered="{isHovered}"
-            isLast="{index === toasts.length - 1}"
-        >
+        <ToastItem index="{toasts.length - 1 - index}" isGroupHovered="{isHovered}">
             {'The rabbit. '.repeat(index)}
         </ToastItem>
     {/each}

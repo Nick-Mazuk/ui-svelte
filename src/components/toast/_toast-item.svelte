@@ -1,20 +1,47 @@
+<script lang="ts" context="module">
+    type Heights = { key: number; height: number }[]
+    let heights = writable<Heights>([])
+    let counter = 0
+</script>
+
 <script lang="ts">
+    import { onDestroy, onMount } from 'svelte'
+    import { writable } from 'svelte/store'
+
     import { fly } from 'svelte/transition'
 
     import { TRANSITION_SPEED_MAP } from '../../configs/transitions'
 
     export let index: number
     export let isGroupHovered: boolean
-    export let isLast: boolean
 
     const transitionSpeed = TRANSITION_SPEED_MAP.larger.in
     const transitionSpeedStyle = transitionSpeed / 1000
     const gap = 12
     const maxToasts = 3
+    const key = counter++
     let height = 0
 
+    let stackedOffset = 0
+    $: {
+        stackedOffset = 0
+        $heights.forEach((item) => {
+            if (item.key > key) {
+                stackedOffset += item.height
+                stackedOffset += gap
+            }
+        })
+    }
     $: scale = isGroupHovered ? 1 : 1 - index * 0.05
-    $: translateY = isGroupHovered ? (height + gap) * index : gap * index
+    $: translateY = isGroupHovered ? stackedOffset : gap * index
+
+    onMount(() => {
+        heights.update((previous) => [...previous, { key, height }])
+    })
+
+    onDestroy(() => {
+        heights.update((previous) => previous.filter((item) => item.key !== key))
+    })
 </script>
 
 <div
