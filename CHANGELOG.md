@@ -1,3 +1,12 @@
+# [0.26.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.25.1...v0.26.0) (2021-07-11)
+
+
+### Features
+
+* add accordion component ([a5deba6](https://github.com/Nick-Mazuk/ui-svelte/commit/a5deba6503ef0232b001b89e60d22de7d836b524))
+* add accordion-group component ([e85c90d](https://github.com/Nick-Mazuk/ui-svelte/commit/e85c90dd63f9231ce57b315724cdcce83a3b5dac))
+* add toast component ([d2b2c02](https://github.com/Nick-Mazuk/ui-svelte/commit/d2b2c028e09a6a7d5274208d56c88fc780953ca0))
+
 ## [0.25.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.25.0...v0.25.1) (2021-07-09)
 
 
