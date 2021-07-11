@@ -1,25 +1,29 @@
 <script lang="ts" context="module">
     type Heights = { key: number; height: number }[]
     let heights = writable<Heights>([])
-    let counter = 0
+    let counter = writable(0)
 </script>
 
 <script lang="ts">
-    import { onDestroy, onMount } from 'svelte'
+    import { onDestroy, onMount, tick } from 'svelte'
     import { writable } from 'svelte/store'
-
-    import { fly } from 'svelte/transition'
 
     import { TRANSITION_SPEED_MAP } from '../../configs/transitions'
 
     export let index: number
     export let isGroupHovered: boolean
 
-    const transitionSpeed = TRANSITION_SPEED_MAP.larger.in
+    const getKey = () => {
+        counter.update((previous) => (previous += 1))
+        return $counter
+    }
+
+    const transitionSpeed = TRANSITION_SPEED_MAP.larger.default
     const transitionSpeedStyle = transitionSpeed / 1000
     const gap = 12
     const maxToasts = 3
-    const key = counter++
+    const key = getKey()
+    let isEntering = true
     let height = 0
 
     let stackedOffset = 0
@@ -33,10 +37,20 @@
         })
     }
     $: scale = isGroupHovered ? 1 : 1 - index * 0.05
-    $: translateY = isGroupHovered ? stackedOffset : gap * index
+    let restingOffset = 0
+    $: {
+        if (index === 0) restingOffset = 0
+        else if (!$heights.slice(-1)[0]) restingOffset = gap * index
+        else restingOffset = $heights.slice(-1)[0].height - height + gap * index
+    }
+    $: translateY = isGroupHovered ? stackedOffset : restingOffset
+    $: translateZ = index + 1
+    $: opacity = index > maxToasts - 1 ? 0 : 1
+    $: if ($counter !== key) isEntering = false
 
-    onMount(() => {
+    onMount(async () => {
         heights.update((previous) => [...previous, { key, height }])
+        await tick()
     })
 
     onDestroy(() => {
@@ -47,12 +61,8 @@
 <div
     class="bg-background shadow-lg p-6 rounded-lg w-full max-w-screen border absolute bottom-0"
     class:pointer-events-none="{index > maxToasts - 1}"
-    style="transform: translate3d(0, calc(-{translateY}px), -{index +
-        1}px) scale({scale}); opacity: {index > maxToasts - 1
-        ? 0
-        : 1}; transition: opacity {transitionSpeedStyle}s, transform {transitionSpeedStyle}s;"
+    style="transform: translate3d(0, calc(-{translateY}px), -{translateZ}px) scale({scale}); opacity: {opacity}; transition: opacity {transitionSpeedStyle}s, transform {transitionSpeedStyle}s;"
     bind:offsetHeight="{height}"
-    in:fly="{{ duration: transitionSpeed, y: 64, opacity: 0.5 }}"
 >
     <slot />
 </div>
