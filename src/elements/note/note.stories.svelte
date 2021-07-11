@@ -51,7 +51,3 @@
     <Note {...args} variant="highlight">variant: highlight</Note>
     <Spacer />
 </Story>
-
-<Story name="With action" args="{{ variant: 'error' }}" let:args>
-    <Note {...args}>Renders with the error component when the variant is error.</Note>
-</Story>
