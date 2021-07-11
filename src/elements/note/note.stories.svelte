@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Meta, Story } from '@storybook/addon-svelte-csf'
+    import Spacer from '../../utilities/spacer/spacer.svelte'
 
     import Note from './note.svelte'
 
@@ -34,6 +35,23 @@
     <Note {...args}>This is a note. It contains information.</Note>
 </Story>
 
-<Story name="Error" args="{{ variant: 'error' }}" let:args>
+<Story name="Variants" args="{{ variant: 'error' }}" let:args>
+    <Note {...args} variant="gray">variant: gray</Note>
+    <Spacer />
+    <Note {...args} variant="primary">variant: primary</Note>
+    <Spacer />
+    <Note {...args} variant="error">
+        Renders with the error component when the variant is error.
+    </Note>
+    <Spacer />
+    <Note {...args} variant="success">variant: success</Note>
+    <Spacer />
+    <Note {...args} variant="warning">variant: warning</Note>
+    <Spacer />
+    <Note {...args} variant="highlight">variant: highlight</Note>
+    <Spacer />
+</Story>
+
+<Story name="With action" args="{{ variant: 'error' }}" let:args>
     <Note {...args}>Renders with the error component when the variant is error.</Note>
 </Story>
