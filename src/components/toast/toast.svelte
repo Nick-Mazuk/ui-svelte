@@ -10,17 +10,18 @@
 <div class="h-screen w-screen flex items-center justify-center">
     <Button on:click="{() => (toasts = [...toasts, toasts.length])}">Add toast item</Button>
 </div>
-
 <div
-    class="absolute bottom-6 wrapper !max-w-full flex justify-end"
+    class="fixed bottom-6 right-6 w-[32rem] !max-w-full"
     on:mouseenter="{() => (isHovered = true)}"
     on:mouseleave="{() => (isHovered = false)}"
 >
-    <div class="relative w-[32rem] max-w-full h-full">
-        {#each toasts as _, index}
-            <ToastItem index="{toasts.length - 1 - index}" isGroupHovered="{isHovered}">
-                The Evil Rabbit jumped over the fence.
-            </ToastItem>
-        {/each}
-    </div>
+    {#each toasts as _, index}
+        <ToastItem
+            index="{toasts.length - 1 - index}"
+            isGroupHovered="{isHovered}"
+            isLast="{index === toasts.length - 1}"
+        >
+            {'The rabbit. '.repeat(index)}
+        </ToastItem>
+    {/each}
 </div>
