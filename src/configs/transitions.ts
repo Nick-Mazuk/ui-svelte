@@ -1,4 +1,4 @@
-export type TransitionSpeed = 'none' | 'small' | 'medium' | 'large'
+export type TransitionSpeed = 'none' | 'small' | 'medium' | 'large' | 'larger'
 
 export const TRANSITION_SPEED_MAP: Record<
     TransitionSpeed,
@@ -23,5 +23,10 @@ export const TRANSITION_SPEED_MAP: Record<
         in: 300,
         out: 225,
         default: 300,
+    },
+    larger: {
+        in: 500,
+        out: 425,
+        default: 500,
     },
 })
