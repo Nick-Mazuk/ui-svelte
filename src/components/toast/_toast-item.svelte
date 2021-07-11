@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
     type Heights = { key: number; height: number }[]
     let heights = writable<Heights>([])
-    let counter = writable(0)
+    let counter = 0
 </script>
 
 <script lang="ts">
@@ -13,16 +13,11 @@
     export let index: number
     export let isGroupHovered: boolean
 
-    const getKey = () => {
-        counter.update((previous) => (previous += 1))
-        return $counter
-    }
-
     const transitionSpeed = TRANSITION_SPEED_MAP.larger.default
     const transitionSpeedStyle = transitionSpeed / 1000
     const gap = 12
     const maxToasts = 3
-    const key = getKey()
+    const key = counter++
     let isEntering = true
     let height = 0
 
@@ -43,14 +38,22 @@
         else if (!$heights.slice(-1)[0]) restingOffset = gap * index
         else restingOffset = $heights.slice(-1)[0].height - height + gap * index
     }
-    $: translateY = isGroupHovered ? stackedOffset : restingOffset
+    let translateY: number
+    $: {
+        if (isEntering) translateY = 96
+        else translateY = -1 * (isGroupHovered ? stackedOffset : restingOffset)
+    }
     $: translateZ = index + 1
-    $: opacity = index > maxToasts - 1 ? 0 : 1
-    $: if ($counter !== key) isEntering = false
+    let opacity: number
+    $: {
+        if (isEntering) opacity = 0
+        else opacity = index > maxToasts - 1 ? 0 : 1
+    }
 
     onMount(async () => {
         heights.update((previous) => [...previous, { key, height }])
         await tick()
+        isEntering = false
     })
 
     onDestroy(() => {
@@ -61,7 +64,7 @@
 <div
     class="bg-background shadow-lg p-6 rounded-lg w-full max-w-screen border absolute bottom-0"
     class:pointer-events-none="{index > maxToasts - 1}"
-    style="transform: translate3d(0, calc(-{translateY}px), -{translateZ}px) scale({scale}); opacity: {opacity}; transition: opacity {transitionSpeedStyle}s, transform {transitionSpeedStyle}s;"
+    style="transform: translate3d(0, calc({translateY}px), -{translateZ}px) scale({scale}); opacity: {opacity}; transition: opacity {transitionSpeedStyle}s, transform {transitionSpeedStyle}s;"
     bind:offsetHeight="{height}"
 >
     <slot />
@@ -75,6 +78,5 @@
         right: 0;
         top: 100%;
         height: 100vh;
-        pointer-events: inherit;
     }
 </style>
