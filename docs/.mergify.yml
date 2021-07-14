@@ -1,0 +1,25 @@
+pull_request_rules:
+    - name: Merge my PRs
+      conditions:
+          - author=Nick-Mazuk
+          - base=main
+          - check-success=test-push (12)
+          - check-success=test-push (14)
+          - check-success=cypress (chrome)
+          - check-success=Vercel
+      actions:
+          merge:
+              method: merge
+              strict: smart+fasttrack
+    - name: Merge renovate
+      conditions:
+          - author=renovate-bot
+          - base=main
+          - check-success=test-push (12)
+          - check-success=test-push (14)
+          - check-success=cypress (chrome)
+          - check-success=Vercel
+      actions:
+          merge:
+              method: merge
+              strict: smart+fasttrack

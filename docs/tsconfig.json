@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "target": "es2018",
+        "module": "ESNext",
+        "importsNotUsedAsValues": "error",
+        "types": ["cypress", "cypress-axe", "cypress-real-events"],
+        "isolatedModules": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "allowJs": true,
+        "checkJs": true,
+        "paths": {
+            "$app/*": [".svelte/dev/runtime/app/*", ".svelte/build/runtime/app/*"],
+            "$lib/*": ["./src/lib/*"]
+        },
+        "strict": true
+    },
+    "include": [
+        "src/**/*.d.ts",
+        "src/**/*.js",
+        "src/**/*.ts",
+        "src/**/*.svelte",
+        "cypress/**/*.ts",
+        "types.d.ts"
+    ]
+}

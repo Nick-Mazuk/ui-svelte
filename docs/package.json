@@ -1,0 +1,53 @@
+{
+	"name": "sveltekit-test",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"dev:open": "svelte-kit dev --open",
+		"preview": "svelte-kit build && svelte-kit preview",
+		"build": "svelte-kit build",
+		"start": "svelte-kit start",
+		"check-types": "tsc --noemit",
+		"prettier": "prettier --write . --plugin-search-dir=. --quiet",
+		"svelte-check": "svelte-check",
+		"eslint": "eslint . --quiet",
+		"lint": "npm run prettier && npm run check-types && npm run svelte-check && npm run eslint",
+		"cy:open": "cypress open",
+		"cy:run": "cypress run",
+		"create-page": "kit create-page",
+		"create-layout": "kit create-layout",
+		"create-endpoint": "kit create-endpoint"
+	},
+	"devDependencies": {
+		"@nick-mazuk/eslint-config": "^0.8.11",
+		"@nick-mazuk/sveltekit-cli": "^1.2.0",
+		"@nick-mazuk/ui-config": "^0.10.63",
+		"@sveltejs/kit": "^1.0.0-next.107",
+		"autoprefixer": "^10.2.5",
+		"cypress": "^7.2.0",
+		"cypress-axe": "^0.12.2",
+		"cypress-plugin-tab": "^1.0.5",
+		"cypress-real-events": "^1.4.0",
+		"eslint": "^7.25.0",
+		"mdsvex": "^0.9.7",
+		"postcss": "^8.2.13",
+		"postcss-load-config": "^3.0.1",
+		"prettier": "^2.2.1",
+		"prettier-plugin-svelte": "^2.2.0",
+		"svelte": "^3.38.2",
+		"svelte-check": "^1.5.2",
+		"svelte-preprocess": "^4.7.3",
+		"tailwindcss": "^2.1.2",
+		"tslib": "^2.2.0",
+		"typescript": "^4.2.4",
+		"vite": "^2.2.4"
+	},
+	"dependencies": {
+		"@nick-mazuk/lib": "^0.8.49",
+		"@nick-mazuk/ui-svelte": "^0.25.0",
+		"@sveltejs/adapter-static": "^1.0.0-next.13",
+		"ac-colors": "^1.4.3",
+		"fs-extra": "^10.0.0"
+	}
+}

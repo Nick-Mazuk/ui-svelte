@@ -1,0 +1,6 @@
+{
+    "testFiles": "**/*.test.ts",
+    "baseUrl": "http://localhost:3000",
+    "viewportWidth": 1024,
+    "pluginsFile": false
+}
