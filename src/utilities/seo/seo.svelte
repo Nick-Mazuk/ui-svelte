@@ -37,6 +37,9 @@
     {#if keywords}
         <meta name="keywords" content="{keywords.join(',')}" />
     {/if}
+    {#if canonicalUrl}
+        <link rel="canonical" href="{canonicalUrl}" />
+    {/if}
     <meta property="og:site_name" content="{siteName}" />
     {#if openGraph?.title}
         <meta property="og:title" content="{openGraph.title}" />
