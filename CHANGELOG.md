@@ -1,3 +1,10 @@
+## [0.26.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.0...v0.26.1) (2021-07-17)
+
+
+### Bug Fixes
+
+* accordion icon no longer moves off-screen with multi-line titles ([4cdf7b2](https://github.com/Nick-Mazuk/ui-svelte/commit/4cdf7b28a067ea11c41a6811d88dbc5f3d1f95f3))
+
 # [0.26.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.25.1...v0.26.0) (2021-07-11)
 
 
