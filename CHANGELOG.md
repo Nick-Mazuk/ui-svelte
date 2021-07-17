@@ -1,3 +1,10 @@
+## [0.26.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.1...v0.26.2) (2021-07-17)
+
+
+### Bug Fixes
+
+* canonical url works in seo component ([fd5a992](https://github.com/Nick-Mazuk/ui-svelte/commit/fd5a99276fa47a47886c2a235453e736171f5202))
+
 ## [0.26.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.0...v0.26.1) (2021-07-17)
 
 
