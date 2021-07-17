@@ -129,7 +129,7 @@
         >
             <span class:h5="{size === 'default'}" class:h6="{size === 'small'}">{title}</span>
             <span
-                class="transition-transform transform -mx-1"
+                class="transition-transform transform ml-3 -mr-1 flex-none"
                 class:rotate-180="{isExpanded && !isClosing}"
             >
                 <ChevronDown size="{6}" />

@@ -105,6 +105,23 @@
     </Accordion>
 </Story>
 
+<Story
+    name="Long title"
+    args="{{
+        title:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic magni officiis nihil, id cumque repellat. Cum natus ea provident quaerat ratione.',
+    }}"
+    let:args
+>
+    <Accordion {...args}>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic magni officiis nihil, id
+            cumque repellat. Cum natus ea provident quaerat ratione. Nesciunt alias, vitae iure nam
+            nemo quibusdam doloremque porro!
+        </p>
+    </Accordion>
+</Story>
+
 <Story name="Small" args="{{ size: 'small' }}" let:args>
     <Accordion {...args}>
         <p>
