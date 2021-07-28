@@ -1,3 +1,10 @@
+## [0.26.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.4...v0.26.5) (2021-07-28)
+
+
+### Bug Fixes
+
+* add 7 more marketing icons ([4ec61e9](https://github.com/Nick-Mazuk/ui-svelte/commit/4ec61e9f981b971729fbf9744214ad8f1175dc93))
+
 ## [0.26.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.3...v0.26.4) (2021-07-28)
 
 
