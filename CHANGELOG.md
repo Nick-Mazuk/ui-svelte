@@ -1,3 +1,10 @@
+## [0.26.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.2...v0.26.3) (2021-07-28)
+
+
+### Bug Fixes
+
+* add file-code marketing icon ([8e5119b](https://github.com/Nick-Mazuk/ui-svelte/commit/8e5119b8b422c57078ab5278c23852fe93cc0192))
+
 ## [0.26.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.1...v0.26.2) (2021-07-17)
 
 
