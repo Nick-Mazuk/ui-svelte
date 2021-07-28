@@ -1,3 +1,10 @@
+## [0.26.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.3...v0.26.4) (2021-07-28)
+
+
+### Bug Fixes
+
+* fix file-code icon viewbox ([b7023f4](https://github.com/Nick-Mazuk/ui-svelte/commit/b7023f493b99ddd97ef7ff844444d3ceb48727e2))
+
 ## [0.26.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.2...v0.26.3) (2021-07-28)
 
 
