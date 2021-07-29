@@ -1,3 +1,10 @@
+## [0.26.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.5...v0.26.6) (2021-07-29)
+
+
+### Bug Fixes
+
+* accordion rendering issues in Safari ([18b3197](https://github.com/Nick-Mazuk/ui-svelte/commit/18b3197122b0cf03b05b8899b62f88ac3f83b5a7))
+
 ## [0.26.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.4...v0.26.5) (2021-07-28)
 
 
