@@ -124,6 +124,7 @@
             bind:this="{summary}"
             on:click|preventDefault="{handleClick}"
             on:mouseup="{() => summary.blur()}"
+            tabindex="{0}"
         >
             <div
                 class="py-6 flex items-center w-full justify-between"

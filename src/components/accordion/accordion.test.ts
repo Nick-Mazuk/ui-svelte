@@ -11,8 +11,7 @@ context('Accordion', () => {
         cy.get('summary').click()
         cy.get(content).should('exist').should('not.be.visible')
 
-        cy.get('body').realPress('Tab')
-        cy.get('summary').should('be.focused')
+        cy.get('summary').focus()
         cy.realPress(' ')
         cy.get(content).should('be.visible')
         cy.realPress(' ')
