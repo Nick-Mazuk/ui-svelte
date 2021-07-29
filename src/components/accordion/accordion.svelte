@@ -120,20 +120,24 @@
         class:-mt-px="{!card}"
     >
         <summary
-            class="py-6 flex items-center w-full justify-between cursor-pointer focus:outline-none focus:bg-gray-200 hover:!bg-transparent"
-            class:py-6="{size === 'default'}"
-            class:py-4="{size === 'small'}"
+            class="focus:outline-none focus:bg-gray-200 hover:!bg-transparent cursor-pointer list-none"
             bind:this="{summary}"
             on:click|preventDefault="{handleClick}"
             on:mouseup="{() => summary.blur()}"
         >
-            <span class:h5="{size === 'default'}" class:h6="{size === 'small'}">{title}</span>
-            <span
-                class="transition-transform transform ml-3 -mr-1 flex-none"
-                class:rotate-180="{isExpanded && !isClosing}"
+            <div
+                class="py-6 flex items-center w-full justify-between"
+                class:py-6="{size === 'default'}"
+                class:py-4="{size === 'small'}"
             >
-                <ChevronDown size="{6}" />
-            </span>
+                <span class:h5="{size === 'default'}" class:h6="{size === 'small'}">{title}</span>
+                <span
+                    class="transition-transform transform ml-3 -mr-1 flex-none"
+                    class:rotate-180="{isExpanded && !isClosing}"
+                >
+                    <ChevronDown size="{6}" />
+                </span>
+            </div>
         </summary>
 
         <div class="{contentClasses} pb-3" bind:this="{content}" data-test="accordion-content">
@@ -141,3 +145,9 @@
         </div>
     </details>
 </svelte:component>
+
+<style>
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+</style>
