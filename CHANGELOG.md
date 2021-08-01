@@ -1,3 +1,10 @@
+## [0.26.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.6...v0.26.7) (2021-08-01)
+
+
+### Bug Fixes
+
+* fix footer layout on medium breakpoint ([ceb71db](https://github.com/Nick-Mazuk/ui-svelte/commit/ceb71dbd3fe762c85f6326ad6ba24502c2ad207d))
+
 ## [0.26.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.5...v0.26.6) (2021-07-29)
 
 
