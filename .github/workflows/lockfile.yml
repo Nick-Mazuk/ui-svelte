@@ -15,7 +15,7 @@ jobs:
           node-version: 14
       - run: npx pnpm i --lockfile-only
       - name: push lockfile to branch
-        uses: actions-js/push@v1.2
+        uses: actions-js/push@v1.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
