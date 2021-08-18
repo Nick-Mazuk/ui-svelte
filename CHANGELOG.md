@@ -1,3 +1,10 @@
+## [0.28.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.28.0...v0.28.1) (2021-08-18)
+
+
+### Bug Fixes
+
+* youtube play button is now consistent across platforms ([0f64295](https://github.com/Nick-Mazuk/ui-svelte/commit/0f6429561d8262e8e595afbf4ceae17987682fe4))
+
 # [0.28.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.27.0...v0.28.0) (2021-08-18)
 
 
