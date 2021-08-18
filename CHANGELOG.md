@@ -1,3 +1,10 @@
+# [0.28.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.27.0...v0.28.0) (2021-08-18)
+
+
+### Features
+
+* add youtube video component ([bfb2f37](https://github.com/Nick-Mazuk/ui-svelte/commit/bfb2f37cf60d5308588e8148e61511990443f6dd))
+
 # [0.27.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.7...v0.27.0) (2021-08-18)
 
 
