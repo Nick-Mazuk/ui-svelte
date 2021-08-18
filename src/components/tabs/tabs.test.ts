@@ -3,7 +3,7 @@ const tab = '[data-test="tab-item"]'
 // eslint-disable-next-line max-lines-per-function -- individual tests are short enough
 context('Tabs', () => {
     it('functions correctly', () => {
-        cy.loadStory('Navigation/Tabs', 'Default')
+        cy.loadStory('Components/Tabs', 'Default')
         cy.checkAccessibility()
 
         cy.get(tab)
@@ -48,7 +48,7 @@ context('Tabs', () => {
     })
 
     it('can be disabled', () => {
-        cy.loadStory('Navigation/Tabs', 'Disabled')
+        cy.loadStory('Components/Tabs', 'Disabled')
         cy.checkAccessibility()
         cy.get('button').should('be.disabled').should('have.attr', 'tabindex', '-1')
     })
