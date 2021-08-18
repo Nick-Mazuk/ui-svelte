@@ -15,20 +15,12 @@
                 height: 100%
             }
             
-            img,span {
+            img,svg {
                 position: absolute;
                 width: 100%;
                 top: 0;
                 bottom: 0;
                 margin: auto
-            }
-            
-            span {
-                height: 1.5em;
-                text-align: center;
-                font: 48px/1.5 sans-serif;
-                color: white;
-                text-shadow: 0 0 0.5em black
             }
         </style>
         
@@ -37,7 +29,9 @@
                 src='https://i.ytimg.com/vi/${id}/maxresdefault.jpg'
                 onload="if (this.naturalWidth === 120) {this.src = this.currentSrc.replace('maxresdefault', 'hqdefault');}"
                 alt='${title}'/>
-            <span>▶</span>
+            <svg viewbox="0 0 512 1024" xmlns="http://www.w3.org/2000/svg" style="height: 3rem; filter: drop-shadow( 0 0 0.5rem black);">
+                <path d="M0 192l512 320L0 832V192z" style='fill: white;' />
+            </svg>
         </a>`
 </script>
 
