@@ -1,3 +1,10 @@
+# [0.27.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.7...v0.27.0) (2021-08-18)
+
+
+### Features
+
+* add media scroller component ([14be849](https://github.com/Nick-Mazuk/ui-svelte/commit/14be849018649d446ee44209c105b046eb9d80b7))
+
 ## [0.26.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.26.6...v0.26.7) (2021-08-01)
 
 
