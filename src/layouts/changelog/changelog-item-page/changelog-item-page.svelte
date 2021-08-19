@@ -52,7 +52,7 @@
                 </picture>
             </div>
         {/if}
-        <div class="wrapper prose !max-w-2xl mx-auto my-8">
+        <div class="prose !max-w-none my-8">
             {@html content}
         </div>
     </section>
