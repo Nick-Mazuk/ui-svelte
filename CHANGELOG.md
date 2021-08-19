@@ -1,3 +1,10 @@
+## [0.29.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.0...v0.29.1) (2021-08-19)
+
+
+### Bug Fixes
+
+* remove extra padding around changelog item's contents ([cbe573c](https://github.com/Nick-Mazuk/ui-svelte/commit/cbe573c226f4df7c1af69564f851a33c0a54cba1))
+
 # [0.29.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.28.2...v0.29.0) (2021-08-19)
 
 
