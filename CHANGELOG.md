@@ -1,3 +1,11 @@
+## [0.29.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.1...v0.29.2) (2021-08-19)
+
+
+### Performance Improvements
+
+* improve rendering performance for changelog layout ([8a7b3ef](https://github.com/Nick-Mazuk/ui-svelte/commit/8a7b3effd1cf173194ee926b53a4cec3e444bbf3))
+* improve rendering performance of footer ([dfa54fc](https://github.com/Nick-Mazuk/ui-svelte/commit/dfa54fc4205be73dac1a36b6e3ee18c5caad3442))
+
 ## [0.29.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.0...v0.29.1) (2021-08-19)
 
 
