@@ -1,3 +1,10 @@
+## [0.29.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.2...v0.29.3) (2021-08-19)
+
+
+### Bug Fixes
+
+* fix rendering issue caused by last update on changelog ([1fb20fa](https://github.com/Nick-Mazuk/ui-svelte/commit/1fb20fa36a0806d7d4f124d3971f4c2f2f55dcd1))
+
 ## [0.29.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.1...v0.29.2) (2021-08-19)
 
 
