@@ -1,3 +1,10 @@
+# [0.29.0](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.28.2...v0.29.0) (2021-08-19)
+
+
+### Features
+
+* add "read more" button to changelog ([80f9f3b](https://github.com/Nick-Mazuk/ui-svelte/commit/80f9f3b88252c0b66a4f1e49468578c0f18dbda0))
+
 ## [0.28.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.28.1...v0.28.2) (2021-08-19)
 
 
