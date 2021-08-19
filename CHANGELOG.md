@@ -1,3 +1,10 @@
+## [0.29.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.3...v0.29.4) (2021-08-19)
+
+
+### Bug Fixes
+
+* make link buttons tabbable ([06257fa](https://github.com/Nick-Mazuk/ui-svelte/commit/06257fa2200c7b15ac283289cf067bce8d72f2b8))
+
 ## [0.29.3](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.2...v0.29.3) (2021-08-19)
 
 
