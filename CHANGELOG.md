@@ -1,3 +1,10 @@
+## [0.28.2](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.28.1...v0.28.2) (2021-08-19)
+
+
+### Bug Fixes
+
+* add background to shadow container ([ac83a88](https://github.com/Nick-Mazuk/ui-svelte/commit/ac83a88bbf2eadd254abdbc5ebea5293f8523c17))
+
 ## [0.28.1](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.28.0...v0.28.1) (2021-08-18)
 
 
