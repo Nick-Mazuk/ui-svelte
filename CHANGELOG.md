@@ -1,3 +1,10 @@
+## [0.29.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.5...v0.29.6) (2021-08-19)
+
+
+### Bug Fixes
+
+* ensure media scroller arrows are above content ([065e4e9](https://github.com/Nick-Mazuk/ui-svelte/commit/065e4e989ff9f9511ab552249b3f7f46dd08f487))
+
 ## [0.29.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.4...v0.29.5) (2021-08-19)
 
 
