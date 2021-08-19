@@ -47,7 +47,8 @@
             'border bg-background border-opacity-100 hover:shadow-xl hover:border-transparent dark:hover:shadow-none dark:hover:border-gray-900 transition cursor-pointer active:bg-gray-100',
         fill: 'border bg-gray-100',
         border: 'border bg-background',
-        shadow: 'border border-transparent shadow-lg dark:shadow-none dark:border-gray-200',
+        shadow:
+            'border border-transparent bg-background shadow-lg dark:shadow-none dark:border-gray-200',
     }
 
     const getPadding = (): string => {
