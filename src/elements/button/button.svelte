@@ -150,6 +150,7 @@
         class:rounded="{shape !== 'circle'}"
         style="{widthStyle}"
         disabled="{isDisabled || loading}"
+        tabindex="{0}"
         on:mouseup="{handleMouseUp}"
         on:click
         aria-label="{ariaLabel}"
