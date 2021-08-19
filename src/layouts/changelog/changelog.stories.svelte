@@ -24,6 +24,9 @@
             showLoadMore: {
                 control: 'boolean',
             },
+            showReadMore: {
+                control: 'boolean',
+            },
             isLoading: {
                 control: 'boolean',
             },

@@ -3,6 +3,7 @@
     import Button from '../../elements/button/button.svelte'
     import Plus from '../../elements/icon/plus.svelte'
     import CheckCircle from '../../elements/icon/check-circle.svelte'
+    import ChevronRight from '../../elements/icon/chevron-right.svelte'
     import MessageCircle from '../../elements/icon/message-circle.svelte'
     import Bell from '../../elements/icon/bell.svelte'
 
@@ -14,6 +15,7 @@
     export let description = ''
     export let showLoadMore = false
     export let showReachedEnd = false
+    export let showReadMore = false
     export let isLoading = false
     export let items: ChangelogItems
     export let hrefPrefix: string | undefined = undefined
@@ -158,6 +160,12 @@
                 <div class="prose">
                     {@html item.contents}
                 </div>
+                {#if showReadMore && typeof hrefPrefix !== 'undefined'}
+                    <Spacer />
+                    <Button suffix="{ChevronRight}" href="{createItemUrl(item.slug)}">
+                        Read more
+                    </Button>
+                {/if}
             </article>
         {/each}
         {#if showLoadMore || showReachedEnd}
