@@ -34,6 +34,15 @@
 </script>
 
 <div class="relative group">
+    <div
+        data-container
+        class="flex overflow-x-scroll hide-scrollbar {classes}"
+        on:scroll|preventDefault="{handleScroll}"
+        bind:this="{container}"
+        style="scroll-snap-type: inline mandatory; scroll-padding-left: 0;"
+    >
+        <slot />
+    </div>
     {#if shadow}
         <div
             class="pointer-events-none absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-background to-transparent transition-opacity"
@@ -78,16 +87,6 @@
         >
             <ChevronRight />
         </Button>
-    </div>
-
-    <div
-        data-container
-        class="flex overflow-x-scroll hide-scrollbar {classes}"
-        on:scroll|preventDefault="{handleScroll}"
-        bind:this="{container}"
-        style="scroll-snap-type: inline mandatory; scroll-padding-left: 0;"
-    >
-        <slot />
     </div>
 </div>
 
