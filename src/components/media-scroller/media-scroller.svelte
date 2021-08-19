@@ -94,5 +94,6 @@
 <style>
     :global([data-container] > *) {
         scroll-snap-align: start;
+        flex-shrink: 0;
     }
 </style>
