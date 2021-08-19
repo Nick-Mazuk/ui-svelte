@@ -83,6 +83,7 @@
             <article
                 class="relative py-16 lg:ml-64"
                 class:border-t="{index !== 0 || $$slots.subscribe}"
+                style="content-visibility: auto; content-intrinsic-size: 1px 600px"
             >
                 <div
                     class="absolute bottom-0 border-l-2 -ml-20 lg:block"
