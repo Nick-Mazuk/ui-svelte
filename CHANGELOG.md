@@ -1,3 +1,10 @@
+## [0.29.5](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.4...v0.29.5) (2021-08-19)
+
+
+### Bug Fixes
+
+* media scroller elements don't shrink ([5aa1adc](https://github.com/Nick-Mazuk/ui-svelte/commit/5aa1adc8c0820902fbd819c6905ab09be81386cc))
+
 ## [0.29.4](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.3...v0.29.4) (2021-08-19)
 
 
