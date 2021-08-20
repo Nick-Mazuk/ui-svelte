@@ -1,3 +1,11 @@
+## [0.29.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.6...v0.29.7) (2021-08-20)
+
+
+### Bug Fixes
+
+* add divide icon ([2245c30](https://github.com/Nick-Mazuk/ui-svelte/commit/2245c305a94f6c55b30573142b9fa98811ab67e6))
+* chane name of new divide icon to divider to remove naming conflict ([b355d41](https://github.com/Nick-Mazuk/ui-svelte/commit/b355d41b6a2f37fbfd8c3507a65317dfd5365771))
+
 ## [0.29.6](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.5...v0.29.6) (2021-08-19)
 
 
