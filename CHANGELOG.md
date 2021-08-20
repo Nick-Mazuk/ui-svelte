@@ -1,3 +1,10 @@
+## [0.29.8](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.7...v0.29.8) (2021-08-20)
+
+
+### Bug Fixes
+
+* divider icon now displays correctly ([6c24486](https://github.com/Nick-Mazuk/ui-svelte/commit/6c244866d02c25959e037125dd91bb053c80d535))
+
 ## [0.29.7](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.6...v0.29.7) (2021-08-20)
 
 
