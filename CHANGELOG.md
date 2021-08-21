@@ -1,3 +1,10 @@
+## [0.29.9](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.8...v0.29.9) (2021-08-21)
+
+
+### Bug Fixes
+
+* improve heirarchy for form-entity component ([7e46945](https://github.com/Nick-Mazuk/ui-svelte/commit/7e469457c7a1f6852e0c2c54970401b02f47bb37))
+
 ## [0.29.8](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.7...v0.29.8) (2021-08-20)
 
 
