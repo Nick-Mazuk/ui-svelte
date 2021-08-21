@@ -96,6 +96,7 @@
                 </div>
                 {#if description}
                     <p
+                        class="text-gray-700"
                         class:mt-3="{!$$slots['extra-actions']}"
                         class:mt-2="{$$slots['extra-actions']}"
                         id="{slugify(title)}-form-description"
