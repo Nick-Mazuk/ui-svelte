@@ -1,3 +1,10 @@
+## [0.29.12](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.11...v0.29.12) (2021-08-24)
+
+
+### Bug Fixes
+
+* marketing icon color transitions ([52c3792](https://github.com/Nick-Mazuk/ui-svelte/commit/52c3792d202ccaa45420495c6089593dc1c61c37))
+
 ## [0.29.11](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.10...v0.29.11) (2021-08-24)
 
 
