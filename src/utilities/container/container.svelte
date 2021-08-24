@@ -75,12 +75,27 @@
         role="{role}"
         style="{style}"
         id="{id}"
+        tabindex="{0}"
         on:click
+        on:focus
+        on:blur
+        on:mouseenter
+        on:mouseleave
     >
         <slot />
     </a>
 {:else}
-    <div class="{classes}" role="{role}" style="{style}" id="{id}" on:click>
+    <div
+        class="{classes}"
+        role="{role}"
+        style="{style}"
+        id="{id}"
+        on:click
+        on:focus
+        on:blur
+        on:mouseenter
+        on:mouseleave
+    >
         <slot />
     </div>
 {/if}
