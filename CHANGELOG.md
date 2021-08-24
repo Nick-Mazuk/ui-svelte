@@ -1,3 +1,10 @@
+## [0.29.10](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.9...v0.29.10) (2021-08-24)
+
+
+### Bug Fixes
+
+* container add more event listeners ([4fef905](https://github.com/Nick-Mazuk/ui-svelte/commit/4fef905760798a567ac169f120ab96cafd8bdead))
+
 ## [0.29.9](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.8...v0.29.9) (2021-08-21)
 
 
