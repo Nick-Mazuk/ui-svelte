@@ -1,3 +1,10 @@
+## [0.29.13](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.12...v0.29.13) (2021-08-25)
+
+
+### Bug Fixes
+
+* container now isn't tabbable when a link ([947fda1](https://github.com/Nick-Mazuk/ui-svelte/commit/947fda11deda09d49aa9d7c3c4a6dfaed0b85ed6))
+
 ## [0.29.12](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.11...v0.29.12) (2021-08-24)
 
 
