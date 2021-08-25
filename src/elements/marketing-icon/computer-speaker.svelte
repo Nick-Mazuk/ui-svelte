@@ -41,16 +41,5 @@
     shape-rendering="geometricPrecision"
     class="{classProp}"
 >
-    <path
-        fill="currentColor transition-colors"
-        d="M358.9 433.3l-6.8 61a15.92 15.92 0 0 0 17.6 17.6l60.9-6.8 137.9-137.9-71.7-71.7zM633 268.9L595.1 231a24 24 0 0 0-33.8 0l-37.8 37.8-4.1 4.1 71.8 71.7 41.8-41.8a24.08 24.08 0 0 0 0-33.9z"
-        style="color: {VARIANT_MAP[variant].light}"
-    >
-    </path>
-    <path
-        fill="currentColor transition-colors"
-        d="M313.6 288h-16.7a174.08 174.08 0 0 1-145.8 0h-16.7A134.43 134.43 0 0 0 0 422.4V464a48 48 0 0 0 48 48h274.9a48 48 0 0 1-2.6-21.3l6.8-60.9 1.2-11.1 85.2-85.2c-24.5-27.7-60-45.5-99.9-45.5zM224 256A128 128 0 1 0 96 128a128 128 0 0 0 128 128z"
-        style="color: {VARIANT_MAP[variant].dark}"
-    >
-    </path>
+<path fill="currentColor" d="M64 320h224V96H64zM592 32H368a48 48 0 0 0-48 48v352a48 48 0 0 0 48 48h224a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zM480 96a32 32 0 1 1-32 32 32 32 0 0 1 32-32zm0 320a96 96 0 1 1 96-96 96 96 0 0 1-96 96z" style="color: {VARIANT_MAP[variant].light}"></path><path fill="currentColor" d="M288 416H128a32 32 0 0 0 0 64h176.41A79.24 79.24 0 0 1 288 432zM0 80v256a48 48 0 0 0 48 48h240v-64H64V96h224V80a79.24 79.24 0 0 1 16.41-48H48A48 48 0 0 0 0 80zm480 80a32 32 0 1 0-32-32 32 32 0 0 0 32 32zm0 64a96 96 0 1 0 96 96 96 96 0 0 0-96-96zm0 144a48 48 0 1 1 48-48 48 48 0 0 1-48 48z" style="color: {VARIANT_MAP[variant].dark}"></path>
 </svg>
