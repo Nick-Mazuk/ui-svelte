@@ -1,3 +1,11 @@
+## [0.29.14](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.13...v0.29.14) (2021-08-25)
+
+
+### Bug Fixes
+
+* fix marketing icon build process ([9010793](https://github.com/Nick-Mazuk/ui-svelte/commit/9010793e529765d51214495435b27966084635c7))
+* marketing icons now transition when variant changes ([e891bce](https://github.com/Nick-Mazuk/ui-svelte/commit/e891bce23954b909b69ad66329936605f5f82140))
+
 ## [0.29.13](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.12...v0.29.13) (2021-08-25)
 
 
