@@ -75,10 +75,7 @@
         role="{role}"
         style="{style}"
         id="{id}"
-        tabindex="{0}"
         on:click
-        on:focus
-        on:blur
         on:mouseenter
         on:mouseleave
     >
@@ -91,8 +88,6 @@
         style="{style}"
         id="{id}"
         on:click
-        on:focus
-        on:blur
         on:mouseenter
         on:mouseleave
     >
