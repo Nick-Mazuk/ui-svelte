@@ -1,3 +1,10 @@
+## [0.29.15](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.14...v0.29.15) (2021-08-26)
+
+
+### Performance Improvements
+
+* remove date-fns dependency ([6477293](https://github.com/Nick-Mazuk/ui-svelte/commit/6477293f2a32b016d90387f13247265861638584))
+
 ## [0.29.14](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.13...v0.29.14) (2021-08-25)
 
 
