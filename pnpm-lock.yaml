@@ -47,7 +47,7 @@ specifiers:
   axe-core: ^4.2.0
   chromatic: ^5.8.0
   concurrently: ^6.0.2
-  cypress: ^7.6.0
+  cypress: ^8.0.0
   cypress-axe: ^0.12.2
   cypress-plugin-tab: ^1.0.5
   cypress-real-events: ^1.4.0
@@ -136,10 +136,10 @@ devDependencies:
   axe-core: 4.2.0
   chromatic: 5.8.0
   concurrently: 6.0.2
-  cypress: 7.6.0
-  cypress-axe: 0.12.2_axe-core@4.2.0+cypress@7.6.0
+  cypress: 8.3.0
+  cypress-axe: 0.12.2_axe-core@4.2.0+cypress@8.3.0
   cypress-plugin-tab: 1.0.5
-  cypress-real-events: 1.4.0_cypress@7.6.0
+  cypress-real-events: 1.4.0_cypress@8.3.0
   esbuild: 0.12.1
   eslint: 7.26.0
   feather-icons: 4.28.0
@@ -7899,7 +7899,7 @@ packages:
     resolution: {integrity: sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=}
     dev: true
 
-  /cypress-axe/0.12.2_axe-core@4.2.0+cypress@7.6.0:
+  /cypress-axe/0.12.2_axe-core@4.2.0+cypress@8.3.0:
     resolution: {integrity: sha512-gn+rVJ2JnvUWhBshbZ/8dkJdANaEB96zgtAEClJ7vNvDgmqAYb+HhQpW0GM04EqtIiPhenqUeKNQDoqrquY5+w==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -7907,7 +7907,7 @@ packages:
       cypress: ^3 || ^4 || ^5 || ^6
     dependencies:
       axe-core: 4.2.0
-      cypress: 7.6.0
+      cypress: 8.3.0
     dev: true
 
   /cypress-plugin-tab/1.0.5:
@@ -7916,16 +7916,16 @@ packages:
       ally.js: 1.4.1
     dev: true
 
-  /cypress-real-events/1.4.0_cypress@7.6.0:
+  /cypress-real-events/1.4.0_cypress@8.3.0:
     resolution: {integrity: sha512-1s4BQN1D++vFSuaad0qKsWcoApM5tQqPBFyDJEa6JeCZIsAdgMdGLuKi5QNIdl5KTJix0jxglzFJAThyz3borQ==}
     peerDependencies:
       cypress: ^4.x || ^5.x || ^6.x || ^7.x
     dependencies:
-      cypress: 7.6.0
+      cypress: 8.3.0
     dev: true
 
-  /cypress/7.6.0:
-    resolution: {integrity: sha512-tTwQExY28CKt6cY85/2V1uLExcMfpBEBWXt/EcE2ht/Onl9k4lxUS7ul1UnUO5MrYwMIHMdGVh13DxdzXj4Z5w==}
+  /cypress/8.3.0:
+    resolution: {integrity: sha512-zA5Rcq8AZIfRfPXU0CCcauofF+YpaU9HYbfqkunFTmFV0Kdlo14tNjH2E3++MkjXKFnv3/pXq+HgxWtw8CSe8Q==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
@@ -13451,6 +13451,7 @@ packages:
   /querystring/0.2.0:
     resolution: {integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=}
     engines: {node: '>=0.4.x'}
+    deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: true
 
   /querystring/0.2.1:
