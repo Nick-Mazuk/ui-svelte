@@ -23,7 +23,11 @@
     const dispatch = createEventDispatcher()
 
     const formatDate = (date: Date) => {
-        return format(date, 'MMM d, YYY')
+        return new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+        }).format(date)
     }
 
     const createItemUrl = (slug: string): string => {

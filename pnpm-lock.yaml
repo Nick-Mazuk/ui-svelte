@@ -51,7 +51,6 @@ specifiers:
   cypress-axe: ^0.12.2
   cypress-plugin-tab: ^1.0.5
   cypress-real-events: ^1.4.0
-  date-fns: ^2.21.3
   diff: ^5.0.0
   esbuild: ^0.12.0
   eslint: ^7.26.0
@@ -100,7 +99,6 @@ dependencies:
   '@tiptap/extension-paragraph': 2.0.0-beta.13_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-text': 2.0.0-beta.11_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-typography': 2.0.0-beta.11_@tiptap+core@2.0.0-beta.62
-  date-fns: 2.21.3
   diff: 5.0.0
   marked: 2.0.1
   parse-full-name-esm: 1.2.5
@@ -7994,11 +7992,6 @@ packages:
     resolution: {integrity: sha512-m1WR0xGiC6j6jNFAyW4Nvh4WxAi4JF4w9jRJwSI8nBmNcyZXPcP9VUQG+6gHQXAmqaGEKDKhOqAtENDC941UkA==}
     engines: {node: '>=0.11'}
     dev: true
-
-  /date-fns/2.21.3:
-    resolution: {integrity: sha512-HeYdzCaFflc1i4tGbj7JKMjM4cKGYoyxwcIIkHzNgCkX8xXDNJDZXgDDVchIWpN4eQc3lH37WarduXFZJOtxfw==}
-    engines: {node: '>=0.11'}
-    dev: false
 
   /date-format/0.0.2:
     resolution: {integrity: sha1-+v1Ej3IRXvHitzkVWukvK+bCjdE=}

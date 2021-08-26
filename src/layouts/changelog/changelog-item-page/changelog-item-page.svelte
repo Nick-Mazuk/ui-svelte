@@ -22,7 +22,14 @@
             <Spacer />
             <h1 class="h3 text-balance">{title}</h1>
             <Spacer y="{0.5}" />
-            <p class="text-gray">{format(publishedAt, 'eeee MMM do, YYY')}</p>
+            <p class="text-gray">
+                {new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    weekday: 'long',
+                }).format(publishedAt)}
+            </p>
         </div>
     </div>
 
