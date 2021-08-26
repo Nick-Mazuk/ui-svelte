@@ -1,3 +1,10 @@
+## [0.29.16](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.15...v0.29.16) (2021-08-26)
+
+
+### Bug Fixes
+
+* remove date-fns import statements ([f14566f](https://github.com/Nick-Mazuk/ui-svelte/commit/f14566ffaf627e4ce6435eb063ae357e70f6bd9b))
+
 ## [0.29.15](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.14...v0.29.15) (2021-08-26)
 
 
