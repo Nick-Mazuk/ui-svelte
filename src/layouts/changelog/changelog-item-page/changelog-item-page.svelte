@@ -1,7 +1,6 @@
 <script lang="ts">
     import Button from '../../../elements/button/button.svelte'
 
-    import { format } from 'date-fns'
     import Spacer from '../../../utilities/spacer/spacer.svelte'
     import type { ChangelogImage } from '..'
 

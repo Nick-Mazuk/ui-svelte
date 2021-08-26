@@ -8,7 +8,6 @@
     import Bell from '../../elements/icon/bell.svelte'
 
     import type { ChangelogItems, ChangelogItemVariant } from '.'
-    import { format } from 'date-fns'
     import { createEventDispatcher } from 'svelte'
 
     export let title = 'Changelog'
