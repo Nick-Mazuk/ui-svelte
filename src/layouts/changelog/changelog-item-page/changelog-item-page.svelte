@@ -51,7 +51,7 @@
                     {/if}
                     <img
                         alt=""
-                        class="object-cover w-full h-full"
+                        class="object-cover w-full h-full bg-gray-200"
                         width="{image.width}"
                         height="{image.height}"
                     />
