@@ -1,3 +1,10 @@
+## [0.29.18](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.17...v0.29.18) (2021-08-29)
+
+
+### Bug Fixes
+
+* add skeleton to changelog (and items) image ([d3e5a9e](https://github.com/Nick-Mazuk/ui-svelte/commit/d3e5a9e7413032432b7ecbb15218ab6292f5f459))
+
 ## [0.29.17](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.16...v0.29.17) (2021-08-29)
 
 
