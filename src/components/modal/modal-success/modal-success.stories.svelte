@@ -29,6 +29,9 @@
             isOpen: {
                 control: 'boolean',
             },
+            isLoading: {
+                control: 'boolean',
+            },
             confirmText: {
                 control: 'text',
                 defaultValue: 'Confirm',

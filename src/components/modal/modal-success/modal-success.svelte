@@ -13,6 +13,7 @@
     export let description = ''
     export let confirmText = ''
     export let isOpen = false
+    export let isLoading = false
     export let refocusOnClose = true
 
     const dispatch = createEventDispatcher<ModalDispatcher>()
@@ -121,7 +122,7 @@
                 {/if}
                 {#if confirmText}
                     <div class="mt-2">
-                        <Button width="full" on:click="{handleConfirm}">
+                        <Button width="full" on:click="{handleConfirm}" loading="{isLoading}">
                             {confirmText}
                         </Button>
                     </div>
