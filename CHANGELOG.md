@@ -1,3 +1,10 @@
+## [0.29.17](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.16...v0.29.17) (2021-08-29)
+
+
+### Bug Fixes
+
+* success modal shows loading indicator ([131fe1e](https://github.com/Nick-Mazuk/ui-svelte/commit/131fe1e14307fd8e8e83931040e7706a897a4053))
+
 ## [0.29.16](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.15...v0.29.16) (2021-08-26)
 
 
