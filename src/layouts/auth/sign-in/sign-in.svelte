@@ -35,7 +35,7 @@
         const { status, message } = event.detail
         if (message) error = message
         else if (status === 'offline') error = FORM_FEEDBACK.errors.offline
-        else if (typeof status === 'undefined' || [400, 403].includes(status))
+        else if (typeof status === 'undefined' || [400, 401, 403].includes(status))
             error = FORM_FEEDBACK.auth.errors.invalidEmailLogin
         else if (status === 429) error = FORM_FEEDBACK.errors[429]
         else error = FORM_FEEDBACK.errors[500]
