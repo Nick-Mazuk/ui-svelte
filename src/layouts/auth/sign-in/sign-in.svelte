@@ -71,9 +71,9 @@
         <PasswordInput />
         <div class="grid grid-cols-1 gap-2">
             {#if forgotPassword && createAccount}
-                <a href="{forgotPassword}" sveltekit:prefetch class="link text-sm"
-                    >Forgot password</a
-                >
+                <a href="{forgotPassword}" sveltekit:prefetch class="link text-sm">
+                    Forgot password
+                </a>
             {/if}
             <div
                 class="flex"
