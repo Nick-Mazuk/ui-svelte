@@ -1,3 +1,10 @@
+## [0.29.19](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.18...v0.29.19) (2021-09-05)
+
+
+### Bug Fixes
+
+* add 401 status code support to sign-in component ([2c1bd6c](https://github.com/Nick-Mazuk/ui-svelte/commit/2c1bd6c08824afb070e6cb2743a087ce4f9224b7))
+
 ## [0.29.18](https://github.com/Nick-Mazuk/ui-svelte/compare/v0.29.17...v0.29.18) (2021-08-29)
 
 
