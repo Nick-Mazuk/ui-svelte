@@ -47,7 +47,7 @@ specifiers:
   axe-core: ^4.2.0
   chromatic: ^5.8.0
   concurrently: ^6.0.2
-  cypress: ^7.6.0
+  cypress: ^8.0.0
   cypress-axe: ^0.12.2
   cypress-plugin-tab: ^1.0.5
   cypress-real-events: ^1.4.0
@@ -136,10 +136,10 @@ devDependencies:
   axe-core: 4.2.0
   chromatic: 5.8.0
   concurrently: 6.0.2
-  cypress: 7.6.0
-  cypress-axe: 0.12.2_axe-core@4.2.0+cypress@7.6.0
+  cypress: 8.3.1
+  cypress-axe: 0.12.2_axe-core@4.2.0+cypress@8.3.1
   cypress-plugin-tab: 1.0.5
-  cypress-real-events: 1.4.0_cypress@7.6.0
+  cypress-real-events: 1.4.0_cypress@8.3.1
   esbuild: 0.12.1
   eslint: 7.26.0
   feather-icons: 4.28.0
@@ -2500,8 +2500,8 @@ packages:
       minimist: 1.2.5
     dev: true
 
-  /@cypress/request/2.88.5:
-    resolution: {integrity: sha512-TzEC1XMi1hJkywWpRfD2clreTa/Z+lOrXDCxxBTBPEcY5azdPi56A6Xw+O4tWJnaJH3iIE7G5aDXZC6JgRZLcA==}
+  /@cypress/request/2.88.6:
+    resolution: {integrity: sha512-z0UxBE/+qaESAHY9p9sM2h8Y4XqtsbDCt0/DPOrqA/RZgKi4PkxdpXyK4wCCnSk1xHqWHZZAE+gV6aDAR6+caQ==}
     engines: {node: '>= 6'}
     dependencies:
       aws-sign2: 0.7.0
@@ -2517,13 +2517,12 @@ packages:
       isstream: 0.1.2
       json-stringify-safe: 5.0.1
       mime-types: 2.1.31
-      oauth-sign: 0.9.0
       performance-now: 2.1.0
       qs: 6.5.2
       safe-buffer: 5.2.1
       tough-cookie: 2.5.0
       tunnel-agent: 0.6.0
-      uuid: 3.4.0
+      uuid: 8.3.2
     dev: true
 
   /@cypress/xvfb/1.2.4:
@@ -7899,7 +7898,7 @@ packages:
     resolution: {integrity: sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=}
     dev: true
 
-  /cypress-axe/0.12.2_axe-core@4.2.0+cypress@7.6.0:
+  /cypress-axe/0.12.2_axe-core@4.2.0+cypress@8.3.1:
     resolution: {integrity: sha512-gn+rVJ2JnvUWhBshbZ/8dkJdANaEB96zgtAEClJ7vNvDgmqAYb+HhQpW0GM04EqtIiPhenqUeKNQDoqrquY5+w==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -7907,7 +7906,7 @@ packages:
       cypress: ^3 || ^4 || ^5 || ^6
     dependencies:
       axe-core: 4.2.0
-      cypress: 7.6.0
+      cypress: 8.3.1
     dev: true
 
   /cypress-plugin-tab/1.0.5:
@@ -7916,21 +7915,21 @@ packages:
       ally.js: 1.4.1
     dev: true
 
-  /cypress-real-events/1.4.0_cypress@7.6.0:
+  /cypress-real-events/1.4.0_cypress@8.3.1:
     resolution: {integrity: sha512-1s4BQN1D++vFSuaad0qKsWcoApM5tQqPBFyDJEa6JeCZIsAdgMdGLuKi5QNIdl5KTJix0jxglzFJAThyz3borQ==}
     peerDependencies:
       cypress: ^4.x || ^5.x || ^6.x || ^7.x
     dependencies:
-      cypress: 7.6.0
+      cypress: 8.3.1
     dev: true
 
-  /cypress/7.6.0:
-    resolution: {integrity: sha512-tTwQExY28CKt6cY85/2V1uLExcMfpBEBWXt/EcE2ht/Onl9k4lxUS7ul1UnUO5MrYwMIHMdGVh13DxdzXj4Z5w==}
+  /cypress/8.3.1:
+    resolution: {integrity: sha512-1v6pfx+/5cXhaT5T6QKOvnkawmEHWHLiVzm3MYMoQN1fkX2Ma1C32STd3jBStE9qT5qPSTILjGzypVRxCBi40g==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@cypress/request': 2.88.5
+      '@cypress/request': 2.88.6
       '@cypress/xvfb': 1.2.4
       '@types/node': 14.17.4
       '@types/sinonjs__fake-timers': 6.0.2
@@ -13451,6 +13450,7 @@ packages:
   /querystring/0.2.0:
     resolution: {integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=}
     engines: {node: '>=0.4.x'}
+    deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: true
 
   /querystring/0.2.1:
