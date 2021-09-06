@@ -38,7 +38,7 @@ specifiers:
   '@types/diff': ^5.0.0
   '@types/feather-icons': ^4.7.0
   '@types/fs-extra': ^9.0.11
-  '@types/marked': ^2.0.0
+  '@types/marked': ^3.0.0
   '@types/node': ^15.0.2
   '@types/svg-parser': ^2.0.1
   '@types/validator': ^13.1.3
@@ -57,7 +57,7 @@ specifiers:
   feather-icons: ^4.28.0
   fs-extra: ^10.0.0
   hast-util-to-html: ^8.0.0
-  marked: ^2.0.1
+  marked: ^3.0.0
   parse-full-name-esm: ^1.2.5
   postcss: ^8.2.8
   prettier: ^2.2.1
@@ -100,7 +100,7 @@ dependencies:
   '@tiptap/extension-text': 2.0.0-beta.11_@tiptap+core@2.0.0-beta.62
   '@tiptap/extension-typography': 2.0.0-beta.11_@tiptap+core@2.0.0-beta.62
   diff: 5.0.0
-  marked: 2.0.1
+  marked: 3.0.2
   parse-full-name-esm: 1.2.5
   svelte-intersection-observer: 0.7.0
   svelte-portal: 2.1.2
@@ -127,7 +127,7 @@ devDependencies:
   '@types/diff': 5.0.0
   '@types/feather-icons': 4.7.0
   '@types/fs-extra': 9.0.11
-  '@types/marked': 2.0.0
+  '@types/marked': 3.0.0
   '@types/node': 15.0.2
   '@types/svg-parser': 2.0.1
   '@types/validator': 13.1.3
@@ -5393,8 +5393,8 @@ packages:
       '@types/react': 17.0.4
     dev: true
 
-  /@types/marked/2.0.0:
-    resolution: {integrity: sha512-kSOVa3R6HJvFdd3UIbTYvrSBTPHjXhNErh7/8oSCKOwqdOkk4Oj8N77n+f6dsgd1jW3j3SU5EhnmRxPhNKOmtQ==}
+  /@types/marked/3.0.0:
+    resolution: {integrity: sha512-vof90OIWT+Tzq3MBRXgV9fsH8PC3WZ4OQg9Qa04vOtP0TcyiNfl7BTonYCmTapHZ5lRZh6ihUYkAy7St1hmk/A==}
     dev: true
 
   /@types/mdast/3.0.3:
@@ -11738,17 +11738,17 @@ packages:
       supports-hyperlinks: 2.2.0
     dev: true
 
-  /marked/2.0.1:
-    resolution: {integrity: sha512-5+/fKgMv2hARmMW7DOpykr2iLhl0NgjyELk5yn92iE7z8Se1IS9n3UsFm86hFXIkvMBmVxki8+ckcpjBeyo/hw==}
-    engines: {node: '>= 8.16.2'}
-    hasBin: true
-    dev: false
-
   /marked/2.0.3:
     resolution: {integrity: sha512-5otztIIcJfPc2qGTN8cVtOJEjNJZ0jwa46INMagrYfk0EvqtRuEHLsEe0LrFS0/q+ZRKT0+kXK7P2T1AN5lWRA==}
     engines: {node: '>= 8.16.2'}
     hasBin: true
     dev: true
+
+  /marked/3.0.2:
+    resolution: {integrity: sha512-TMJQQ79Z0e3rJYazY0tIoMsFzteUGw9fB3FD+gzuIT3zLuG9L9ckIvUfF51apdJkcqc208jJN2KbtPbOvXtbjA==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
 
   /md5.js/1.3.5:
     resolution: {integrity: sha512-xitP+WxNPcTTOgnTJcrhM0xvdPepipPSf3I8EIpGKeFLjt3PlJLIDG3u8EX53ZIubkb+5U2+3rELYpEhHhzdkg==}
