@@ -49,7 +49,7 @@
         "chromatic": "^5.8.0",
         "concurrently": "^6.0.2",
         "cypress": "^7.6.0",
-        "cypress-axe": "^0.12.2",
+        "cypress-axe": "^0.14.0",
         "cypress-plugin-tab": "^1.0.5",
         "cypress-real-events": "^1.4.0",
         "esbuild": "^0.12.0",
