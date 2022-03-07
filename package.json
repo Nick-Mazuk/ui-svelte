@@ -109,7 +109,7 @@
         "diff": "^5.0.0",
         "marked": "^2.0.1",
         "parse-full-name-esm": "^1.2.5",
-        "svelte-intersection-observer": "^0.7.0",
+        "svelte-intersection-observer": "^0.10.0",
         "svelte-portal": "^2.1.2",
         "validator": "^13.6.0",
         "zxcvbn-esm": "^4.4.7"
