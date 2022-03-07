@@ -107,7 +107,7 @@
         "@tiptap/extension-text": "^2.0.0-beta.11",
         "@tiptap/extension-typography": "^2.0.0-beta.11",
         "diff": "^5.0.0",
-        "marked": "^2.0.1",
+        "marked": "^4.0.0",
         "parse-full-name-esm": "^1.2.5",
         "svelte-intersection-observer": "^0.7.0",
         "svelte-portal": "^2.1.2",
