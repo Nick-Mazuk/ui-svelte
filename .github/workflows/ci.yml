@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.node }}
       - run: npx pnpm i --frozen-lockfile=false
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v7.4.3
         with:
           browser: ${{ matrix.browser }}
           install: false
